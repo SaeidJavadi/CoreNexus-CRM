@@ -36,7 +36,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     # We can use any field for username
     USERNAME_FIELD = 'username'  # or 'email' or 'phone'
-    REQUIRED_FIELDS = ['username', 'email']
+    REQUIRED_FIELDS = ['email']
 
     def __str__(self):
         return self.username
