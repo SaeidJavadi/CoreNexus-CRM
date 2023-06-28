@@ -59,6 +59,8 @@ def userLogin(request):
     else:
         return redirect('crm:home')
 
+def signinup(request):
+    return render(request, 'accounts/signinup.html')
 
 @login_required()
 def LogoutPage(request):
