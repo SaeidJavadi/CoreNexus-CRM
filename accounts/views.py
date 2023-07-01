@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
-from accounts.forms import LoginForm, RegisterForm
+from accounts.forms import LoginForm, LoginFormAR, RegisterForm
 from django.contrib import messages
 from accounts.models import User
 
@@ -38,6 +38,9 @@ def userLogin(request):
     if not request.user.is_active:
         if request.method == 'POST':
             form = LoginForm(request.POST)
+            formAR = LoginFormAR(request.POST)
+            if formAR.is_valid():
+                form = formAR
             if form.is_valid():
                 cd = form.cleaned_data
                 if User.objects.filter(username=cd['username']).exists():
@@ -55,12 +58,11 @@ def userLogin(request):
                 messages.error(request, _("Please enter your information correctly"), extra_tags="warning")
         else:
             form = LoginForm()
-        return render(request, 'accounts/login.html', {'form': form})
+            formAR = LoginFormAR()
+        return render(request, 'accounts/signinup.html', {'form': form, 'formar': formAR})
     else:
         return redirect('crm:home')
 
-def signinup(request):
-    return render(request, 'accounts/signinup.html')
 
 @login_required()
 def LogoutPage(request):

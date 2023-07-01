@@ -1,0 +1,8 @@
+{% if messages %}
+    {% for message in messages %}
+        <div id="snackbar">{{ message }}</div>
+        <script>
+            myFunction();
+        </script>
+    {% endfor %}
+{% endif %}

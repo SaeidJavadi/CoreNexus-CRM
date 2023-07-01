@@ -312,6 +312,6 @@ input[lang="ar"]::-webkit-input-placeholder {
     text-align: right;
 }
 
-input::-moz-placeholder {
+input[lang="ar"]::-moz-placeholder {
     text-align: right;
 }
