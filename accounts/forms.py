@@ -11,7 +11,7 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'phone', 'is_active', 'is_staff')
+        fields = ('username',  'phone', 'is_active', 'is_staff')
 
     def clean_password2(self):
         password1 = self.cleaned_data.get('password1')
@@ -33,7 +33,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'phone', 'is_active', 'is_staff')
+        fields = ('username',  'phone', 'is_active', 'is_staff')
 
     def clean_password(self):
         return self.initial['password']
@@ -61,11 +61,10 @@ class RegisterForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'phone')
+        fields = ('username',  'phone')
 
         widgets = {  # Optional
             'username': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'phone': forms.NumberInput(
                 attrs={'class': 'form-control', 'type': 'tel', 'maxlength': '11',
                        'minlength': '11',  'onkeypress': 'return isNumber(event)', 'required': 'false'})}
@@ -89,7 +88,7 @@ class RegisterForm(forms.ModelForm):
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('username', 'email', 'phone')
+        fields = ('username',  'phone')
 
 
 class ChangePassword(forms.Form):

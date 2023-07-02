@@ -26,18 +26,23 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    username = models.CharField(verbose_name=_('Username'), max_length=255, unique=True)
-    fullname = models.CharField(verbose_name=_('Full Name'), max_length=255)
+    username = models.CharField(verbose_name=_('Username'), max_length=120, unique=True)
+    fullname = models.CharField(verbose_name=_('Full Name'), max_length=120)
     phone = models.BigIntegerField(verbose_name=_('Phone Number'), unique=True)
-    email = models.EmailField(verbose_name=_('email'), max_length=255, unique=True, blank=True, null=True)
+    brithday = models.DateField(verbose_name=_('Birthday'),null=True, blank=True)
+    idcode = models.BigIntegerField(verbose_name=_('ID Code'),null=True, blank=True)
+    contery = models.CharField(verbose_name=_('Contery'), max_length=120,null=True, blank=True)
+    sickness = models.CharField(verbose_name=_('Sickness'), max_length=120,null=True, blank=True)
+    regdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
+    updated = models.DateTimeField(auto_now=True, verbose_name=_('Updated'))
+    reagent = models.BigIntegerField(verbose_name=_('Reagent Code'),null=True, blank=True)
     is_active = models.BooleanField(default=True, verbose_name=_('is_active'))
     is_staff = models.BooleanField(default=False, verbose_name=_('is_staff'))
     is_superuser = models.BooleanField(default=False, verbose_name=_('is_superuser'))
 
     objects = UserManager()
 
-    # We can use any field for username
-    USERNAME_FIELD = 'username'  # or 'email' or 'phone'
+    USERNAME_FIELD = 'username' 
     REQUIRED_FIELDS = ['phone']
 
     def __str__(self):
