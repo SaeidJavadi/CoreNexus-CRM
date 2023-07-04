@@ -41,8 +41,10 @@ INSTALLED_APPS = [
     # packages
     'rest_framework',
     'rest_framework.authtoken',
-    'allauth',
     'dj_rest_auth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'dj_rest_auth.registration',
     'django_filters',
     # apps
@@ -151,7 +153,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
-        # 'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend',
@@ -160,7 +162,11 @@ REST_FRAMEWORK = {
     ]
 }
 
+REST_AUTH = {
+    "REGISTER_SERIALIZER": "api.serializers.UserSerializerReg"
+}
+
 SITE_ID = 1
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000000
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000000

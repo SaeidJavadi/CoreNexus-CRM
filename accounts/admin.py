@@ -13,7 +13,8 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'phone')
+        fields = ('username', 'fullname', 'phone', 'brithday', 'idcode', 'contery',
+                  'sickness', 'reagent', 'is_active', 'is_staff', 'is_superuser')
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -36,29 +37,32 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'phone', 'password', 'is_active', 'is_staff')
+        fields = ('username', 'fullname', 'phone', 'brithday', 'idcode', 'contery',
+                  'sickness', 'reagent', 'is_active', 'is_staff', 'is_superuser')
 
 
 class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
     list_display = ('username', 'is_active', 'is_staff', 'is_superuser')
-    list_editable = ('is_staff', 'is_active')
+    # list_editable = ('is_staff', 'is_active')
     list_filter = ('is_staff', 'groups')
     fieldsets = (
-        (None, {'fields': ( 'username', 'phone', 'password')}),
-        ('Permissions', {'fields': ('is_staff',)}),
+        (None, {'fields': ('username', 'fullname', 'phone', 'brithday',
+         'idcode', 'contery', 'sickness', 'reagent', 'password')}),
+        ('Permissions', {'fields': ('is_active',)}),
         ('Group Permissions', {
-            'fields': ('is_active', 'is_superuser', 'groups', 'user_permissions'),
+            'fields': ('is_staff', 'is_superuser', 'groups', 'user_permissions'),
         })
     )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('username', 'phone', 'password1', 'password2'),
+            'fields': ('username', 'fullname', 'phone', 'brithday', 'idcode', 'contery',
+                  'sickness', 'reagent', 'password1', 'password2'),
         }),
         ('Group Permissions', {
-            'fields': ('is_active', 'is_superuser', 'groups', 'user_permissions'),
+            'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions'),
         })
     )
     search_fields = ('username', 'phone')

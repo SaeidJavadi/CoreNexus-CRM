@@ -29,6 +29,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(verbose_name=_('Username'), max_length=120, unique=True)
     fullname = models.CharField(verbose_name=_('Full Name'), max_length=120)
     phone = models.BigIntegerField(verbose_name=_('Phone Number'), unique=True)
+    email = models.EmailField(verbose_name=_('Email'), blank=True, null=True)
     brithday = models.DateField(verbose_name=_('Birthday'),null=True, blank=True)
     idcode = models.BigIntegerField(verbose_name=_('ID Code'),null=True, blank=True)
     contery = models.CharField(verbose_name=_('Contery'), max_length=120,null=True, blank=True)

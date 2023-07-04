@@ -2,35 +2,37 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
-from accounts.forms import LoginForm, LoginFormAR, RegisterForm
+from accounts.forms import LoginForm, LoginFormAR
+# from accounts.forms import RegisterForm
 from django.contrib import messages
 from accounts.models import User
 
 
 def userRegister(request):
-    form = RegisterForm()
-    if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            cd = form.cleaned_data
-            if not User.objects.filter(email=cd['username']).exists():
-                if not User.objects.filter(email=cd['email']).exists():
-                    user = User.objects.create_user(
-                        username=cd['username'], phone=cd['phone'], email=cd['email'], password=cd['password1'])
-                    user.save()
-                    login(request, user)
-                    messages.success(request, _("You successfully registered a user"), extra_tags="success")
-                    return redirect('crm:home')
-                else:
-                    messages.error(request, _("This Email is exists"), extra_tags="warning")
-            else:
-                messages.error(request, _("This Username is exists"), extra_tags="warning")
-        else:
-            import json
-            er = json.loads(form.errors.as_json())
-            for e in er:
-                messages.error(request, er[e][0]['message'], 'warning')
-    return render(request, 'accounts/register.html', {'form': form})
+    pass
+    # form = RegisterForm()
+    # if request.method == 'POST':
+    #     form = RegisterForm(request.POST)
+    #     if form.is_valid():
+    #         cd = form.cleaned_data
+    #         if not User.objects.filter(email=cd['username']).exists():
+    #             if not User.objects.filter(email=cd['email']).exists():
+    #                 user = User.objects.create_user(
+    #                     username=cd['username'], phone=cd['phone'], email=cd['email'], password=cd['password1'])
+    #                 user.save()
+    #                 login(request, user)
+    #                 messages.success(request, _("You successfully registered a user"), extra_tags="success")
+    #                 return redirect('crm:home')
+    #             else:
+    #                 messages.error(request, _("This Email is exists"), extra_tags="warning")
+    #         else:
+    #             messages.error(request, _("This Username is exists"), extra_tags="warning")
+    #     else:
+    #         import json
+    #         er = json.loads(form.errors.as_json())
+    #         for e in er:
+    #             messages.error(request, er[e][0]['message'], 'warning')
+    # return render(request, 'accounts/register.html', {'form': form})
 
 
 def userLogin(request):
