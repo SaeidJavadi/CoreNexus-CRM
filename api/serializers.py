@@ -3,18 +3,18 @@ from accounts.models import User
 from drf_dynamic_fields import DynamicFieldsMixin  # GET api/articels/?fields=id,title : show just fields => id,title
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
     class Meta:
         model = User
         fields = "__all__"
 
 
 class UserSerializerReg(serializers.ModelSerializer):
-    password2 = serializers.CharField(style={'input_type': 'password'}, write_only=True)
+    # password2 = serializers.CharField(style={'input_type': 'password'}, write_only=True)
 
     class Meta:
         model = User
-        fields = ('username', 'phone', 'email', 'password', 'password2')
+        fields = ('username', 'phone', 'email', 'password')
         extra_kwargs = {
             'password': {
                 'write_only': True
@@ -37,20 +37,13 @@ class UserSerializerReg(serializers.ModelSerializer):
             email=Email
         )
         password = self.validated_data['password']
-        password2 = self.validated_data['password2']
+        # password2 = self.validated_data['password2']
 
-        if password != password2:
-            raise serializers.ValidationError({'password': 'Passwords must match.'})
+        # if password != password2:
+        #     raise serializers.ValidationError({'password': 'Passwords must match.'})
         user.set_password(password)
         user.save()
         return user
-
-
-# class TaskSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
-
-#     class Meta:
-#         model = Task
-#         fields = "__all__"
 
 
 # class WorkerSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
