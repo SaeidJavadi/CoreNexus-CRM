@@ -1,3 +1,152 @@
 from django.db import models
+from accounts.models import User
+from django.utils.translation import gettext_lazy as _
 
-# Create your models here.
+
+class Common60(models.Model):   # Eshterak afrad 60 saal va kamtar
+    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
+                                   verbose_name=_("Registrant"), related_name='user_c60')
+    name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
+    age = models.IntegerField(verbose_name=_('Age'))
+    idcode = models.IntegerField(verbose_name=_('Id Code'))
+    Sickness = models.CharField(verbose_name=_('sickness'), max_length=120)
+    contery = models.CharField(verbose_name=_('Contery/State'), max_length=120)
+    create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
+    phone = models.IntegerField(verbose_name=_('Phone Number'))
+    phoneagent = models.IntegerField(verbose_name=_('Phone Number Agent'))
+
+    class Meta:
+        verbose_name = _('Common60')
+        verbose_name_plural = _('Common60s')
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('_detail', kwargs={'pk': self.pk})
+
+
+class Common61(models.Model):  # Eshterak afrad az 61 ta 69
+    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
+                                   verbose_name=_("Registrant"), related_name='user_c61')
+    name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
+    age = models.IntegerField(verbose_name=_('Age'))
+    idcode = models.IntegerField(verbose_name=_('Id Code'))
+    Sickness = models.CharField(verbose_name=_('sickness'), max_length=120)
+    contery = models.CharField(verbose_name=_('Contery/State'), max_length=120)
+    create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
+    phone = models.IntegerField(verbose_name=_('Phone Number'))
+    phoneagent = models.IntegerField(verbose_name=_('Phone Number Agent'))
+
+    class Meta:
+        verbose_name = _('Common61')
+        verbose_name_plural = _('Common61s')
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('Common61_detail', kwargs={'pk': self.pk})
+
+
+class Common70(models.Model):   # Eshterak afrad az 70 salegi va afrad mobtala be bimarihaie jedi
+    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
+                                   verbose_name=_("Registrant"), related_name='user_c70')
+    name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
+    age = models.IntegerField(verbose_name=_('Age'))
+    idcode = models.IntegerField(verbose_name=_('Id Code'))
+    Sickness = models.CharField(verbose_name=_('sickness'), max_length=120)
+    contery = models.CharField(verbose_name=_('Contery/State'), max_length=120)
+    create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
+    phone = models.IntegerField(verbose_name=_('Phone Number'))
+    phoneagent = models.IntegerField(verbose_name=_('Phone Number Agent'))
+
+    class Meta:
+        verbose_name = _('Common70')
+        verbose_name_plural = _('Common70s')
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('Common70_detail', kwargs={'pk': self.pk})
+
+
+class CommonDead(models.Model):  # Eshterak FotShodegan
+    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
+                                   verbose_name=_("Registrant"), related_name='user_cd')
+    name = models.CharField(max_length=120, verbose_name=_('Deceased name'))
+    idcode = models.IntegerField(verbose_name=_('Id Code'))
+    contery = models.CharField(verbose_name=_('Contery/State'), max_length=120)
+    create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
+    phone = models.IntegerField(verbose_name=_('Phone Number'))
+    phoneagent = models.IntegerField(verbose_name=_('Phone Number Agent'))
+
+    class Meta:
+        verbose_name = _('CommonDead')
+        verbose_name_plural = _('CommonDeads')
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('CommonDead_detail', kwargs={'pk': self.pk})
+
+
+class JudiciaryDead(models.Model):  # Goveh Ghazaie Mordegan
+    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
+                                   verbose_name=_("Registrant"), related_name='user_jd')
+    name = models.CharField(max_length=120, verbose_name=_('Deceased name'))
+    idcode = models.IntegerField(verbose_name=_('Id Code'))
+    contery = models.CharField(verbose_name=_('Contery/State'), max_length=120)
+    create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
+    phone = models.IntegerField(verbose_name=_('Phone Number'))
+    phoneagent = models.IntegerField(verbose_name=_('Phone Number Agent'))
+
+    class Meta:
+        verbose_name = _('JudiciaryDead')
+        verbose_name_plural = _('JudiciaryDeads')
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('JudiciaryDead_detail', kwargs={'pk': self.pk})
+
+
+class DoingDead(models.Model):  # Anjam Amale Ebadie Marhom
+    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
+                                   verbose_name=_("Registrant"), related_name='user_dd')
+    name = models.CharField(max_length=120, verbose_name=_('Deceased name'))
+    idcode = models.IntegerField(verbose_name=_('Id Code'))
+    contery = models.CharField(verbose_name=_('Contery/State'), max_length=120)
+    create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
+    phone = models.IntegerField(verbose_name=_('Phone Number'))
+    phoneagent = models.IntegerField(verbose_name=_('Phone Number Agent'))
+
+    class Meta:
+        verbose_name = _('DoingDead')
+        verbose_name_plural = _('DoingDeads')
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('DoingDead_detail', kwargs={'pk': self.pk})
+
+
+class PublicAssistance(models.Model):  # komak be khirieh
+    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
+                                   verbose_name=_("Registrant"), related_name='user_pa')
+    help_name = models.CharField(max_length=120, verbose_name=_('help name'))
+    amount = models.IntegerField(verbose_name=_('amount'))
+
+    class Meta:
+        verbose_name = _('PublicAssistance')
+        verbose_name_plural = _('PublicAssistances')
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('PublicAssistance_detail', kwargs={'pk': self.pk})

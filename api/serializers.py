@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from accounts.models import User
+from crm.models import Common60, Common61, Common70, CommonDead, DoingDead, JudiciaryDead, PublicAssistance
 from drf_dynamic_fields import DynamicFieldsMixin  # GET api/articels/?fields=id,title : show just fields => id,title
 
 
@@ -44,6 +45,48 @@ class UserSerializerReg(serializers.ModelSerializer):
         user.set_password(password)
         user.save()
         return user
+
+
+class Common60Serializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    class Meta:
+        model = Common60
+        fields = '__all__'
+
+
+class Common61Serializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    class Meta:
+        model = Common61
+        fields = '__all__'
+
+
+class Common70Serializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    class Meta:
+        model = Common70
+        fields = '__all__'
+
+
+class CommonDeadSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    class Meta:
+        model = CommonDead
+        fields = '__all__'
+
+
+class DoingDeadSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    class Meta:
+        model = DoingDead
+        fields = '__all__'
+
+
+class JudiciaryDeadSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    class Meta:
+        model = JudiciaryDead
+        fields = '__all__'
+
+
+class PublicAssistanceSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    class Meta:
+        model = PublicAssistance
+        fields = '__all__'
 
 
 # class WorkerSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
