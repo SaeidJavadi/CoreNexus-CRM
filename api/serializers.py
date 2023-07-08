@@ -11,6 +11,12 @@ class UserSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
         fields = "__all__"
 
 
+class UserNestedSerilizer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = ('id', 'username')
+
+
 class UserSerializerReg(serializers.ModelSerializer):
     # password2 = serializers.CharField(style={'input_type': 'password'}, write_only=True)
 
@@ -49,45 +55,123 @@ class UserSerializerReg(serializers.ModelSerializer):
 
 
 class Common60Serializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    # usersubmit = serializers.SerializerMethodField("get_usersubmit")
+    usersubmit = UserNestedSerilizer()
+
     class Meta:
         model = Common60
         fields = '__all__'
 
+    # def get_usersubmit(self, obj):
+    #     try:
+    #         return {
+    #             "user_id": obj.usersubmit.id,
+    #             "username": obj.usersubmit.username
+    #         }
+    #     except:
+    #         return None
+
 
 class Common61Serializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    usersubmit = serializers.SerializerMethodField("get_usersubmit")
+
     class Meta:
         model = Common61
         fields = '__all__'
 
+    def get_usersubmit(self, obj):
+        try:
+            return {
+                "user_id": obj.usersubmit.id,
+                "username": obj.usersubmit.username
+            }
+        except:
+            return None
+
 
 class Common70Serializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    usersubmit = serializers.SerializerMethodField("get_usersubmit")
+
     class Meta:
         model = Common70
         fields = '__all__'
 
+    def get_usersubmit(self, obj):
+        try:
+            return {
+                "user_id": obj.usersubmit.id,
+                "username": obj.usersubmit.username
+            }
+        except:
+            return None
+
 
 class CommonDeadSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    usersubmit = serializers.SerializerMethodField("get_usersubmit")
+
     class Meta:
         model = CommonDead
         fields = '__all__'
 
+    def get_usersubmit(self, obj):
+        try:
+            return {
+                "user_id": obj.usersubmit.id,
+                "username": obj.usersubmit.username
+            }
+        except:
+            return None
+
 
 class DoingDeadSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    usersubmit = serializers.SerializerMethodField("get_usersubmit")
+
     class Meta:
         model = DoingDead
         fields = '__all__'
 
+    def get_usersubmit(self, obj):
+        try:
+            return {
+                "user_id": obj.usersubmit.id,
+                "username": obj.usersubmit.username
+            }
+        except:
+            return None
+
 
 class JudiciaryDeadSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    usersubmit = serializers.SerializerMethodField("get_usersubmit")
+
     class Meta:
         model = JudiciaryDead
         fields = '__all__'
 
+    def get_usersubmit(self, obj):
+        try:
+            return {
+                "user_id": obj.usersubmit.id,
+                "username": obj.usersubmit.username
+            }
+        except:
+            return None
+
 
 class PublicAssistanceSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    usersubmit = serializers.SerializerMethodField("get_usersubmit")
+
     class Meta:
         model = PublicAssistance
         fields = '__all__'
+
+    def get_usersubmit(self, obj):
+        try:
+            return {
+                "user_id": obj.usersubmit.id,
+                "username": obj.usersubmit.username
+            }
+        except:
+            return None
 
 
 # class WorkerSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
@@ -103,8 +187,8 @@ class PublicAssistanceSerializer(DynamicFieldsMixin, serializers.ModelSerializer
 #     def get_server(self, obj):
 #         try:
 #             return {
-#                 "ip": obj.server.ip,
-#                 "status": obj.server.status,
+#                 "ip": obj.usersubmit.server.ip,
+#                 "status": obj.usersubmit.server.status,
 #             }
 #         except:
 #             return None
@@ -112,12 +196,12 @@ class PublicAssistanceSerializer(DynamicFieldsMixin, serializers.ModelSerializer
 #     def get_task(self, obj):
 #         try:
 #             return {
-#                 "id": obj.task.id,
-#                 "action": obj.task.action,
-#                 # "text": obj.task.text,
-#                 # "image": str(obj.task.image),
-#                 # "delay": obj.task.delay,
-#                 "status": obj.task.status,
+#                 "id": obj.usersubmit.task.id,
+#                 "action": obj.usersubmit.task.action,
+#                 # "text": obj.usersubmit.task.text,
+#                 # "image": str(obj.usersubmit.task.image),
+#                 # "delay": obj.usersubmit.task.delay,
+#                 "status": obj.usersubmit.task.status,
 #             }
 #         except:
 #             return None
@@ -125,10 +209,10 @@ class PublicAssistanceSerializer(DynamicFieldsMixin, serializers.ModelSerializer
 #     def get_number(self, obj):
 #         try:
 #             return {
-#                 "id": obj.number.id,
-#                 "number": obj.number.num,
-#                 "status": obj.number.status,
-#                 "checkit": obj.number.checkit
+#                 "id": obj.usersubmit.number.id,
+#                 "number": obj.usersubmit.number.num,
+#                 "status": obj.usersubmit.number.status,
+#                 "checkit": obj.usersubmit.number.checkit
 #             }
 #         except:
 #             return None

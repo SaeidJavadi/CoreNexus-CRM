@@ -14,8 +14,8 @@ class Common60(models.Model):   # Eshterak afrad 60 saal va kamtar
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     phone = models.IntegerField(verbose_name=_('Phone Number'))
     phoneagent = models.IntegerField(verbose_name=_('Phone Number Agent'))
-    amount = models.IntegerField(verbose_name=_('Amount'))
-    status = models.BolleanField(verbose_name=_('Status'))
+    amount = models.FloatField(verbose_name=_('Amount'), blank=True, null=True)
+    status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
         verbose_name = _('Common60')
@@ -39,8 +39,8 @@ class Common61(models.Model):  # Eshterak afrad az 61 ta 69
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     phone = models.IntegerField(verbose_name=_('Phone Number'))
     phoneagent = models.IntegerField(verbose_name=_('Phone Number Agent'))
-    amount = models.IntegerField(verbose_name=_('Amount'))
-    status = models.BolleanField(verbose_name=_('Status'))
+    amount = models.FloatField(verbose_name=_('Amount'), blank=True, null=True)
+    status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
         verbose_name = _('Common61')
@@ -64,8 +64,8 @@ class Common70(models.Model):   # Eshterak afrad az 70 salegi va afrad mobtala b
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     phone = models.IntegerField(verbose_name=_('Phone Number'))
     phoneagent = models.IntegerField(verbose_name=_('Phone Number Agent'))
-    amount = models.IntegerField(verbose_name=_('Amount'))
-    status = models.BolleanField(verbose_name=_('Status'))
+    amount = models.FloatField(verbose_name=_('Amount'), blank=True, null=True)
+    status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
         verbose_name = _('Common70')
@@ -87,8 +87,8 @@ class CommonDead(models.Model):  # Eshterak FotShodegan
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     phone = models.IntegerField(verbose_name=_('Phone Number'))
     phoneagent = models.IntegerField(verbose_name=_('Phone Number Agent'))
-    amount = models.IntegerField(verbose_name=_('Amount'))
-    status = models.BolleanField(verbose_name=_('Status'))
+    amount = models.FloatField(verbose_name=_('Amount'), blank=True, null=True)
+    status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
         verbose_name = _('CommonDead')
@@ -110,8 +110,8 @@ class JudiciaryDead(models.Model):  # Goveh Ghazaie Mordegan
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     phone = models.IntegerField(verbose_name=_('Phone Number'))
     phoneagent = models.IntegerField(verbose_name=_('Phone Number Agent'))
-    amount = models.IntegerField(verbose_name=_('Amount'))
-    status = models.BolleanField(verbose_name=_('Status'))
+    amount = models.FloatField(verbose_name=_('Amount'), blank=True, null=True)
+    status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
         verbose_name = _('JudiciaryDead')
@@ -133,8 +133,8 @@ class DoingDead(models.Model):  # Anjam Amale Ebadie Marhom
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     phone = models.IntegerField(verbose_name=_('Phone Number'))
     phoneagent = models.IntegerField(verbose_name=_('Phone Number Agent'))
-    amount = models.IntegerField(verbose_name=_('Amount'))
-    status = models.BolleanField(verbose_name=_('Status'))
+    amount = models.FloatField(verbose_name=_('Amount'), blank=True, null=True)
+    status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
         verbose_name = _('DoingDead')
@@ -151,7 +151,7 @@ class PublicAssistance(models.Model):  # komak be khirieh
     usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
                                    verbose_name=_("Registrant"), related_name='user_pa')
     help_name = models.CharField(max_length=120, verbose_name=_('help name'))
-    amount = models.IntegerField(verbose_name=_('amount'))
+    amount = models.FloatField(verbose_name=_('amount'))
 
     class Meta:
         verbose_name = _('PublicAssistance')

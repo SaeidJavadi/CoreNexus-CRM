@@ -12,7 +12,21 @@ from api import serializers
 class UserViewSet(ModelViewSet):
     queryset = get_user_model().objects.all()
     serializer_class = serializers.UserSerializer
-    permission_classes = (IsSuperUserOrStaffReadOnly,)
+    # permission_classes = (IsSuperUserOrStaffReadOnly,)
+
+    def get_permissions(self):
+        if self.action in ['get', ]:
+            permission_classes = (IsAuthenticated,)
+        else:
+            permission_classes = (IsCommonOrReadOnly,)
+        return [permission() for permission in permission_classes]
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_superuser or user.is_staff:
+            return get_user_model().objects.all()
+        elif user.is_authenticated:
+            return get_user_model().objects.filter(id=user.id)
 
 
 class RevokeToken(APIView):
@@ -25,15 +39,14 @@ class RevokeToken(APIView):
 
 class Common60ViewSet(ModelViewSet):
     serializer_class = serializers.Common60Serializer
-    filterset_fields = ["status", "author"]
+    filterset_fields = ["status", "usersubmit"]
     ordering_fields = ["create", "status"]
     ordering = ["-create"]
     search_fields = [
-        "title",
-        "content",
-        "author__username",
-        "author__first_name",
-        "author__last_name"
+        "name",
+        "phone",
+        "usersubmit__username",
+        "usersubmit__phone",
     ]
 
     def get_permissions(self):
@@ -53,15 +66,14 @@ class Common60ViewSet(ModelViewSet):
 
 class Common61ViewSet(ModelViewSet):
     serializer_class = serializers.Common61Serializer
-    filterset_fields = ["status", "author"]
+    filterset_fields = ["status", "usersubmit"]
     ordering_fields = ["create", "status"]
     ordering = ["-create"]
     search_fields = [
-        "title",
-        "content",
-        "author__username",
-        "author__first_name",
-        "author__last_name"
+        "name",
+        "phone",
+        "usersubmit__username",
+        "usersubmit__phone",
     ]
 
     def get_permissions(self):
@@ -81,15 +93,14 @@ class Common61ViewSet(ModelViewSet):
 
 class Common70ViewSet(ModelViewSet):
     serializer_class = serializers.Common70Serializer
-    filterset_fields = ["status", "author"]
+    filterset_fields = ["status", "usersubmit"]
     ordering_fields = ["create", "status"]
     ordering = ["-create"]
     search_fields = [
-        "title",
-        "content",
-        "author__username",
-        "author__first_name",
-        "author__last_name"
+        "name",
+        "phone",
+        "usersubmit__username",
+        "usersubmit__phone",
     ]
 
     def get_permissions(self):
@@ -109,15 +120,14 @@ class Common70ViewSet(ModelViewSet):
 
 class CommonDeadViewSet(ModelViewSet):
     serializer_class = serializers.CommonDeadSerializer
-    filterset_fields = ["status", "author"]
+    filterset_fields = ["status", "usersubmit"]
     ordering_fields = ["create", "status"]
     ordering = ["-create"]
     search_fields = [
-        "title",
-        "content",
-        "author__username",
-        "author__first_name",
-        "author__last_name"
+        "name",
+        "phone",
+        "usersubmit__username",
+        "usersubmit__phone",
     ]
 
     def get_permissions(self):
@@ -137,15 +147,14 @@ class CommonDeadViewSet(ModelViewSet):
 
 class JudiciaryDeadViewSet(ModelViewSet):
     serializer_class = serializers.JudiciaryDeadSerializer
-    filterset_fields = ["status", "author"]
+    filterset_fields = ["status", "usersubmit"]
     ordering_fields = ["create", "status"]
     ordering = ["-create"]
     search_fields = [
-        "title",
-        "content",
-        "author__username",
-        "author__first_name",
-        "author__last_name"
+        "name",
+        "phone",
+        "usersubmit__username",
+        "usersubmit__phone",
     ]
 
     def get_permissions(self):
@@ -165,15 +174,14 @@ class JudiciaryDeadViewSet(ModelViewSet):
 
 class DoingDeadViewSet(ModelViewSet):
     serializer_class = serializers.DoingDeadSerializer
-    filterset_fields = ["status", "author"]
+    filterset_fields = ["status", "usersubmit"]
     ordering_fields = ["create", "status"]
     ordering = ["-create"]
     search_fields = [
-        "title",
-        "content",
-        "author__username",
-        "author__first_name",
-        "author__last_name"
+        "name",
+        "phone",
+        "usersubmit__username",
+        "usersubmit__phone",
     ]
 
     def get_permissions(self):
@@ -193,15 +201,14 @@ class DoingDeadViewSet(ModelViewSet):
 
 class PublicAssistanceViewSet(ModelViewSet):
     serializer_class = serializers.PublicAssistanceSerializer
-    filterset_fields = ["status", "author"]
+    filterset_fields = ["status", "usersubmit"]
     ordering_fields = ["create", "status"]
     ordering = ["-create"]
     search_fields = [
-        "title",
-        "content",
-        "author__username",
-        "author__first_name",
-        "author__last_name"
+        "help_name",
+        "amount",
+        "usersubmit__username",
+        "usersubmit__phone",
     ]
 
     def get_permissions(self):
@@ -217,5 +224,3 @@ class PublicAssistanceViewSet(ModelViewSet):
             return crmmod.PublicAssistance.objects.all()
         else:
             return crmmod.PublicAssistance.objects.filter(usersubmit=user)
-
-
