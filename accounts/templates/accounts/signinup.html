@@ -1,6 +1,6 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-    {% load static %}
     <head>
         <title>login page</title>
         <meta charset="UTF-8" />
@@ -10,8 +10,10 @@
               href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
         <link rel='stylesheet'
               href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+        <link rel="stylesheet" href="{% static 'root/css/snackbar.css' %}">
     </head>
     <body>
+        <script src="{% static 'root/js/snackbar.js' %}"></script>
         <div class="section">
             <div class="container">
                 <div class="row full-height justify-content-center">
@@ -75,5 +77,6 @@
                 </div>
             </div>
         </div>
+        {% include "partials/messages.html" %}
     </body>
 </html>
