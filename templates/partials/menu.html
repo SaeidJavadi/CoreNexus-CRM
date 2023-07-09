@@ -1,0 +1,15 @@
+{% load static %}
+{% load i18n %}
+<button class="burger" onclick="toggleMenu()"></button>
+<div class="background"></div>
+<div class="menu">
+    <nav>
+        <a href="{% url 'crm:dashboard' %}" style="animation-delay: 0.2s">{% trans "Dashboard" %}</a>
+        <a href="" style="animation-delay: 0.3s">{% trans "Reports" %}</a>
+        <a href="" style="animation-delay: 0.4s">{% trans "Users Manager" %}</a>
+        <a href="{% url 'accounts:logout' %}" style="animation-delay: 0.5s">{% trans "Logout" %}</a>
+    </nav>
+</div>
+<script type="text/javascript">
+    const toggleMenu = () => document.body.classList.toggle("open");
+</script>
