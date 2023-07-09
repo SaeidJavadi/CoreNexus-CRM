@@ -47,9 +47,14 @@ def userLogin(request):
                 if User.objects.filter(username=cd['username']).exists():
                     user = authenticate(request, username=cd['username'], password=cd['password'])
                     if user is not None:
-                        login(request, user)
-                        messages.success(request, _("logged in successfully"), extra_tags="success")
-                        return redirect('crm:dashboard')
+                        if user.is_superuser or user.is_staff:
+                            login(request, user)
+                            messages.success(request, _("logged in successfully"), extra_tags="success")
+                            return redirect('crm:dashboard')
+                        else:
+                            messages.success(request, _(
+                                "You do not have permission to access this section"), extra_tags="warning")
+                            return redirect('accounts:login')
                     else:
                         messages.error(request, _("your username Or Password is wrong"), extra_tags="warning")
                 else:
