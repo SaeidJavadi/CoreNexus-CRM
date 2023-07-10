@@ -1,265 +1,224 @@
 {% load static %}
 {% load i18n %}
-<div class="layout has-sidebar fixed-sidebar fixed-header">
-  <aside id="sidebar" class="sidebar break-point-sm has-bg-image">
-    <a id="btn-collapse" class="sidebar-collapser"><i class="ri-arrow-left-s-line"></i></a>
-    <div class="sidebar-layout">
-      <div class="sidebar-header">
-        <div class="pro-sidebar-logo">
-          <div>
-            <img src="{% static 'root/src/logo.png' %}" width="46" height="46" />
-          </div>
-          <h5>Social solidarity</h5>
+<aside id="sidebar" class="sidebar break-point-sm has-bg-image">
+  <a id="btn-collapse" class="sidebar-collapser"><i class="ri-arrow-left-s-line"></i></a>
+  <div class="sidebar-layout">
+    <div class="sidebar-header">
+      <div class="pro-sidebar-logo">
+        <div>
+          <img src="{% static 'root/src/logo.png' %}" width="46" height="46" />
         </div>
-      </div>
-      <div class="sidebar-content">
-        <nav class="menu open-current-submenu">
-          <ul>
-            <li class="menu-header">
-              <span>GENERAL</span>
-            </li>
-            <li class="menu-item sub-menu">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-dashboard-fill"></i>
-                </span>
-                <span class="menu-title">Dashboard</span>
-                <span class="menu-suffix">
-                  {% comment %} <span class="badge primary">Hot</span> {% endcomment %}
-                </span>
-              </a>
-              <div class="sub-menu-list">
-                <ul>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Menu-1</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Menu-2</span>
-                    </a>
-                  </li>
-                  <li class="menu-item sub-menu">
-                    <a href="#">
-                      <span class="menu-title">Menu-3</span>
-                    </a>
-                    <div class="sub-menu-list">
-                      <ul>
-                        <li class="menu-item">
-                          <a href="#">
-                            <span class="menu-title">Menu-3_1</span>
-                          </a>
-                        </li>
-                        <li class="menu-item">
-                          <a href="#">
-                            <span class="menu-title">Menu-3_2</span>
-                          </a>
-                        </li>
-                        <li class="menu-item sub-menu">
-                          <a href="#">
-                            <span class="menu-title">Menu-3_3</span>
-                          </a>
-                          <div class="sub-menu-list">
-                            <ul>
-                              <li class="menu-item">
-                                <a href="#">
-                                  <span class="menu-title">Menu3_3_1</span>
-                                </a>
-                              </li>
-                              <li class="menu-item">
-                                <a href="#">
-                                  <span class="menu-title">Menu3_3_2</span>
-                                </a>
-                              </li>
-                              <li class="menu-item sub-menu">
-                                <a href="#">
-                                  <span class="menu-title">Menu3_3_3</span>
-                                  <span class="menu-suffix">&#x1F914;</span>
-                                </a>
-                                <div class="sub-menu-list">
-                                  <ul>
-                                    <li class="menu-item">
-                                      <a href="#">
-                                        <span class="menu-prefix">&#127881;</span>
-                                        <span class="menu-title">You made it</span>
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="menu-item sub-menu">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-bar-chart-2-fill"></i>
-                </span>
-                <span class="menu-title">Reports</span>
-              </a>
-              <div class="sub-menu-list">
-                <ul>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Subscription 0 to 60</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Subscription 61 to 69</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Subscription 70 and above</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Subscription Judiciary of the Dead</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Performing acts of worship</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Public assistance</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="menu-item sub-menu">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-shopping-cart-fill"></i>
-                </span>
-                <span class="menu-title">Subscription Purchases</span>
-              </a>
-              <div class="sub-menu-list">
-                <ul>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Available subscriptions</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Orders</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Payment gateways</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="menu-item sub-menu">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-account-pin-circle-fill"></i>
-                </span>
-                <span class="menu-title">User Manager</span>
-              </a>
-              <div class="sub-menu-list">
-                <ul>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">User list</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Representatives</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="menu-header" style="padding-top: 20px">
-              <span>Account Setting</span>
-            </li>
-            <li class="menu-item">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-user-fill"></i>
-                </span>
-                <span class="menu-title">Profile</span>
-                <span class="menu-suffix">
-                  {% comment %} <span class="badge secondary">Beta</span> {% endcomment %}
-                </span>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-lock-password-fill"></i>
-                </span>
-                <span class="menu-title">Change Password</span>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="{% url 'accounts:logout' %}">
-                <span class="menu-icon">
-                  <i class="ri-logout-box-fill"></i>
-                </span>
-                <span class="menu-title">LogOut</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <h5>{% trans "Social solidarity" %}</h5>
       </div>
     </div>
-  </aside>
-  <div id="overlay" class="overlay"></div>
-
-  <div class="layout">
-    <main class="content">
-      <div>
-        <a id="btn-toggle" href="#" class="sidebar-toggler break-point-sm">
-          <i class="ri-menu-line ri-xl"></i>
-        </a>
-        <h1 style="margin-bottom: 0">CodeAtNow Sidebar</h1>
-        <span style="display: inline-block">
-          Responsive layout with advanced sidebar menu built with Css and vanilla Javascript
-        </span>
-        <br />
-        <span>
-          Full Code and documentation available on
-          <a href="http://telegram.me/codeatnow" target="_blank">telegram</a>
-        </span>
-      </div>
-      <div>
-        <h2>Features</h2>
+    <div class="sidebar-content">
+      <nav class="menu open-current-submenu">
         <ul>
-          <li>Fully responsive</li>
-          <li>Collapsable sidebar</li>
-          <li>Multi level menu</li>
-          <li>RTL support</li>
-          <li>Customizable</li>
+          <li class="menu-header">
+            <span>{% trans "GENERAL" %}</span>
+          </li>
+          <li class="menu-item sub-menu">
+            <a href="#">
+              <span class="menu-icon">
+                <i class="ri-dashboard-fill"></i>
+              </span>
+              <span class="menu-title">{% trans "Dashboard" %}</span>
+              <span class="menu-suffix">
+                {% comment %} <span class="badge primary">Hot</span> {% endcomment %}
+              </span>
+            </a>
+            <div class="sub-menu-list">
+              <ul>
+                <li class="menu-item">
+                  <a href="{% url 'crm:dashboard' %}">
+                    <span class="menu-title">{% trans "Menu-1 show menu" %}</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-title">{% trans "Menu-2" %}</span>
+                  </a>
+                </li>
+                <li class="menu-item sub-menu">
+                  <a href="#">
+                    <span class="menu-title">{% trans "Menu-3" %}</span>
+                  </a>
+                  <div class="sub-menu-list">
+                    <ul>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">{% trans "Menu-3_1" %}</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">{% trans "Menu-3_2" %}</span>
+                        </a>
+                      </li>
+                      <li class="menu-item sub-menu">
+                        <a href="#">
+                          <span class="menu-title">{% trans "Menu-3_3" %}</span>
+                        </a>
+                        <div class="sub-menu-list">
+                          <ul>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">{% trans "Menu3_3_1" %}</span>
+                              </a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">{% trans "Menu3_3_2" %}</span>
+                              </a>
+                            </li>
+                            <li class="menu-item sub-menu">
+                              <a href="#">
+                                <span class="menu-title">{% trans "Menu3_3_3" %}</span>
+                                <span class="menu-suffix">&#x1F914;</span>
+                              </a>
+                              <div class="sub-menu-list">
+                                <ul>
+                                  <li class="menu-item">
+                                    <a href="#">
+                                      <span class="menu-prefix">&#127881;</span>
+                                      <span class="menu-title">{% trans "You made it" %}</span>
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu-item sub-menu">
+            <a href="#">
+              <span class="menu-icon">
+                <i class="ri-bar-chart-2-fill"></i>
+              </span>
+              <span class="menu-title">{% trans "Reports" %}</span>
+            </a>
+            <div class="sub-menu-list">
+              <ul>
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-title">{% trans "Subscription 0 to 60" %}</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-title">{% trans "Subscription 61 to 69" %}</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-title">{% trans "Subscription 70 and above" %}</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-title">{% trans "Subscription Judiciary of the Dead" %}</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-title">{% trans "Performing acts of worship" %}</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-title">{% trans "Public assistance" %}</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu-item sub-menu">
+            <a href="#">
+              <span class="menu-icon">
+                <i class="ri-shopping-cart-fill"></i>
+              </span>
+              <span class="menu-title">{% trans "Subscription Purchases" %}</span>
+            </a>
+            <div class="sub-menu-list">
+              <ul>
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-title">{% trans "Available subscriptions" %}</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-title">{% trans "Orders" %}</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-title">{% trans "Payment gateways" %}</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu-item sub-menu">
+            <a href="#">
+              <span class="menu-icon">
+                <i class="ri-account-pin-circle-fill"></i>
+              </span>
+              <span class="menu-title">{% trans "User Manager" %}</span>
+            </a>
+            <div class="sub-menu-list">
+              <ul>
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-title">{% trans "User list" %}</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-title">{% trans "Representatives" %}</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu-header" style="padding-top: 20px">
+            <span>{% trans "Account Setting" %}</span>
+          </li>
+          <li class="menu-item">
+            <a href="#">
+              <span class="menu-icon">
+                <i class="ri-user-fill"></i>
+              </span>
+              <span class="menu-title">{% trans "Profile" %}</span>
+              <span class="menu-suffix">
+                {% comment %} <span class="badge secondary">Beta</span> {% endcomment %}
+              </span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#">
+              <span class="menu-icon">
+                <i class="ri-lock-password-fill"></i>
+              </span>
+              <span class="menu-title">{% trans "Change Password" %}</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="{% url 'accounts:logout' %}">
+              <span class="menu-icon">
+                <i class="ri-logout-box-fill"></i>
+              </span>
+              <span class="menu-title">{% trans "LogOut" %}</span>
+            </a>
+          </li>
         </ul>
-      </div>
-      <footer class="footer">
-        <small style="margin-bottom: 20px; display: inline-block">
-          © 2023 made with
-          <span style="color: red; font-size: 18px">&#10084;</span> by -
-          <a target="_blank" href="https://instagram.com/codeatnow">CodeAtNow</a>
-        </small>
-        <br />
-      </footer>
-    </main>
-    <div class="overlay"></div>
+      </nav>
+    </div>
   </div>
-</div>
+</aside>

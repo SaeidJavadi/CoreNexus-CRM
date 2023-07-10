@@ -41,7 +41,24 @@
                 }, 4000);
             }
         </script>
-        {% include "partials/sidebar.html" %}
+        <div class="layout has-sidebar fixed-sidebar fixed-header">
+            {% include "partials/sidebar.html" %}
+            <div id="overlay" class="overlay"></div>
+            <div class="layout">
+                <main class="content">
+                    <div>
+                        <a id="btn-toggle" href="#" class="sidebar-toggler break-point-sm">
+                            <i class="ri-menu-line ri-xl"></i>
+                        </a>
+                        <div class="container">
+                            {% block content %}
+                            {% endblock content %}
+                        </div>
+                    </div>
+                </main>
+                <div class="overlay"></div>
+            </div>
+        </div>
         {% block body %}
         {% endblock body %}
         {% include "partials/footer.html" %}
@@ -50,6 +67,6 @@
                 integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
                 crossorigin="anonymous"></script>
         <script src='https://unpkg.com/@popperjs/core@2'></script>
-                <script src="{% static 'root/js/sidebar_script.js' %}"></script>
+        <script src="{% static 'root/js/sidebar_script.js' %}"></script>
     </body>
 </html>
