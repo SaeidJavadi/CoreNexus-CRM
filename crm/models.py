@@ -9,7 +9,7 @@ class Common60(models.Model):   # Eshterak afrad 60 saal va kamtar
     name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
     age = models.IntegerField(verbose_name=_('Age'))
     idcode = models.IntegerField(verbose_name=_('Id Code'))
-    Sickness = models.CharField(verbose_name=_('sickness'), max_length=120)
+    sickness = models.CharField(verbose_name=_('sickness'), max_length=120)
     contery = models.CharField(verbose_name=_('Contery/State'), max_length=120)
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     phone = models.IntegerField(verbose_name=_('Phone Number'))
