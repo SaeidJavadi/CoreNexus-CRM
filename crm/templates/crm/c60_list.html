@@ -1,141 +1,87 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="container mt-3">
-        <div class="row">
-            {% include "curd/_modal.html" %}
-            <div class="row">
-                <div class="col-12 mb-3">
-                    <button id="create-obj-async"
-                            class="btn btn-primary"
-                            type="button"
-                            name="button">
-                        <span class="fa fa-plus mr-2"></span>Create obj - Asynchronous
-                    </button>
-                    <button id="filter-obj"
-                            class="filter-obj btn btn-primary"
-                            type="button"
-                            name="button"
-                            data-form-url="{% url 'crm:filter_obj' %}">
-                        <span class="fa fa-filter mr-2"></span>Filter objs
-                    </button>
-                </div>
-                <div class="col-12 mb-3">
-                    {% if 'type' in request.GET %}<p class="filtered-objs">Filtered objs</p>{% endif %}
-                    {% include "crm/_objs_table.html" %}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <table id="books-table" class="table">
+        <thead>
+            <tr>
+                <th class="text-center" scope="col">IdCode</th>
+                <th class="text-center" scope="col">name</th>
+                <th class="text-center" scope="col">age</th>
+                <th class="text-center" scope="col">idcode</th>
+                <th class="text-center" scope="col">sickness</th>
+                <th class="text-center" scope="col">contery</th>
+                <th class="text-center" scope="col">create</th>
+                <th class="text-center" scope="col">phone</th>
+                <th class="text-center" scope="col">phoneagent</th>
+                <th class="text-center" scope="col">amount</th>
+                <th class="text-center" scope="col">link</th>
+                <th class="text-center" scope="col">status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c60 in c60list %}
+                <tr>
+                    {% comment %} <th class="text-center" scope="row">{{ forloop.counter }}</th> {% endcomment %}
+                    <td class="text-center">{{ c60.id }}</td>
+                    <td class="text-center">{{ c60.name }}</td>
+                    <td class="text-center">{{ c60.age }}</td>
+                    <td class="text-center">{{ c60.idcode }}</td>
+                    <td class="text-center">{{ c60.sickness }}</td>
+                    <td class="text-center">{{ c60.contery }}</td>
+                    <td class="text-center">{{ c60.create }}</td>
+                    <td class="text-center">{{ c60.phone }}</td>
+                    <td class="text-center">{{ c60.phoneagent }}</td>
+                    <td class="text-center">{{ c60.amount }}</td>
+                    <td class="text-center">{{ c60.link }}</td>
+                    <td class="text-center">{{ c60.status }}</td>
+                    <td class="text-center">
+                        <!-- Update book buttons -->
+                        <button type="button"
+                                class="update-book btn btn-sm btn-primary"
+                                data-form-url="{% url 'crm:home' %}">
+                            <span class="fa fa-pencil"></span>
+                        </button>
+                        <!-- Delete book buttons -->
+                        <button type="button"
+                                class="delete-book btn btn-sm btn-danger"
+                                data-form-url="{% url 'crm:home' %}">
+                            <span class="fa fa-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if page_obj.has_other_pages %}
+        <nav aria-label="Page navigation bootstrap">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">First page</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true">&laquo;</span></a>
+                    </li>
+                {% endif %}
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <li class="page-item active" aria-current="page">
+                            <span class="page-link">{{ num }}</span>
+                        </li>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}"><span aria-hidden="true">&raquo;</span></a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last page</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
 {% endblock content %}
-{% block extrascripts %}
-    <script type="text/javascript">
-        $(function() {
-
-            // Create obj asynchronous button
-            // message
-            var asyncSuccessMessageCreate = [
-                "<div ", "style='position:fixed;top:0;z-index:10000;width:100%;border-radius:0;' ", "class='alert alert-icon alert-success alert-dismissible fade show mb-0' role='alert'>",
-                "Success: Obj was created.",
-                "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>",
-                "<span aria-hidden='true'>&times;</span>",
-                "</button>",
-                "</div>",
-                "<script>",
-                "$('.alert').fadeTo(2000, 500).slideUp(500, function () {$('.alert').slideUp(500).remove();});",
-                "<\/script>"
-            ].join("");
-
-            // modal form
-            function createObjAsyncModalForm() {
-                $("#create-obj-async").modalForm({
-                    formURL: "{% url 'crm:create_obj' %}",
-                    modalID: "#create-modal",
-                    asyncUpdate: true,
-                    asyncSettings: {
-                        closeOnSubmit: true,
-                        successMessage: asyncSuccessMessageCreate,
-                        dataUrl: "objs/",
-                        dataElementId: "#objs-table",
-                        dataKey: "table",
-                        addModalFormFunction: reinstantiateModalForms
-                    }
-                });
-            }
-            createObjAsyncModalForm();
-
-            // Update obj asynchronous button
-            // message
-            var asyncSuccessMessageUpdate = [
-                "<div ", "style='position:fixed;top:0;z-index:10000;width:100%;border-radius:0;' ", "class='alert alert-icon alert-success alert-dismissible fade show mb-0' role='alert'>",
-                "Success: Obj was updated.",
-                "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>",
-                "<span aria-hidden='true'>&times;</span>",
-                "</button>",
-                "</div>",
-                "<script>",
-                "$('.alert').fadeTo(2000, 500).slideUp(500, function () {$('.alert').slideUp(500).remove();});",
-                "<\/script>"
-            ].join("");
-
-            // modal form
-            function updateObjModalForm() {
-                $(".update-obj").each(function() {
-                    $(this).modalForm({
-                        formURL: $(this).data("form-url"),
-                        asyncUpdate: true,
-                        asyncSettings: {
-                            closeOnSubmit: true,
-                            successMessage: asyncSuccessMessageUpdate,
-                            dataUrl: "objs/",
-                            dataElementId: "#objs-table",
-                            dataKey: "table",
-                            addModalFormFunction: reinstantiateModalForms
-                        }
-                    });
-                });
-            }
-            updateObjModalForm();
-
-            // Delete obj buttons - formURL is retrieved from the data of the element
-            function deleteObjModalForm() {
-                $(".delete-obj").each(function() {
-                    $(this).modalForm({
-                        formURL: $(this).data("form-url"),
-                        isDeleteForm: true,
-                    });
-                });
-            }
-            deleteObjModalForm();
-
-            // Read obj buttons
-            function readObjModalForm() {
-                $(".read-obj").each(function() {
-                    $(this).modalForm({
-                        formURL: $(this).data("form-url")
-                    });
-                });
-            }
-            readObjModalForm();
-
-            function reinstantiateModalForms() {
-                createObjAsyncModalForm();
-                readObjModalForm();
-                updateObjModalForm();
-                deleteObjModalForm();
-            }
-
-            // Filter objs button
-            $("#filter-obj").each(function() {
-                $(this).modalForm({
-                    formURL: $(this).data("form-url")
-                });
-            });
-
-            // Hide message
-            $(".alert").fadeTo(2000, 500).slideUp(500, function() {
-                $(".alert").slideUp(500);
-            });
-        });
-    </script>
-{% endblock extrascripts %}
