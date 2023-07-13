@@ -1,4 +1,4 @@
-<table id="books-table" class="table">
+<table id="objs-table" class="table">
   <thead>
     <tr>
       <th class="text-center" scope="col">idCode</th>
@@ -25,20 +25,20 @@
         <td class="text-center">
           <!-- Read book buttons -->
           <button type="button"
-                  class="read-book btn btn-sm btn-primary"
-                  data-form-url="{% url 'curd:read_book' obj.pk %}">
+                  class="read-obj btn btn-sm btn-primary"
+                  data-form-url="{% url 'crm:read_obj' obj.pk %}">
             <span class="fa fa-eye"></span>
           </button>
           <!-- Update book buttons -->
           <button type="button"
-                  class="update-book btn btn-sm btn-primary"
-                  data-form-url="{% url 'curd:update_book' obj.pk %}">
+                  class="update-obj btn btn-sm btn-primary"
+                  data-form-url="{% url 'crm:update_obj' obj.pk %}">
             <span class="fa fa-pencil"></span>
           </button>
           <!-- Delete book buttons -->
           <button type="button"
-                  class="delete-book btn btn-sm btn-danger"
-                  data-form-url="{% url 'curd:delete_book' obj.pk %}">
+                  class="delete-obj btn btn-sm btn-danger"
+                  data-form-url="{% url 'crm:delete_obj' obj.pk %}">
             <span class="fa fa-trash"></span>
           </button>
         </td>

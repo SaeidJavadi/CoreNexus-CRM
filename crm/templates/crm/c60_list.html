@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-12 mb-3">
                     {% if 'type' in request.GET %}<p class="filtered-objs">Filtered objs</p>{% endif %}
-                    {% include "_objs_table.html" %}
+                    {% include "crm/_objs_table.html" %}
                 </div>
             </div>
         </div>
@@ -31,15 +31,6 @@
 {% block extrascripts %}
     <script type="text/javascript">
         $(function() {
-
-            // Create obj synchronous
-            function createObjSyncModalForm() {
-                $("#create-obj-sync").modalForm({
-                    formURL: "{% url 'crm:create_obj' %}",
-                    modalID: "#create-modal"
-                });
-            }
-            createObjSyncModalForm();
 
             // Create obj asynchronous button
             // message

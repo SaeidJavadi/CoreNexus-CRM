@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
@@ -18,15 +19,14 @@ from crm.forms import (
 from crm.models import Book
 
 
-
 @login_required
 def home(request):
     return render(request, 'crm/home.html')
 
+
 @login_required
 def dashboard(request):
     return render(request, 'crm/dashboard.html')
-
 
 
 class C60List(generic.ListView):
@@ -64,6 +64,7 @@ class ObjCreateView(BSModalCreateView):
 
 class ObjUpdateView(BSModalUpdateView):
     model = Book
+    context_object_name = 'obj'
     template_name = 'curd/update_obj.html'
     form_class = ObjModelForm
     success_message = 'Success: Obj was updated.'
@@ -72,23 +73,25 @@ class ObjUpdateView(BSModalUpdateView):
 
 class ObjReadView(BSModalReadView):
     model = Book
+    context_object_name = 'obj'
     template_name = 'curd/read_obj.html'
 
 
 class ObjDeleteView(BSModalDeleteView):
     model = Book
+    context_object_name = 'obj'
     template_name = 'curd/delete_obj.html'
     success_message = 'Success: Obj was deleted.'
     success_url = reverse_lazy('crm:c60list')
 
 
-@login_required()
+# @login_required()
 def objs(request):
     data = {}
     if request.method == 'GET':
         objs = Book.objects.all()
         data['table'] = render_to_string(
-            '_objs_table.html',
+            'crm/_objs_table.html',
             {'objs': objs},
             request=request
         )
