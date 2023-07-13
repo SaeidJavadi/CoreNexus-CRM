@@ -23,11 +23,11 @@ from .forms import (
 from .models import Book
 
 
-
 class Index(generic.ListView):
     model = Book
     context_object_name = 'books'
     template_name = 'index.html'
+    paginate_by = 10
 
     def get_queryset(self):
         qs = super().get_queryset()
