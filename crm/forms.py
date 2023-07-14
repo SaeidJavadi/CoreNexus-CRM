@@ -1,18 +1,9 @@
 from django import forms
+from crm.models import Common60
 
 
-# class ObjFilterForm(BSModalForm):
-#     type = forms.ChoiceField(choices=Book.BOOK_TYPES)
+class ObjectModelForm(forms.ModelForm):
 
-#     class Meta:
-#         fields = ['type']
-
-
-# class ObjModelForm(BSModalModelForm):
-#     publication_date = forms.DateField(
-#         error_messages={'invalid': 'Enter a valid date in YYYY-MM-DD format.'}
-#     )
-
-#     class Meta:
-#         model = Book
-#         exclude = ['timestamp']
+    class Meta:
+        model = Common60
+        exclude = '__all__'

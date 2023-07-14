@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
     <table id="objs-table" class="table">
         <thead>
@@ -34,29 +34,30 @@
                     <td class="text-center">{{ c60.link }}</td>
                     <td class="text-center">{{ c60.status }}</td>
                     <td class="text-center">
-                        <!-- Read  buttons -->
-                        <button type="button"
-                                class="btn btn-sm btn-success"
-                                data-form-url="{% url 'crm:home' %}">
+                        <!-- Read buttons -->
+                        <a type="button"
+                           class="btn btn-sm btn-success"
+                           href="{% url 'crm:c60_read' c60.id %}">
                             <span class="ri-eye-line"></span>
-                        </button>
-                        <!-- Update  buttons -->
-                        <button type="button"
-                                class="btn btn-sm btn-primary"
-                                data-form-url="{% url 'crm:home' %}">
+                        </a>
+                        <!-- Update buttons -->
+                        <a type="button"
+                           class="btn btn-sm btn-primary"
+                           href="{% url "crm:c60_update" c60.id %}">
                             <span class="ri-edit-2-line"></span>
-                        </button>
-                        <!-- Delete  buttons -->
-                        <button type="button"
-                                class="btn btn-sm btn-danger"
-                                data-form-url="{% url 'crm:home' %}">
+                        </a>
+                        <!-- Delete buttons -->
+                        <a type="button"
+                           class="btn btn-sm btn-danger"
+                           href="{% url "crm:c60_delete" c60.id %}">
                             <span class="ri-delete-bin-line"></span>
-                        </button>
+                        </a>
                     </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+    {# ---- Paginator ---- #}
     {% if page_obj.has_other_pages %}
         <nav aria-label="Page navigation bootstrap">
             <ul class="pagination justify-content-center">
@@ -73,7 +74,7 @@
                         <li class="page-item active" aria-current="page">
                             <span class="page-link">{{ num }}</span>
                         </li>
-                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    {% elif num > page_obj.number|add:"-3" and num < page_obj.number|add:"3" %}
                         <li class="page-item">
                             <a class="page-link" href="?page={{ num }}">{{ num }}</a>
                         </li>
@@ -90,4 +91,14 @@
             </ul>
         </nav>
     {% endif %}
+    {# ---- Paginator ---- #}
+    {# ---- JavaScript ---- #}
+    {% comment %} <script type="text/javascript">
+     function OpenModal(id) {
+         console.log("rrereer" + id);
+         modal.insertAdjacentHTML("afterbegin", `{% include "crm/c60_read.html" %}`);
+         modal.showModal();
+     }
+ </script> {% endcomment %}
+    {# ---- JavaScript ---- #}
 {% endblock content %}
