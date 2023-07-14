@@ -17,5 +17,9 @@ urlpatterns = [
     path('c61/update/<int:pk>', login_required(views.C61EUpdateView.as_view()), name='c61_update'),
     path('c61/delete/<int:pk>', login_required(views.C61DeleteView.as_view()), name='c61_delete'),
     path('c70/', login_required(views.c70List.as_view()), name='c70_list'),
+    path('c70/create/', login_required(views.C70CreateView.as_view()), name='c70_create'),
+    path('c70/read/<int:pk>', login_required(views.C70ReadView.as_view()), name='c70_read'),
+    path('c70/update/<int:pk>', login_required(views.C70EUpdateView.as_view()), name='c70_update'),
+    path('c70/delete/<int:pk>', login_required(views.C70DeleteView.as_view()), name='c70_delete'),
 
 ]
