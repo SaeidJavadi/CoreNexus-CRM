@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <table id="books-table" class="table">
+    <table id="objs-table" class="table">
         <thead>
             <tr>
                 <th class="text-center" scope="col">IdCode</th>
@@ -34,17 +34,23 @@
                     <td class="text-center">{{ c60.link }}</td>
                     <td class="text-center">{{ c60.status }}</td>
                     <td class="text-center">
-                        <!-- Update book buttons -->``
+                        <!-- Read  buttons -->
+                        <button type="button"
+                                class="btn btn-sm btn-success"
+                                data-form-url="{% url 'crm:home' %}">
+                            <span class="ri-eye-line"></span>
+                        </button>
+                        <!-- Update  buttons -->
                         <button type="button"
                                 class="btn btn-sm btn-primary"
                                 data-form-url="{% url 'crm:home' %}">
-                            <span class="fa fa-pencil"></span>
+                            <span class="ri-edit-2-line"></span>
                         </button>
-                        <!-- Delete book buttons -->
+                        <!-- Delete  buttons -->
                         <button type="button"
                                 class="btn btn-sm btn-danger"
                                 data-form-url="{% url 'crm:home' %}">
-                            <span class="fa fa-trash"></span>
+                            <span class="ri-delete-bin-line"></span>
                         </button>
                     </td>
                 </tr>

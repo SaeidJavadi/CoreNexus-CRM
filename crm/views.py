@@ -18,7 +18,7 @@ class C60List(ListView):
     model = Common60
     context_object_name = 'c60list'
     template_name = 'crm/c60_list.html'
-    paginate_by = 5
+    paginate_by = 30
 
     def get_queryset(self):
         qs = super().get_queryset()
