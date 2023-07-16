@@ -105,20 +105,62 @@
             </a>
             <div class="sub-menu-list">
               <ul>
-                <li class="menu-item">
-                  <a href="{% url 'crm:c60_list' %}">
+                <li class="menu-item sub-menu">
+                  <a href="#">
                     <span class="menu-title">{% trans "Subscription 0 to 60" %}</span>
                   </a>
+                  <div class="sub-menu-list">
+                    <ul>
+                      <li class="menu-item">
+                        <a href="{% url 'crm:c60_list' %}">
+                          <span class="menu-title">{% trans "List" %}</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="{% url 'crm:c60_create' %}">
+                          <span class="menu-title">{% trans "create" %}</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
-                <li class="menu-item">
-                  <a href="{% url 'crm:c61_list' %}">
+                <li class="menu-item sub-menu">
+                  <a href="#">
                     <span class="menu-title">{% trans "Subscription 61 to 69" %}</span>
                   </a>
+                  <div class="sub-menu-list">
+                    <ul>
+                      <li class="menu-item">
+                        <a href="{% url 'crm:c61_list' %}">
+                          <span class="menu-title">{% trans "List" %}</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="{% url 'crm:c61_create' %}">
+                          <span class="menu-title">{% trans "create" %}</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
-                <li class="menu-item">
-                  <a href="{% url 'crm:c70_list' %}">
+                <li class="menu-item sub-menu">
+                  <a href="#">
                     <span class="menu-title">{% trans "Subscription 70 and above" %}</span>
                   </a>
+                  <div class="sub-menu-list">
+                    <ul>
+                      <li class="menu-item">
+                        <a href="{% url 'crm:c70_list' %}">
+                          <span class="menu-title">{% trans "List" %}</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="{% url 'crm:c70_create' %}">
+                          <span class="menu-title">{% trans "create" %}</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
                 <li class="menu-item">
                   <a href="#">

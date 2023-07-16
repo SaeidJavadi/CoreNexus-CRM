@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load basetags %}
 {% block content %}
     <table id="objs-table" class="table">
         <thead>
@@ -18,38 +19,57 @@
             </tr>
         </thead>
         <tbody>
-            {% for c60 in c60list %}
+            {% for obj in objects %}
                 <tr>
                     {% comment %} <th class="text-center" scope="row">{{ forloop.counter }}</th> {% endcomment %}
-                    <td class="text-center">{{ c60.id }}</td>
-                    <td class="text-center">{{ c60.name }}</td>
-                    <td class="text-center">{{ c60.age }}</td>
-                    <td class="text-center">{{ c60.idcode }}</td>
-                    <td class="text-center">{{ c60.sickness }}</td>
-                    <td class="text-center">{{ c60.contery }}</td>
-                    <td class="text-center">{{ c60.create }}</td>
-                    <td class="text-center">{{ c60.phone }}</td>
-                    <td class="text-center">{{ c60.phoneagent }}</td>
-                    <td class="text-center">{{ c60.amount }}</td>
-                    <td class="text-center">{{ c60.link }}</td>
-                    <td class="text-center">{{ c60.status }}</td>
+                    <td class="text-center">{{ obj.id }}</td>
+                    <td class="text-center">{{ obj.name }}</td>
+                    <td class="text-center">{{ obj.age }}</td>
+                    <td class="text-center">{{ obj.idcode }}</td>
+                    <td class="text-center">{{ obj.sickness }}</td>
+                    <td class="text-center">{{ obj.contery }}</td>
+                    <td class="text-center">{{ obj.create }}</td>
+                    <td class="text-center">{{ obj.phone }}</td>
+                    <td class="text-center">{{ obj.phoneagent }}</td>
+                    <td class="text-center">{{ obj.amount }}</td>
+                    <td class="text-center">{{ obj.link }}</td>
+                    <td class="text-center">{{ obj.status }}</td>
                     <td class="text-center">
                         <!-- Read buttons -->
+                        {% to_class_name obj as objctname %}
                         <a type="button"
                            class="btn btn-sm btn-success"
-                           href="{% url 'crm:c60_read' c60.id %}">
+                           href="{% if objctname == "Common60" %}
+                           {% url 'crm:c60_read' obj.id %}
+                           {% elif objctname == "Common61" %}
+                           {% url 'crm:c61_read' obj.id %}
+                           {% elif objctname == "Common70" %}
+                           {% url 'crm:c70_read' obj.id %}
+                           {% endif %}">
                             <span class="ri-eye-line"></span>
                         </a>
                         <!-- Update buttons -->
                         <a type="button"
                            class="btn btn-sm btn-primary"
-                           href="{% url "crm:c60_update" c60.id %}">
+                           href="{% if objctname == "Common60" %}
+                           {% url 'crm:c60_update' obj.id %}
+                           {% elif objctname == "Common61" %}
+                           {% url 'crm:c61_update' obj.id %}
+                           {% elif objctname == "Common70" %}
+                           {% url 'crm:c70_update' obj.id %}
+                           {% endif %}">
                             <span class="ri-edit-2-line"></span>
                         </a>
                         <!-- Delete buttons -->
                         <a type="button"
                            class="btn btn-sm btn-danger"
-                           href="{% url "crm:c60_delete" c60.id %}">
+                           href="{% if objctname == "Common60" %}
+                           {% url 'crm:c60_delete' obj.id %}
+                           {% elif objctname == "Common61" %}
+                           {% url 'crm:c61_delete' obj.id %}
+                           {% elif objctname == "Common70" %}
+                           {% url 'crm:c70_delete' obj.id %}
+                           {% endif %}">
                             <span class="ri-delete-bin-line"></span>
                         </a>
                     </td>
@@ -96,7 +116,7 @@
     {% comment %} <script type="text/javascript">
      function OpenModal(id) {
          console.log("rrereer" + id);
-         modal.insertAdjacentHTML("afterbegin", `{% include "crm/c60_read.html" %}`);
+         modal.insertAdjacentHTML("afterbegin", `{% include "crm/obj_read.html" %}`);
          modal.showModal();
      }
  </script> {% endcomment %}
