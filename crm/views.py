@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead
+from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance
 from django.contrib.auth.decorators import login_required
-from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd
+from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd, ObjectModelFormDd, ObjectModelFormPa
 from django.urls import reverse_lazy
 
 
@@ -198,3 +198,81 @@ class JdDeleteView(DeleteView):
     template_name = 'crm/obj_delete.html'
     success_message = 'Success: Subscription was deleted.'
     success_url = reverse_lazy('crm:jd_list')
+
+
+class DdList(ListView):        # DoingDead
+    model = DoingDead
+    context_object_name = 'objects'
+    template_name = 'crm/dd_list.html'
+    paginate_by = 30
+
+
+class DdReadView(DetailView):
+    model = DoingDead
+    context_object_name = 'obj'
+    template_name = 'crm/dd_read.html'
+
+
+class DdCreateView(CreateView):
+    model = DoingDead
+    form_class = ObjectModelFormDd
+    template_name = 'crm/obj_create.html'
+    success_message = 'Success: Subscription was created.'
+    success_url = reverse_lazy('crm:dd_list')
+
+
+class DdUpdateView(UpdateView):
+    model = DoingDead
+    form_class = ObjectModelFormDd
+    template_name = 'crm/obj_update.html'
+    success_message = 'Success: Subscription was updated.'
+    success_url = reverse_lazy('crm:dd_list')
+
+
+class DdDeleteView(DeleteView):
+    model = DoingDead
+    context_object_name = 'obj'
+    template_name = 'crm/obj_delete.html'
+    success_message = 'Success: Subscription was deleted.'
+    success_url = reverse_lazy('crm:dd_list')
+
+
+class PaList(ListView):        # PublicAssistance
+    model = PublicAssistance
+    context_object_name = 'objects'
+    template_name = 'crm/pa_list.html'
+    paginate_by = 30
+
+
+class PaReadView(DetailView):
+    model = PublicAssistance
+    context_object_name = 'obj'
+    template_name = 'crm/pa_read.html'
+
+
+class PaCreateView(CreateView):
+    model = PublicAssistance
+    form_class = ObjectModelFormPa
+    template_name = 'crm/obj_create.html'
+    success_message = 'Success: Subscription was created.'
+    success_url = reverse_lazy('crm:pa_list')
+
+
+class PaUpdateView(UpdateView):
+    model = PublicAssistance
+    form_class = ObjectModelFormPa
+    template_name = 'crm/obj_update.html'
+    success_message = 'Success: Subscription was updated.'
+    success_url = reverse_lazy('crm:pa_list')
+
+
+class PaDeleteView(DeleteView):
+    model = PublicAssistance
+    context_object_name = 'obj'
+    template_name = 'crm/obj_delete.html'
+    success_message = 'Success: Subscription was deleted.'
+    success_url = reverse_lazy('crm:pa_list')
+
+
+class ActiveSubscripe():
+    pass

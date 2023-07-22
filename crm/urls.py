@@ -31,5 +31,15 @@ urlpatterns = [
     path('jd/read/<int:pk>', login_required(views.JdReadView.as_view()), name='jd_read'),
     path('jd/update/<int:pk>', login_required(views.JdUpdateView.as_view()), name='jd_update'),
     path('jd/delete/<int:pk>', login_required(views.JdDeleteView.as_view()), name='jd_delete'),
-
+    path('dd/', login_required(views.DdList.as_view()), name='dd_list'),
+    path('dd/create/', login_required(views.DdCreateView.as_view()), name='dd_create'),
+    path('dd/read/<int:pk>', login_required(views.DdReadView.as_view()), name='dd_read'),
+    path('dd/update/<int:pk>', login_required(views.DdUpdateView.as_view()), name='dd_update'),
+    path('dd/delete/<int:pk>', login_required(views.DdDeleteView.as_view()), name='dd_delete'),
+    path('pa/', login_required(views.PaList.as_view()), name='pa_list'),
+    path('pa/create/', login_required(views.PaCreateView.as_view()), name='pa_create'),
+    path('pa/read/<int:pk>', login_required(views.PaReadView.as_view()), name='pa_read'),
+    path('pa/update/<int:pk>', login_required(views.PaUpdateView.as_view()), name='pa_update'),
+    path('pa/delete/<int:pk>', login_required(views.PaDeleteView.as_view()), name='pa_delete'),
+    path('active/subscripe', login_required(views.ActiveSubscripe.as_view()), name='active_subscripe'),
 ]

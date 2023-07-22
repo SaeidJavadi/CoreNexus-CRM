@@ -1,5 +1,5 @@
 from django import forms
-from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead
+from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance
 
 
 class ObjectModelForm60(forms.ModelForm):
@@ -29,4 +29,16 @@ class ObjectModelFormCd(forms.ModelForm):
 class ObjectModelFormJd(forms.ModelForm):
     class Meta:
         model = JudiciaryDead
+        exclude = '__all__'
+
+
+class ObjectModelFormDd(forms.ModelForm):
+    class Meta:
+        model = DoingDead
+        exclude = '__all__'
+
+
+class ObjectModelFormPa(forms.ModelForm):
+    class Meta:
+        model = PublicAssistance
         exclude = '__all__'

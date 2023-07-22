@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+    <table id="objs-table" class="table">
+        <thead>
+            <tr>
+                <th>IdCode:</th>
+                <th>{{ obj.id }}</th>
+            </tr>
+            <tr>
+                <th>usersubmit:</th>
+                <th>{{ obj.usersubmit }}</th>
+            </tr>
+            <tr>
+                <th>name:</th>
+                <th>{{ obj.name }}</th>
+            </tr>
+            <tr>
+                <th>help_name:</th>
+                <th>{{ obj.help_name }}</th>
+            </tr>
+            <tr>
+                <th>amount:</th>
+                <th>{{ obj.amount }}</th>
+            </tr>
+            <tr>
+                <th>link:</th>
+                <th>{{ obj.link }}</th>
+            </tr>
+            <tr>
+                <th>status:</th>
+                <th>{{ obj.status }}</th>
+            </tr>
+        </thead>
+    </table>
+{% endblock content %}

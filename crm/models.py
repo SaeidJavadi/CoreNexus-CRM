@@ -163,6 +163,7 @@ class PublicAssistance(models.Model):  # komak be khirieh
     help_name = models.CharField(max_length=120, verbose_name=_('help name'))
     amount = models.FloatField(verbose_name=_('amount'))
     link = models.TextField(verbose_name=_('Payment Link'), blank=True, null=True)
+    status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
         verbose_name = _('PublicAssistance')
