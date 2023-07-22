@@ -274,5 +274,5 @@ class PaDeleteView(DeleteView):
     success_url = reverse_lazy('crm:pa_list')
 
 
-class ActiveSubscripe():
+class ActiveSubscripe(ListView):
     pass
