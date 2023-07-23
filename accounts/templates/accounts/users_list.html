@@ -42,6 +42,12 @@
                            href="{% url 'accounts:user_update' obj.id %}">
                             <span class="ri-edit-2-line"></span>
                         </a>
+                        <!-- Update Password buttons -->
+                        <a type="button"
+                           class="btn btn-sm btn-warning"
+                           href="{% url 'accounts:user_updatepassword' obj.id %}">
+                            <span class="ri-lock-unlock-line"></span>
+                        </a>
                         <!-- Delete buttons -->
                         <a type="button"
                            class="btn btn-sm btn-danger"

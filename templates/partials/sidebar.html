@@ -114,6 +114,11 @@
                   <div class="sub-menu-list">
                     <ul>
                       <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">{% trans "Overview" %}</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
                         <a href="{% url 'crm:c60_list' %}">
                           <span class="menu-title">{% trans "List" %}</span>
                         </a>
@@ -132,6 +137,11 @@
                   </a>
                   <div class="sub-menu-list">
                     <ul>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">{% trans "Overview" %}</span>
+                        </a>
+                      </li>
                       <li class="menu-item">
                         <a href="{% url 'crm:c61_list' %}">
                           <span class="menu-title">{% trans "List" %}</span>
@@ -152,6 +162,11 @@
                   <div class="sub-menu-list">
                     <ul>
                       <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">{% trans "Overview" %}</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
                         <a href="{% url 'crm:c70_list' %}">
                           <span class="menu-title">{% trans "List" %}</span>
                         </a>
@@ -170,6 +185,11 @@
                   </a>
                   <div class="sub-menu-list">
                     <ul>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">{% trans "Overview" %}</span>
+                        </a>
+                      </li>
                       <li class="menu-item">
                         <a href="{% url 'crm:cd_list' %}">
                           <span class="menu-title">{% trans "List" %}</span>
@@ -190,6 +210,11 @@
                   <div class="sub-menu-list">
                     <ul>
                       <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">{% trans "Overview" %}</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
                         <a href="{% url 'crm:jd_list' %}">
                           <span class="menu-title">{% trans "List" %}</span>
                         </a>
@@ -209,6 +234,11 @@
                   <div class="sub-menu-list">
                     <ul>
                       <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">{% trans "Overview" %}</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
                         <a href="{% url 'crm:dd_list' %}">
                           <span class="menu-title">{% trans "List" %}</span>
                         </a>
@@ -227,6 +257,11 @@
                   </a>
                   <div class="sub-menu-list">
                     <ul>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">{% trans "Overview" %}</span>
+                        </a>
+                      </li>
                       <li class="menu-item">
                         <a href="{% url 'crm:pa_list' %}">
                           <span class="menu-title">{% trans "List" %}</span>
@@ -282,18 +317,29 @@
             <div class="sub-menu-list">
               <ul>
                 <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-title">{% trans "Overview" %}</span>
+                  </a>
+                </li>
+                <li class="menu-item">
                   <a href="{% url 'accounts:user_list' %}">
                     <span class="menu-title">{% trans "User list" %}</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{% url 'accounts:user_create' %}">
+                    <span class="menu-title">{% trans "Create User" %}</span>
                   </a>
                 </li>
               </ul>
             </div>
           </li>
+          {# Account Setting #}
           <li class="menu-header" style="padding-top: 20px">
             <span>{% trans "Account Setting" %}</span>
           </li>
           <li class="menu-item">
-            <a href="#">
+            <a href="{% url 'accounts:profile' %}">
               <span class="menu-icon">
                 <i class="ri-user-fill"></i>
               </span>
@@ -304,7 +350,7 @@
             </a>
           </li>
           <li class="menu-item">
-            <a href="#">
+            <a href="{% url 'accounts:profilepass' %}">
               <span class="menu-icon">
                 <i class="ri-lock-password-fill"></i>
               </span>

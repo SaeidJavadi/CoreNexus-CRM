@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
-from accounts.forms import LoginForm, LoginFormAR, ObjectModelFormUser
+from accounts.forms import LoginForm, LoginFormAR, UserCreationForm, UserChangeForm, ChangePasswordFrom
 # from accounts.forms import RegisterForm
 from django.contrib import messages
-from accounts.models import User
+from django.contrib.auth import get_user_model
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -79,36 +79,79 @@ def LogoutPage(request):
     return redirect('accounts:login')
 
 
+@login_required()
+def profile(request):
+    user = get_user_model().objects.get(username=request.user.username)
+    form = UserChangeForm(request.POST or None, instance=user)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            messages.success(request, _("updated successfully"), extra_tags="alert alert-success")
+            return redirect('accounts:profile')
+        else:
+            messages.success(request, _("Error updating your profile !!"), extra_tags="warning")
+            return redirect('accounts:profile')
+    else:
+        return render(request, 'crm/obj_update.html', {'form': form})
+
+
+@login_required()
+def profilepass(request):
+    if request.user.is_active:
+        if request.method == 'POST':
+            form = ChangePasswordFrom(request.POST)
+            if form.is_valid():
+                cd = form.cleaned_data
+                user = get_user_model().objects.get(username=request.user.username)
+                user.set_password(cd['password1'])
+                user.save()
+                update_session_auth_hash(request, user)
+                messages.success(request, _("Your password has been successfully changed"), extra_tags="success")
+                return redirect('accounts:login')
+        else:
+            form = ChangePasswordFrom()
+            return render(request, 'crm/obj_update.html', {'form': form})
+    else:
+        return redirect('crm:home')
+
+
 class UsersListView(ListView):
-    model = User
+    model = get_user_model()
     context_object_name = 'objects'
     template_name = 'accounts/users_list.html'
     paginate_by = 30
 
 
 class UserDetailView(DetailView):
-    model = User
+    model = get_user_model()
     context_object_name = 'obj'
     template_name = 'accounts/users_detail.html'
 
 
 class UserCreateView(CreateView):
-    model = User
-    form_class = ObjectModelFormUser
+    model = get_user_model()
+    form_class = UserCreationForm
     template_name = 'crm/obj_create.html'
     success_message = 'Success: Subscription was created.'
     success_url = reverse_lazy('accounts:user_list')
 
 
 class UsersUpdateView(UpdateView):
-    model = User
-    form_class = ObjectModelFormUser
+    model = get_user_model()
+    form_class = UserChangeForm
+    template_name = 'crm/obj_update.html'
+    success_url = reverse_lazy('accounts:user_list')
+
+
+class UsersUpdatePassView(UpdateView):
+    model = get_user_model()
+    form_class = ChangePasswordFrom
     template_name = 'crm/obj_update.html'
     success_url = reverse_lazy('accounts:user_list')
 
 
 class UsersDeleteView(DeleteView):
-    model = User
+    model = get_user_model()
     context_object_name = 'obj'
     template_name = 'crm/obj_delete.html'
     success_message = 'Success: Subscription was deleted.'
