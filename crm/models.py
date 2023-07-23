@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Common60(models.Model):   # Eshterak afrad 60 saal va kamtar
-    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
+    usersubmit = models.ForeignKey(User, on_delete=models.CASCADE,
                                    verbose_name=_('Registrant'), related_name='user_c60')
     name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
     age = models.DateField(verbose_name=_('Age'))
@@ -30,7 +30,7 @@ class Common60(models.Model):   # Eshterak afrad 60 saal va kamtar
 
 
 class Common61(models.Model):  # Eshterak afrad az 61 ta 69
-    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
+    usersubmit = models.ForeignKey(User, on_delete=models.CASCADE,
                                    verbose_name=_('Registrant'), related_name='user_c61')
     name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
     age = models.DateField(verbose_name=_('Age'))
@@ -56,7 +56,7 @@ class Common61(models.Model):  # Eshterak afrad az 61 ta 69
 
 
 class Common70(models.Model):   # Eshterak afrad az 70 salegi va afrad mobtala be bimarihaie jedi
-    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
+    usersubmit = models.ForeignKey(User, on_delete=models.CASCADE,
                                    verbose_name=_('Registrant'), related_name='user_c70')
     name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
     age = models.DateField(verbose_name=_('Age'))
@@ -82,7 +82,7 @@ class Common70(models.Model):   # Eshterak afrad az 70 salegi va afrad mobtala b
 
 
 class CommonDead(models.Model):  # Eshterak FotShodegan
-    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
+    usersubmit = models.ForeignKey(User, on_delete=models.CASCADE,
                                    verbose_name=_('Registrant'), related_name='user_cd')
     name = models.CharField(max_length=120, verbose_name=_('Deceased name'))
     idcode = models.IntegerField(verbose_name=_('Id Code'))
@@ -106,7 +106,7 @@ class CommonDead(models.Model):  # Eshterak FotShodegan
 
 
 class JudiciaryDead(models.Model):  # Goveh Ghazaie Mordegan
-    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
+    usersubmit = models.ForeignKey(User, on_delete=models.CASCADE,
                                    verbose_name=_('Registrant'), related_name='user_jd')
     name = models.CharField(max_length=120, verbose_name=_('Deceased name'))
     idcode = models.IntegerField(verbose_name=_('Id Code'))
@@ -130,7 +130,7 @@ class JudiciaryDead(models.Model):  # Goveh Ghazaie Mordegan
 
 
 class DoingDead(models.Model):  # Anjam Amale Ebadie Marhom
-    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
+    usersubmit = models.ForeignKey(User, on_delete=models.CASCADE,
                                    verbose_name=_('Registrant'), related_name='user_dd')
     name = models.CharField(max_length=120, verbose_name=_('Deceased name'))
     amount = models.FloatField(verbose_name=_('Amount'), blank=True, null=True)
@@ -157,8 +157,7 @@ class DoingDead(models.Model):  # Anjam Amale Ebadie Marhom
 
 
 class PublicAssistance(models.Model):  # komak be khirieh
-    usersubmit = models.ForeignKey(User,  on_delete=models.CASCADE,
-                                   verbose_name=_('Registrant'), related_name='user_pa')
+    usersubmit = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('Registrant'), related_name='user_pa')
     name = models.CharField(max_length=150, verbose_name=_('Deceased name'))
     help_name = models.CharField(max_length=120, verbose_name=_('help name'))
     amount = models.FloatField(verbose_name=_('amount'))
