@@ -1,5 +1,5 @@
 from django.contrib import admin
-from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance
+from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, Lottery
 
 
 @admin.register(Common60)
@@ -48,4 +48,11 @@ class DoingDeadAdmin(admin.ModelAdmin):
 class PublicAssistanceAdmin(admin.ModelAdmin):
     class Meta:
         model = PublicAssistance
+        fields = '__all__'
+
+
+@admin.register(Lottery)
+class LotteryAdmin(admin.ModelAdmin):
+    class Meta:
+        model = Lottery
         fields = '__all__'

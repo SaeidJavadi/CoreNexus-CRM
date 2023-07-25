@@ -6,6 +6,8 @@ from django.utils.translation import gettext_lazy as _
 class Common60(models.Model):   # Eshterak afrad 60 saal va kamtar
     usersubmit = models.ForeignKey(User, on_delete=models.CASCADE,
                                    verbose_name=_('Registrant'), related_name='user_c60')
+    lottery = models.ForeignKey("lottery", verbose_name=_(
+        "lottery"), on_delete=models.SET_NULL, default=None, null=True, blank=True)
     name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
     age = models.DateField(verbose_name=_('Age'))
     idcode = models.IntegerField(verbose_name=_('Id Code'))
@@ -24,10 +26,10 @@ class Common60(models.Model):   # Eshterak afrad 60 saal va kamtar
         verbose_name_plural = _('Common60s')
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
     def get_absolute_url(self):
-        return reverse('_detail', kwargs={'pk': self.pk})
+        return reverse('Common60_detail', kwargs={'pk': self.pk})
 
 
 class Common61(models.Model):  # Eshterak afrad az 61 ta 69
@@ -180,3 +182,21 @@ class PublicAssistance(models.Model):  # komak be khirieh
 
     def get_absolute_url(self):
         return reverse('PublicAssistance_detail', kwargs={'pk': self.pk})
+
+
+class Lottery(models.Model):
+    lottery_field = (
+        ('quran', _('Quran memorization lottery')),
+        ('ziarat', _('Visiting religious places'))
+    )
+    title = models.CharField(max_length=200, verbose_name=_('Lottery'), choices=lottery_field, blank=True, null=True)
+
+    class Meta:
+        verbose_name = _("Lottery")
+        verbose_name_plural = _("Lotterys")
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("Lottery_detail", kwargs={"pk": self.pk})
