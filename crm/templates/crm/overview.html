@@ -50,6 +50,36 @@
         <br>
         {# Contery Chart #}
         {% if totalcountery != None %}
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <div class="p-2 border d-flex justify-content-center"
+                         style="background-color:#c1f6e375;
+                                border-radius: 15px">
+                        <div id="container" style="width: 75%;">
+                            <canvas id="contery_chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <div class="p-2 border"
+                         style="background-color:#c1f6e375;
+                                border-radius: 15px">
+                        <div class="row">
+                            <div class="col-8">Total Contery:</div>
+                            <div class="col-4">{{ totalcountery }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        {% endif %}
+        <br>
+        {# Amount Chart #}
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
@@ -57,7 +87,7 @@
                      style="background-color:#c1f6e375;
                             border-radius: 15px">
                     <div id="container" style="width: 75%;">
-                        <canvas id="contery_chart"></canvas>
+                        <canvas id="amount_chart"></canvas>
                     </div>
                 </div>
             </div>
@@ -70,17 +100,17 @@
                      style="background-color:#c1f6e375;
                             border-radius: 15px">
                     <div class="row">
-                        <div class="col-8">Total Contery:</div>
-                        <div class="col-4">{{ totalcountery }}</div>
+                        <div class="col-8">Total amount:</div>
+                        <div class="col-4">{{ totalamount }}</div>
                     </div>
                 </div>
             </div>
             <div class="col-2"></div>
         </div>
-        {% endif %}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-<script>
+    <script>
+        // Pay Chart
     var ctxpay = document.getElementById('pay_chart').getContext('2d');
     var configpay = {
         type: 'pie',
@@ -98,6 +128,7 @@
             responsive: true
         }
     };
+    // Contery Chart
 {% if totalcountery != None %}
     var ctxcontery = document.getElementById('contery_chart').getContext('2d');
     var configcontery = {
@@ -117,11 +148,30 @@
         }
     }; 
     {% endif %}
+    // amount chart
+     var ctxamount = document.getElementById('amount_chart').getContext('2d');
+    var configamount = {
+        type: 'bar',
+        data: {
+            datasets: [{
+                data: {{ dataamount|safe }},
+                backgroundColor: [
+                     '#fba337', '#024066', '#fb4557','#80b5fb', '#f79edc', '#E0EA87', '#ee7fa8', '#ea9987', '#ff12a0', '#ba2634', '#036d0a', '#4e5602', '#626c03','#00FF0C',  '#fdd172'
+                ],
+                label: 'amount'
+            }],
+            labels: {{ labelsamount|safe }}
+        },
+        options: {
+            responsive: true
+        }
+    }; 
     window.onload = function() {
         window.payPie = new Chart(ctxpay, configpay);
         {% if totalcountery != None %}
         window.conteryPie = new Chart(ctxcontery, configcontery);
         {% endif %}
+        window.amountPie = new Chart(ctxamount, configamount);
     };
 </script>
 {% endblock content %}

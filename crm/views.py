@@ -4,6 +4,9 @@ from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, 
 from django.contrib.auth.decorators import login_required
 from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd, ObjectModelFormDd, ObjectModelFormPa
 from django.urls import reverse_lazy
+from django.utils import timezone
+from datetime import datetime
+from django.db.models import Sum
 
 
 @login_required
@@ -39,8 +42,37 @@ def overview(request, model):
     elif model == 'pa':
         MODEL = PublicAssistance
         TiTle = "Public Assistance"
+    # Amount Month Chart
+    today = datetime.now(tz=timezone.utc)
+    year = today.year
+    month = today.month
+    labelsamount = []
+    dataamount = []
+    totalamount = MODEL.objects.filter(status=True).aggregate(total=Sum('amount'))['total']
+    for i in range(1, 13):
+        labelsamount.append(f'{year}-{month}')
+        objmonth = MODEL.objects.filter(status=True, create__year=year, create__month=month)
+        amountCount = 0
+        for obj in objmonth:
+            amountCount += obj.amount
+        dataamount.append(amountCount)
+        print('='*30)
+        print(f'{year}-{month}', f'= {amountCount} -> len={objmonth.count()}')
+        print('='*30)
+        if month == 1:
+            year -= 1
+            month = 12
+        month -= 1
+        print("="*30)
+    print(dataamount, len(dataamount))
+    print("="*30)
+    print(labelsamount, len(labelsamount))
+    print("="*30)
+    print(totalamount)
+
     spay = MODEL.objects.filter(status=True).count()
     unspay = MODEL.objects.filter(status=False).count()
+
     if model != 'pa':
         Iraq = MODEL.objects.filter(contery='Iraq').count()
         Iran = MODEL.objects.filter(contery='Iran').count()
@@ -81,7 +113,10 @@ def overview(request, model):
         'totalcount': spay+unspay,
         'totalcountery': total,
         'datacontery': datacontery,
-        'labelscontery': labelscontery
+        'labelscontery': labelscontery,
+        'dataamount': dataamount,
+        'labelsamount': labelsamount,
+        'totalamount': totalamount
     })
 
 

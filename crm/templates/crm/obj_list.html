@@ -12,6 +12,7 @@
                 <th class="text-center" scope="col">Create Date</th>
                 <th class="text-center" scope="col">Phone</th>
                 <th class="text-center" scope="col">Status</th>
+                <th class="text-center" scope="col">Amount</th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +27,7 @@
                     <td class="text-center">{{ obj.create|date:"Y-m-d (H:i)" }}</td>
                     <td class="text-center">{{ obj.phone }}</td>
                     <td class="text-center">{{ obj.status }}</td>
+                    <td class="text-center">{{ obj.amount }}</td>
                     <td class="text-center">
                         <!-- Read buttons -->
                         {% to_class_name obj as objctname %}
