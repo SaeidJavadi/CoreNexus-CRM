@@ -200,3 +200,22 @@ class Lottery(models.Model):
 
     def get_absolute_url(self):
         return reverse("Lottery_detail", kwargs={"pk": self.pk})
+
+
+class Notification(models.Model):
+    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE, related_name="user_msg")
+    createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
+    seedate = models.DateTimeField(auto_now=True, verbose_name=_('See Date'))
+    subject = models.CharField(verbose_name=_("Subject"), max_length=120)
+    text = models.TextField(verbose_name=_("Text"))
+    see = models.BooleanField(verbose_name=_("See"), default=False)
+
+    class Meta:
+        verbose_name = _("Notification")
+        verbose_name_plural = _("Notifications")
+
+    def __str__(self):
+        return self.subject
+
+    def get_absolute_url(self):
+        return reverse("Notification_detail", kwargs={"pk": self.pk})

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, Lottery
+from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, Lottery, Notification
 
 
 @admin.register(Common60)
@@ -55,4 +55,13 @@ class PublicAssistanceAdmin(admin.ModelAdmin):
 class LotteryAdmin(admin.ModelAdmin):
     class Meta:
         model = Lottery
+        fields = '__all__'
+
+
+@admin.register(Notification)
+class NotificationAdmin(admin.ModelAdmin):
+    list_display = ('user', 'createdate', 'seedate', 'subject', 'see')
+
+    class Meta:
+        model = Notification
         fields = '__all__'

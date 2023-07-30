@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, Lottery
+from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, Lottery, Notification
 from django.contrib.auth.decorators import login_required
-from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd, ObjectModelFormDd, ObjectModelFormPa
+from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd, ObjectModelFormDd, ObjectModelFormPa, ObjectModelFormMSG
 from django.urls import reverse_lazy
 from django.utils import timezone
 from datetime import datetime
@@ -401,3 +401,39 @@ class PaDeleteView(DeleteView):
 
 class ActiveSubscripe(ListView):
     pass
+
+
+class MessagesListView(ListView):   # Notification Messages
+    model = Notification
+    context_object_name = 'objects'
+    template_name = 'crm/msg_list.html'
+    paginate_by = 30
+    ordering = ('-createdate',)
+
+
+class MessagesCreateView(CreateView):
+    model = Notification
+    form_class = ObjectModelFormMSG
+    template_name = 'crm/obj_create.html'
+    success_message = 'Success: Messege Send.'
+    success_url = reverse_lazy('crm:msg_list')
+
+
+class MessagesDetailView(DetailView):
+    model = Notification
+
+
+class MessagesUpdateView(UpdateView):
+    model = Notification
+    form_class = ObjectModelFormMSG
+    template_name = 'crm/obj_update.html'
+    success_message = 'Success: Message was updated.'
+    success_url = reverse_lazy('crm:msg_list')
+
+
+class MessagesDeleteView(DeleteView):
+    model = Notification
+    context_object_name = 'obj'
+    template_name = 'crm/obj_delete.html'
+    success_message = 'Success: Message was deleted.'
+    success_url = reverse_lazy('crm:msg_list')

@@ -1,5 +1,5 @@
 from django import forms
-from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance
+from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, Notification
 
 
 class ObjectModelForm60(forms.ModelForm):
@@ -84,3 +84,14 @@ class ObjectModelFormPa(forms.ModelForm):
         for visible in self.visible_fields():
             if visible.name != "status":
                 visible.field.widget.attrs['class'] = 'form-control'
+
+
+class ObjectModelFormMSG(forms.ModelForm):
+    class Meta:
+        model = Notification
+        exclude = ('see',)
+
+    def __init__(self, *args, **kwargs):
+        super(ObjectModelFormMSG, self).__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'

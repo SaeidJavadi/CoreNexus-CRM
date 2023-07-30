@@ -44,5 +44,10 @@ urlpatterns = [
     path('pa/update/<int:pk>', login_required(views.PaUpdateView.as_view()), name='pa_update'),
     path('pa/delete/<int:pk>', login_required(views.PaDeleteView.as_view()), name='pa_delete'),
     path('active/subscripe', login_required(views.ActiveSubscripe.as_view()), name='active_subscripe'),
+    path('messages/', login_required(views.MessagesListView.as_view()), name='msg_list'),
+    path('messages/send/', login_required(views.MessagesCreateView.as_view()), name='msg_create'),
+    path('messages/view/<int:pk>', login_required(views.MessagesDetailView.as_view()), name='msg_view'),
+    path('messages/update/<int:pk>', login_required(views.MessagesUpdateView.as_view()), name='msg_update'),
+    path('messages/delete/<int:pk>', login_required(views.MessagesDeleteView.as_view()), name='msg_delete'),
 
 ]

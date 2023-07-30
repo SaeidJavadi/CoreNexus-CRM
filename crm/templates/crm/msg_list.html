@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+    <table id="objs-table" class="table">
+        <thead>
+            <tr>
+                <th class="text-center" scope="col">User</th>
+                <th class="text-center" scope="col">Create Date</th>
+                <th class="text-center" scope="col">See Date</th>
+                <th class="text-center" scope="col">Subject</th>
+                <th class="text-center" scope="col">Text</th>
+                <th class="text-center" scope="col">See</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for obj in objects %}
+                <tr>
+                    {% comment %} <th class="text-center" scope="row">{{ forloop.counter }}</th> {% endcomment %}
+                    <td class="text-center">{{ obj.user }}</td>
+                    <td class="text-center">{{ obj.createdate|date:"Y-m-d (H:i)" }}</td>
+                    <td class="text-center">{{ obj.seedate|date:"Y-m-d (H:i)" }}</td>
+                    <td class="text-center">{{ obj.subject }}</td>
+                    <td class="text-center">{{ obj.text }}</td>
+                    <td class="text-center">{{ obj.see }}</td>
+                    <td class="text-center">
+                        <!-- Read buttons -->
+                        <a type="button"
+                           class="btn btn-sm btn-success"
+                           href="{% url 'crm:msg_view' obj.id %}">
+                            <span class="ri-eye-line"></span>
+                        </a>
+                        <!-- Update buttons -->
+                        <a type="button"
+                           class="btn btn-sm btn-primary"
+                           href="{% url 'crm:msg_update' obj.id %}">
+                            <span class="ri-edit-2-line"></span>
+                        </a>
+                        <!-- Delete buttons -->
+                        <a type="button"
+                           class="btn btn-sm btn-danger"
+                           href="{% url 'crm:msg_delete' obj.id %}">
+                            <span class="ri-delete-bin-line"></span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {# ---- Paginator ---- #}
+    {% if page_obj.has_other_pages %}
+        <nav aria-label="Page navigation bootstrap">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">First page</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true">&laquo;</span></a>
+                    </li>
+                {% endif %}
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <li class="page-item active" aria-current="page">
+                            <span class="page-link">{{ num }}</span>
+                        </li>
+                    {% elif num > page_obj.number|add:"-3" and num < page_obj.number|add:"3" %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}"><span aria-hidden="true">&raquo;</span></a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last page</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+    {# ---- Paginator ---- #}
+    {# ---- JavaScript ---- #}
+    {% comment %} <script type="text/javascript">
+     function OpenModal(id) {
+         console.log("rrereer" + id);
+         modal.insertAdjacentHTML("afterbegin", `{% include "crm/obj_read.html" %}`);
+         modal.showModal();
+     }
+ </script> {% endcomment %}
+    {# ---- JavaScript ---- #}
+{% endblock content %}

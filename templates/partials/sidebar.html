@@ -289,33 +289,28 @@
             </div>
           </li>
           {# Subscription Purchases #}
-          {% comment %} <li class="menu-item sub-menu">
+          <li class="menu-item sub-menu">
             <a href="#">
               <span class="menu-icon">
-                <i class="ri-shopping-cart-fill"></i>
+                <i class="ri-message-2-fill"></i>
               </span>
-              <span class="menu-title">{% trans "Subscription Purchases" %}</span>
+              <span class="menu-title">{% trans "Notification messages" %}</span>
             </a>
             <div class="sub-menu-list">
               <ul>
                 <li class="menu-item">
-                  <a href="#">
-                    <span class="menu-title">{% trans "Available subscriptions" %}</span>
+                  <a href="{% url 'crm:msg_list' %}">
+                    <span class="menu-title">{% trans "List Notifications" %}</span>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="#">
-                    <span class="menu-title">{% trans "Orders" %}</span>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="#">
-                    <span class="menu-title">{% trans "Payment gateways" %}</span>
+                  <a href="{% url 'crm:msg_create' %}">
+                    <span class="menu-title">{% trans "Send Notification Messages" %}</span>
                   </a>
                 </li>
               </ul>
             </div>
-          </li> {% endcomment %}
+          </li>
           {# User Manager #}
           <li class="menu-item sub-menu">
             <a href="#">
