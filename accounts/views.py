@@ -136,6 +136,8 @@ class UsersListView(ListView):
     context_object_name = 'objects'
     template_name = 'accounts/users_list.html'
     paginate_by = 30
+    ordering = '-regdate'
+    ordering = '-regdate'
 
 
 class UserDetailView(DetailView):

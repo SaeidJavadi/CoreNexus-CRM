@@ -29,6 +29,12 @@
                     <td class="text-center">{{ obj.is_staff }}</td>
                     <td class="text-center">{{ obj.is_superuser }}</td>
                     <td class="text-center">
+                        <!-- SendMSG buttons -->
+                        <a type="button"
+                           class="btn btn-sm btn-secondary"
+                           href="{% url 'crm:msg_user' obj.id %}">
+                            <span class="ri-message-2-fill"></span>
+                        </a>
                         <!-- Read buttons -->
                         {% to_class_name obj as objctname %}
                         <a type="button"

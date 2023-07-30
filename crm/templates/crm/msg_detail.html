@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'crm/css/printstyle.css' %}">
+{% endblock head %}
+{% block content %}
+    <table id="objs-table" class="table">
+        <thead>
+            <tr>
+                <th>User:</th>
+                <th>{{ obj.user }}</th>
+            </tr>
+            <tr>
+                <th>Create Date:</th>
+                <th>{{ obj.createdate|date:"Y-m-d (H:i)" }}</th>
+            </tr>
+            <tr>
+                <th>See Date:</th>
+                <th>{{ obj.seedate|date:"Y-m-d (H:i)" }}</th>
+            </tr>
+            <tr>
+                <th>Subject:</th>
+                <th>{{ obj.subject }}</th>
+            </tr>
+            <tr>
+                <th>Text:</th>
+                <th>{{ obj.text }}</th>
+            </tr>
+            <tr>
+                <th>See:</th>
+                <th>{{ obj.see }}</th>
+            </tr>
+        </thead>
+    </table>
+    <center>
+        <button onclick="window.print();" class="print-button noPrint">
+            <span class="print-icon"></span>
+        </button>
+    </center>
+{% endblock content %}

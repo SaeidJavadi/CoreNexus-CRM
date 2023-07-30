@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, Lottery, Notification
 from django.contrib.auth.decorators import login_required
 from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd, ObjectModelFormDd, ObjectModelFormPa, ObjectModelFormMSG
+from accounts.models import User
 from django.urls import reverse_lazy
 from django.utils import timezone
 from datetime import datetime
@@ -421,6 +422,8 @@ class MessagesCreateView(CreateView):
 
 class MessagesDetailView(DetailView):
     model = Notification
+    context_object_name = 'obj'
+    template_name = 'crm/msg_detail.html'
 
 
 class MessagesUpdateView(UpdateView):
@@ -437,3 +440,16 @@ class MessagesDeleteView(DeleteView):
     template_name = 'crm/obj_delete.html'
     success_message = 'Success: Message was deleted.'
     success_url = reverse_lazy('crm:msg_list')
+
+
+class MessagesUserCreateView(CreateView):
+    model = Notification
+    form_class = ObjectModelFormMSG
+    template_name = 'crm/obj_create.html'
+    success_message = 'Success: Messege Send.'
+    success_url = reverse_lazy('crm:msg_list')
+
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['user'] = User.objects.get(pk=self.kwargs.get('pk'))
+        return initial
