@@ -3,7 +3,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
-from api.permissions import IsCommonOrReadOnly, IsSuperUser, IsSuperUserOrStaffReadOnly
+from api.permissions import IsCommonOrReadOnly, IsSuperUser, IsSuperUserOrStaffReadOnly, IsOwnerOrReadOnlyMSG
 from django.contrib.auth import get_user_model
 from crm import models as crmmod
 from api import serializers
@@ -231,16 +231,13 @@ class NotificationViewSet(ModelViewSet):
     filterset_fields = ["see", "user"]
     ordering_fields = ["createdate", "see"]
     ordering = ["-createdate"]
-    search_fields = [
-        "user",
-        "subject",
-    ]
+    search_fields = ["user", "subject"]
 
     def get_permissions(self):
-        if self.action in ['creare', ]:
-            permission_classes = (IsAuthenticated,)
+        if self.action in ['create', 'delete', 'destroy']:
+            permission_classes = (IsSuperUser,)
         else:
-            permission_classes = (IsCommonOrReadOnly,)
+            permission_classes = (IsOwnerOrReadOnlyMSG,)
         return [permission() for permission in permission_classes]
 
     def get_queryset(self):
@@ -248,4 +245,13 @@ class NotificationViewSet(ModelViewSet):
         if user.is_superuser or user.is_staff:
             return crmmod.Notification.objects.all()
         else:
-            return crmmod.Notification.objects.filter(usersubmit=user)
+            return crmmod.Notification.objects.filter(user=user)
+
+    def update(self, request, *args, **kwargs):
+        notificationInstanse = self.get_object()
+        instance = request.data
+        serializer = serializers.NotificationSerializer(notificationInstanse, data=instance,  partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializers.NotificationSerializer(notificationInstanse).data)
+        return Response({"message": "Error to Update.", "error": serializer.errors}, 400)
