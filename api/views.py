@@ -34,19 +34,19 @@ class RevokeToken(APIView):
 
     def delete(self, request):
         request.auth.delete()
-        return Response({"msg": "Token Revoked."})
+        return Response({'msg': 'Token Revoked.'})
 
 
 class Common60ViewSet(ModelViewSet):
     serializer_class = serializers.Common60Serializer
-    filterset_fields = ["status", "usersubmit"]
-    ordering_fields = ["create", "status"]
-    ordering = ["-create"]
+    filterset_fields = ['status', 'usersubmit']
+    ordering_fields = ['create', 'status']
+    ordering = ['-create']
     search_fields = [
-        "name",
-        "phone",
-        "usersubmit__username",
-        "usersubmit__phone",
+        'name',
+        'phone',
+        'usersubmit__username',
+        'usersubmit__phone',
     ]
 
     def get_permissions(self):
@@ -66,14 +66,14 @@ class Common60ViewSet(ModelViewSet):
 
 class Common61ViewSet(ModelViewSet):
     serializer_class = serializers.Common61Serializer
-    filterset_fields = ["status", "usersubmit"]
-    ordering_fields = ["create", "status"]
-    ordering = ["-create"]
+    filterset_fields = ['status', 'usersubmit']
+    ordering_fields = ['create', 'status']
+    ordering = ['-create']
     search_fields = [
-        "name",
-        "phone",
-        "usersubmit__username",
-        "usersubmit__phone",
+        'name',
+        'phone',
+        'usersubmit__username',
+        'usersubmit__phone',
     ]
 
     def get_permissions(self):
@@ -93,14 +93,14 @@ class Common61ViewSet(ModelViewSet):
 
 class Common70ViewSet(ModelViewSet):
     serializer_class = serializers.Common70Serializer
-    filterset_fields = ["status", "usersubmit"]
-    ordering_fields = ["create", "status"]
-    ordering = ["-create"]
+    filterset_fields = ['status', 'usersubmit']
+    ordering_fields = ['create', 'status']
+    ordering = ['-create']
     search_fields = [
-        "name",
-        "phone",
-        "usersubmit__username",
-        "usersubmit__phone",
+        'name',
+        'phone',
+        'usersubmit__username',
+        'usersubmit__phone',
     ]
 
     def get_permissions(self):
@@ -120,14 +120,14 @@ class Common70ViewSet(ModelViewSet):
 
 class CommonDeadViewSet(ModelViewSet):
     serializer_class = serializers.CommonDeadSerializer
-    filterset_fields = ["status", "usersubmit"]
-    ordering_fields = ["create", "status"]
-    ordering = ["-create"]
+    filterset_fields = ['status', 'usersubmit']
+    ordering_fields = ['create', 'status']
+    ordering = ['-create']
     search_fields = [
-        "name",
-        "phone",
-        "usersubmit__username",
-        "usersubmit__phone",
+        'name',
+        'phone',
+        'usersubmit__username',
+        'usersubmit__phone',
     ]
 
     def get_permissions(self):
@@ -147,14 +147,14 @@ class CommonDeadViewSet(ModelViewSet):
 
 class JudiciaryDeadViewSet(ModelViewSet):
     serializer_class = serializers.JudiciaryDeadSerializer
-    filterset_fields = ["status", "usersubmit"]
-    ordering_fields = ["create", "status"]
-    ordering = ["-create"]
+    filterset_fields = ['status', 'usersubmit']
+    ordering_fields = ['create', 'status']
+    ordering = ['-create']
     search_fields = [
-        "name",
-        "phone",
-        "usersubmit__username",
-        "usersubmit__phone",
+        'name',
+        'phone',
+        'usersubmit__username',
+        'usersubmit__phone',
     ]
 
     def get_permissions(self):
@@ -174,14 +174,14 @@ class JudiciaryDeadViewSet(ModelViewSet):
 
 class DoingDeadViewSet(ModelViewSet):
     serializer_class = serializers.DoingDeadSerializer
-    filterset_fields = ["status", "usersubmit"]
-    ordering_fields = ["create", "status"]
-    ordering = ["-create"]
+    filterset_fields = ['status', 'usersubmit']
+    ordering_fields = ['create', 'status']
+    ordering = ['-create']
     search_fields = [
-        "name",
-        "phone",
-        "usersubmit__username",
-        "usersubmit__phone",
+        'name',
+        'phone',
+        'usersubmit__username',
+        'usersubmit__phone',
     ]
 
     def get_permissions(self):
@@ -201,14 +201,14 @@ class DoingDeadViewSet(ModelViewSet):
 
 class PublicAssistanceViewSet(ModelViewSet):
     serializer_class = serializers.PublicAssistanceSerializer
-    filterset_fields = ["status", "usersubmit"]
-    ordering_fields = ["create", "status"]
-    ordering = ["-create"]
+    filterset_fields = ['status', 'usersubmit']
+    ordering_fields = ['create', 'status']
+    ordering = ['-create']
     search_fields = [
-        "help_name",
-        "amount",
-        "usersubmit__username",
-        "usersubmit__phone",
+        'help_name',
+        'amount',
+        'usersubmit__username',
+        'usersubmit__phone',
     ]
 
     def get_permissions(self):
@@ -228,10 +228,10 @@ class PublicAssistanceViewSet(ModelViewSet):
 
 class NotificationViewSet(ModelViewSet):
     serializer_class = serializers.NotificationSerializer
-    filterset_fields = ["see", "user"]
-    ordering_fields = ["createdate", "see"]
-    ordering = ["-createdate"]
-    search_fields = ["user", "subject"]
+    filterset_fields = ['see', 'user']
+    ordering_fields = ['createdate', 'see']
+    ordering = ['-createdate']
+    search_fields = ['subject', 'text', 'user__username', 'user__email', 'user__phone']
 
     def get_permissions(self):
         if self.action in ['create', 'delete', 'destroy']:
@@ -254,4 +254,4 @@ class NotificationViewSet(ModelViewSet):
         if serializer.is_valid():
             serializer.save()
             return Response(serializers.NotificationSerializer(notificationInstanse).data)
-        return Response({"message": "Error to Update.", "error": serializer.errors}, 400)
+        return Response({'message': 'Error to Update.', 'error': serializer.errors}, 400)
