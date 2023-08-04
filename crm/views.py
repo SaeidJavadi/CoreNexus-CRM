@@ -8,11 +8,29 @@ from django.urls import reverse_lazy
 from django.utils import timezone
 from datetime import datetime
 from django.db.models import Sum
+from django.http import HttpResponse
 
 
 @login_required
 def home(request):
     return render(request, 'crm/home.html')
+
+
+def assetlinks(request):
+    json_content = [{
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.social.solidarity",
+            "sha256_cert_fingerprints":
+            ["98:77:4A:24:31:CD:40:05:24:86:9D:6D:CD:58:2D:12:B9:79:1C:E2:E6:2E:E9:CB:51:0F:EA:96:DE:36:A3:75"]
+        }
+    }]
+    return HttpResponse(
+        json_content,
+        content_type='application/json',
+        status=200
+    )
 
 
 @login_required
