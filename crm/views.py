@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, Lottery, Notification, WinnerLottery60
 from django.contrib.auth.decorators import login_required
@@ -263,13 +263,13 @@ def HoldingLottery(request, title):
                     w = WinnerLottery60.objects.create(name=nameform, lottery=lot, common=cw)
                     send_notification(user_token=cw.usersubmit.fcmtoken,
                                       title="Lottery Win", body="You have won the lottery")
-                    # print("="*30)
-                    # print(f"{nameform} {winner_count} {winstatus}")
-                    # print("="*30)
+                    print("="*30)
+                    print(f"{nameform} {winner_count} {winstatus}")
+                    print("="*30)
                     if winstatus:
                         cw.lottery = None
                         cw.save()
-                return reverse_lazy('crm:c60_drawdetail', kwargs={'name': str(nameform)})
+                return redirect('crm:c60_drawdetail', name=str(nameform))
             else:
                 return HttpResponse("None List")
     else:

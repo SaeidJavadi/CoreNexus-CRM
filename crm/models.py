@@ -204,7 +204,7 @@ class Lottery(models.Model):
 
 
 class WinnerLottery60(models.Model):
-    name = models.CharField(max_length=150, verbose_name=_("Name"), unique=True)
+    name = models.CharField(max_length=150, verbose_name=_("Name"))
     common = models.ForeignKey("Common60", on_delete=models.CASCADE, related_name='winquran')
     lottery = models.ForeignKey("lottery",  on_delete=models.CASCADE, related_name='winlottery')
     windate = models.DateField(verbose_name=_("Add Time"), auto_now=True)
@@ -212,6 +212,7 @@ class WinnerLottery60(models.Model):
     class Meta:
         verbose_name = _("WinnerLottery60")
         verbose_name_plural = _("WinnerLottery60s")
+        # unique_together = ('name', 'windate')
 
     def __str__(self):
         return str(self.name)+"_"+str(self.windate)
