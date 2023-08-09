@@ -255,7 +255,7 @@ def HoldingLottery(request, title):
                 commons_count = commons.count()
             except:
                 commons_count = 0
-            if commons_count > 0:
+            if commons_count > 0 and winner_count <= commons_count :
                 list_lot = tuple([i[0] for i in commons])
                 user_winner = random.sample(list_lot, winner_count)
                 for id in user_winner:

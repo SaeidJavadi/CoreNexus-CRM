@@ -294,3 +294,21 @@ class NotificationViewSet(ModelViewSet):
             return Response({'message': 'Error to Update.', 'error': serializer.errors}, 400)
         except:
             return Response({'message': 'Error to Update.', 'error': serializer.errors}, 400)
+
+
+class LotteryListView(ModelViewSet):
+    serializer_class = serializers.WinnerLottery60Serializer
+
+    def get_permissions(self):
+        if self.action in ['create', 'destroy', 'update']:
+            permission_classes = (IsSuperUser,)
+        else:
+            permission_classes = (IsUserOwenerOrReadOnly,)
+        return [permission() for permission in permission_classes]
+
+    def list(self, request):
+        user = request.user.id
+        c60 = crmmod.Common60.objects.get(usersubmit=user)
+        queryset = crmmod.WinnerLottery60.objects.filter(common=c60)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model    # from accounts.models import User
-from crm.models import Common60, Common61, Common70, CommonDead, DoingDead, JudiciaryDead, PublicAssistance, Notification
+from crm.models import Common60, Common61, Common70, CommonDead, DoingDead, JudiciaryDead, PublicAssistance, Notification, WinnerLottery60
 from drf_dynamic_fields import DynamicFieldsMixin  # GET api/articels/?fields=id,title : show just fields => id,title
 
 
@@ -98,3 +98,10 @@ class NotificationSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
         model = Notification
         # fields = '__all__'
         exclude = ('user', 'see', 'seedate')
+
+
+class WinnerLottery60Serializer(DynamicFieldsMixin, serializers.ModelSerializer):
+
+    class Meta:
+        model = WinnerLottery60
+        fields = '__all__'

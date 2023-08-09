@@ -13,6 +13,7 @@ router.register('jd', views.JudiciaryDeadViewSet, basename="JudiciaryDead")
 router.register('dd', views.DoingDeadViewSet, basename="DoingDead")
 router.register('pa', views.PublicAssistanceViewSet, basename="PublicAssistance")
 router.register('msg', views.NotificationViewSet, basename="Notification")
+router.register('lotteryc60', views.LotteryListView,  basename="lotteryapi")
 
 urlpatterns = [
     path("", include(router.urls)),

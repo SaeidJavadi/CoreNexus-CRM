@@ -207,7 +207,7 @@ class WinnerLottery60(models.Model):
     name = models.CharField(max_length=150, verbose_name=_("Name"))
     common = models.ForeignKey("Common60", on_delete=models.CASCADE, related_name='winquran')
     lottery = models.ForeignKey("lottery",  on_delete=models.CASCADE, related_name='winlottery')
-    windate = models.DateField(verbose_name=_("Add Time"), auto_now=True)
+    windate = models.DateTimeField(verbose_name=_("Add Time"), auto_now=True)
 
     class Meta:
         verbose_name = _("WinnerLottery60")
