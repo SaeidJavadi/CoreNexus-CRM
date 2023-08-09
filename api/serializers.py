@@ -101,6 +101,25 @@ class NotificationSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
 
 
 class WinnerLottery60Serializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    lottery = serializers.SerializerMethodField('get_lottery')
+    common = serializers.SerializerMethodField('get_common')
+
+    def get_lottery(self, obj):
+        try:
+            return {
+                'lottery_title': obj.lottery.title,
+            }
+        except:
+            return None
+
+    def get_common(self, obj):
+        try:
+            return {
+                'id': obj.common.id,
+                'name': obj.common.name,
+            }
+        except:
+            return None
 
     class Meta:
         model = WinnerLottery60
