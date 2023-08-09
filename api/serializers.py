@@ -99,6 +99,21 @@ class NotificationSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
         # fields = '__all__'
         exclude = ('user', 'see', 'seedate')
 
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        seelist = instance.see
+        username = self.context['request'].user
+        user_id = self.context['request'].user.id
+        seestatus = False
+        if len(seelist) > 0:
+            for u, i in seelist.items():
+                print(username, user_id)
+                if str(username) == str(u) and int(user_id) == int(i):
+                    seestatus = True
+                    break
+            representation['see_status'] = seestatus
+            return representation
+
 
 class WinnerLottery60Serializer(DynamicFieldsMixin, serializers.ModelSerializer):
     lottery = serializers.SerializerMethodField('get_lottery')

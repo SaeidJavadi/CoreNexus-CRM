@@ -238,3 +238,29 @@ class Notification(models.Model):
 
     def get_absolute_url(self):
         return reverse("Notification_detail", kwargs={"pk": self.pk})
+
+
+class AmountGift(models.Model):
+
+    class Meta:
+        verbose_name = _("AmountGift")
+        verbose_name_plural = _("AmountGifts")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("AmountGift_detail", kwargs={"pk": self.pk})
+
+
+class GiftTable24(models.Model):
+
+    class Meta:
+        verbose_name = _("GiftTable24")
+        verbose_name_plural = _("GiftTable24s")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("GiftTable24_detail", kwargs={"pk": self.pk})
