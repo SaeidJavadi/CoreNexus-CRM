@@ -111,7 +111,7 @@ class NotificationSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
                 if str(username) == str(u) and int(user_id) == int(i):
                     seestatus = True
                     break
-            representation['see_status'] = seestatus
+            representation['see_user'] = seestatus
             return representation
 
 
