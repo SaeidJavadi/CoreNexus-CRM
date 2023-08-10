@@ -284,38 +284,6 @@ class TableGift1(models.Model):
         return reverse("TableGift1_detail", kwargs={"pk": self.pk})
 
 
-class TableGift2(models.Model):
-    gifttable24 = models.ForeignKey(GiftTable24, verbose_name=_("Gift Tables"),
-                                    on_delete=models.CASCADE, related_name='tab2')
-    user = models.ForeignKey(User, verbose_name=_('User'), on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = _("TableGift2")
-        verbose_name_plural = _("TableGift2s")
-
-    def __str__(self):
-        return str(self.id)
-
-    def get_absolute_url(self):
-        return reverse("TableGift2_detail", kwargs={"pk": self.pk})
-
-
-class TableGift3(models.Model):
-    gifttable24 = models.ForeignKey(GiftTable24, verbose_name=_("Gift Tables"),
-                                    on_delete=models.CASCADE, related_name='tab3')
-    user = models.ForeignKey(User, verbose_name=_('User'), on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = _("TableGift3")
-        verbose_name_plural = _("TableGift3s")
-
-    def __str__(self):
-        return str(self.id)
-
-    def get_absolute_url(self):
-        return reverse("TableGift3_detail", kwargs={"pk": self.pk})
-
-
 class AmountGiftPay(models.Model):
     gifttable = models.OneToOneField('GiftTable24', on_delete=models.CASCADE,
                                      verbose_name=_('gifttable'), related_name=('giftpay'))
