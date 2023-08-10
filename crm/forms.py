@@ -104,3 +104,8 @@ class HodlingLotteryForm(forms.Form):
         attrs={'class': 'form-control', type: 'number'}))
     winstatus = forms.BooleanField(label="winners status", required=False)
     agree = forms.BooleanField(label="start holding?")
+
+
+class AddtoLotteryForm(forms.Form):
+    addcount = forms.IntegerField(label='Add to Lottery Count')
+    agree = forms.BooleanField(label="agree ?")

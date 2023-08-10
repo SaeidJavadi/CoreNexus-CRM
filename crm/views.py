@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, Lottery, Notification, WinnerLottery60
 from django.contrib.auth.decorators import login_required
-from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd, ObjectModelFormDd, ObjectModelFormPa, ObjectModelFormMSG, HodlingLotteryForm
+from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd, ObjectModelFormDd, ObjectModelFormPa, ObjectModelFormMSG, HodlingLotteryForm, AddtoLotteryForm
 from accounts.models import User
 from django.urls import reverse_lazy
 from django.utils import timezone
@@ -241,6 +241,33 @@ class LotteryListView(ListView):
 
 
 @login_required
+def AddtoLottery(request, title):
+    form = AddtoLotteryForm()
+    if request.method == 'POST':
+        form = AddtoLotteryForm(request.POST)
+        if form.is_valid():
+            addcount = form.cleaned_data['addcount']
+            lot = Lottery.objects.get(title=title)
+        try:
+            commons = Common60.objects.filter(lottery=None).values_list('id')
+            commons_count = commons.count()
+        except:
+            commons_count = 0
+        if commons_count > 0 and addcount <= commons_count:
+            list_addlot = tuple([i[0] for i in commons])
+            user_addlot = random.sample(list_addlot, addcount)
+            for id in user_addlot:
+                ca = Common60.objects.get(id=id)
+                ca.lottery = lot
+                ca.save()
+            return redirect('crm:c60_lottery', title=title)
+        else:
+            return HttpResponse("None List")
+    else:
+        return render(request, 'crm/obj_create.html', {'form': form})
+
+
+@login_required
 def HoldingLottery(request, title):
     form = HodlingLotteryForm()
     if request.method == 'POST':
@@ -255,7 +282,7 @@ def HoldingLottery(request, title):
                 commons_count = commons.count()
             except:
                 commons_count = 0
-            if commons_count > 0 and winner_count <= commons_count :
+            if commons_count > 0 and winner_count <= commons_count:
                 list_lot = tuple([i[0] for i in commons])
                 user_winner = random.sample(list_lot, winner_count)
                 for id in user_winner:
@@ -263,9 +290,6 @@ def HoldingLottery(request, title):
                     w = WinnerLottery60.objects.create(name=nameform, lottery=lot, common=cw)
                     send_notification(user_token=cw.usersubmit.fcmtoken,
                                       title="Lottery Win", body="You have won the lottery")
-                    print("="*30)
-                    print(f"{nameform} {winner_count} {winstatus}")
-                    print("="*30)
                     if winstatus:
                         cw.lottery = None
                         cw.save()

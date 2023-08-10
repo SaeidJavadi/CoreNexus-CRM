@@ -14,6 +14,7 @@ urlpatterns = [
     path('c60/update/<int:pk>', login_required(views.C60EUpdateView.as_view()), name='c60_update'),
     path('c60/delete/<int:pk>', login_required(views.C60DeleteView.as_view()), name='c60_delete'),
     path('c60/lottery/<str:title>', login_required(views.LotteryListView.as_view()), name='c60_lottery'),
+    path('c60/lottery/add/<str:title>', views.AddtoLottery, name='c60_addtolottery'),
     path('c60/lottery/holding/<str:title>', views.HoldingLottery, name='c60_holdinglottery'),
     path('c60/lottery/draws/<str:title>', views.DrawsLottery, name='c60_draws'),
     path('c60/lottery/draws/detail/<str:name>', views.DrawsDetailLottery, name='c60_drawdetail'),
