@@ -7,8 +7,8 @@ from django.urls import reverse
 class Common60(models.Model):   # Eshterak afrad 60 saal va kamtar
     usersubmit = models.ForeignKey(User, on_delete=models.CASCADE,
                                    verbose_name=_('Registrant'), related_name='user_c60')
-    lottery = models.ForeignKey("lottery", verbose_name=_(
-        "lottery"), on_delete=models.SET_NULL, default=None, null=True, blank=True, related_name='lottery_c60')
+    lottery = models.ForeignKey('lottery', verbose_name=_(
+        'lottery'), on_delete=models.SET_NULL, default=None, null=True, blank=True, related_name='lottery_c60')
     name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
     age = models.DateField(verbose_name=_('Age'))
     idcode = models.IntegerField(verbose_name=_('Id Code'))
@@ -193,80 +193,156 @@ class Lottery(models.Model):
     title = models.CharField(max_length=200, verbose_name=_('Lottery'), choices=lottery_field, blank=True, null=True)
 
     class Meta:
-        verbose_name = _("Lottery")
-        verbose_name_plural = _("Lotterys")
+        verbose_name = _('Lottery')
+        verbose_name_plural = _('Lotterys')
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("Lottery_detail", kwargs={"pk": self.pk})
+        return reverse('Lottery_detail', kwargs={'pk': self.pk})
 
 
 class WinnerLottery60(models.Model):
-    name = models.CharField(max_length=150, verbose_name=_("Name"))
-    common = models.ForeignKey("Common60", on_delete=models.CASCADE, related_name='winquran')
-    lottery = models.ForeignKey("lottery",  on_delete=models.CASCADE, related_name='winlottery')
-    windate = models.DateTimeField(verbose_name=_("Add Time"), auto_now=True)
+    name = models.CharField(max_length=150, verbose_name=_('Name'))
+    common = models.ForeignKey('Common60', on_delete=models.CASCADE, related_name='winquran')
+    lottery = models.ForeignKey('lottery',  on_delete=models.CASCADE, related_name='winlottery')
+    windate = models.DateTimeField(verbose_name=_('Add Time'), auto_now=True)
 
     class Meta:
-        verbose_name = _("WinnerLottery60")
-        verbose_name_plural = _("WinnerLottery60s")
+        verbose_name = _('WinnerLottery60')
+        verbose_name_plural = _('WinnerLottery60s')
         # unique_together = ('name', 'windate')
 
     def __str__(self):
-        return str(self.name)+"_"+str(self.windate)
+        return str(self.name)+'_'+str(self.windate)
 
     def get_absolute_url(self):
-        return reverse("WinnerLottery60_detail", kwargs={"pk": self.pk})
+        return reverse('WinnerLottery60_detail', kwargs={'pk': self.pk})
 
 
 class Notification(models.Model):
-    user = models.ManyToManyField(User, verbose_name=_("User"), related_name="user_msg")
+    user = models.ManyToManyField(User, verbose_name=_('User'), related_name='user_msg')
     createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
     seedate = models.DateTimeField(auto_now=True, verbose_name=_('See Date'))
-    subject = models.CharField(verbose_name=_("Subject"), max_length=120)
-    text = models.TextField(verbose_name=_("Text"))
-    see = models.JSONField(verbose_name=_("See"), default={})
+    subject = models.CharField(verbose_name=_('Subject'), max_length=120)
+    text = models.TextField(verbose_name=_('Text'))
+    see = models.JSONField(verbose_name=_('See'), default={})
 
     class Meta:
-        verbose_name = _("Notification")
-        verbose_name_plural = _("Notifications")
+        verbose_name = _('Notification')
+        verbose_name_plural = _('Notifications')
 
     def __str__(self):
         return self.subject
 
     def get_absolute_url(self):
-        return reverse("Notification_detail", kwargs={"pk": self.pk})
+        return reverse('Notification_detail', kwargs={'pk': self.pk})
 
 
 class GiftTable24(models.Model):
+    name = models.CharField(verbose_name=_('Table Name'), max_length=200)
+    monthnumber = models.IntegerField(verbose_name=_('Month Number'))
     amounttab1 = models.FloatField(verbose_name=_('Amount Tabale 1'), blank=True, null=True)
     amounttab2 = models.FloatField(verbose_name=_('Amount Tabale 2'), blank=True, null=True)
     amounttab3 = models.FloatField(verbose_name=_('Amount Tabale 3'), blank=True, null=True)
+    monthamount = models.FloatField(verbose_name=_('Month Amount'), blank=True, null=True)
+    subtraction = models.FloatField(verbose_name=_('subtraction'))
+    friendships = models.FloatField(verbose_name=_('Friendships and affections'))
+    numberannual = models.FloatField(verbose_name=_('Annual number'))
+    amountannual = models.FloatField(verbose_name=_('Annual Amount'))
+    totalsubtraction = models.FloatField(verbose_name=_('Total Subtraction'))
+    totalfriendships = models.FloatField(verbose_name=_('Total Friendships'))
+    gifts = models.CharField(verbose_name=_('Gifts'), max_length=200)
+    monthsequence = models.FloatField(verbose_name=_('monthsequence'))
+    notes = models.TextField(verbose_name=_('Notes'))
 
     class Meta:
-        verbose_name = _("GiftTable24")
-        verbose_name_plural = _("GiftTable24s")
+        verbose_name = _('GiftTable24')
+        verbose_name_plural = _('GiftTable24s')
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("GiftTable24_detail", kwargs={"pk": self.pk})
+        return reverse('GiftTable24_detail', kwargs={'pk': self.pk})
 
 
-class AmountGift(models.Model):
+class TableGift1(models.Model):
+    gifttable24 = models.ForeignKey(GiftTable24, verbose_name=_("Gift Tables"),
+                                    on_delete=models.CASCADE, related_name='tab1')
+    user = models.ForeignKey(User, verbose_name=_('User'), on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = _("TableGift1")
+        verbose_name_plural = _("TableGift1s")
+
+    def __str__(self):
+        return str(self.id)
+
+    def get_absolute_url(self):
+        return reverse("TableGift1_detail", kwargs={"pk": self.pk})
+
+
+class TableGift2(models.Model):
+    gifttable24 = models.ForeignKey(GiftTable24, verbose_name=_("Gift Tables"),
+                                    on_delete=models.CASCADE, related_name='tab1')
+    user = models.ForeignKey(User, verbose_name=_('User'), on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = _("TableGift2")
+        verbose_name_plural = _("TableGift2s")
+
+    def __str__(self):
+        return str(self.id)
+
+    def get_absolute_url(self):
+        return reverse("TableGift2_detail", kwargs={"pk": self.pk})
+
+
+class TableGift3(models.Model):
+    gifttable24 = models.ForeignKey(GiftTable24, verbose_name=_("Gift Tables"),
+                                    on_delete=models.CASCADE, related_name='tab1')
+    user = models.ForeignKey(User, verbose_name=_('User'), on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = _("TableGift3")
+        verbose_name_plural = _("TableGift3s")
+
+    def __str__(self):
+        return str(self.id)
+
+    def get_absolute_url(self):
+        return reverse("TableGift3_detail", kwargs={"pk": self.pk})
+
+
+class AmountGiftPay(models.Model):
     gifttable = models.OneToOneField('GiftTable24', on_delete=models.CASCADE,
                                      verbose_name=_('gifttable'), related_name=('giftpay'))
     created = models.DateTimeField(auto_now_add=True, verbose_name=_('created'))
 
     class Meta:
-        verbose_name = _("AmountGift")
-        verbose_name_plural = _("AmountGifts")
+        verbose_name = _('AmountGiftPay')
+        verbose_name_plural = _('AmountGiftPays')
+
+    def __str__(self):
+        return self.created
+
+    def get_absolute_url(self):
+        return reverse('AmountGiftPay_detail', kwargs={'pk': self.pk})
+
+
+class Installment(models.Model):
+    amountgiftpay = models.OneToOneField(AmountGiftPay, verbose_name=_(
+        'AmountGiftPay'), on_delete=models.CASCADE, related_name='qst')
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = _("Installment")
+        verbose_name_plural = _("Installments")
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("AmountGift_detail", kwargs={"pk": self.pk})
+        return reverse("Installment_detail", kwargs={"pk": self.pk})
