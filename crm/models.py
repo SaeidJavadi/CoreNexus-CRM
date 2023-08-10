@@ -286,7 +286,7 @@ class TableGift1(models.Model):
 
 class TableGift2(models.Model):
     gifttable24 = models.ForeignKey(GiftTable24, verbose_name=_("Gift Tables"),
-                                    on_delete=models.CASCADE, related_name='tab1')
+                                    on_delete=models.CASCADE, related_name='tab2')
     user = models.ForeignKey(User, verbose_name=_('User'), on_delete=models.CASCADE)
 
     class Meta:
@@ -302,7 +302,7 @@ class TableGift2(models.Model):
 
 class TableGift3(models.Model):
     gifttable24 = models.ForeignKey(GiftTable24, verbose_name=_("Gift Tables"),
-                                    on_delete=models.CASCADE, related_name='tab1')
+                                    on_delete=models.CASCADE, related_name='tab3')
     user = models.ForeignKey(User, verbose_name=_('User'), on_delete=models.CASCADE)
 
     class Meta:
