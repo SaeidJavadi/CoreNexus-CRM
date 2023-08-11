@@ -243,9 +243,7 @@ class Notification(models.Model):
 class TableGift24(models.Model):
     name = models.CharField(verbose_name=_('Table Name'), max_length=200)
     monthnumber = models.IntegerField(verbose_name=_('Month Number'))
-    amounttab1 = models.FloatField(verbose_name=_('Amount Tabale 1'), blank=True, null=True)
-    amounttab2 = models.FloatField(verbose_name=_('Amount Tabale 2'), blank=True, null=True)
-    amounttab3 = models.FloatField(verbose_name=_('Amount Tabale 3'), blank=True, null=True)
+    amount = models.FloatField(verbose_name=_('Amount'), blank=True, null=True)
     monthamount = models.FloatField(verbose_name=_('Month Amount'), blank=True, null=True)
     subtraction = models.FloatField(verbose_name=_('subtraction'))
     friendships = models.FloatField(verbose_name=_('Friendships and affections'))
