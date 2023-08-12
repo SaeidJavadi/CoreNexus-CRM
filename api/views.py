@@ -308,7 +308,10 @@ class LotteryListView(ModelViewSet):
 
     def list(self, request):
         user = request.user.id
-        c60 = crmmod.Common60.objects.get(usersubmit=user)
-        queryset = crmmod.WinnerLottery60.objects.filter(common=c60)
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
+        try:
+            c60 = crmmod.Common60.objects.get(usersubmit=user)
+            queryset = crmmod.WinnerLottery60.objects.filter(common=c60)
+            serializer = self.get_serializer(queryset, many=True)
+            return Response(serializer.data)
+        except:
+            return Response([])
