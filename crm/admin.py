@@ -1,6 +1,6 @@
 from django.contrib import admin
 from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, Lottery,\
-    Notification, WinnerLottery60, TableGift24, Installment, AmountGiftPay, TableGift
+    Notification, WinnerLottery60, TableName, TableGift
 
 
 @admin.register(Common60)
@@ -75,29 +75,33 @@ class WinnerLottery60Admin(admin.ModelAdmin):
     pass
 
 
-@admin.register(TableGift24)
-class TableGift24Admin(admin.ModelAdmin):
-    class Meta:
-        model = TableGift24
-        fields = '__all__'
-
-
-@admin.register(Installment)
-class InstallmentAdmin(admin.ModelAdmin):
-    class Meta:
-        model = Installment
-        fields = '__all__'
-
-
-@admin.register(AmountGiftPay)
-class AmountGiftPayAdmin(admin.ModelAdmin):
-    class Meta:
-        model = AmountGiftPay
-        fields = '__all__'
+@admin.register(TableName)
+class TableNameAdmin(admin.ModelAdmin):
+    list_display = ("footer", "name")
 
 
 @admin.register(TableGift)
-class TableGift1Admin(admin.ModelAdmin):
+class TableGiftAdmin(admin.ModelAdmin):
     class Meta:
         model = TableGift
         fields = '__all__'
+
+
+# @admin.register(TableGiftUser)
+# class TableGiftUserAdmin(admin.ModelAdmin):
+#     class Meta:
+#         model = TableGiftUser
+#         list_display = '__all__'
+
+
+# @admin.register(TableAmount)
+# class TableAmountAdmin(admin.ModelAdmin):
+#     class Meta:
+#         model = TableAmount
+#         fields = '__all__'
+
+# @admin.register(Installment)
+# class InstallmentAdmin(admin.ModelAdmin):
+#     class Meta:
+#         model = Installment
+#         fields = '__all__'
