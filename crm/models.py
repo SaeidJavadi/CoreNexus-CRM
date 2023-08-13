@@ -288,11 +288,11 @@ class TableGiftUser(models.Model):
     user = models.ForeignKey(User, verbose_name=_('User'), on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = _("TableGift")
-        verbose_name_plural = _("TableGifts")
+        verbose_name = _("TableGiftUser")
+        verbose_name_plural = _("TableGiftUsers")
 
     def __str__(self):
-        return str(self.id)
+        return str(self.id) + ' - ' + self.tablegift.tablename.name
 
     def get_absolute_url(self):
         return reverse("TableGift_detail", kwargs={"pk": self.pk})
@@ -308,23 +308,25 @@ class TableAmount(models.Model):
         verbose_name_plural = _('TableAmounts')
 
     def __str__(self):
-        return self.created
+        return str(self.id)+' - '+str(self.tablegiftuser.user.username)
 
     def get_absolute_url(self):
         return reverse('TableAmount_detail', kwargs={'pk': self.pk})
 
 
-class Installment(models.Model):
+class TableInstallment(models.Model):
     tableamount = models.OneToOneField(TableAmount, verbose_name=_(
         'TableAmount'), on_delete=models.CASCADE, related_name='qst')
+    payment = models.FloatField(verbose_name='Payment')
+
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name = _("Installment")
-        verbose_name_plural = _("Installments")
+        verbose_name = _("TableInstallment")
+        verbose_name_plural = _("TableInstallments")
 
     def __str__(self):
-        return self.name
+        return str(self.id)+' - '+str(self.tableamount.tablegiftuser.user.username)
 
     def get_absolute_url(self):
-        return reverse("Installment_detail", kwargs={"pk": self.pk})
+        return reverse("TableInstallment_detail", kwargs={"pk": self.pk})
