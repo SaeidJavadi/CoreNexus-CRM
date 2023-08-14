@@ -318,3 +318,14 @@ class LotteryListView(ModelViewSet):
             return Response(serializer.data)
         except:
             return Response([])
+
+
+class TableListView(ModelViewSet):
+    serilizer_class = serializers
+    
+    def get_permissions(self):
+    if self.action in ['create', 'destroy', 'update']:
+        permission_classes = (IsSuperUser,)
+    else:
+        permission_classes = (IsAu,)
+    return [permission() for permission in permission_classes]
