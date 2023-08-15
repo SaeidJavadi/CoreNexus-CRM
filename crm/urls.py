@@ -56,5 +56,9 @@ urlpatterns = [
     path('notification/update/<int:pk>', login_required(views.MessagesUpdateView.as_view()), name='msg_update'),
     path('notification/delete/<int:pk>', login_required(views.MessagesDeleteView.as_view()), name='msg_delete'),
     path('tabalegift/<str:tabname>', login_required(views.TableGiftListView.as_view()), name='tabgift'),
+    path('tabalegift/create/', login_required(views.TableGiftCreateView.as_view()), name='tabalegift_create'),
+    path('tabalegift/read/<int:pk>', login_required(views.TableGiftDetailView.as_view()), name='tabalegift_read'),
+    path('tabalegift/update/<int:pk>', login_required(views.TableGiftUpdateView.as_view()), name='tabalegift_update'),
+    path('tabalegift/delete/<int:pk>', login_required(views.TableGiftDeleteView.as_view()), name='tabalegift_delete'),
 
 ]

@@ -4,7 +4,7 @@ from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, 
     Lottery, Notification, WinnerLottery60, TableGift
 from django.contrib.auth.decorators import login_required
 from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd,\
-    ObjectModelFormDd, ObjectModelFormPa, ObjectModelFormMSG, HodlingLotteryForm, AddtoLotteryForm
+    ObjectModelFormDd, ObjectModelFormPa, ObjectModelFormMSG, HodlingLotteryForm, AddtoLotteryForm, ObjectModelFormTabGift
 from accounts.models import User
 from django.urls import reverse_lazy
 from django.utils import timezone
@@ -742,20 +742,54 @@ class TableGiftListView(ListView):
         query_search = self.request.GET.get('q')
         query_filter = self.request.GET.get('f')
         queryset = super().get_queryset().filter(tablename__name=tabname)
-        print('='*30)
-        for qq in queryset:
-            print(qq.id)
-        print('='*30)
         if query_search:
             queryset = queryset.filter(
-                Q(name__contains=query_search) |
-                Q(idcode__contains=query_search) |
-                Q(phone__contains=query_search) |
-                Q(usersubmit__username__contains=query_search) |
-                Q(contery__contains=query_search) |
-                Q(city__contains=query_search)
+                Q(gifts__contains=query_search) |
+                Q(notes__contains=query_search)
             )
         if query_filter:
             if query_filter != 'All':
                 queryset = queryset.filter(status=query_filter)
         return queryset
+    
+    
+class TableGiftCreateView(CreateView):
+    model = TableGift
+    form_class = ObjectModelFormTabGift
+    template_name = 'crm/obj_create.html'
+    success_message = 'Success: Created.'
+    success_url = reverse_lazy('crm:tabgift')
+
+    def form_valid(self, form):
+        userselected = form.cleaned_data['user']
+        subject = form.cleaned_data['subject']
+        text = form.cleaned_data['text']
+        for user in userselected:
+
+            fcmtoken = User.objects.get(username=user).fcmtoken
+            if fcmtoken != None:
+                send_notification(user_token=fcmtoken, title=subject, body=text)
+        return super().form_valid(form)
+
+
+class TableGiftDetailView(DetailView):
+    model = TableGift
+    context_object_name = 'obj'
+    template_name = 'crm/tabs_detail.html'
+
+
+class TableGiftUpdateView(UpdateView):
+    model = TableGift
+    form_class = ObjectModelFormTabGift
+    template_name = 'crm/obj_update.html'
+    success_message = 'Success: Table was updated.'
+    success_url = reverse_lazy('crm:tabgift')
+
+
+class TableGiftDeleteView(DeleteView):
+    model = TableGift
+    context_object_name = 'obj'
+    template_name = 'crm/obj_delete.html'
+    success_message = 'Success: Table was deleted.'
+    success_url = reverse_lazy('crm:tabgift')
+

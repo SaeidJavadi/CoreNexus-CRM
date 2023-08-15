@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'crm/css/printstyle.css' %}">
+{% endblock head %}
+{% block content %}
+    <table id="objs-table" class="table">
+        <thead>
+            <tr>
+                <th>Table Name:</th>
+                <th>{{ obj.tablename }}</th>
+            </tr>
+            <tr>
+                <th>Month Number:</th>
+                <th>{{ obj.monthnumber }}</th>
+            </tr>
+            <tr>
+                <th>Amount:</th>
+                <th>{{ obj.amount }}</th>
+            </tr>
+            <tr>
+                <th>Month Amount:</th>
+                <th>{{ obj.monthamount }}</th>
+            </tr>
+            <tr>
+                <th>Subtraction:</th>
+                <th>{{ obj.subtraction }}</th>
+            </tr>
+            <tr>
+                <th>Friendships:</th>
+                <th>{{ obj.friendships }}</th>
+            </tr>
+            <tr>
+                <th>Number Annual:</th>
+                <th>{{ obj.numberannual }}</th>
+            </tr>
+            <tr>
+                <th>Amount Annual:</th>
+                <th>{{ obj.amountannual }}</th>
+            </tr>
+            <tr>
+                <th>Total Subtraction:</th>
+                <th>{{ obj.totalsubtraction }}</th>
+            </tr>
+            <tr>
+                <th>Total Friendships:</th>
+                <th>{{ obj.totalfriendships }}</th>
+            </tr>
+            <tr>
+                <th>Gifts:</th>
+                <th>{{ obj.gifts }}</th>
+            </tr>
+            <tr>
+                <th>Month Sequence:</th>
+                <th>{{ obj.monthsequence }}</th>
+            </tr>
+            <tr>
+                <th>Pay Type:</th>       
+                <th>{{ obj.paytype }}</th>
+            </tr>
+            <tr>
+                <th>Notes:</th>   
+                <th>{{ obj.notes }}</th>
+            </tr>
+        </thead>
+    </table>
+    <center>
+        <button onclick="window.print();" class="print-button noPrint">
+            <span class="print-icon"></span>
+        </button>
+    </center>
+{% endblock content %}

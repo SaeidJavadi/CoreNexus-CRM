@@ -1,5 +1,6 @@
 from django import forms
-from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, Notification
+from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance,\
+    Notification, TableGift
 
 
 class ObjectModelForm60(forms.ModelForm):
@@ -109,3 +110,14 @@ class HodlingLotteryForm(forms.Form):
 class AddtoLotteryForm(forms.Form):
     addcount = forms.IntegerField(label='Add to Lottery Count')
     agree = forms.BooleanField(label="agree ?")
+
+
+class ObjectModelFormTabGift(forms.ModelForm):
+    class Meta:
+        model = TableGift
+        fields = '__all__'
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'

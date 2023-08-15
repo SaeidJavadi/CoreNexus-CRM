@@ -53,16 +53,14 @@
         <table id="objs-table" class="table">
             <thead>
                 <tr>
-                    <th class="text-center" scope="col">tablename</th>
-                    <th class="text-center" scope="col">monthnumber</th>
-                    <th class="text-center" scope="col">amount</th>
-                    <th class="text-center" scope="col">monthamount</th>
-                    <th class="text-center" scope="col">subtraction</th>
-                    <th class="text-center" scope="col">friendships</th>
-                    <th class="text-center" scope="col">numberannual</th>
-                    <th class="text-center" scope="col">amountannual</th>
-                    <th class="text-center" scope="col">gifts</th>
-                    <th class="text-center" scope="col">paytype</th>
+                    <th class="text-center" scope="col">Table Name</th>
+                    <th class="text-center" scope="col">Month Number</th>
+                    <th class="text-center" scope="col">Amount</th>
+                    <th class="text-center" scope="col">Monthamount</th>
+                    <th class="text-center" scope="col">Subtraction</th>
+                    <th class="text-center" scope="col">Friendships</th>
+                    <th class="text-center" scope="col">Gifts</th>
+                    <th class="text-center" scope="col">Paytype</th>
                     <th class="text-center" scope="col"></th>
                 </tr>
             </thead>
@@ -70,27 +68,25 @@
                 {% for obj in objects %}
                     <tr>
                         {% comment %} <th class="text-center" scope="row">{{ forloop.counter }}</th> {% endcomment %}
-                        <td class="text-center">{{ obj.tablename__name }}</td>
+                        <td class="text-center">{{ obj.tablename.name }}</td>
                         <td class="text-center">{{ obj.monthnumber }}</td>
                         <td class="text-center">{{ obj.amount }}</td>
                         <td class="text-center">{{ obj.monthamount }}</td>
                         <td class="text-center">{{ obj.subtraction }}</td>
                         <td class="text-center">{{ obj.friendships }}</td>
-                        <td class="text-center">{{ obj.numberannual }}</td>
-                        <td class="text-center">{{ obj.amountannual }}</td>
                         <td class="text-center">{{ obj.gifts }}</td>
                         <td class="text-center">{{ obj.paytype }}</td>
                         <td class="text-center">
                             <!-- Read buttons -->
-                            <a type="button" class="btn btn-sm btn-success" href="">
+                            <a type="button" class="btn btn-sm btn-success" href="{% url 'crm:tabalegift_read' obj.id %}">
                                 <span class="ri-eye-line"></span>
                             </a>
                             <!-- Update buttons -->
-                            <a type="button" class="btn btn-sm btn-primary" href="">
+                            <a type="button" class="btn btn-sm btn-primary" href="{% url 'crm:tabalegift_update' obj.id %}">
                                 <span class="ri-edit-2-line"></span>
                             </a>
                             <!-- Delete buttons -->
-                            <a type="button" class="btn btn-sm btn-danger" href="">
+                            <a type="button" class="btn btn-sm btn-danger" href="{% url 'crm:tabalegift_delete' obj.id %}">
                                 <span class="ri-delete-bin-line"></span>
                             </a>
                         </td>
