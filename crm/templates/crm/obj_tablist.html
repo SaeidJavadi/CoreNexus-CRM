@@ -60,7 +60,7 @@
                     <th class="text-center" scope="col">Subtraction</th>
                     <th class="text-center" scope="col">Friendships</th>
                     <th class="text-center" scope="col">Title Gifts</th>
-                    <th class="text-center" scope="col">Paytype</th>
+                    <th class="text-center" scope="col">Pay Type</th>
                     <th class="text-center" scope="col"></th>
                 </tr>
             </thead>
@@ -78,15 +78,21 @@
                         <td class="text-center">{{ obj.paytype }}</td>
                         <td class="text-center">
                             <!-- Read buttons -->
-                            <a type="button" class="btn btn-sm btn-success" href="{% url 'crm:tabalegift_read' obj.id %}">
+                            <a type="button"
+                               class="btn btn-sm btn-success"
+                               href="{% url 'crm:tabalegift_read' obj.id %}">
                                 <span class="ri-eye-line"></span>
                             </a>
                             <!-- Update buttons -->
-                            <a type="button" class="btn btn-sm btn-primary" href="{% url 'crm:tabalegift_update' obj.id %}">
+                            <a type="button"
+                               class="btn btn-sm btn-primary"
+                               href="{% url 'crm:tabalegift_update' obj.id %}">
                                 <span class="ri-edit-2-line"></span>
                             </a>
                             <!-- Delete buttons -->
-                            <a type="button" class="btn btn-sm btn-danger" href="{% url 'crm:tabalegift_delete' obj.id %}">
+                            <a type="button"
+                               class="btn btn-sm btn-danger"
+                               href="{% url 'crm:tabalegift_delete' obj.id %}">
                                 <span class="ri-delete-bin-line"></span>
                             </a>
                         </td>
