@@ -268,7 +268,7 @@ class TableGift(models.Model):
     amountannual = models.FloatField(verbose_name=_('Annual Amount'))
     totalsubtraction = models.FloatField(verbose_name=_('Total Subtraction'))
     totalfriendships = models.FloatField(verbose_name=_('Total Friendships'))
-    gifts = models.CharField(verbose_name=_('Gifts'), max_length=200)
+    gifts = models.CharField(verbose_name=_('Title Gifts'), max_length=200)
     monthsequence = models.FloatField(verbose_name=_('Month Sequence'))
     paytype = models.IntegerField(verbose_name=_('Pay Type'), default=1, validators=[
                                   MaxValueValidator(12), MinValueValidator(1)])
