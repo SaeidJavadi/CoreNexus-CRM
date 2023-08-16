@@ -758,18 +758,8 @@ class TableGiftCreateView(CreateView):
     form_class = ObjectModelFormTabGift
     template_name = 'crm/obj_create.html'
     success_message = 'Success: Created.'
-    success_url = reverse_lazy('crm:tabgift')
+    success_url = reverse_lazy('crm:home')
 
-    def form_valid(self, form):
-        userselected = form.cleaned_data['user']
-        subject = form.cleaned_data['subject']
-        text = form.cleaned_data['text']
-        for user in userselected:
-
-            fcmtoken = User.objects.get(username=user).fcmtoken
-            if fcmtoken != None:
-                send_notification(user_token=fcmtoken, title=subject, body=text)
-        return super().form_valid(form)
 
 
 class TableGiftDetailView(DetailView):
@@ -783,7 +773,7 @@ class TableGiftUpdateView(UpdateView):
     form_class = ObjectModelFormTabGift
     template_name = 'crm/obj_update.html'
     success_message = 'Success: Table was updated.'
-    success_url = reverse_lazy('crm:tabgift')
+    success_url = reverse_lazy('crm:home')
 
 
 class TableGiftDeleteView(DeleteView):
@@ -791,5 +781,5 @@ class TableGiftDeleteView(DeleteView):
     context_object_name = 'obj'
     template_name = 'crm/obj_delete.html'
     success_message = 'Success: Table was deleted.'
-    success_url = reverse_lazy('crm:tabgift')
+    success_url = reverse_lazy('crm:home')
 

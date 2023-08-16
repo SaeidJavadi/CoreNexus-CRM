@@ -318,7 +318,7 @@ class TableAmount(models.Model):
 
 
 class TableInstallment(models.Model):
-    tableamount = models.OneToOneField(TableAmount, verbose_name=_(
+    tableamount = models.OneToOneField(TableGiftUser, verbose_name=_(
         'TableAmount'), on_delete=models.CASCADE, related_name='qst')
     payment = models.FloatField(verbose_name='Payment')
 
