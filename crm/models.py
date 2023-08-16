@@ -301,15 +301,15 @@ class TableGiftUser(models.Model):
         return reverse("TableGift_detail", kwargs={"pk": self.pk})
 
 
-class TableAmount(models.Model):
+class TablePayment(models.Model):
     tabgiftusr = models.OneToOneField(TableGiftUser, on_delete=models.CASCADE,
                                       verbose_name=_('Table Gift'), related_name=('pay'))
     created = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     payment = models.FloatField(verbose_name='Payment')
 
     class Meta:
-        verbose_name = _('TableAmount')
-        verbose_name_plural = _('TableAmounts')
+        verbose_name = _('TablePayment')
+        verbose_name_plural = _('TablePayments')
         
         
 
@@ -317,4 +317,4 @@ class TableAmount(models.Model):
         return 'Pay_' + str(self.id) + '-' + str(self.tabgiftusr.user.username)
 
     def get_absolute_url(self):
-        return reverse('tableamount_detail', kwargs={'pk': self.pk})
+        return reverse('TablePayment_detail', kwargs={'pk': self.pk})
