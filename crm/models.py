@@ -290,8 +290,11 @@ class TableGiftUser(models.Model):
                                   on_delete=models.CASCADE, related_name='tabgiftusr')
     user = models.ForeignKey(User, verbose_name=_('User'), on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
+    updated = models.DateTimeField(auto_now=True, verbose_name=_('Updated'))
+    active = models.BooleanField(verbose_name=_('Active'), default=True)
     countchances = models.IntegerField(verbose_name=_('Count of Chances'), default=1)
     amount = models.IntegerField(verbose_name=_('Amount'))
+    countpay = models.IntegerField(verbose_name=_('Count Pay'))
     paystatus = models.BooleanField(verbose_name=_('Pay Status'), default=False)
 
     class Meta:
@@ -306,7 +309,7 @@ class TableGiftUser(models.Model):
 
 
 class TablePayment(models.Model):
-    tabgiftusr = models.OneToOneField(TableGiftUser, on_delete=models.CASCADE,
+    tabgiftusr = models.ForeignKey(TableGiftUser, on_delete=models.CASCADE,
                                       verbose_name=_('Table Gift'), related_name=('pay'))
     created = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     payment = models.FloatField(verbose_name='Payment')

@@ -151,7 +151,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.User'
 
 REST_FRAMEWORK = {
-    # 'DATETIME_FORMAT': '%s',
+    'DATETIME_FORMAT': '%s',
     'DEFAULT_PERMISSION_CLASSES': [
         'api.permissions.IsStaffOrReadOnly',
     ],

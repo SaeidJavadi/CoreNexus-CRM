@@ -1,4 +1,3 @@
-from rest_framework.generics import ListAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -341,8 +340,21 @@ class TabGiftUsrViewSet(ModelViewSet):
     queryset = crmmod.TableGiftUser.objects.all()
     ordering_fields = ['id',]
 
+    # def create(self, request, *args, **kwargs):
+    #     return super().create(*args, **kwargs)
+
     def perform_create(self, serializer):
-        return serializer.save(user=self.request.user)
+        try:
+            countpay = self.request.data.get('countpay')
+            pktabgift = self.request.data.get('tablegift')
+            amttabgift = crmmod.TableGift.objects.get(id=pktabgift).amount
+            amountpay = round(amttabgift / countpay, 3)
+            tbcrusr = serializer.save(user=self.request.user, amount=amttabgift)
+            for i in range(0, countpay):
+                py = crmmod.TablePayment.objects.create(tabgiftusr=tbcrusr, payment=amountpay)
+            return tbcrusr
+        except Exception as e:
+            print(e)
 
     def get_permissions(self):
         if self.action in ['update', 'destroy']:
@@ -365,15 +377,15 @@ class TabPayViewSet(ModelViewSet):
     ordering_fields = ['id',]
 
     def get_permissions(self):
-        if self.action in ['list', 'create']:
+        if self.action in ['list', 'retrieve']:
             permission_classes = (IsOwnerOrReadOnlyTable,)
         else:
-            permission_classes = (IsAuthenticated,)
+            permission_classes = (IsSuperUser,)
         return [permission() for permission in permission_classes]
 
-    # def get_queryset(self):
-    #     user = self.request.user
-    #     if user.is_superuser or user.is_staff:
-    #         return crmmod.TablePayment.objects.all()
-    #     else:
-    #         return crmmod.Notification.objects.filter(user=user)
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_superuser or user.is_staff:
+            return crmmod.TablePayment.objects.all()
+        else:
+            return crmmod.TablePayment.objects.filter(tabgiftusr__user__id=user.id)
