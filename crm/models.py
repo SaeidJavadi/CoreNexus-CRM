@@ -302,7 +302,7 @@ class TableGiftUser(models.Model):
         verbose_name_plural = _("TableGiftUsers")
 
     def __str__(self):
-        return 'Buy.'+str(self.id) + '-' + self.tablegift.tabletype.name
+        return 'Buy.'+str(self.id) + '-' + self.user.username + '_' + self.tablegift.tabletype.name
 
     def get_absolute_url(self):
         return reverse("TableGift_detail", kwargs={"pk": self.pk})
@@ -320,7 +320,7 @@ class TablePayment(models.Model):
         verbose_name_plural = _('TablePayments')
 
     def __str__(self):
-        return 'Pay.' + str(self.id) + '-' + str(self.tabgiftusr.user.username)
+        return 'Pay.' + str(self.tabgiftusr.id) + '-' + str(self.tabgiftusr.user.username)
 
     def get_absolute_url(self):
         return reverse('TablePayment_detail', kwargs={'pk': self.pk})

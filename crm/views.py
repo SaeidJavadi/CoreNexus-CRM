@@ -741,7 +741,7 @@ class TableGiftListView(ListView):
         tabname = self.kwargs.get('tabname')
         query_search = self.request.GET.get('q')
         query_filter = self.request.GET.get('f')
-        queryset = super().get_queryset().filter(tablename__name=tabname)
+        queryset = super().get_queryset().filter(tabletype__name=tabname)
         if query_search:
             queryset = queryset.filter(
                 Q(gifts__contains=query_search) |
@@ -751,15 +751,14 @@ class TableGiftListView(ListView):
             if query_filter != 'All':
                 queryset = queryset.filter(status=query_filter)
         return queryset
-    
-    
+
+
 class TableGiftCreateView(CreateView):
     model = TableGift
     form_class = ObjectModelFormTabGift
     template_name = 'crm/obj_create.html'
     success_message = 'Success: Created.'
     success_url = reverse_lazy('crm:home')
-
 
 
 class TableGiftDetailView(DetailView):
@@ -782,4 +781,3 @@ class TableGiftDeleteView(DeleteView):
     template_name = 'crm/obj_delete.html'
     success_message = 'Success: Table was deleted.'
     success_url = reverse_lazy('crm:home')
-

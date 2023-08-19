@@ -347,9 +347,13 @@ class TabGiftUsrViewSet(ModelViewSet):
         try:
             countpay = self.request.data.get('countpay')
             pktabgift = self.request.data.get('tablegift')
-            amttabgift = crmmod.TableGift.objects.get(id=pktabgift).amount
-            amountpay = round(amttabgift / countpay, 3)
-            tbcrusr = serializer.save(user=self.request.user, amount=amttabgift)
+            cchances = self.request.data.get('countchances')
+            amountpay = crmmod.TableGift.objects.get(id=pktabgift).amount
+            if not cchances:
+                cchances = 1
+            amountpay = amountpay * cchances
+            tbcrusr = serializer.save(user=self.request.user, amount=amountpay)
+            amountpay = round(amountpay / countpay, 3)
             for i in range(0, countpay):
                 py = crmmod.TablePayment.objects.create(tabgiftusr=tbcrusr, payment=amountpay)
             return tbcrusr
