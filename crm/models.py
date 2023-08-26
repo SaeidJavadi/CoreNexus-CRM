@@ -8,7 +8,7 @@ from django.urls import reverse
 class Common60(models.Model):   # Eshterak afrad 60 saal va kamtar
     usersubmit = models.ForeignKey(User, on_delete=models.CASCADE,
                                    verbose_name=_('Registrant'), related_name='user_c60')
-    lottery = models.ForeignKey('lottery', verbose_name=_(
+    lottery = models.ForeignKey('LotteryC60', verbose_name=_(
         'lottery'), on_delete=models.SET_NULL, default=None, null=True, blank=True, related_name='lottery_c60')
     name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
     age = models.DateField(verbose_name=_('Age'))
@@ -186,7 +186,7 @@ class PublicAssistance(models.Model):  # komak be khirieh
         return reverse('PublicAssistance_detail', kwargs={'pk': self.pk})
 
 
-class Lottery(models.Model):
+class LotteryC60(models.Model):
     lottery_field = (
         ('quran', _('Quran memorization lottery')),
         ('ziarat', _('Visiting religious places'))
@@ -194,20 +194,20 @@ class Lottery(models.Model):
     title = models.CharField(max_length=200, verbose_name=_('Lottery'), choices=lottery_field, blank=True, null=True)
 
     class Meta:
-        verbose_name = _('Lottery')
-        verbose_name_plural = _('Lotterys')
+        verbose_name = _('LotteryC60')
+        verbose_name_plural = _('LotteryC60s')
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('Lottery_detail', kwargs={'pk': self.pk})
+        return reverse('LotteryC60_detail', kwargs={'pk': self.pk})
 
 
 class WinnerLottery60(models.Model):
     name = models.CharField(max_length=150, verbose_name=_('Name'))
     common = models.ForeignKey('Common60', on_delete=models.CASCADE, related_name='winquran')
-    lottery = models.ForeignKey('lottery',  on_delete=models.CASCADE, related_name='winlottery')
+    lottery = models.ForeignKey('LotteryC60',  on_delete=models.CASCADE, related_name='winlottery')
     windate = models.DateTimeField(verbose_name=_('Add Time'), auto_now=True)
 
     class Meta:

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance,\
-    Lottery, Notification, WinnerLottery60, TableGift, TableGiftUser, WinTableLottery
+    LotteryC60, Notification, WinnerLottery60, TableGift, TableGiftUser, WinTableLottery
 from django.contrib.auth.decorators import login_required
 from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd,\
     ObjectModelFormDd, ObjectModelFormPa, ObjectModelFormMSG, HodlingLotteryForm, AddtoLotteryForm,\
@@ -218,8 +218,11 @@ class LotteryListView(ListView):
         query_search = self.request.GET.get('q')
         query_filter = self.request.GET.get('f')
         if title:
-            lot = Lottery.objects.get(title=title)
-            queryset = super().get_queryset().filter(lottery=lot)
+            try:
+                lot = LotteryC60.objects.get(title=title)
+                queryset = super().get_queryset().filter(lottery=lot)
+            except:
+                return queryset
         if query_search:
             queryset = queryset.filter(
                 Q(name__contains=query_search) |
@@ -242,7 +245,7 @@ def AddtoLottery(request, title):
         form = AddtoLotteryForm(request.POST)
         if form.is_valid():
             addcount = form.cleaned_data['addcount']
-            lot = Lottery.objects.get(title=title)
+            lot = LotteryC60.objects.get(title=title)
         try:
             commons = Common60.objects.filter(lottery=None).values_list('id')
             commons_count = commons.count()
@@ -271,7 +274,7 @@ def HoldingLottery(request, title):
             nameform = form.cleaned_data['name']
             winner_count = form.cleaned_data['countwinner']
             winstatus = form.cleaned_data['winstatus']
-            lot = Lottery.objects.get(title=title)
+            lot = LotteryC60.objects.get(title=title)
             try:
                 commons = Common60.objects.filter(lottery=lot).values_list('id')
                 commons_count = commons.count()
@@ -303,7 +306,7 @@ def HoldingLottery(request, title):
 @login_required
 def DrawsLottery(request, title):
     if title == "quran" or title == "ziarat":
-        lot = Lottery.objects.get(title=title)
+        lot = LotteryC60.objects.get(title=title)
         winner_list = WinnerLottery60.objects.all().values_list('name', 'windate').filter(lottery=lot).distinct()
         return render(request, 'crm/lottery_draws.html', {'draws': winner_list})
     else:
