@@ -57,6 +57,21 @@ class RevokeToken(APIView):
         return Response({'msg': 'Token Revoked.'})
 
 
+class AmoountsViewSet(ModelViewSet):
+    queryset = crmmod.CommonsAmount.objects.all()
+    serializer_class = serializers.AmoountsSerilizer
+    filterset_fields = ['name', 'title']
+    ordering_fields = ['name', 'title']
+    ordering = ['id']
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = (IsAuthenticated,)
+        else:
+            permission_classes = (IsSuperUser,)
+        return [permission() for permission in permission_classes]
+
+
 class Common60ViewSet(ModelViewSet):
     serializer_class = serializers.Common60Serializer
     filterset_fields = ['status', 'usersubmit']
@@ -69,16 +84,23 @@ class Common60ViewSet(ModelViewSet):
         'usersubmit__phone',
     ]
 
-    def perform_create(self, serializer):
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        serializer = self.get_serializer(data=data)
         try:
-            lottery = int(self.request.data.get('lottery'))
-            common = serializer.save()
-            print('-'*30)
-            print(lottery)
-            print('-'*30)
-            return common
-        except Exception as e:
-            print(e)
+            lottery = self.request.data.get('lottery')
+            if lottery == 2:
+                amount = crmmod.CommonsAmount.objects.get(name='c60z').id
+            else:
+                amount = crmmod.CommonsAmount.objects.get(name='c60').id
+            data['amount'] = amount
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return Response(serializer.data, status=201, headers=headers)
+        except:
+            serializer.is_valid(raise_exception=True)
+            return Response(serializer.data, status=400)
 
     def get_permissions(self):
         if self.action in ['create', ]:
@@ -107,6 +129,22 @@ class Common61ViewSet(ModelViewSet):
         'usersubmit__phone',
     ]
 
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        serializer = self.get_serializer(data=data)
+        try:
+            data = request.data
+            amount = crmmod.CommonsAmount.objects.get(name='c61').id
+            data['amount'] = amount
+            serializer = self.get_serializer(data=data)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return Response(serializer.data, status=201, headers=headers)
+        except:
+            serializer.is_valid(raise_exception=True)
+            return Response(serializer.data, status=400)
+
     def get_permissions(self):
         if self.action in ['create', ]:
             permission_classes = (IsAuthenticated,)
@@ -133,6 +171,22 @@ class Common70ViewSet(ModelViewSet):
         'usersubmit__username',
         'usersubmit__phone',
     ]
+
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        serializer = self.get_serializer(data=data)
+        try:
+            data = request.data
+            amount = crmmod.CommonsAmount.objects.get(name='c70').id
+            data['amount'] = amount
+            serializer = self.get_serializer(data=data)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return Response(serializer.data, status=201, headers=headers)
+        except:
+            serializer.is_valid(raise_exception=True)
+            return Response(serializer.data, status=400)
 
     def get_permissions(self):
         if self.action in ['create', ]:
@@ -161,6 +215,22 @@ class CommonDeadViewSet(ModelViewSet):
         'usersubmit__phone',
     ]
 
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        serializer = self.get_serializer(data=data)
+        try:
+            data = request.data
+            amount = crmmod.CommonsAmount.objects.get(name='cd').id
+            data['amount'] = amount
+            serializer = self.get_serializer(data=data)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return Response(serializer.data, status=201, headers=headers)
+        except:
+            serializer.is_valid(raise_exception=True)
+            return Response(serializer.data, status=400)
+
     def get_permissions(self):
         if self.action in ['create', ]:
             permission_classes = (IsAuthenticated,)
@@ -187,6 +257,22 @@ class JudiciaryDeadViewSet(ModelViewSet):
         'usersubmit__username',
         'usersubmit__phone',
     ]
+
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        serializer = self.get_serializer(data=data)
+        try:
+            data = request.data
+            amount = crmmod.CommonsAmount.objects.get(name='jd').id
+            data['amount'] = amount
+            serializer = self.get_serializer(data=data)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return Response(serializer.data, status=201, headers=headers)
+        except:
+            serializer.is_valid(raise_exception=True)
+            return Response(serializer.data, status=400)
 
     def get_permissions(self):
         if self.action in ['create', ]:
@@ -215,6 +301,22 @@ class DoingDeadViewSet(ModelViewSet):
         'usersubmit__phone',
     ]
 
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        serializer = self.get_serializer(data=data)
+        try:
+            data = request.data
+            amount = crmmod.CommonsAmount.objects.get(name='dd').id
+            data['amount'] = amount
+            serializer = self.get_serializer(data=data)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return Response(serializer.data, status=201, headers=headers)
+        except:
+            serializer.is_valid(raise_exception=True)
+            return Response(serializer.data, status=400)
+
     def get_permissions(self):
         if self.action in ['create', ]:
             permission_classes = (IsAuthenticated,)
@@ -241,6 +343,22 @@ class PublicAssistanceViewSet(ModelViewSet):
         'usersubmit__username',
         'usersubmit__phone',
     ]
+
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        serializer = self.get_serializer(data=data)
+        try:
+            data = request.data
+            amount = crmmod.CommonsAmount.objects.get(name='pa').id
+            data['amount'] = amount
+            serializer = self.get_serializer(data=data)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return Response(serializer.data, status=201, headers=headers)
+        except:
+            serializer.is_valid(raise_exception=True)
+            return Response(serializer.data, status=400)
 
     def get_permissions(self):
         if self.action in ['create', ]:

@@ -9,6 +9,8 @@ class CommonsAmount(models.Model):
     title = models.CharField(verbose_name=_("Title"), max_length=150)
     name = models.CharField(verbose_name=_("Name"), max_length=150)
     amount = models.IntegerField(verbose_name=_("Amount"))
+    createdt = models.DateTimeField(auto_now_add=True, verbose_name=_('Created Time'))
+    updatedt = models.DateTimeField(auto_now=True, verbose_name=_('Updated Time'))
 
     class Meta:
         verbose_name = _("CommonsAmount")

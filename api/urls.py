@@ -5,6 +5,7 @@ from rest_framework import routers
 app_name = 'api'
 router = routers.SimpleRouter()
 router.register('users', views.UserViewSet, basename='users')
+router.register('amounts', views.AmoountsViewSet, basename='amounts')
 router.register('c60', views.Common60ViewSet, basename='Common60')
 router.register('c61', views.Common61ViewSet, basename='Common61')
 router.register('c70', views.Common70ViewSet, basename='Common70')

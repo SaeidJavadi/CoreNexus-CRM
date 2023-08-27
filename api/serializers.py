@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model    # from accounts.models import User
 from crm.models import Common60, Common61, Common70, CommonDead, DoingDead, JudiciaryDead, PublicAssistance,\
-    Notification, WinnerLottery60, TableGift, TableGiftUser, TablePayment, WinTableLottery
+    Notification, WinnerLottery60, TableGift, TableGiftUser, TablePayment, WinTableLottery, CommonsAmount
 from drf_dynamic_fields import DynamicFieldsMixin  # GET api/articels/?fields=id,title : show just fields => id,title
 
 
@@ -42,6 +42,12 @@ class UserSerializerReg(serializers.ModelSerializer):
         user.set_password(password)
         user.save()
         return user
+
+
+class AmoountsSerilizer(DynamicFieldsMixin, serializers.ModelSerializer):
+    class Meta:
+        model = CommonsAmount
+        fields = '__all__'
 
 
 class Common60Serializer(DynamicFieldsMixin, serializers.ModelSerializer):
@@ -143,7 +149,6 @@ class WinnerLottery60Serializer(DynamicFieldsMixin, serializers.ModelSerializer)
         # depth = 1
 
 
-
 class TableGiftSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
     # TablePayment = TabaleNameSerializer()
 
@@ -158,14 +163,17 @@ class TableGiftUsrSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
         model = TableGiftUser
         # fields = '__all__'
         exclude = ('paystatus', 'amount', 'updated')
-        
+
+
 class TbGtSerilizer(DynamicFieldsMixin, serializers.ModelSerializer):
     class Meta:
         model = TableGift
-        fields = ('gifts',)   
-           
+        fields = ('gifts',)
+
+
 class TbGtUsrSerilizer(DynamicFieldsMixin, serializers.ModelSerializer):
     tablegift = TbGtSerilizer()
+
     class Meta:
         model = TableGiftUser
         fields = ('tablegift',)
@@ -173,6 +181,7 @@ class TbGtUsrSerilizer(DynamicFieldsMixin, serializers.ModelSerializer):
 
 class TablePaySerilizer(DynamicFieldsMixin, serializers.ModelSerializer):
     tabgiftusr = TbGtUsrSerilizer()
+
     class Meta:
         model = TablePayment
         fields = '__all__'

@@ -71,13 +71,13 @@ class NotificationAdmin(admin.ModelAdmin):
 
 @admin.register(WinnerLottery60)
 class WinnerLottery60Admin(admin.ModelAdmin):
-    # list_display = ("name",)
+    # list_display = ('name',)
     pass
 
 
 @admin.register(TableType)
 class TableTypeAdmin(admin.ModelAdmin):
-    list_display = ("footer", "name")
+    list_display = ('footer', 'name')
 
 
 @admin.register(TableGift)
@@ -103,9 +103,10 @@ class TablePaymentAdmin(admin.ModelAdmin):
 
 @admin.register(WinTableLottery)
 class WinTableLotteryAdmin(admin.ModelAdmin):
-    list_display = ("windate", "tabgiftusr", "title")
+    list_display = ('windate', 'tabgiftusr', 'title')
 
 
 @admin.register(CommonsAmount)
 class CommonsAmountAdmin(admin.ModelAdmin):
-    list_display = ("name", "title", "amount")
+    list_display = ('id', 'name', 'title', 'amount')
+    ordering = ['id']
