@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% load basetags %}
 {% load static %}
+{% load i18n %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'crm/css/style_searchbar.css' %}">
 {% endblock head %}
+{% block title %}
+    {% trans "Table Lottery List" %}
+{% endblock title %}
 {% block content %}
     <div class="row mb-1"
          style="border:1px dashed;
@@ -53,13 +57,13 @@
         <table id="objs-table" class="table">
             <thead>
                 <tr>
-                    <th class="text-center" scope="col">Month Number</th>
-                    <th class="text-center" scope="col">Amount</th>
-                    <th class="text-center" scope="col">Monthamount</th>
-                    <th class="text-center" scope="col">Subtraction</th>
-                    <th class="text-center" scope="col">Friendships</th>
-                    <th class="text-center" scope="col">Title Gifts</th>
-                    <th class="text-center" scope="col">Pay Type</th>
+                    <th class="text-center" scope="col">{% trans "Month Number" %}</th>
+                    <th class="text-center" scope="col">{% trans "Amount" %}</th>
+                    <th class="text-center" scope="col">{% trans "Monthamount" %}</th>
+                    <th class="text-center" scope="col">{% trans "Subtraction" %}</th>
+                    <th class="text-center" scope="col">{% trans "Friendships" %}</th>
+                    <th class="text-center" scope="col">{% trans "Title Gifts" %}</th>
+                    <th class="text-center" scope="col">{% trans "Pay Type" %}</th>
                     <th class="text-center" scope="col"></th>
                 </tr>
             </thead>
@@ -105,7 +109,7 @@
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
                     <li class="page-item">
-                        <a class="page-link" href="?page=1">First page</a>
+                        <a class="page-link" href="?page=1">{% trans "First page" %}</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true">&laquo;</span></a>
@@ -127,7 +131,7 @@
                         <a class="page-link" href="?page={{ page_obj.next_page_number }}"><span aria-hidden="true">&raquo;</span></a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last page</a>
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{% trans "Last page" %}</a>
                     </li>
                 {% endif %}
             </ul>

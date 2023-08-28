@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% load basetags %}
 {% load static %}
+{% load i18n %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'crm/css/style_searchbar.css' %}">
 {% endblock head %}
+{% block title %}
+    {% trans "Show Lis" %}
+{% endblock title %}
 {% block content %}
     <div class="row mb-1"
          style="border:1px dashed;
@@ -27,16 +31,16 @@
                 <button type="button"
                         class="btn btn-secondary dropdown-toggle"
                         data-bs-toggle="dropdown"
-                        aria-expanded="false">Filter By</button>
+                        aria-expanded="false">{% trans "Filter By" %}</button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li>
-                        <a class="dropdown-item" href="?f=All">All</a>
+                        <a class="dropdown-item" href="?f=All">{% trans "All" %}</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="?f=True">Paid</a>
+                        <a class="dropdown-item" href="?f=True">{% trans "Paid" %}</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="?f=False">UnPaid</a>
+                        <a class="dropdown-item" href="?f=False">{% trans "UnPaid" %}</a>
                     </li>
                 </ul>
             </div>
@@ -51,14 +55,14 @@
         <table id="objs-table" class="table">
             <thead>
                 <tr>
-                    <th class="text-center" scope="col">ID</th>
-                    <th class="text-center" scope="col">Name</th>
-                    <th class="text-center" scope="col">Age</th>
-                    <th class="text-center" scope="col">IdCode</th>
-                    <th class="text-center" scope="col">Contery</th>
-                    <th class="text-center" scope="col">Create Date</th>
-                    <th class="text-center" scope="col">Phone</th>
-                    <th class="text-center" scope="col">Status</th>
+                    <th class="text-center" scope="col">{% trans "ID" %}</th>
+                    <th class="text-center" scope="col">{% trans "Name" %}</th>
+                    <th class="text-center" scope="col">{% trans "Age" %}</th>
+                    <th class="text-center" scope="col">{% trans "IdCode" %}</th>
+                    <th class="text-center" scope="col">{% trans "Contery" %}</th>
+                    <th class="text-center" scope="col">{% trans "Create Date" %}</th>
+                    <th class="text-center" scope="col">{% trans "Phone" %}</th>
+                    <th class="text-center" scope="col">{% trans "Status" %}</th>
                     <th class="text-center" scope="col"></th>
                 </tr>
             </thead>

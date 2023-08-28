@@ -1,52 +1,56 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 {% load basetags %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'crm/css/printstyle.css' %}">
 {% endblock head %}
+{% block title %}
+    {% trans "Gift Detail" %}
+{% endblock title %}
 {% block content %}
     <table id="objs-table" class="table">
         <tr>
-            <th>Table Gift:</th>
+            <th>{% trans "Table Gift" %}:</th>
             <th>{{ obj.tablegift.gifts }}</th>
         </tr>
         <tr>
-            <th>User:</th>
+            <th>{% trans "User" %}:</th>
             <th>{{ obj.user }}</th>
         </tr>
         <tr>
-            <th>Created:</th>
+            <th>{% trans "Created" %}:</th>
             <th>{{ obj.created|date:"Y-m-d (H:i)" }}</th>
         </tr>
         <tr>
-            <th>Updated:</th>
+            <th>{% trans "Updated" %}:</th>
             <th>{{ obj.updated|date:"Y-m-d (H:i)" }}</th>
         </tr>
         <tr>
-            <th>Active:</th>
+            <th>{% trans "Active" %}:</th>
             <th>{{ obj.active }}</th>
         </tr>
         <tr>
-            <th>Count Chances:</th>
+            <th>{% trans "Count Chances" %}:</th>
             <th>{{ obj.countchances }}</th>
         </tr>
         <tr>
-            <th>Amount:</th>
+            <th>{% trans "Amount" %}:</th>
             <th>{{ obj.amount }}</th>
         </tr>
         <tr>
-            <th>Count Pay:</th>
+            <th>{% trans "Count Pay" %}:</th>
             <th>{{ obj.countpay }}</th>
         </tr>
         <tr>
             <tr>
-                <th>Installment-></th>
-                <th>Paid: {{ obj.pay | checkpaid }}</th>
-                <th>UnPaid: {{ obj.pay| checkunpaid }}</th>
+                <th>{% trans "Installment" %}-></th>
+                <th>{% trans "Paid" %}: {{ obj.pay | checkpaid }}</th>
+                <th>{% trans "UnPaid" %}: {{ obj.pay| checkunpaid }}</th>
             </tr>
         </tr>
         <tr>
-            <th>Pay Status:</th>
+            <th>{% trans "Pay Status" %}:</th>
             <th>{{ obj.paystatus }}</th>
         </tr>
     </thead>

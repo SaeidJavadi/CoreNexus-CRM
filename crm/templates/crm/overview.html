@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 {% block head %}
 {% endblock head %}
+{% block title %}
+    {% trans "Overview" %}
+{% endblock title %}
 {% block content %}
     <div class="container">
         <div class="row">
@@ -32,15 +36,15 @@
                      style="background-color:#c1f6e375;
                             border-radius: 15px">
                     <div class="row">
-                        <div class="col-8">Total:</div>
+                        <div class="col-8">{% trans "Total" %}:</div>
                         <div class="col-4">{{ totalcount }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-8">Successful Payments:</div>
+                        <div class="col-8">{% trans "Successful Payments" %}:</div>
                         <div class="col-4">{{ datapay.0 }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-8">Unsuccessful Payments:</div>
+                        <div class="col-8">{% trans "Unsuccessful Payments" %}:</div>
                         <div class="col-4">{{ datapay.1 }}</div>
                     </div>
                 </div>
@@ -70,7 +74,7 @@
                          style="background-color:#c1f6e375;
                                 border-radius: 15px">
                         <div class="row">
-                            <div class="col-8">Total Contery:</div>
+                            <div class="col-8">{% trans "Total Contery" %}:</div>
                             <div class="col-4">{{ totalcountery }}</div>
                         </div>
                     </div>
@@ -100,7 +104,7 @@
                      style="background-color:#c1f6e375;
                             border-radius: 15px">
                     <div class="row">
-                        <div class="col-8">Total amount:</div>
+                        <div class="col-8">{% trans "Total amount:" %}</div>
                         <div class="col-4">{{ totalamount }}</div>
                     </div>
                 </div>

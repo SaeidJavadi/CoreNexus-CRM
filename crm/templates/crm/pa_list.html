@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% load basetags %}
 {% load static %}
+{% load i18n %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'crm/css/style_searchbar.css' %}">
 {% endblock head %}
+{% block title %}
+    {% trans "Public Assistance" %}
+{% endblock title %}
 {% block content %}
     <div class="row mb-1"
          style="border:1px dashed;
@@ -28,16 +32,16 @@
                 <button type="button"
                         class="btn btn-secondary dropdown-toggle"
                         data-bs-toggle="dropdown"
-                        aria-expanded="false">Filter By</button>
+                        aria-expanded="false">{% trans "Filter By" %}</button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li>
-                        <a class="dropdown-item" href="?f=All">All</a>
+                        <a class="dropdown-item" href="?f=All">{% trans "All" %}</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="?f=True">Paid</a>
+                        <a class="dropdown-item" href="?f=True">{% trans "Paid" %}</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="?f=False">UnPaid</a>
+                        <a class="dropdown-item" href="?f=False">{% trans "UnPaid" %}</a>
                     </li>
                 </ul>
             </div>
@@ -53,14 +57,14 @@
         <table id="objs-table" class="table">
             <thead>
                 <tr>
-                    <th class="text-center" scope="col">ID</th>
-                    <th class="text-center" scope="col">User Submit</th>
-                    <th class="text-center" scope="col">Name</th>
-                    <th class="text-center" scope="col">Help_name</th>
-                    <th class="text-center" scope="col">Create Date</th>
-                    <th class="text-center" scope="col">Amount</th>
-                    <th class="text-center" scope="col">Link</th>
-                    <th class="text-center" scope="col">Status</th>
+                    <th class="text-center" scope="col">{% trans "ID" %}</th>
+                    <th class="text-center" scope="col">{% trans "User Submit" %}</th>
+                    <th class="text-center" scope="col">{% trans "Name" %}</th>
+                    <th class="text-center" scope="col">{% trans "Help_name" %}</th>
+                    <th class="text-center" scope="col">{% trans "Create Date" %}</th>
+                    <th class="text-center" scope="col">{% trans "Amount" %}</th>
+                    <th class="text-center" scope="col">{% trans "Link" %}</th>
+                    <th class="text-center" scope="col">{% trans "Status" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -107,7 +111,7 @@
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
                     <li class="page-item">
-                        <a class="page-link" href="?page=1">First page</a>
+                        <a class="page-link" href="?page=1">{% trans "First page" %}</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true">&laquo;</span></a>
@@ -129,7 +133,7 @@
                         <a class="page-link" href="?page={{ page_obj.next_page_number }}"><span aria-hidden="true">&raquo;</span></a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last page</a>
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{% trans "Last page" %}</a>
                     </li>
                 {% endif %}
             </ul>

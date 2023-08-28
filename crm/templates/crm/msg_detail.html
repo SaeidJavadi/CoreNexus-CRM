@@ -1,35 +1,41 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'crm/css/printstyle.css' %}">
 {% endblock head %}
+{% block title %}
+    {% trans "Message Detail" %}
+{% endblock title %}
 {% block content %}
     <table id="objs-table" class="table">
         <thead>
             <tr>
-                <th>Users:</th>
-                <th>[
-                    {% for user in obj.user.all %}{{ user }}, {% endfor %}
-                ]</th>
+                <th>{% trans "Users" %}:</th>
+                <th>
+                    [
+                    {% for user in obj.user.all %}{{ user }},{% endfor %}
+                    ]
+                </th>
             </tr>
             <tr>
-                <th>Create Date:</th>
+                <th>{% trans "Create Date" %}:</th>
                 <th>{{ obj.createdate|date:"Y-m-d (H:i)" }}</th>
             </tr>
             <tr>
-                <th>See Date:</th>
+                <th>{% trans "See Date" %}:</th>
                 <th>{{ obj.seedate|date:"Y-m-d (H:i)" }}</th>
             </tr>
             <tr>
-                <th>Subject:</th>
+                <th>{% trans "Subject" %}:</th>
                 <th>{{ obj.subject }}</th>
             </tr>
             <tr>
-                <th>Text:</th>
+                <th>{% trans "Text" %}:</th>
                 <th>{{ obj.text }}</th>
             </tr>
             <tr>
-                <th>See:</th>
+                <th>{% trans "See" %}:</th>
                 <th>{{ obj.see }}</th>
             </tr>
         </thead>

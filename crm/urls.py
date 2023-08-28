@@ -6,7 +6,6 @@ app_name = 'crm'
 urlpatterns = [
     path('', views.home, name='home'),
     path('.well-known/assetlinks.json', views.assetlinks, name='assetlinks'),
-    path('dashboard/', views.dashboard, name='dashboard'),
     path('amounts/', login_required(views.AmountsList.as_view()), name='amount_list'),
     path('amounts/update/<int:pk>', login_required(views.AmountsUpdateView.as_view()), name='amount_update'),
     path('c60/', login_required(views.c60List.as_view()), name='c60_list'),

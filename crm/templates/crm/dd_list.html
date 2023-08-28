@@ -1,14 +1,19 @@
 {% extends "base.html" %}
 {% load basetags %}
 {% load static %}
+{% load i18n %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'crm/css/style_searchbar.css' %}">
 {% endblock head %}
+{% block title %}
+    {% trans "Subscription Doing Dead" %}
+{% endblock title %}
 {% block content %}
     <div class="row mb-1"
          style="border:1px dashed;
                 border-radius:15px;
-                padding: 8px;background:#d7dcd84f;">
+                padding: 8px;
+                background:#d7dcd84f">
         <div class="col-3"></div>
         <div class="col-3 d-flex justify-content-center">
             {# Search Box #}
@@ -27,16 +32,16 @@
                 <button type="button"
                         class="btn btn-secondary dropdown-toggle"
                         data-bs-toggle="dropdown"
-                        aria-expanded="false">Filter By</button>
+                        aria-expanded="false">{% trans "Filter By" %}</button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li>
-                        <a class="dropdown-item" href="?f=All">All</a>
+                        <a class="dropdown-item" href="?f=All">{% trans "All" %}</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="?f=True">Paid</a>
+                        <a class="dropdown-item" href="?f=True">{% trans "Paid" %}</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="?f=False">UnPaid</a>
+                        <a class="dropdown-item" href="?f=False">{% trans "UnPaid" %}</a>
                     </li>
                 </ul>
             </div>
@@ -47,67 +52,64 @@
     <div class="row"
          style="border:1px dashed;
                 border-radius:15px;
-                padding: 8px;background:#d7dcd84f;">
-    <table id="objs-table" class="table">
-        <thead>
-            <tr>
-                <th class="text-center" scope="col">ID</th>
-                <th class="text-center" scope="col">User Submit</th>
-                <th class="text-center" scope="col">Name</th>
-                <th class="text-center" scope="col">Amount</th>
-                <th class="text-center" scope="col">Year Prayer</th>
-                <th class="text-center" scope="col">Year fasting</th>
-                <th class="text-center" scope="col">Pilgrimage</th>
-                <th class="text-center" scope="col">Agent</th>
-                <th class="text-center" scope="col">Phone</th>
-                <th class="text-center" scope="col">Contery</th>
-                <th class="text-center" scope="col">Create Date</th>
-                <th class="text-center" scope="col">Status</th>
-                <th class="text-center" scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for obj in objects %}
+                padding: 8px;
+                background:#d7dcd84f">
+        <table id="objs-table" class="table">
+            <thead>
                 <tr>
-                    {% comment %} <th class="text-center" scope="row">{{ forloop.counter }}</th> {% endcomment %}
-                    <td class="text-center">{{ obj.id }}</td>
-                    <td class="text-center">{{ obj.usersubmit }}</td>
-                    <td class="text-center">{{ obj.name }}</td>
-                    <td class="text-center">{{ obj.amount }}</td>
-                    <td class="text-center">{{ obj.yearprayer }}</td>
-                    <td class="text-center">{{ obj.yearfasting }}</td>
-                    <td class="text-center">{{ obj.pilgrimage }}</td>
-                    <td class="text-center">{{ obj.agent }}</td>
-                    <td class="text-center">{{ obj.phone }}</td>
-                    <td class="text-center">{{ obj.contery }}</td>
-                    <td class="text-center">{{ obj.create|date:"Y-m-d (H:i)" }}</td>
-                    <td class="text-center">{{ obj.status }}</td>
-                    <td class="text-center">
-                        <!-- Read buttons -->
-                        {% to_class_name obj as objctname %}
-                        <a type="button"
-                           class="btn btn-sm btn-success"
-                           href="{% url 'crm:dd_read' obj.id %}">
-                            <span class="ri-eye-line"></span>
-                        </a>
-                        <!-- Update buttons -->
-                        <a type="button"
-                           class="btn btn-sm btn-primary"
-                           href="{% url 'crm:dd_update' obj.id %}">
-                            <span class="ri-edit-2-line"></span>
-                        </a>
-                        <!-- Delete buttons -->
-                        <a type="button"
-                           class="btn btn-sm btn-danger"
-                           href="{% url 'crm:dd_delete' obj.id %}">
-                            <span class="ri-delete-bin-line"></span>
-                        </a>
-                    </td>
+                    <th class="text-center" scope="col">{% trans "ID" %}</th>
+                    <th class="text-center" scope="col">{% trans "User Submit" %}</th>
+                    <th class="text-center" scope="col">{% trans "Name" %}</th>
+                    <th class="text-center" scope="col">{% trans "Amount" %}</th>
+                    <th class="text-center" scope="col">{% trans "Year Prayer" %}</th>
+                    <th class="text-center" scope="col">{% trans "Year fasting" %}</th>
+                    <th class="text-center" scope="col">{% trans "Pilgrimage" %}</th>
+                    <th class="text-center" scope="col">{% trans "Phone" %}</th>
+                    <th class="text-center" scope="col">{% trans "Contery" %}</th>
+                    <th class="text-center" scope="col">{% trans "Status" %}</th>
+                    <th class="text-center" scope="col"></th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+                {% for obj in objects %}
+                    <tr>
+                        {% comment %} <th class="text-center" scope="row">{{ forloop.counter }}</th> {% endcomment %}
+                        <td class="text-center">{{ obj.id }}</td>
+                        <td class="text-center">{{ obj.usersubmit }}</td>
+                        <td class="text-center">{{ obj.name }}</td>
+                        <td class="text-center">{{ obj.amount }}</td>
+                        <td class="text-center">{{ obj.yearprayer }}</td>
+                        <td class="text-center">{{ obj.yearfasting }}</td>
+                        <td class="text-center">{{ obj.pilgrimage }}</td>
+                        <td class="text-center">{{ obj.phone }}</td>
+                        <td class="text-center">{{ obj.contery }}</td>
+                        <td class="text-center">{{ obj.status }}</td>
+                        <td class="text-center">
+                            <!-- Read buttons -->
+                            {% to_class_name obj as objctname %}
+                            <a type="button"
+                               class="btn btn-sm btn-success"
+                               href="{% url 'crm:dd_read' obj.id %}">
+                                <span class="ri-eye-line"></span>
+                            </a>
+                            <!-- Update buttons -->
+                            <a type="button"
+                               class="btn btn-sm btn-primary"
+                               href="{% url 'crm:dd_update' obj.id %}">
+                                <span class="ri-edit-2-line"></span>
+                            </a>
+                            <!-- Delete buttons -->
+                            <a type="button"
+                               class="btn btn-sm btn-danger"
+                               href="{% url 'crm:dd_delete' obj.id %}">
+                                <span class="ri-delete-bin-line"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     {# ---- Paginator ---- #}
     {% if page_obj.has_other_pages %}
         <nav aria-label="Page navigation bootstrap">

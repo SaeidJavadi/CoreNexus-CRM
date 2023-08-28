@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% load basetags %}
 {% load static %}
+{% load i18n %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'crm/css/style_searchbar.css' %}">
 {% endblock head %}
+{% block title %}
+    {% trans "Gifts Users" %}
+{% endblock title %}
 {% block content %}
     <div class="row mb-1"
          style="border:1px dashed;
@@ -28,16 +32,16 @@
                 <button type="button"
                         class="btn btn-secondary dropdown-toggle"
                         data-bs-toggle="dropdown"
-                        aria-expanded="false">Filter By</button>
+                        aria-expanded="false">{% trans "Filter By" %}</button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li>
-                        <a class="dropdown-item" href="?f=All">All</a>
+                        <a class="dropdown-item" href="?f=All">{% trans "All" %}</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="?f=True">Paid</a>
+                        <a class="dropdown-item" href="?f=True">{% trans "Paid" %}</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="?f=False">UnPaid</a>
+                        <a class="dropdown-item" href="?f=False">{% trans "UnPaid" %}</a>
                     </li>
                 </ul>
             </div>
@@ -53,15 +57,15 @@
         <table id="objs-table" class="table">
             <thead>
                 <tr>
-                    <th class="text-center" scope="col">Table Name</th>
-                    <th class="text-center" scope="col">Table Gift</th>
-                    <th class="text-center" scope="col">User</th>
-                    <th class="text-center" scope="col">Created</th>
-                    <th class="text-center" scope="col">Active</th>
-                    <th class="text-center" scope="col">Count Chances</th>
-                    <th class="text-center" scope="col">Amount</th>
-                    <th class="text-center" scope="col">Count Pay</th>
-                    <th class="text-center" scope="col">Pay Status</th>
+                    <th class="text-center" scope="col">{% trans "Table Name" %}</th>
+                    <th class="text-center" scope="col">{% trans "Table Gift" %}</th>
+                    <th class="text-center" scope="col">{% trans "User" %}</th>
+                    <th class="text-center" scope="col">{% trans "Created" %}</th>
+                    <th class="text-center" scope="col">{% trans "Active" %}</th>
+                    <th class="text-center" scope="col">{% trans "Count Chances" %}</th>
+                    <th class="text-center" scope="col">{% trans "Amount" %}</th>
+                    <th class="text-center" scope="col">{% trans "Count Pay" %}</th>
+                    <th class="text-center" scope="col">{% trans "Pay Status" %}</th>
                     <th class="text-center" scope="col"></th>
                 </tr>
             </thead>
@@ -109,7 +113,7 @@
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
                     <li class="page-item">
-                        <a class="page-link" href="?page=1">First page</a>
+                        <a class="page-link" href="?page=1">{% trans "First page" %}</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true">&laquo;</span></a>
@@ -131,7 +135,7 @@
                         <a class="page-link" href="?page={{ page_obj.next_page_number }}"><span aria-hidden="true">&raquo;</span></a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last page</a>
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{% trans "Last page" %}</a>
                     </li>
                 {% endif %}
             </ul>

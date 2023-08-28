@@ -51,12 +51,6 @@ def sendemailtest(request):
     )
     return HttpResponse(a)
 
-
-@login_required
-def dashboard(request):
-    return render(request, 'crm/dashboard.html')
-
-
 @login_required
 def overview(request, model):
     if model == 'c60':

@@ -1,65 +1,69 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'crm/css/printstyle.css' %}">
 {% endblock head %}
+{% block title %}
+    {% trans "Lottery Detail" %}
+{% endblock title %}
 {% block content %}
     <table id="objs-table" class="table">
         <thead>
             <tr>
-                <th>Table Name:</th>
+                <th>{% trans "Table Name" %}:</th>
                 <th>{{ obj.tabletype }}</th>
             </tr>
             <tr>
-                <th>Month Number:</th>
+                <th>{% trans "Month Number" %}:</th>
                 <th>{{ obj.monthnumber }}</th>
             </tr>
             <tr>
-                <th>Amount:</th>
+                <th>{% trans "Amount" %}:</th>
                 <th>{{ obj.amount }}</th>
             </tr>
             <tr>
-                <th>Month Amount:</th>
+                <th>{% trans "Month Amount" %}:</th>
                 <th>{{ obj.monthamount }}</th>
             </tr>
             <tr>
-                <th>Subtraction:</th>
+                <th>{% trans "Subtraction" %}:</th>
                 <th>{{ obj.subtraction }}</th>
             </tr>
             <tr>
-                <th>Friendships:</th>
+                <th>{% trans "Friendships" %}:</th>
                 <th>{{ obj.friendships }}</th>
             </tr>
             <tr>
-                <th>Number Annual:</th>
+                <th>{% trans "Number Annual" %}:</th>
                 <th>{{ obj.numberannual }}</th>
             </tr>
             <tr>
-                <th>Amount Annual:</th>
+                <th>{% trans "Amount Annual" %}:</th>
                 <th>{{ obj.amountannual }}</th>
             </tr>
             <tr>
-                <th>Total Subtraction:</th>
+                <th>{% trans "Total Subtraction" %}:</th>
                 <th>{{ obj.totalsubtraction }}</th>
             </tr>
             <tr>
-                <th>Total Friendships:</th>
+                <th>{% trans "Total Friendships" %}:</th>
                 <th>{{ obj.totalfriendships }}</th>
             </tr>
             <tr>
-                <th>Gifts:</th>
+                <th>{% trans "Gifts" %}:</th>
                 <th>{{ obj.gifts }}</th>
             </tr>
             <tr>
-                <th>Month Sequence:</th>
+                <th>{% trans "Month Sequence" %}:</th>
                 <th>{{ obj.monthsequence }}</th>
             </tr>
             <tr>
-                <th>Pay Type:</th>
+                <th>{% trans "Pay Type" %}:</th>
                 <th>{{ obj.paytype }}</th>
             </tr>
             <tr>
-                <th>Notes:</th>
+                <th>{% trans "Notes" %}:</th>
                 <th>{{ obj.notes }}</th>
             </tr>
         </thead>

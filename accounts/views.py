@@ -52,7 +52,7 @@ def userLogin(request):
                         if user.is_superuser or user.is_staff:
                             login(request, user)
                             messages.success(request, _("logged in successfully"), extra_tags="success")
-                            return redirect('crm:dashboard')
+                            return redirect('crm:home')
                         else:
                             messages.success(request, _(
                                 "You do not have permission to access this section"), extra_tags="warning")
@@ -69,7 +69,7 @@ def userLogin(request):
             formAR = LoginFormAR()
         return render(request, 'accounts/signinup.html', {'form': form, 'formar': formAR})
     else:
-        return redirect('crm:dashboard')
+        return redirect('crm:home')
 
 
 @login_required()

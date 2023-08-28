@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
+{% block title %}
+    {% trans "Lottery Draws Detail" %}
+{% endblock title %}
 {% block content %}
     <div class="row"
          style="border:1px dashed;
@@ -9,14 +13,14 @@
         <table id="objs-table" class="table">
             <thead>
                 <tr>
-                    <th class="text-center" scope="col">ID</th>
-                    <th class="text-center" scope="col">Name</th>
-                    <th class="text-center" scope="col">Age</th>
-                    <th class="text-center" scope="col">IdCode</th>
-                    <th class="text-center" scope="col">Contery</th>
-                    <th class="text-center" scope="col">Create Date</th>
-                    <th class="text-center" scope="col">Phone</th>
-                    <th class="text-center" scope="col">Status</th>
+                    <th class="text-center" scope="col">{% trans "ID" %}</th>
+                    <th class="text-center" scope="col">{% trans "Name" %}</th>
+                    <th class="text-center" scope="col">{% trans "Age" %}</th>
+                    <th class="text-center" scope="col">{% trans "IdCode" %}</th>
+                    <th class="text-center" scope="col">{% trans "Contery" %}</th>
+                    <th class="text-center" scope="col">{% trans "Create Date" %}</th>
+                    <th class="text-center" scope="col">{% trans "Phone" %}</th>
+                    <th class="text-center" scope="col">{% trans "Status" %}</th>
                     <th class="text-center" scope="col"></th>
                 </tr>
             </thead>
@@ -63,7 +67,7 @@
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
                     <li class="page-item">
-                        <a class="page-link" href="?page=1">First page</a>
+                        <a class="page-link" href="?page=1">{% trans "First page" %}</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true">&laquo;</span></a>
@@ -85,7 +89,7 @@
                         <a class="page-link" href="?page={{ page_obj.next_page_number }}"><span aria-hidden="true">&raquo;</span></a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last page</a>
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{% trans "Last page" %}</a>
                     </li>
                 {% endif %}
             </ul>
