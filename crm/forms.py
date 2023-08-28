@@ -1,6 +1,7 @@
 from django import forms
 from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance,\
     Notification, TableGift, TableGiftUser, CommonsAmount
+from django.utils.translation import gettext_lazy as _
 
 
 class ObjectModelForm60(forms.ModelForm):
@@ -99,17 +100,17 @@ class ObjectModelFormMSG(forms.ModelForm):
 
 
 class HodlingLotteryForm(forms.Form):
-    name = forms.CharField(max_length=150, required=True, label="Lottery Title",
+    name = forms.CharField(max_length=150, required=True, label=_("Lottery Title"),
                            widget=forms.TextInput(attrs={'class': 'form-control'}))
-    countwinner = forms.IntegerField(label="Count Winner", widget=forms.NumberInput(
+    countwinner = forms.IntegerField(label=_("Count Winner"), widget=forms.NumberInput(
         attrs={'class': 'form-control', type: 'number'}))
-    winstatus = forms.BooleanField(label="winners status", required=False)
-    agree = forms.BooleanField(label="start holding?")
+    winstatus = forms.BooleanField(label=_("winners status"), required=False)
+    agree = forms.BooleanField(label=_("start holding?"))
 
 
 class AddtoLotteryForm(forms.Form):
-    addcount = forms.IntegerField(label='Add to Lottery Count')
-    agree = forms.BooleanField(label="agree ?")
+    addcount = forms.IntegerField(label=_('Add to Lottery Count'))
+    agree = forms.BooleanField(label=_("agree ?"))
 
 
 class ObjectModelFormTabGift(forms.ModelForm):
@@ -136,9 +137,9 @@ class ObjectModelFormTabGiftUser(forms.ModelForm):
 
 
 class HodlingLottabForm(forms.Form):
-    title = forms.CharField(max_length=150, required=True, label="Lottery Title",
+    title = forms.CharField(max_length=150, required=True, label=_("Lottery Title"),
                             widget=forms.TextInput(attrs={'class': 'form-control'}))
-    agree = forms.BooleanField(label="start holding?")
+    agree = forms.BooleanField(label=_("start holding?"))
 
 
 class AmountsForm(forms.ModelForm):

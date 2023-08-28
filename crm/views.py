@@ -15,6 +15,7 @@ from django.http import HttpResponse
 from crm.tasks import send_notification
 from django.db.models import Q
 import random
+from django.utils.translation import gettext_lazy as _
 
 
 @login_required
@@ -50,6 +51,7 @@ def sendemailtest(request):
         fail_silently=False,  # set to True to suppress exceptions
     )
     return HttpResponse(a)
+
 
 @login_required
 def overview(request, model):
@@ -156,7 +158,7 @@ class AmountsUpdateView(UpdateView):
     model = CommonsAmount
     form_class = AmountsForm
     template_name = 'crm/obj_update.html'
-    success_message = 'Success: Amount was updated.'
+    success_message = _('Success: Amount was updated.')
     success_url = reverse_lazy('crm:amount_list')
 
 
@@ -196,7 +198,7 @@ class C60CreateView(CreateView):
     model = Common60
     form_class = ObjectModelForm60
     template_name = 'crm/obj_create.html'
-    success_message = 'Success: Subscription was created.'
+    success_message = _('Success: Subscription was created.')
     success_url = reverse_lazy('crm:c60_list')
 
 
@@ -211,7 +213,7 @@ class C60DeleteView(DeleteView):
     model = Common60
     context_object_name = 'obj'
     template_name = 'crm/obj_delete.html'
-    success_message = 'Success: Subscription was deleted.'
+    success_message = _('Success: Subscription was deleted.')
     success_url = reverse_lazy('crm:c60_list')
 
 
@@ -371,7 +373,7 @@ class C61CreateView(CreateView):
     model = Common61
     form_class = ObjectModelForm61
     template_name = 'crm/obj_create.html'
-    success_message = 'Success: Subscription was created.'
+    success_message = _('Success: Subscription was created.')
     success_url = reverse_lazy('crm:c61_list')
 
 
@@ -379,7 +381,7 @@ class C61UpdateView(UpdateView):
     model = Common61
     form_class = ObjectModelForm61
     template_name = 'crm/obj_update.html'
-    success_message = 'Success: Subscription was updated.'
+    success_message = _('Success: Subscription was updated.')
     success_url = reverse_lazy('crm:c61_list')
 
 
@@ -387,7 +389,7 @@ class C61DeleteView(DeleteView):
     model = Common61
     context_object_name = 'obj'
     template_name = 'crm/obj_delete.html'
-    success_message = 'Success: Subscription was deleted.'
+    success_message = _('Success: Subscription was deleted.')
     success_url = reverse_lazy('crm:c61_list')
 
 
@@ -427,7 +429,7 @@ class C70CreateView(CreateView):
     model = Common70
     form_class = ObjectModelForm70
     template_name = 'crm/obj_create.html'
-    success_message = 'Success: Subscription was created.'
+    success_message = _('Success: Subscription was created.')
     success_url = reverse_lazy('crm:c70_list')
 
 
@@ -435,7 +437,7 @@ class C70UpdateView(UpdateView):
     model = Common70
     form_class = ObjectModelForm70
     template_name = 'crm/obj_update.html'
-    success_message = 'Success: Subscription was updated.'
+    success_message = _('Success: Subscription was updated.')
     success_url = reverse_lazy('crm:c70_list')
 
 
@@ -443,7 +445,7 @@ class C70DeleteView(DeleteView):
     model = Common70
     context_object_name = 'obj'
     template_name = 'crm/obj_delete.html'
-    success_message = 'Success: Subscription was deleted.'
+    success_message = _('Success: Subscription was deleted.')
     success_url = reverse_lazy('crm:c70_list')
 
 
@@ -483,7 +485,7 @@ class CdCreateView(CreateView):
     model = CommonDead
     form_class = ObjectModelFormCd
     template_name = 'crm/obj_create.html'
-    success_message = 'Success: Subscription was created.'
+    success_message = _('Success: Subscription was created.')
     success_url = reverse_lazy('crm:cd_list')
 
 
@@ -491,7 +493,7 @@ class CdUpdateView(UpdateView):
     model = CommonDead
     form_class = ObjectModelFormCd
     template_name = 'crm/obj_update.html'
-    success_message = 'Success: Subscription was updated.'
+    success_message = _('Success: Subscription was updated.')
     success_url = reverse_lazy('crm:cd_list')
 
 
@@ -499,7 +501,7 @@ class CdDeleteView(DeleteView):
     model = CommonDead
     context_object_name = 'obj'
     template_name = 'crm/obj_delete.html'
-    success_message = 'Success: Subscription was deleted.'
+    success_message = _('Success: Subscription was deleted.')
     success_url = reverse_lazy('crm:cd_list')
 
 
@@ -539,7 +541,7 @@ class JdCreateView(CreateView):
     model = JudiciaryDead
     form_class = ObjectModelFormJd
     template_name = 'crm/obj_create.html'
-    success_message = 'Success: Subscription was created.'
+    success_message = _('Success: Subscription was created.')
     success_url = reverse_lazy('crm:jd_list')
 
 
@@ -547,7 +549,7 @@ class JdUpdateView(UpdateView):
     model = JudiciaryDead
     form_class = ObjectModelFormJd
     template_name = 'crm/obj_update.html'
-    success_message = 'Success: Subscription was updated.'
+    success_message = _('Success: Subscription was updated.')
     success_url = reverse_lazy('crm:jd_list')
 
 
@@ -555,7 +557,7 @@ class JdDeleteView(DeleteView):
     model = JudiciaryDead
     context_object_name = 'obj'
     template_name = 'crm/obj_delete.html'
-    success_message = 'Success: Subscription was deleted.'
+    success_message = _('Success: Subscription was deleted.')
     success_url = reverse_lazy('crm:jd_list')
 
 
@@ -595,7 +597,7 @@ class DdCreateView(CreateView):
     model = DoingDead
     form_class = ObjectModelFormDd
     template_name = 'crm/obj_create.html'
-    success_message = 'Success: Subscription was created.'
+    success_message = _('Success: Subscription was created.')
     success_url = reverse_lazy('crm:dd_list')
 
 
@@ -603,7 +605,7 @@ class DdUpdateView(UpdateView):
     model = DoingDead
     form_class = ObjectModelFormDd
     template_name = 'crm/obj_update.html'
-    success_message = 'Success: Subscription was updated.'
+    success_message = _('Success: Subscription was updated.')
     success_url = reverse_lazy('crm:dd_list')
 
 
@@ -611,7 +613,7 @@ class DdDeleteView(DeleteView):
     model = DoingDead
     context_object_name = 'obj'
     template_name = 'crm/obj_delete.html'
-    success_message = 'Success: Subscription was deleted.'
+    success_message = _('Success: Subscription was deleted.')
     success_url = reverse_lazy('crm:dd_list')
 
 
@@ -647,7 +649,7 @@ class PaCreateView(CreateView):
     model = PublicAssistance
     form_class = ObjectModelFormPa
     template_name = 'crm/obj_create.html'
-    success_message = 'Success: Subscription was created.'
+    success_message = _('Success: Subscription was created.')
     success_url = reverse_lazy('crm:pa_list')
 
 
@@ -655,7 +657,7 @@ class PaUpdateView(UpdateView):
     model = PublicAssistance
     form_class = ObjectModelFormPa
     template_name = 'crm/obj_update.html'
-    success_message = 'Success: Subscription was updated.'
+    success_message = _('Success: Subscription was updated.')
     success_url = reverse_lazy('crm:pa_list')
 
 
@@ -663,7 +665,7 @@ class PaDeleteView(DeleteView):
     model = PublicAssistance
     context_object_name = 'obj'
     template_name = 'crm/obj_delete.html'
-    success_message = 'Success: Subscription was deleted.'
+    success_message = _('Success: Subscription was deleted.')
     success_url = reverse_lazy('crm:pa_list')
 
 
@@ -698,7 +700,7 @@ class MessagesCreateView(CreateView):
     model = Notification
     form_class = ObjectModelFormMSG
     template_name = 'crm/obj_create.html'
-    success_message = 'Success: Messege Send.'
+    success_message = _('Success: Messege Send.')
     success_url = reverse_lazy('crm:msg_list')
 
     def form_valid(self, form):
@@ -723,7 +725,7 @@ class MessagesUpdateView(UpdateView):
     model = Notification
     form_class = ObjectModelFormMSG
     template_name = 'crm/obj_update.html'
-    success_message = 'Success: Message was updated.'
+    success_message = _('Success: Message was updated.')
     success_url = reverse_lazy('crm:msg_list')
 
 
@@ -731,7 +733,7 @@ class MessagesDeleteView(DeleteView):
     model = Notification
     context_object_name = 'obj'
     template_name = 'crm/obj_delete.html'
-    success_message = 'Success: Message was deleted.'
+    success_message = _('Success: Message was deleted.')
     success_url = reverse_lazy('crm:msg_list')
 
 
@@ -739,7 +741,7 @@ class MessagesUserCreateView(CreateView):
     model = Notification
     form_class = ObjectModelFormMSG
     template_name = 'crm/obj_create.html'
-    success_message = 'Success: Messege Send.'
+    success_message = _('Success: Messege Send.')
     success_url = reverse_lazy('crm:msg_list')
 
     def get_initial(self):
@@ -776,7 +778,7 @@ class TableGiftCreateView(CreateView):
     model = TableGift
     form_class = ObjectModelFormTabGift
     template_name = 'crm/obj_create.html'
-    success_message = 'Success: Created.'
+    success_message = _('Success: Created.')
     success_url = reverse_lazy('crm:home')
 
 
@@ -790,7 +792,7 @@ class TableGiftUpdateView(UpdateView):
     model = TableGift
     form_class = ObjectModelFormTabGift
     template_name = 'crm/obj_update.html'
-    success_message = 'Success: Table was updated.'
+    success_message = _('Success: Table was updated.')
     success_url = reverse_lazy('crm:home')
 
 
@@ -798,7 +800,7 @@ class TableGiftDeleteView(DeleteView):
     model = TableGift
     context_object_name = 'obj'
     template_name = 'crm/obj_delete.html'
-    success_message = 'Success: Table was deleted.'
+    success_message = _('Success: Table was deleted.')
     success_url = reverse_lazy('crm:home')
 
 
@@ -833,7 +835,7 @@ class ParticipantsUpdateView(UpdateView):
     model = TableGiftUser
     form_class = ObjectModelFormTabGiftUser
     template_name = 'crm/obj_update.html'
-    success_message = 'Success: Table was updated.'
+    success_message = _('Success: Table was updated.')
     success_url = reverse_lazy('crm:participants')
 
 
@@ -841,7 +843,7 @@ class ParticipantsDeleteView(DeleteView):
     model = TableGiftUser
     context_object_name = 'obj'
     template_name = 'crm/obj_delete.html'
-    success_message = 'Success: Table was deleted.'
+    success_message = _('Success: Table was deleted.')
     success_url = reverse_lazy('crm:participants')
 
 
@@ -863,9 +865,6 @@ def HoldTabLottery(request, tabname):
                             if usr.countchances > 1:
                                 for ch in range(1, usr.countchances):
                                     list_lot.append(usr.id)
-                        print('--------------------------------')
-                        print(list_lot)
-                        print('--------------------------------')
                     except Exception as e:
                         print('count Chances Error: ' + str(e))
                     tabwingiftusr = random.sample(list_lot, 1)[0]

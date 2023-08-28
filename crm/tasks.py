@@ -12,8 +12,5 @@ def send_notification(user_token, title, body):
     try:
         message = messaging.Message(notification=messaging.Notification(title=title, body=body), token=user_token)
         response = messaging.send(message)
-        print("="*30)
-        print('Successfully sent message:', response)
-        print("="*30)
     except:
         pass

@@ -92,7 +92,7 @@ class Common70(models.Model):   # Eshterak afrad az 70 salegi va afrad mobtala b
     phone = models.CharField(verbose_name=_('Phone Number'), max_length=50)
     phoneagent = models.CharField(verbose_name=_('Phone Number Agent'), max_length=50)
     amount = models.ForeignKey(CommonsAmount, verbose_name=_('Amount'), on_delete=models.CASCADE)
-    paystatus = models.BooleanField(verbose_name=_('PayStatus'), default=False)
+    paystatus = models.BooleanField(verbose_name=_('Pay Status'), default=False)
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
@@ -117,7 +117,7 @@ class CommonDead(models.Model):  # Eshterak FotShodegan
     phone = models.CharField(verbose_name=_('Phone Number'), max_length=50)
     phoneagent = models.CharField(verbose_name=_('Phone Number Agent'), max_length=50)
     amount = models.ForeignKey(CommonsAmount, verbose_name=_('Amount'), on_delete=models.CASCADE)
-    paystatus = models.BooleanField(verbose_name=_('PayStatus'), default=False)
+    paystatus = models.BooleanField(verbose_name=_('Pay Status'), default=False)
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
@@ -142,7 +142,7 @@ class JudiciaryDead(models.Model):  # Goveh Ghazaie Mordegan
     phone = models.CharField(verbose_name=_('Phone Number'), max_length=50)
     phoneagent = models.CharField(verbose_name=_('Phone Number Agent'), max_length=50)
     amount = models.ForeignKey(CommonsAmount, verbose_name=_('Amount'), on_delete=models.CASCADE)
-    paystatus = models.BooleanField(verbose_name=_('PayStatus'), default=False)
+    paystatus = models.BooleanField(verbose_name=_('Pay Status'), default=False)
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
@@ -170,7 +170,7 @@ class DoingDead(models.Model):  # Anjam Amale Ebadie Marhom
     deposit = models.FloatField(verbose_name=_('Deposit'))
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     amount = models.ForeignKey(CommonsAmount, verbose_name=_('Amount'), on_delete=models.CASCADE)
-    paystatus = models.BooleanField(verbose_name=_('PayStatus'), default=False)
+    paystatus = models.BooleanField(verbose_name=_('Pay Status'), default=False)
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
@@ -190,7 +190,7 @@ class PublicAssistance(models.Model):  # komak be khirieh
     help_name = models.CharField(max_length=120, verbose_name=_('help name'))
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     amount = models.ForeignKey(CommonsAmount, verbose_name=_('Amount'), on_delete=models.CASCADE)
-    paystatus = models.BooleanField(verbose_name=_('PayStatus'), default=False)
+    paystatus = models.BooleanField(verbose_name=_('Pay Status'), default=False)
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
@@ -330,7 +330,7 @@ class TablePayment(models.Model):
     tabgiftusr = models.ForeignKey(TableGiftUser, on_delete=models.CASCADE,
                                    verbose_name=_('Table Gift User'), related_name=('pay'))
     created = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
-    payment = models.FloatField(verbose_name='Payment')
+    payment = models.FloatField(verbose_name=_('Payment'))
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
