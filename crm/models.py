@@ -190,6 +190,7 @@ class PublicAssistance(models.Model):  # komak be khirieh
     help_name = models.CharField(max_length=120, verbose_name=_('help name'))
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     amount = models.ForeignKey(CommonsAmount, verbose_name=_('Amount'), on_delete=models.CASCADE)
+    useramount = models.FloatField(verbose_name=_('User Amount'))
     paystatus = models.BooleanField(verbose_name=_('Pay Status'), default=False)
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
