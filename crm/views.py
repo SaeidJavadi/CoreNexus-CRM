@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance,\
+from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, \
     LotteryC60, Notification, WinnerLottery60, TableGift, TableGiftUser, WinTableLottery, CommonsAmount
 from django.contrib.auth.decorators import login_required
-from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd,\
-    ObjectModelFormDd, ObjectModelFormPa, ObjectModelFormMSG, HodlingLotteryForm, AddtoLotteryForm,\
+from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd, \
+    ObjectModelFormDd, ObjectModelFormPa, ObjectModelFormMSG, HodlingLotteryForm, AddtoLotteryForm, \
     ObjectModelFormTabGift, ObjectModelFormTabGiftUser, HodlingLottabForm, AmountsForm
 from accounts.models import User
 from django.urls import reverse_lazy
@@ -82,13 +82,15 @@ def overview(request, model):
     month = today.month
     labelsamount = []
     dataamount = []
-    totalamount = MODEL.objects.filter(status=True).aggregate(total=Sum('amount'))['total']
+    totalamount = MODEL.objects.filter(
+        status=True).aggregate(total=Sum('amount'))['total']
     for i in range(1, 13):
         labelsamount.append(f'{year}-{month}')
-        objmonth = MODEL.objects.filter(status=True, create__year=year, create__month=month)
+        objmonth = MODEL.objects.filter(
+            status=True, create__year=year, create__month=month)
         amountCount = 0
         for obj in objmonth:
-            amountCount += obj.amount
+            amountCount += obj.amount.amount
         dataamount.append(amountCount)
 
         if month == 1:
@@ -288,7 +290,8 @@ def HoldingLottery(request, title):
             winstatus = form.cleaned_data['winstatus']
             lot = LotteryC60.objects.get(title=title)
             try:
-                commons = Common60.objects.filter(lottery=lot).values_list('id')
+                commons = Common60.objects.filter(
+                    lottery=lot).values_list('id')
                 commons_count = commons.count()
             except:
                 commons_count = 0
@@ -297,12 +300,15 @@ def HoldingLottery(request, title):
                 user_winner = random.sample(list_lot, winner_count)
                 for id in user_winner:
                     cw = Common60.objects.get(id=id)
-                    w = WinnerLottery60.objects.create(name=nameform, lottery=lot, common=cw)
+                    w = WinnerLottery60.objects.create(
+                        name=nameform, lottery=lot, common=cw)
                     try:
                         title = "Lottery Win"
                         body = f"You have won the lottery {title}"
-                        send_notification(user_token=cw.usersubmit.fcmtoken, title=title, body=body)
-                        Notification.objects.create(user=cw.usersubmit, subject=title, text=body)
+                        send_notification(
+                            user_token=cw.usersubmit.fcmtoken, title=title, body=body)
+                        Notification.objects.create(
+                            user=cw.usersubmit, subject=title, text=body)
                     except Exception as e:
                         print('Notif Error', e)
                     if winstatus:
@@ -319,7 +325,8 @@ def HoldingLottery(request, title):
 def DrawsLottery(request, title):
     if title == "quran" or title == "ziarat":
         lot = LotteryC60.objects.get(title=title)
-        winner_list = WinnerLottery60.objects.all().values_list('name', 'windate').filter(lottery=lot).distinct()
+        winner_list = WinnerLottery60.objects.all().values_list(
+            'name', 'windate').filter(lottery=lot).distinct()
         return render(request, 'crm/lottery_draws.html', {'draws': winner_list})
     else:
         return HttpResponse("404")
@@ -711,7 +718,8 @@ class MessagesCreateView(CreateView):
 
             fcmtoken = User.objects.get(username=user).fcmtoken
             if fcmtoken != None:
-                send_notification(user_token=fcmtoken, title=subject, body=text)
+                send_notification(user_token=fcmtoken,
+                                  title=subject, body=text)
         return super().form_valid(form)
 
 
@@ -869,15 +877,18 @@ def HoldTabLottery(request, tabname):
                         print('count Chances Error: ' + str(e))
                     tabwingiftusr = random.sample(list_lot, 1)[0]
                     userWin = TableGiftUser.objects.get(pk=int(tabwingiftusr))
-                    wintblt = WinTableLottery.objects.create(title=title, tabgiftusr=userWin)
+                    wintblt = WinTableLottery.objects.create(
+                        title=title, tabgiftusr=userWin)
                     for userac in usrssubs:
                         userac.active = False
                         userac.save()
                     try:
                         title = "Lottery Win"
                         body = f"You have won the lottery {tabname}"
-                        send_notification(user_token=userWin.user.fcmtoken, title=title, body=body)
-                        Notification.objects.create(user=userWin.user, subject=title, text=body)
+                        send_notification(
+                            user_token=userWin.user.fcmtoken, title=title, body=body)
+                        Notification.objects.create(
+                            user=userWin.user, subject=title, text=body)
                     except Exception as e:
                         print('Notif Error', e)
                     return HttpResponse(userWin.user.username)
@@ -887,7 +898,8 @@ def HoldTabLottery(request, tabname):
                 return HttpResponse('Error Form')
 
         else:
-            userslotall = TableGiftUser.objects.filter(tablegift__tabletype__name=tabname, active=True).count()
+            userslotall = TableGiftUser.objects.filter(
+                tablegift__tabletype__name=tabname, active=True).count()
             userslotallow = TableGiftUser.objects.filter(
                 tablegift__tabletype__name=tabname, active=True, paystatus=True).count()
             userslotunallow = TableGiftUser.objects.filter(
@@ -917,5 +929,6 @@ class TableWinnwers(ListView):
             )
         if query_filter:
             if query_filter != 'All':
-                queryset = queryset.filter(tabgiftusr__tablegift__tabletype__name=query_filter)
+                queryset = queryset.filter(
+                    tabgiftusr__tablegift__tabletype__name=query_filter)
         return queryset
