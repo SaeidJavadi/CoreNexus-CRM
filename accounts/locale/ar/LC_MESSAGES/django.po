@@ -20,96 +20,96 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 #: .\accounts\forms.py:9 .\accounts\forms.py:44
 msgid "Password"
-msgstr ""
+msgstr "كلمة المرور"
 
 #: .\accounts\forms.py:10 .\accounts\forms.py:46
 msgid "Password confirmation"
-msgstr ""
+msgstr "تاکیدكلمة المرور"
 
 #: .\accounts\models.py:9
 msgid "Users must have an username"
-msgstr ""
+msgstr "یجب أن یکون لدی المستخدمین اسم مستخدم"
 
 #: .\accounts\models.py:27
 msgid "Username"
-msgstr ""
+msgstr "اسم المستخدم"
 
 #: .\accounts\models.py:28
 msgid "Phone Number"
-msgstr ""
+msgstr "رقم الهاتف"
 
 #: .\accounts\models.py:29
 msgid "Email"
-msgstr ""
+msgstr "بريد إلكتروني"
 
 #: .\accounts\models.py:30
 msgid "Created"
-msgstr ""
+msgstr "أُنشِئَ"
 
 #: .\accounts\models.py:31
 msgid "Updated"
-msgstr ""
+msgstr "تم التحدیث"
 
 #: .\accounts\models.py:32
 msgid "is_active"
-msgstr ""
+msgstr "نشط"
 
 #: .\accounts\models.py:33
 msgid "is_staff"
-msgstr ""
+msgstr "هل هو عضو فی الفریق"
 
 #: .\accounts\models.py:34
 msgid "is_superuser"
-msgstr ""
+msgstr "هل هو مستخدم متمیز"
 
 #: .\accounts\models.py:35
 msgid "FCM Token"
-msgstr ""
+msgstr "رمزFCM"
 
 #: .\accounts\models.py:46
 msgid "User"
-msgstr ""
+msgstr "مستخدم"
 
 #: .\accounts\models.py:47
 msgid "Users"
-msgstr ""
+msgstr "مستخدمون"
 
 #: .\accounts\views.py:54
 msgid "logged in successfully"
-msgstr ""
+msgstr "تم تسجیل الدخول بنجاح"
 
 #: .\accounts\views.py:58
 msgid "You do not have permission to access this section"
-msgstr ""
+msgstr "ليس لديك الإذن للوصول إلى هذا القسم"
 
 #: .\accounts\views.py:61
 msgid "your username Or Password is wrong"
-msgstr ""
+msgstr "اسم المستخدم أو كلمة المرور غير صحيحة"
 
 #: .\accounts\views.py:63
 msgid "No account created with this username"
-msgstr ""
+msgstr "لا توجد حساب بإسم المستخدم هذا"
 
 #: .\accounts\views.py:66
 msgid "Please enter your information correctly"
-msgstr ""
+msgstr "الرجاء إدخال معلوماتك بشكل صحيح"
 
 #: .\accounts\views.py:78
 msgid "You Logged Out successfully"
-msgstr ""
+msgstr "تم تسجيل خروجك بنجاح"
 
 #: .\accounts\views.py:89
 msgid "updated successfully"
-msgstr ""
+msgstr "تم التحديث بنجاح"
 
 #: .\accounts\views.py:92
 msgid "Error updating your profile !!"
-msgstr ""
+msgstr "\"خطأ في تحديث ملفك الشخصي !!\""
 
 #: .\accounts\views.py:109
 msgid "Your password has been successfully changed"
-msgstr ""
+msgstr "تم تغيير كلمة المرور بنجاح"
 
 #: .\accounts\views.py:153
 msgid "Success: Subscription was created."
-msgstr ""
+msgstr "نجاح: تم إنشاء الاشتراك.\n"

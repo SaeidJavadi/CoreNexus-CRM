@@ -20,32 +20,32 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 #: .\crm\forms.py:103 .\crm\forms.py:140 .\crm\models.py:348
 msgid "Lottery Title"
-msgstr ""
+msgstr "عنوان اليانصيب"
 
 #: .\crm\forms.py:105
 msgid "Count Winner"
-msgstr ""
+msgstr "عد الفائز"
 
 #: .\crm\forms.py:107
 msgid "winners status"
-msgstr ""
+msgstr "حالة الفائزين"
 
 #: .\crm\forms.py:108 .\crm\forms.py:142
 msgid "start holding?"
-msgstr ""
+msgstr "البدء في عقد؟"
 
 #: .\crm\forms.py:112
 msgid "Add to Lottery Count"
-msgstr ""
+msgstr "أضف إلى عدد اليانصيب"
 
 #: .\crm\forms.py:113
 msgid "agree ?"
-msgstr ""
+msgstr "يوافق ؟"
 
 #: .\crm\models.py:9 .\crm\templates\crm\amount_list.html:20
 #: .\crm\templates\crm\obj_tablistwin.html:65
 msgid "Title"
-msgstr ""
+msgstr "عنوان"
 
 #: .\crm\models.py:10 .\crm\models.py:226
 #: .\crm\templates\crm\amount_list.html:21
@@ -55,7 +55,7 @@ msgstr ""
 #: .\crm\templates\crm\obj_list.html:60 .\crm\templates\crm\obj_read.html:18
 #: .\crm\templates\crm\pa_list.html:63 .\crm\templates\crm\pa_read.html:22
 msgid "Name"
-msgstr ""
+msgstr "اسم"
 
 #: .\crm\models.py:11 .\crm\models.py:40 .\crm\models.py:67 .\crm\models.py:94
 #: .\crm\models.py:119 .\crm\models.py:144 .\crm\models.py:172
@@ -68,53 +68,53 @@ msgstr ""
 #: .\crm\templates\crm\tbgf_detail.html:38
 #: .\crm\templates\crm\tbgf_users.html:67
 msgid "Amount"
-msgstr ""
+msgstr "كمية"
 
 #: .\crm\models.py:12
 msgid "Created Time"
-msgstr ""
+msgstr "وقت الإنشاء"
 
 #: .\crm\models.py:13
 msgid "Updated Time"
-msgstr ""
+msgstr "الوقت المحدث"
 
 #: .\crm\models.py:16
 msgid "CommonsAmount"
-msgstr ""
+msgstr "مبلغ العموم"
 
 #: .\crm\models.py:17
 msgid "CommonsAmounts"
-msgstr ""
+msgstr "المبالغ المشتركة"
 
 #: .\crm\models.py:28 .\crm\models.py:57 .\crm\models.py:84 .\crm\models.py:111
 #: .\crm\models.py:136 .\crm\models.py:161 .\crm\models.py:188
 msgid "Registrant"
-msgstr ""
+msgstr "المسجل"
 
 #: .\crm\models.py:30
 msgid "lottery"
-msgstr ""
+msgstr "اليانصيب"
 
 #: .\crm\models.py:31 .\crm\models.py:58 .\crm\models.py:85
 msgid "Quadruple common name"
-msgstr ""
+msgstr "الاسم الشائع رباعي"
 
 #: .\crm\models.py:32 .\crm\models.py:59 .\crm\models.py:86
 #: .\crm\templates\crm\cdjd_read.html:26
 #: .\crm\templates\crm\lottery_drawsdetail.html:18
 #: .\crm\templates\crm\obj_list.html:61
 msgid "Age"
-msgstr ""
+msgstr "عمر"
 
 #: .\crm\models.py:33 .\crm\models.py:60 .\crm\models.py:87 .\crm\models.py:113
 #: .\crm\models.py:138
 msgid "Id Code"
-msgstr ""
+msgstr "رقم هوية"
 
 #: .\crm\models.py:34 .\crm\models.py:61 .\crm\models.py:88
 #: .\crm\templates\crm\obj_read.html:34
 msgid "sickness"
-msgstr ""
+msgstr "مرض"
 
 #: .\crm\models.py:35 .\crm\models.py:62 .\crm\models.py:89 .\crm\models.py:114
 #: .\crm\models.py:139 .\crm\models.py:168
@@ -123,14 +123,14 @@ msgstr ""
 #: .\crm\templates\crm\lottery_drawsdetail.html:20
 #: .\crm\templates\crm\obj_list.html:63
 msgid "Contery"
-msgstr ""
+msgstr "الدولة"
 
 #: .\crm\models.py:36 .\crm\models.py:63 .\crm\models.py:90 .\crm\models.py:115
 #: .\crm\models.py:140 .\crm\models.py:169
 #: .\crm\templates\crm\cdjd_read.html:42 .\crm\templates\crm\dd_read.html:54
 #: .\crm\templates\crm\obj_read.html:42
 msgid "State/City"
-msgstr ""
+msgstr "ولاية/مدينة"
 
 #: .\crm\models.py:37 .\crm\models.py:64 .\crm\models.py:91 .\crm\models.py:116
 #: .\crm\models.py:141 .\crm\models.py:171 .\crm\models.py:191
@@ -138,21 +138,21 @@ msgstr ""
 #: .\crm\templates\crm\tbgf_detail.html:22
 #: .\crm\templates\crm\tbgf_users.html:64
 msgid "Created"
-msgstr ""
+msgstr "مخلوق"
 
 #: .\crm\models.py:38 .\crm\models.py:65 .\crm\models.py:92 .\crm\models.py:117
 #: .\crm\models.py:142 .\crm\models.py:167
 msgid "Phone Number"
-msgstr ""
+msgstr "رقم التليفون"
 
 #: .\crm\models.py:39 .\crm\models.py:66 .\crm\models.py:93 .\crm\models.py:118
 #: .\crm\models.py:143
 msgid "Phone Number Agent"
-msgstr ""
+msgstr "وكيل رقم الهاتف"
 
 #: .\crm\models.py:41 .\crm\models.py:68
 msgid "PayStatus"
-msgstr ""
+msgstr "حالة الدفع"
 
 #: .\crm\models.py:42 .\crm\models.py:69 .\crm\models.py:96 .\crm\models.py:121
 #: .\crm\models.py:146 .\crm\models.py:174 .\crm\models.py:194
@@ -162,139 +162,139 @@ msgstr ""
 #: .\crm\templates\crm\obj_list.html:66 .\crm\templates\crm\pa_list.html:68
 #: .\crm\templates\crm\pa_read.html:42
 msgid "Status"
-msgstr ""
+msgstr "حالة"
 
 #: .\crm\models.py:45
 msgid "Common60"
-msgstr ""
+msgstr "مشترك60"
 
 #: .\crm\models.py:46
 msgid "Common60s"
-msgstr ""
+msgstr "مشتركs60"
 
 #: .\crm\models.py:72
 msgid "Common61"
-msgstr ""
+msgstr "مشترك61"
 
 #: .\crm\models.py:73
 msgid "Common61s"
-msgstr ""
+msgstr "مشترك61s"
 
 #: .\crm\models.py:95 .\crm\models.py:120 .\crm\models.py:145
 #: .\crm\models.py:173 .\crm\models.py:193 .\crm\models.py:316
 #: .\crm\templates\crm\tbgf_detail.html:53
 #: .\crm\templates\crm\tbgf_users.html:69
 msgid "Pay Status"
-msgstr ""
+msgstr "حالة الدفع"
 
 #: .\crm\models.py:99
 msgid "Common70"
-msgstr ""
+msgstr "مشترك70"
 
 #: .\crm\models.py:100
 msgid "Common70s"
-msgstr ""
+msgstr "مشترك70s"
 
 #: .\crm\models.py:112 .\crm\models.py:137 .\crm\models.py:162
 #: .\crm\models.py:189
 msgid "Deceased name"
-msgstr ""
+msgstr "اسم متوفي"
 
 #: .\crm\models.py:124
 msgid "CommonDead"
-msgstr ""
+msgstr "الميت المشترك"
 
 #: .\crm\models.py:125
 msgid "CommonDeads"
-msgstr ""
+msgstr "الوفيات الشائعة"
 
 #: .\crm\models.py:149
 msgid "JudiciaryDead"
-msgstr ""
+msgstr "القضاء ميت"
 
 #: .\crm\models.py:150
 msgid "JudiciaryDeads"
-msgstr ""
+msgstr "قتلى القضاء"
 
 #: .\crm\models.py:163
 msgid "Years Passed prayer"
-msgstr ""
+msgstr "مرت سنوات الصلاة"
 
 #: .\crm\models.py:164
 msgid "Years Passed fasting"
-msgstr ""
+msgstr "مرت سنوات الصيام"
 
 #: .\crm\models.py:165 .\crm\templates\crm\dd_list.html:67
 #: .\crm\templates\crm\dd_read.html:38
 msgid "Pilgrimage"
-msgstr ""
+msgstr "الحج"
 
 #: .\crm\models.py:166 .\crm\templates\crm\dd_read.html:42
 msgid "Agent"
-msgstr ""
+msgstr "عامل"
 
 #: .\crm\models.py:170 .\crm\templates\crm\dd_read.html:58
 msgid "Deposit"
-msgstr ""
+msgstr "إيداع"
 
 #: .\crm\models.py:177
 msgid "DoingDead"
-msgstr ""
+msgstr "القيام بالموتى"
 
 #: .\crm\models.py:178
 msgid "DoingDeads"
-msgstr ""
+msgstr "القيام بالموتى"
 
 #: .\crm\models.py:190
 msgid "help name"
-msgstr ""
+msgstr "اسم المساعدة"
 
 #: .\crm\models.py:197
 msgid "PublicAssistance"
-msgstr ""
+msgstr "مساعدة عامة"
 
 #: .\crm\models.py:198
 msgid "PublicAssistances"
-msgstr ""
+msgstr "المساعدة العامة"
 
 #: .\crm\models.py:209
 msgid "Quran memorization lottery"
-msgstr ""
+msgstr "قرعة حفظ القرآن الكريم"
 
 #: .\crm\models.py:210
 msgid "Visiting religious places"
-msgstr ""
+msgstr "زيارة الأماكن الدينية"
 
 #: .\crm\models.py:212
 msgid "Lottery"
-msgstr ""
+msgstr "اليانصيب"
 
 #: .\crm\models.py:215
 msgid "LotteryC60"
-msgstr ""
+msgstr "اليانصيبC60"
 
 #: .\crm\models.py:216
 msgid "LotteryC60s"
-msgstr ""
+msgstr "اليانصيبC60s"
 
 #: .\crm\models.py:229
 msgid "Add Time"
-msgstr ""
+msgstr "إضافة وقت"
 
 #: .\crm\models.py:232
 msgid "WinnerLottery60"
-msgstr ""
+msgstr "الفائز اليانصيب60"
 
 #: .\crm\models.py:233
 msgid "WinnerLottery60s"
-msgstr ""
+msgstr "الفائز في اليانصيب60s"
 
 #: .\crm\models.py:244 .\crm\models.py:309
 #: .\crm\templates\crm\obj_tablistwin.html:68
 #: .\crm\templates\crm\tbgf_detail.html:18
 #: .\crm\templates\crm\tbgf_users.html:63
 msgid "User"
-msgstr ""
+msgstr "مستخدم"
 
 #: .\crm\models.py:245 .\crm\templates\crm\cdjd_read.html:46
 #: .\crm\templates\crm\dd_read.html:62
@@ -302,178 +302,178 @@ msgstr ""
 #: .\crm\templates\crm\msg_detail.html:22 .\crm\templates\crm\msg_list.html:61
 #: .\crm\templates\crm\obj_list.html:64 .\crm\templates\crm\pa_list.html:65
 msgid "Create Date"
-msgstr ""
+msgstr "تاريخ الإنشاء"
 
 #: .\crm\models.py:246 .\crm\templates\crm\msg_detail.html:26
 #: .\crm\templates\crm\msg_list.html:62
 msgid "See Date"
-msgstr ""
+msgstr "انظر التاريخ"
 
 #: .\crm\models.py:247 .\crm\templates\crm\msg_detail.html:30
 #: .\crm\templates\crm\msg_list.html:63
 msgid "Subject"
-msgstr ""
+msgstr "موضوع"
 
 #: .\crm\models.py:248 .\crm\templates\crm\msg_detail.html:34
 msgid "Text"
-msgstr ""
+msgstr "نص"
 
 #: .\crm\models.py:249 .\crm\templates\crm\msg_detail.html:38
 #: .\crm\templates\crm\msg_list.html:64
 msgid "See"
-msgstr ""
+msgstr "يرى"
 
 #: .\crm\models.py:252
 msgid "Notification"
-msgstr ""
+msgstr "إشعار"
 
 #: .\crm\models.py:253
 msgid "Notifications"
-msgstr ""
+msgstr "إشعارات"
 
 #: .\crm\models.py:263 .\crm\models.py:278
 msgid "Table Type"
-msgstr ""
+msgstr "نوع الجدول"
 
 #: .\crm\models.py:264
 msgid "Footer"
-msgstr ""
+msgstr "تذييل"
 
 #: .\crm\models.py:267
 msgid "TableType"
-msgstr ""
+msgstr "نوع الجدول"
 
 #: .\crm\models.py:268
 msgid "TableTypes"
-msgstr ""
+msgstr "أنواع الجداول"
 
 #: .\crm\models.py:280 .\crm\templates\crm\obj_tablist.html:61
 #: .\crm\templates\crm\tabs_detail.html:18
 msgid "Month Number"
-msgstr ""
+msgstr "رقم الشهر"
 
 #: .\crm\models.py:282 .\crm\templates\crm\tabs_detail.html:26
 msgid "Month Amount"
-msgstr ""
+msgstr "مبلغ الشهر"
 
 #: .\crm\models.py:283
 msgid "subtraction"
-msgstr ""
+msgstr "الطرح"
 
 #: .\crm\models.py:284
 msgid "Friendships and affections"
-msgstr ""
+msgstr "الصداقات والمودة"
 
 #: .\crm\models.py:285
 msgid "Annual number"
-msgstr ""
+msgstr "العدد السنوي"
 
 #: .\crm\models.py:286
 msgid "Annual Amount"
-msgstr ""
+msgstr "القيمة السنوية"
 
 #: .\crm\models.py:287 .\crm\templates\crm\tabs_detail.html:46
 msgid "Total Subtraction"
-msgstr ""
+msgstr "الطرح الكلي"
 
 #: .\crm\models.py:288 .\crm\templates\crm\tabs_detail.html:50
 msgid "Total Friendships"
-msgstr ""
+msgstr "مجموع الصداقات"
 
 #: .\crm\models.py:289 .\crm\templates\crm\obj_tablist.html:66
 msgid "Title Gifts"
-msgstr ""
+msgstr "هدايا العنوان"
 
 #: .\crm\models.py:290 .\crm\templates\crm\tabs_detail.html:58
 msgid "Month Sequence"
-msgstr ""
+msgstr "تسلسل الشهر"
 
 #: .\crm\models.py:291 .\crm\templates\crm\obj_tablist.html:67
 #: .\crm\templates\crm\tabs_detail.html:62
 msgid "Pay Type"
-msgstr ""
+msgstr "نوع الدفع"
 
 #: .\crm\models.py:293 .\crm\templates\crm\tabs_detail.html:66
 msgid "Notes"
-msgstr ""
+msgstr "ملحوظات"
 
 #: .\crm\models.py:296
 msgid "TableGift"
-msgstr ""
+msgstr "هدية الطاولة"
 
 #: .\crm\models.py:297
 msgid "TableGifts"
-msgstr ""
+msgstr "هدايا الطاولة"
 
 #: .\crm\models.py:307
 msgid "Gift Tables"
-msgstr ""
+msgstr "طاولات الهدايا"
 
 #: .\crm\models.py:311 .\crm\templates\crm\tbgf_detail.html:26
 msgid "Updated"
-msgstr ""
+msgstr "محدث"
 
 #: .\crm\models.py:312 .\crm\templates\crm\tbgf_detail.html:30
 #: .\crm\templates\crm\tbgf_users.html:65
 msgid "Active"
-msgstr ""
+msgstr "نشيط"
 
 #: .\crm\models.py:313
 msgid "Count of Chances"
-msgstr ""
+msgstr "عدد الفرص"
 
 #: .\crm\models.py:315 .\crm\templates\crm\tbgf_detail.html:42
 #: .\crm\templates\crm\tbgf_users.html:68
 msgid "Count Pay"
-msgstr ""
+msgstr "عد الدفع"
 
 #: .\crm\models.py:319
 msgid "TableGiftUser"
-msgstr ""
+msgstr "مستخدمي هدية الطاولة"
 
 #: .\crm\models.py:320
 msgid "TableGiftUsers"
-msgstr ""
+msgstr "مستخدمي هدية الطاولة"
 
 #: .\crm\models.py:331 .\crm\models.py:349
 msgid "Table Gift User"
-msgstr ""
+msgstr "مستخدم هدية الطاولة"
 
 #: .\crm\models.py:333
 msgid "Payment"
-msgstr ""
+msgstr "قسط"
 
 #: .\crm\models.py:337
 msgid "TablePayment"
-msgstr ""
+msgstr "دفع الجدول"
 
 #: .\crm\models.py:338
 msgid "TablePayments"
-msgstr ""
+msgstr "مدفوعات الجدول"
 
 #: .\crm\models.py:351 .\crm\templates\crm\obj_tablistwin.html:69
 msgid "Win Date"
-msgstr ""
+msgstr "تاريخ الفوز"
 
 #: .\crm\models.py:354
 msgid "WinTableLottery"
-msgstr ""
+msgstr "فوز يانصيب الطاولة"
 
 #: .\crm\models.py:355
 msgid "WinTableLotterys"
-msgstr ""
+msgstr "فوز يانصيب الطاولة"
 
 #: .\crm\templates\crm\amount_list.html:9
 msgid "Amounts"
-msgstr ""
+msgstr "كميات"
 
 #: .\crm\templates\crm\amount_list.html:23 .\crm\templates\crm\pa_read.html:30
 msgid "Create Time"
-msgstr ""
+msgstr "خلق الوقت"
 
 #: .\crm\templates\crm\amount_list.html:24
 msgid "Update Time"
-msgstr ""
+msgstr "تحديث الوقت"
 
 #: .\crm\templates\crm\amount_list.html:57
 #: .\crm\templates\crm\cdjd_list.html:113
@@ -483,7 +483,7 @@ msgstr ""
 #: .\crm\templates\crm\obj_tablistwin.html:94
 #: .\crm\templates\crm\pa_list.html:116 .\crm\templates\crm\tbgf_users.html:118
 msgid "First page"
-msgstr ""
+msgstr "الصفحة الأولى"
 
 #: .\crm\templates\crm\amount_list.html:79
 #: .\crm\templates\crm\cdjd_list.html:135
@@ -493,39 +493,39 @@ msgstr ""
 #: .\crm\templates\crm\obj_tablistwin.html:116
 #: .\crm\templates\crm\pa_list.html:138 .\crm\templates\crm\tbgf_users.html:140
 msgid "Last page"
-msgstr ""
+msgstr "آخر صفحة"
 
 #: .\crm\templates\crm\cdjd_list.html:9
 msgid "Subscription Dead"
-msgstr ""
+msgstr "الاشتراك ميت"
 
 #: .\crm\templates\crm\cdjd_list.html:34 .\crm\templates\crm\dd_list.html:35
 #: .\crm\templates\crm\msg_list.html:34 .\crm\templates\crm\obj_list.html:34
 #: .\crm\templates\crm\obj_tablistwin.html:35
 #: .\crm\templates\crm\pa_list.html:35 .\crm\templates\crm\tbgf_users.html:35
 msgid "Filter By"
-msgstr ""
+msgstr "مصنف بواسطة"
 
 #: .\crm\templates\crm\cdjd_list.html:37 .\crm\templates\crm\dd_list.html:38
 #: .\crm\templates\crm\msg_list.html:37 .\crm\templates\crm\obj_list.html:37
 #: .\crm\templates\crm\obj_tablistwin.html:38
 #: .\crm\templates\crm\pa_list.html:38 .\crm\templates\crm\tbgf_users.html:38
 msgid "All"
-msgstr ""
+msgstr "الجميع"
 
 #: .\crm\templates\crm\cdjd_list.html:40 .\crm\templates\crm\dd_list.html:41
 #: .\crm\templates\crm\msg_list.html:40 .\crm\templates\crm\obj_list.html:40
 #: .\crm\templates\crm\pa_list.html:41 .\crm\templates\crm\tbgf_detail.html:48
 #: .\crm\templates\crm\tbgf_users.html:41
 msgid "Paid"
-msgstr ""
+msgstr "مدفوع"
 
 #: .\crm\templates\crm\cdjd_list.html:43 .\crm\templates\crm\dd_list.html:44
 #: .\crm\templates\crm\msg_list.html:43 .\crm\templates\crm\obj_list.html:43
 #: .\crm\templates\crm\pa_list.html:44 .\crm\templates\crm\tbgf_detail.html:49
 #: .\crm\templates\crm\tbgf_users.html:44
 msgid "UnPaid"
-msgstr ""
+msgstr "غير مدفوعة الأجر"
 
 #: .\crm\templates\crm\cdjd_list.html:59 .\crm\templates\crm\cdjd_read.html:14
 #: .\crm\templates\crm\dd_list.html:61 .\crm\templates\crm\dd_read.html:14
@@ -533,344 +533,344 @@ msgstr ""
 #: .\crm\templates\crm\obj_list.html:59 .\crm\templates\crm\obj_read.html:14
 #: .\crm\templates\crm\pa_list.html:61 .\crm\templates\crm\pa_read.html:14
 msgid "ID"
-msgstr ""
+msgstr "بطاقة تعريف"
 
 #: .\crm\templates\crm\cdjd_list.html:60 .\crm\templates\crm\cdjd_read.html:22
 #: .\crm\templates\crm\dd_list.html:62 .\crm\templates\crm\dd_read.html:18
 #: .\crm\templates\crm\obj_read.html:22 .\crm\templates\crm\pa_list.html:62
 #: .\crm\templates\crm\pa_read.html:18
 msgid "User Submit"
-msgstr ""
+msgstr "إرسال المستخدم"
 
 #: .\crm\templates\crm\cdjd_list.html:62 .\crm\templates\crm\cdjd_read.html:30
 #: .\crm\templates\crm\lottery_drawsdetail.html:19
 #: .\crm\templates\crm\obj_list.html:62
 msgid "IdCode"
-msgstr ""
+msgstr "رمز هوية"
 
 #: .\crm\templates\crm\cdjd_list.html:64 .\crm\templates\crm\cdjd_read.html:50
 #: .\crm\templates\crm\dd_list.html:68 .\crm\templates\crm\dd_read.html:46
 #: .\crm\templates\crm\lottery_drawsdetail.html:22
 #: .\crm\templates\crm\obj_list.html:65
 msgid "Phone"
-msgstr ""
+msgstr "هاتف"
 
 #: .\crm\templates\crm\cdjd_list.html:65 .\crm\templates\crm\obj_read.html:66
 msgid "status"
-msgstr ""
+msgstr "حالة"
 
 #: .\crm\templates\crm\cdjd_read.html:8 .\crm\templates\crm\obj_read.html:8
 #: .\crm\templates\crm\pa_read.html:8
 msgid "Detail View"
-msgstr ""
+msgstr "عرض التفاصيل"
 
 #: .\crm\templates\crm\cdjd_read.html:34
 msgid "Sickness"
-msgstr ""
+msgstr "المرض"
 
 #: .\crm\templates\crm\cdjd_read.html:54
 msgid "Phone Agent"
-msgstr ""
+msgstr "وكيل الهاتف"
 
 #: .\crm\templates\crm\cdjd_read.html:62 .\crm\templates\crm\dd_read.html:66
 #: .\crm\templates\crm\pa_list.html:67 .\crm\templates\crm\pa_read.html:38
 msgid "Link"
-msgstr ""
+msgstr "وصلة"
 
 #: .\crm\templates\crm\dd_list.html:9 .\crm\templates\crm\dd_read.html:8
 msgid "Subscription Doing Dead"
-msgstr ""
+msgstr "الاشتراك به ميت"
 
 #: .\crm\templates\crm\dd_list.html:65 .\crm\templates\crm\dd_read.html:30
 msgid "Year Prayer"
-msgstr ""
+msgstr "صلاة السنة"
 
 #: .\crm\templates\crm\dd_list.html:66
 msgid "Year fasting"
-msgstr ""
+msgstr "صيام السنة"
 
 #: .\crm\templates\crm\dd_read.html:34
 msgid "Year Fasting"
-msgstr ""
+msgstr "صيام السنة"
 
 #: .\crm\templates\crm\home.html:5
 msgid "Customer relationship management"
-msgstr ""
+msgstr "إدارة علاقات العملاء"
 
 #: .\crm\templates\crm\home.html:10
 msgid "Wellcome To Administrator Customer relationship management"
-msgstr ""
+msgstr "مرحبا بكم في مدير إدارة علاقات العملاء"
 
 #: .\crm\templates\crm\lottery_draws.html:4
 msgid "Lottery Draws"
-msgstr ""
+msgstr "سحب اليانصيب"
 
 #: .\crm\templates\crm\lottery_draws.html:10
 msgid "List of drawn draws"
-msgstr ""
+msgstr "قائمة الرسومات"
 
 #: .\crm\templates\crm\lottery_drawsdetail.html:5
 msgid "Lottery Draws Detail"
-msgstr ""
+msgstr "تفاصيل سحب اليانصيب"
 
 #: .\crm\templates\crm\msg_detail.html:8
 msgid "Message Detail"
-msgstr ""
+msgstr "تفاصيل الرسالة"
 
 #: .\crm\templates\crm\msg_detail.html:14
 msgid "Users"
-msgstr ""
+msgstr "المستخدمين"
 
 #: .\crm\templates\crm\msg_list.html:8
 msgid "Message List"
-msgstr ""
+msgstr "قائمة الرسائل"
 
 #: .\crm\templates\crm\msg_list.html:60
 msgid "User Count send"
-msgstr ""
+msgstr "تم إرسال عدد المستخدمين"
 
 #: .\crm\templates\crm\obj_create.html:9 .\crm\templates\crm\obj_create.html:20
 msgid "Create Form"
-msgstr ""
+msgstr "إنشاء نموذج"
 
 #: .\crm\templates\crm\obj_create.html:37
 #: .\crm\templates\crm\obj_update.html:37
 msgid "Submit"
-msgstr ""
+msgstr "يُقدِّم"
 
 #: .\crm\templates\crm\obj_delete.html:5 .\crm\templates\crm\obj_delete.html:23
 msgid "Delete"
-msgstr ""
+msgstr "يمسح"
 
 #: .\crm\templates\crm\obj_delete.html:11
 msgid "Delete Subscriptions"
-msgstr ""
+msgstr "حذف الاشتراكات"
 
 #: .\crm\templates\crm\obj_delete.html:18
 msgid "Are you sure you want to delete Subscriptions with Name"
-msgstr ""
+msgstr "هل أنت متأكد أنك تريد حذف الاشتراكات بالاسم"
 
 #: .\crm\templates\crm\obj_list.html:9
 msgid "Show Lis"
-msgstr ""
+msgstr "عرض ليز"
 
 #: .\crm\templates\crm\obj_read.html:26
 msgid "age"
-msgstr ""
+msgstr "عمر"
 
 #: .\crm\templates\crm\obj_read.html:30
 msgid "idcode"
-msgstr ""
+msgstr "رمز هوية"
 
 #: .\crm\templates\crm\obj_read.html:38
 msgid "contery"
-msgstr ""
+msgstr "دولة"
 
 #: .\crm\templates\crm\obj_read.html:46
 msgid "create"
-msgstr ""
+msgstr "يخلق"
 
 #: .\crm\templates\crm\obj_read.html:50
 msgid "phone"
-msgstr ""
+msgstr "هاتف"
 
 #: .\crm\templates\crm\obj_read.html:54
 msgid "phoneagent"
-msgstr ""
+msgstr "وكيل الهاتف"
 
 #: .\crm\templates\crm\obj_read.html:58
 msgid "amount"
-msgstr ""
+msgstr "كمية"
 
 #: .\crm\templates\crm\obj_read.html:62
 msgid "link"
-msgstr ""
+msgstr "وصلة"
 
 #: .\crm\templates\crm\obj_tablist.html:9
 msgid "Table Lottery List"
-msgstr ""
+msgstr "قائمة يانصيب الجدول"
 
 #: .\crm\templates\crm\obj_tablist.html:63
 msgid "Monthamount"
-msgstr ""
+msgstr "مبلغ الشهر"
 
 #: .\crm\templates\crm\obj_tablist.html:64
 #: .\crm\templates\crm\tabs_detail.html:30
 msgid "Subtraction"
-msgstr ""
+msgstr "الطرح"
 
 #: .\crm\templates\crm\obj_tablist.html:65
 #: .\crm\templates\crm\tabs_detail.html:34
 msgid "Friendships"
-msgstr ""
+msgstr "الصداقات"
 
 #: .\crm\templates\crm\obj_tablistwin.html:9
 msgid "Lottery Win List"
-msgstr ""
+msgstr "قائمة الفوز باليانصيب"
 
 #: .\crm\templates\crm\obj_tablistwin.html:41
 msgid "Table u16"
-msgstr ""
+msgstr "الجدول ش16"
 
 #: .\crm\templates\crm\obj_tablistwin.html:44
 msgid "Home/Car"
-msgstr ""
+msgstr "المنزل/السيارة"
 
 #: .\crm\templates\crm\obj_tablistwin.html:47
 msgid "Other Lottery"
-msgstr ""
+msgstr "اليانصيب الأخرى"
 
 #: .\crm\templates\crm\obj_tablistwin.html:66
 #: .\crm\templates\crm\tabs_detail.html:14
 #: .\crm\templates\crm\tbgf_users.html:61
 msgid "Table Name"
-msgstr ""
+msgstr "اسم الطاولة"
 
 #: .\crm\templates\crm\obj_tablistwin.html:67
 msgid "Gift Title"
-msgstr ""
+msgstr "عنوان الهدية"
 
 #: .\crm\templates\crm\obj_update.html:9 .\crm\templates\crm\obj_update.html:20
 msgid "Update Form"
-msgstr ""
+msgstr "تحديث النموذج"
 
 #: .\crm\templates\crm\overview.html:7
 msgid "Overview"
-msgstr ""
+msgstr "ملخص"
 
 #: .\crm\templates\crm\overview.html:39
 msgid "Total"
-msgstr ""
+msgstr "المجموع"
 
 #: .\crm\templates\crm\overview.html:43
 msgid "Successful Payments"
-msgstr ""
+msgstr "المدفوعات الناجحة"
 
 #: .\crm\templates\crm\overview.html:47
 msgid "Unsuccessful Payments"
-msgstr ""
+msgstr "دفعات غير ناجحة"
 
 #: .\crm\templates\crm\overview.html:77
 msgid "Total Contery"
-msgstr ""
+msgstr "إجمالي البلد"
 
 #: .\crm\templates\crm\overview.html:107
 msgid "Total amount:"
-msgstr ""
+msgstr "المبلغ الإجمالي:"
 
 #: .\crm\templates\crm\pa_list.html:9
 msgid "Public Assistance"
-msgstr ""
+msgstr "مساعدة عامة"
 
 #: .\crm\templates\crm\pa_list.html:64
 msgid "Help_name"
-msgstr ""
+msgstr "مساعدة_اسم"
 
 #: .\crm\templates\crm\pa_read.html:26
 msgid "Help Name"
-msgstr ""
+msgstr "اسم المساعدة"
 
 #: .\crm\templates\crm\tabs_detail.html:8
 msgid "Lottery Detail"
-msgstr ""
+msgstr "تفاصيل اليانصيب"
 
 #: .\crm\templates\crm\tabs_detail.html:38
 msgid "Number Annual"
-msgstr ""
+msgstr "العدد سنوي"
 
 #: .\crm\templates\crm\tabs_detail.html:42
 msgid "Amount Annual"
-msgstr ""
+msgstr "المبلغ سنوي"
 
 #: .\crm\templates\crm\tabs_detail.html:54
 msgid "Gifts"
-msgstr ""
+msgstr "الهدايا"
 
 #: .\crm\templates\crm\tabs_holdlot.html:4
 msgid "Holding Lottery"
-msgstr ""
+msgstr "عقد اليانصيب"
 
 #: .\crm\templates\crm\tabs_holdlot.html:11
 msgid "Holding a lottery for table"
-msgstr ""
+msgstr "عقد اليانصيب على الطاولة"
 
 #: .\crm\templates\crm\tabs_holdlot.html:22
 msgid "Number of subscribers"
-msgstr ""
+msgstr "عدد المشتركين"
 
 #: .\crm\templates\crm\tabs_holdlot.html:26
 msgid "Number of subscribers allowed"
-msgstr ""
+msgstr "عدد المشتركين المسموح به"
 
 #: .\crm\templates\crm\tabs_holdlot.html:30
 msgid "Number of subscribers unallowable"
-msgstr ""
+msgstr "عدد المشتركين غير مسموح به"
 
 #: .\crm\templates\crm\tabs_holdlot.html:46
 msgid "Holding"
-msgstr ""
+msgstr "تحتجز"
 
 #: .\crm\templates\crm\tbgf_detail.html:9
 msgid "Gift Detail"
-msgstr ""
+msgstr "تفاصيل الهدية"
 
 #: .\crm\templates\crm\tbgf_detail.html:14
 #: .\crm\templates\crm\tbgf_users.html:62
 msgid "Table Gift"
-msgstr ""
+msgstr "هدية الطاولة"
 
 #: .\crm\templates\crm\tbgf_detail.html:34
 #: .\crm\templates\crm\tbgf_users.html:66
 msgid "Count Chances"
-msgstr ""
+msgstr "عد الفرص"
 
 #: .\crm\templates\crm\tbgf_detail.html:47
 msgid "Installment"
-msgstr ""
+msgstr "تقسيط"
 
 #: .\crm\templates\crm\tbgf_users.html:9
 msgid "Gifts Users"
-msgstr ""
+msgstr "مستخدمي الهدايا"
 
 #: .\crm\views.py:161
 msgid "Success: Amount was updated."
-msgstr ""
+msgstr "النجاح: تم تحديث المبلغ."
 
 #: .\crm\views.py:201 .\crm\views.py:376 .\crm\views.py:432 .\crm\views.py:488
 #: .\crm\views.py:544 .\crm\views.py:600 .\crm\views.py:652
 msgid "Success: Subscription was created."
-msgstr ""
+msgstr "النجاح: تم إنشاء الاشتراك."
 
 #: .\crm\views.py:216 .\crm\views.py:392 .\crm\views.py:448 .\crm\views.py:504
 #: .\crm\views.py:560 .\crm\views.py:616 .\crm\views.py:668
 msgid "Success: Subscription was deleted."
-msgstr ""
+msgstr "نجاح: تم حذف الاشتراك."
 
 #: .\crm\views.py:384 .\crm\views.py:440 .\crm\views.py:496 .\crm\views.py:552
 #: .\crm\views.py:608 .\crm\views.py:660
 msgid "Success: Subscription was updated."
-msgstr ""
+msgstr "النجاح: تم تحديث الاشتراك."
 
 #: .\crm\views.py:703 .\crm\views.py:744
 msgid "Success: Messege Send."
-msgstr ""
+msgstr "النجاح: إرسال رسالة."
 
 #: .\crm\views.py:728
 msgid "Success: Message was updated."
-msgstr ""
+msgstr "النجاح: تم تحديث الرسالة."
 
 #: .\crm\views.py:736
 msgid "Success: Message was deleted."
-msgstr ""
+msgstr "نجاح: تم حذف الرسالة."
 
 #: .\crm\views.py:781
 msgid "Success: Created."
-msgstr ""
+msgstr "النجاح : خلق ."
 
 #: .\crm\views.py:795 .\crm\views.py:838
 msgid "Success: Table was updated."
-msgstr ""
+msgstr "النجاح: تم تحديث الجدول."
 
 #: .\crm\views.py:803 .\crm\views.py:846
 msgid "Success: Table was deleted."
-msgstr ""
+msgstr "نجاح: تم حذف الجدول."
