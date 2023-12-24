@@ -1,0 +1,879 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-24 21:21+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\crm\forms.py:103 .\crm\forms.py:140 .\crm\models.py:349
+msgid "Lottery Title"
+msgstr ""
+
+#: .\crm\forms.py:105
+msgid "Count Winner"
+msgstr ""
+
+#: .\crm\forms.py:107
+msgid "winners status"
+msgstr ""
+
+#: .\crm\forms.py:108 .\crm\forms.py:142
+msgid "start holding?"
+msgstr ""
+
+#: .\crm\forms.py:112
+msgid "Add to Lottery Count"
+msgstr ""
+
+#: .\crm\forms.py:113
+msgid "agree ?"
+msgstr ""
+
+#: .\crm\models.py:9 .\crm\templates\crm\amount_list.html:20
+#: .\crm\templates\crm\obj_tablistwin.html:65
+msgid "Title"
+msgstr ""
+
+#: .\crm\models.py:10 .\crm\models.py:227
+#: .\crm\templates\crm\amount_list.html:21
+#: .\crm\templates\crm\cdjd_list.html:61 .\crm\templates\crm\cdjd_read.html:18
+#: .\crm\templates\crm\dd_list.html:63 .\crm\templates\crm\dd_read.html:22
+#: .\crm\templates\crm\lottery_drawsdetail.html:17
+#: .\crm\templates\crm\obj_list.html:60 .\crm\templates\crm\obj_read.html:18
+#: .\crm\templates\crm\pa_list.html:63 .\crm\templates\crm\pa_read.html:22
+msgid "Name"
+msgstr ""
+
+#: .\crm\models.py:11 .\crm\models.py:40 .\crm\models.py:67 .\crm\models.py:94
+#: .\crm\models.py:119 .\crm\models.py:144 .\crm\models.py:172
+#: .\crm\models.py:192 .\crm\models.py:282 .\crm\models.py:315
+#: .\crm\templates\crm\amount_list.html:22
+#: .\crm\templates\crm\cdjd_read.html:58 .\crm\templates\crm\dd_list.html:64
+#: .\crm\templates\crm\dd_read.html:26 .\crm\templates\crm\obj_tablist.html:62
+#: .\crm\templates\crm\pa_list.html:66 .\crm\templates\crm\pa_read.html:34
+#: .\crm\templates\crm\tabs_detail.html:22
+#: .\crm\templates\crm\tbgf_detail.html:38
+#: .\crm\templates\crm\tbgf_users.html:67
+msgid "Amount"
+msgstr ""
+
+#: .\crm\models.py:12
+msgid "Created Time"
+msgstr ""
+
+#: .\crm\models.py:13
+msgid "Updated Time"
+msgstr ""
+
+#: .\crm\models.py:16
+msgid "CommonsAmount"
+msgstr ""
+
+#: .\crm\models.py:17
+msgid "CommonsAmounts"
+msgstr ""
+
+#: .\crm\models.py:28 .\crm\models.py:57 .\crm\models.py:84 .\crm\models.py:111
+#: .\crm\models.py:136 .\crm\models.py:161 .\crm\models.py:188
+msgid "Registrant"
+msgstr ""
+
+#: .\crm\models.py:30
+msgid "lottery"
+msgstr ""
+
+#: .\crm\models.py:31 .\crm\models.py:58 .\crm\models.py:85
+msgid "Quadruple common name"
+msgstr ""
+
+#: .\crm\models.py:32 .\crm\models.py:59 .\crm\models.py:86
+#: .\crm\templates\crm\cdjd_read.html:26
+#: .\crm\templates\crm\lottery_drawsdetail.html:18
+#: .\crm\templates\crm\obj_list.html:61
+msgid "Age"
+msgstr ""
+
+#: .\crm\models.py:33 .\crm\models.py:60 .\crm\models.py:87 .\crm\models.py:113
+#: .\crm\models.py:138
+msgid "Id Code"
+msgstr ""
+
+#: .\crm\models.py:34 .\crm\models.py:61 .\crm\models.py:88
+#: .\crm\templates\crm\obj_read.html:34
+msgid "sickness"
+msgstr ""
+
+#: .\crm\models.py:35 .\crm\models.py:62 .\crm\models.py:89 .\crm\models.py:114
+#: .\crm\models.py:139 .\crm\models.py:168
+#: .\crm\templates\crm\cdjd_list.html:63 .\crm\templates\crm\cdjd_read.html:38
+#: .\crm\templates\crm\dd_list.html:69 .\crm\templates\crm\dd_read.html:50
+#: .\crm\templates\crm\lottery_drawsdetail.html:20
+#: .\crm\templates\crm\obj_list.html:63
+msgid "Contery"
+msgstr ""
+
+#: .\crm\models.py:36 .\crm\models.py:63 .\crm\models.py:90 .\crm\models.py:115
+#: .\crm\models.py:140 .\crm\models.py:169
+#: .\crm\templates\crm\cdjd_read.html:42 .\crm\templates\crm\dd_read.html:54
+#: .\crm\templates\crm\obj_read.html:42
+msgid "State/City"
+msgstr ""
+
+#: .\crm\models.py:37 .\crm\models.py:64 .\crm\models.py:91 .\crm\models.py:116
+#: .\crm\models.py:141 .\crm\models.py:171 .\crm\models.py:191
+#: .\crm\models.py:311 .\crm\models.py:333
+#: .\crm\templates\crm\tbgf_detail.html:22
+#: .\crm\templates\crm\tbgf_users.html:64
+msgid "Created"
+msgstr ""
+
+#: .\crm\models.py:38 .\crm\models.py:65 .\crm\models.py:92 .\crm\models.py:117
+#: .\crm\models.py:142 .\crm\models.py:167
+msgid "Phone Number"
+msgstr ""
+
+#: .\crm\models.py:39 .\crm\models.py:66 .\crm\models.py:93 .\crm\models.py:118
+#: .\crm\models.py:143
+msgid "Phone Number Agent"
+msgstr ""
+
+#: .\crm\models.py:41 .\crm\models.py:68
+msgid "PayStatus"
+msgstr ""
+
+#: .\crm\models.py:42 .\crm\models.py:69 .\crm\models.py:96 .\crm\models.py:121
+#: .\crm\models.py:146 .\crm\models.py:174 .\crm\models.py:195
+#: .\crm\models.py:335 .\crm\templates\crm\cdjd_read.html:66
+#: .\crm\templates\crm\dd_list.html:70 .\crm\templates\crm\dd_read.html:70
+#: .\crm\templates\crm\lottery_drawsdetail.html:23
+#: .\crm\templates\crm\obj_list.html:66 .\crm\templates\crm\pa_list.html:68
+#: .\crm\templates\crm\pa_read.html:42
+msgid "Status"
+msgstr ""
+
+#: .\crm\models.py:45
+msgid "Common60"
+msgstr ""
+
+#: .\crm\models.py:46
+msgid "Common60s"
+msgstr ""
+
+#: .\crm\models.py:72
+msgid "Common61"
+msgstr ""
+
+#: .\crm\models.py:73
+msgid "Common61s"
+msgstr ""
+
+#: .\crm\models.py:95 .\crm\models.py:120 .\crm\models.py:145
+#: .\crm\models.py:173 .\crm\models.py:194 .\crm\models.py:317
+#: .\crm\templates\crm\tbgf_detail.html:53
+#: .\crm\templates\crm\tbgf_users.html:69
+msgid "Pay Status"
+msgstr ""
+
+#: .\crm\models.py:99
+msgid "Common70"
+msgstr ""
+
+#: .\crm\models.py:100
+msgid "Common70s"
+msgstr ""
+
+#: .\crm\models.py:112 .\crm\models.py:137 .\crm\models.py:162
+#: .\crm\models.py:189
+msgid "Deceased name"
+msgstr ""
+
+#: .\crm\models.py:124
+msgid "CommonDead"
+msgstr ""
+
+#: .\crm\models.py:125
+msgid "CommonDeads"
+msgstr ""
+
+#: .\crm\models.py:149
+msgid "JudiciaryDead"
+msgstr ""
+
+#: .\crm\models.py:150
+msgid "JudiciaryDeads"
+msgstr ""
+
+#: .\crm\models.py:163
+msgid "Years Passed prayer"
+msgstr ""
+
+#: .\crm\models.py:164
+msgid "Years Passed fasting"
+msgstr ""
+
+#: .\crm\models.py:165 .\crm\templates\crm\dd_list.html:67
+#: .\crm\templates\crm\dd_read.html:38
+msgid "Pilgrimage"
+msgstr ""
+
+#: .\crm\models.py:166 .\crm\templates\crm\dd_read.html:42
+msgid "Agent"
+msgstr ""
+
+#: .\crm\models.py:170 .\crm\templates\crm\dd_read.html:58
+msgid "Deposit"
+msgstr ""
+
+#: .\crm\models.py:177
+msgid "DoingDead"
+msgstr ""
+
+#: .\crm\models.py:178
+msgid "DoingDeads"
+msgstr ""
+
+#: .\crm\models.py:190
+msgid "help name"
+msgstr ""
+
+#: .\crm\models.py:193
+msgid "User Amount"
+msgstr ""
+
+#: .\crm\models.py:198
+msgid "PublicAssistance"
+msgstr ""
+
+#: .\crm\models.py:199
+msgid "PublicAssistances"
+msgstr ""
+
+#: .\crm\models.py:210
+msgid "Quran memorization lottery"
+msgstr ""
+
+#: .\crm\models.py:211
+msgid "Visiting religious places"
+msgstr ""
+
+#: .\crm\models.py:213
+msgid "Lottery"
+msgstr ""
+
+#: .\crm\models.py:216
+msgid "LotteryC60"
+msgstr ""
+
+#: .\crm\models.py:217
+msgid "LotteryC60s"
+msgstr ""
+
+#: .\crm\models.py:230
+msgid "Add Time"
+msgstr ""
+
+#: .\crm\models.py:233
+msgid "WinnerLottery60"
+msgstr ""
+
+#: .\crm\models.py:234
+msgid "WinnerLottery60s"
+msgstr ""
+
+#: .\crm\models.py:245 .\crm\models.py:310
+#: .\crm\templates\crm\obj_tablistwin.html:68
+#: .\crm\templates\crm\tbgf_detail.html:18
+#: .\crm\templates\crm\tbgf_users.html:63
+msgid "User"
+msgstr ""
+
+#: .\crm\models.py:246 .\crm\templates\crm\cdjd_read.html:46
+#: .\crm\templates\crm\dd_read.html:62
+#: .\crm\templates\crm\lottery_drawsdetail.html:21
+#: .\crm\templates\crm\msg_detail.html:22 .\crm\templates\crm\msg_list.html:61
+#: .\crm\templates\crm\obj_list.html:64 .\crm\templates\crm\pa_list.html:65
+msgid "Create Date"
+msgstr ""
+
+#: .\crm\models.py:247 .\crm\templates\crm\msg_detail.html:26
+#: .\crm\templates\crm\msg_list.html:62
+msgid "See Date"
+msgstr ""
+
+#: .\crm\models.py:248 .\crm\templates\crm\msg_detail.html:30
+#: .\crm\templates\crm\msg_list.html:63
+msgid "Subject"
+msgstr ""
+
+#: .\crm\models.py:249 .\crm\templates\crm\msg_detail.html:34
+msgid "Text"
+msgstr ""
+
+#: .\crm\models.py:250 .\crm\templates\crm\msg_detail.html:38
+#: .\crm\templates\crm\msg_list.html:64
+msgid "See"
+msgstr ""
+
+#: .\crm\models.py:253
+msgid "Notification"
+msgstr ""
+
+#: .\crm\models.py:254
+msgid "Notifications"
+msgstr ""
+
+#: .\crm\models.py:264 .\crm\models.py:279
+msgid "Table Type"
+msgstr ""
+
+#: .\crm\models.py:265
+msgid "Footer"
+msgstr ""
+
+#: .\crm\models.py:268
+msgid "TableType"
+msgstr ""
+
+#: .\crm\models.py:269
+msgid "TableTypes"
+msgstr ""
+
+#: .\crm\models.py:281 .\crm\templates\crm\obj_tablist.html:61
+#: .\crm\templates\crm\tabs_detail.html:18
+msgid "Month Number"
+msgstr ""
+
+#: .\crm\models.py:283 .\crm\templates\crm\tabs_detail.html:26
+msgid "Month Amount"
+msgstr ""
+
+#: .\crm\models.py:284
+msgid "subtraction"
+msgstr ""
+
+#: .\crm\models.py:285
+msgid "Friendships and affections"
+msgstr ""
+
+#: .\crm\models.py:286
+msgid "Annual number"
+msgstr ""
+
+#: .\crm\models.py:287
+msgid "Annual Amount"
+msgstr ""
+
+#: .\crm\models.py:288 .\crm\templates\crm\tabs_detail.html:46
+msgid "Total Subtraction"
+msgstr ""
+
+#: .\crm\models.py:289 .\crm\templates\crm\tabs_detail.html:50
+msgid "Total Friendships"
+msgstr ""
+
+#: .\crm\models.py:290 .\crm\templates\crm\obj_tablist.html:66
+msgid "Title Gifts"
+msgstr ""
+
+#: .\crm\models.py:291 .\crm\templates\crm\tabs_detail.html:58
+msgid "Month Sequence"
+msgstr ""
+
+#: .\crm\models.py:292 .\crm\templates\crm\obj_tablist.html:67
+#: .\crm\templates\crm\tabs_detail.html:62
+msgid "Pay Type"
+msgstr ""
+
+#: .\crm\models.py:294 .\crm\templates\crm\tabs_detail.html:66
+msgid "Notes"
+msgstr ""
+
+#: .\crm\models.py:297
+msgid "TableGift"
+msgstr ""
+
+#: .\crm\models.py:298
+msgid "TableGifts"
+msgstr ""
+
+#: .\crm\models.py:308
+msgid "Gift Tables"
+msgstr ""
+
+#: .\crm\models.py:312 .\crm\templates\crm\tbgf_detail.html:26
+msgid "Updated"
+msgstr ""
+
+#: .\crm\models.py:313 .\crm\templates\crm\tbgf_detail.html:30
+#: .\crm\templates\crm\tbgf_users.html:65
+msgid "Active"
+msgstr ""
+
+#: .\crm\models.py:314
+msgid "Count of Chances"
+msgstr ""
+
+#: .\crm\models.py:316 .\crm\templates\crm\tbgf_detail.html:42
+#: .\crm\templates\crm\tbgf_users.html:68
+msgid "Count Pay"
+msgstr ""
+
+#: .\crm\models.py:320
+msgid "TableGiftUser"
+msgstr ""
+
+#: .\crm\models.py:321
+msgid "TableGiftUsers"
+msgstr ""
+
+#: .\crm\models.py:332 .\crm\models.py:350
+msgid "Table Gift User"
+msgstr ""
+
+#: .\crm\models.py:334
+msgid "Payment"
+msgstr ""
+
+#: .\crm\models.py:338
+msgid "TablePayment"
+msgstr ""
+
+#: .\crm\models.py:339
+msgid "TablePayments"
+msgstr ""
+
+#: .\crm\models.py:352 .\crm\templates\crm\obj_tablistwin.html:69
+msgid "Win Date"
+msgstr ""
+
+#: .\crm\models.py:355
+msgid "WinTableLottery"
+msgstr ""
+
+#: .\crm\models.py:356
+msgid "WinTableLotterys"
+msgstr ""
+
+#: .\crm\templates\crm\amount_list.html:9
+msgid "Amounts"
+msgstr ""
+
+#: .\crm\templates\crm\amount_list.html:23 .\crm\templates\crm\pa_read.html:30
+msgid "Create Time"
+msgstr ""
+
+#: .\crm\templates\crm\amount_list.html:24
+msgid "Update Time"
+msgstr ""
+
+#: .\crm\templates\crm\amount_list.html:57
+#: .\crm\templates\crm\cdjd_list.html:113
+#: .\crm\templates\crm\lottery_drawsdetail.html:71
+#: .\crm\templates\crm\msg_list.html:109
+#: .\crm\templates\crm\obj_tablist.html:114
+#: .\crm\templates\crm\obj_tablistwin.html:94
+#: .\crm\templates\crm\pa_list.html:116 .\crm\templates\crm\tbgf_users.html:118
+msgid "First page"
+msgstr ""
+
+#: .\crm\templates\crm\amount_list.html:79
+#: .\crm\templates\crm\cdjd_list.html:135
+#: .\crm\templates\crm\lottery_drawsdetail.html:93
+#: .\crm\templates\crm\msg_list.html:131
+#: .\crm\templates\crm\obj_tablist.html:136
+#: .\crm\templates\crm\obj_tablistwin.html:116
+#: .\crm\templates\crm\pa_list.html:138 .\crm\templates\crm\tbgf_users.html:140
+msgid "Last page"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_list.html:9
+msgid "Subscription Dead"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_list.html:34 .\crm\templates\crm\dd_list.html:35
+#: .\crm\templates\crm\msg_list.html:34 .\crm\templates\crm\obj_list.html:34
+#: .\crm\templates\crm\obj_tablistwin.html:35
+#: .\crm\templates\crm\pa_list.html:35 .\crm\templates\crm\tbgf_users.html:35
+msgid "Filter By"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_list.html:37 .\crm\templates\crm\dd_list.html:38
+#: .\crm\templates\crm\msg_list.html:37 .\crm\templates\crm\obj_list.html:37
+#: .\crm\templates\crm\obj_tablistwin.html:38
+#: .\crm\templates\crm\pa_list.html:38 .\crm\templates\crm\tbgf_users.html:38
+msgid "All"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_list.html:40 .\crm\templates\crm\dd_list.html:41
+#: .\crm\templates\crm\msg_list.html:40 .\crm\templates\crm\obj_list.html:40
+#: .\crm\templates\crm\pa_list.html:41 .\crm\templates\crm\tbgf_detail.html:48
+#: .\crm\templates\crm\tbgf_users.html:41
+msgid "Paid"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_list.html:43 .\crm\templates\crm\dd_list.html:44
+#: .\crm\templates\crm\msg_list.html:43 .\crm\templates\crm\obj_list.html:43
+#: .\crm\templates\crm\pa_list.html:44 .\crm\templates\crm\tbgf_detail.html:49
+#: .\crm\templates\crm\tbgf_users.html:44
+msgid "UnPaid"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_list.html:59 .\crm\templates\crm\cdjd_read.html:14
+#: .\crm\templates\crm\dd_list.html:61 .\crm\templates\crm\dd_read.html:14
+#: .\crm\templates\crm\lottery_drawsdetail.html:16
+#: .\crm\templates\crm\obj_list.html:59 .\crm\templates\crm\obj_read.html:14
+#: .\crm\templates\crm\pa_list.html:61 .\crm\templates\crm\pa_read.html:14
+msgid "ID"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_list.html:60 .\crm\templates\crm\cdjd_read.html:22
+#: .\crm\templates\crm\dd_list.html:62 .\crm\templates\crm\dd_read.html:18
+#: .\crm\templates\crm\obj_read.html:22 .\crm\templates\crm\pa_list.html:62
+#: .\crm\templates\crm\pa_read.html:18
+msgid "User Submit"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_list.html:62 .\crm\templates\crm\cdjd_read.html:30
+#: .\crm\templates\crm\lottery_drawsdetail.html:19
+#: .\crm\templates\crm\obj_list.html:62
+msgid "IdCode"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_list.html:64 .\crm\templates\crm\cdjd_read.html:50
+#: .\crm\templates\crm\dd_list.html:68 .\crm\templates\crm\dd_read.html:46
+#: .\crm\templates\crm\lottery_drawsdetail.html:22
+#: .\crm\templates\crm\obj_list.html:65
+msgid "Phone"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_list.html:65 .\crm\templates\crm\obj_read.html:66
+msgid "status"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_read.html:8 .\crm\templates\crm\obj_read.html:8
+#: .\crm\templates\crm\pa_read.html:8
+msgid "Detail View"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_read.html:34
+msgid "Sickness"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_read.html:54
+msgid "Phone Agent"
+msgstr ""
+
+#: .\crm\templates\crm\cdjd_read.html:62 .\crm\templates\crm\dd_read.html:66
+#: .\crm\templates\crm\pa_list.html:67 .\crm\templates\crm\pa_read.html:38
+msgid "Link"
+msgstr ""
+
+#: .\crm\templates\crm\dd_list.html:9 .\crm\templates\crm\dd_read.html:8
+msgid "Subscription Doing Dead"
+msgstr ""
+
+#: .\crm\templates\crm\dd_list.html:65 .\crm\templates\crm\dd_read.html:30
+msgid "Year Prayer"
+msgstr ""
+
+#: .\crm\templates\crm\dd_list.html:66
+msgid "Year fasting"
+msgstr ""
+
+#: .\crm\templates\crm\dd_read.html:34
+msgid "Year Fasting"
+msgstr ""
+
+#: .\crm\templates\crm\home.html:5
+msgid "Customer relationship management"
+msgstr ""
+
+#: .\crm\templates\crm\home.html:10
+msgid "Wellcome To Administrator Customer relationship management"
+msgstr ""
+
+#: .\crm\templates\crm\lottery_draws.html:4
+msgid "Lottery Draws"
+msgstr ""
+
+#: .\crm\templates\crm\lottery_draws.html:10
+msgid "List of drawn draws"
+msgstr ""
+
+#: .\crm\templates\crm\lottery_drawsdetail.html:5
+msgid "Lottery Draws Detail"
+msgstr ""
+
+#: .\crm\templates\crm\msg_detail.html:8
+msgid "Message Detail"
+msgstr ""
+
+#: .\crm\templates\crm\msg_detail.html:14
+msgid "Users"
+msgstr ""
+
+#: .\crm\templates\crm\msg_list.html:8
+msgid "Message List"
+msgstr ""
+
+#: .\crm\templates\crm\msg_list.html:60
+msgid "User Count send"
+msgstr ""
+
+#: .\crm\templates\crm\obj_create.html:9 .\crm\templates\crm\obj_create.html:20
+msgid "Create Form"
+msgstr ""
+
+#: .\crm\templates\crm\obj_create.html:37
+#: .\crm\templates\crm\obj_update.html:37
+msgid "Submit"
+msgstr ""
+
+#: .\crm\templates\crm\obj_delete.html:5 .\crm\templates\crm\obj_delete.html:23
+msgid "Delete"
+msgstr ""
+
+#: .\crm\templates\crm\obj_delete.html:11
+msgid "Delete Subscriptions"
+msgstr ""
+
+#: .\crm\templates\crm\obj_delete.html:18
+msgid "Are you sure you want to delete Subscriptions with Name"
+msgstr ""
+
+#: .\crm\templates\crm\obj_list.html:9
+msgid "Show Lis"
+msgstr ""
+
+#: .\crm\templates\crm\obj_read.html:26
+msgid "age"
+msgstr ""
+
+#: .\crm\templates\crm\obj_read.html:30
+msgid "idcode"
+msgstr ""
+
+#: .\crm\templates\crm\obj_read.html:38
+msgid "contery"
+msgstr ""
+
+#: .\crm\templates\crm\obj_read.html:46
+msgid "create"
+msgstr ""
+
+#: .\crm\templates\crm\obj_read.html:50
+msgid "phone"
+msgstr ""
+
+#: .\crm\templates\crm\obj_read.html:54
+msgid "phoneagent"
+msgstr ""
+
+#: .\crm\templates\crm\obj_read.html:58
+msgid "amount"
+msgstr ""
+
+#: .\crm\templates\crm\obj_read.html:62
+msgid "link"
+msgstr ""
+
+#: .\crm\templates\crm\obj_tablist.html:9
+msgid "Table Lottery List"
+msgstr ""
+
+#: .\crm\templates\crm\obj_tablist.html:63
+msgid "Monthamount"
+msgstr ""
+
+#: .\crm\templates\crm\obj_tablist.html:64
+#: .\crm\templates\crm\tabs_detail.html:30
+msgid "Subtraction"
+msgstr ""
+
+#: .\crm\templates\crm\obj_tablist.html:65
+#: .\crm\templates\crm\tabs_detail.html:34
+msgid "Friendships"
+msgstr ""
+
+#: .\crm\templates\crm\obj_tablistwin.html:9
+msgid "Lottery Win List"
+msgstr ""
+
+#: .\crm\templates\crm\obj_tablistwin.html:41
+msgid "Table u16"
+msgstr ""
+
+#: .\crm\templates\crm\obj_tablistwin.html:44
+msgid "Home/Car"
+msgstr ""
+
+#: .\crm\templates\crm\obj_tablistwin.html:47
+msgid "Other Lottery"
+msgstr ""
+
+#: .\crm\templates\crm\obj_tablistwin.html:66
+#: .\crm\templates\crm\tabs_detail.html:14
+#: .\crm\templates\crm\tbgf_users.html:61
+msgid "Table Name"
+msgstr ""
+
+#: .\crm\templates\crm\obj_tablistwin.html:67
+msgid "Gift Title"
+msgstr ""
+
+#: .\crm\templates\crm\obj_update.html:9 .\crm\templates\crm\obj_update.html:20
+msgid "Update Form"
+msgstr ""
+
+#: .\crm\templates\crm\overview.html:7
+msgid "Overview"
+msgstr ""
+
+#: .\crm\templates\crm\overview.html:39
+msgid "Total"
+msgstr ""
+
+#: .\crm\templates\crm\overview.html:43
+msgid "Successful Payments"
+msgstr ""
+
+#: .\crm\templates\crm\overview.html:47
+msgid "Unsuccessful Payments"
+msgstr ""
+
+#: .\crm\templates\crm\overview.html:77
+msgid "Total Contery"
+msgstr ""
+
+#: .\crm\templates\crm\overview.html:107
+msgid "Total amount:"
+msgstr ""
+
+#: .\crm\templates\crm\pa_list.html:9
+msgid "Public Assistance"
+msgstr ""
+
+#: .\crm\templates\crm\pa_list.html:64
+msgid "Help_name"
+msgstr ""
+
+#: .\crm\templates\crm\pa_read.html:26
+msgid "Help Name"
+msgstr ""
+
+#: .\crm\templates\crm\tabs_detail.html:8
+msgid "Lottery Detail"
+msgstr ""
+
+#: .\crm\templates\crm\tabs_detail.html:38
+msgid "Number Annual"
+msgstr ""
+
+#: .\crm\templates\crm\tabs_detail.html:42
+msgid "Amount Annual"
+msgstr ""
+
+#: .\crm\templates\crm\tabs_detail.html:54
+msgid "Gifts"
+msgstr ""
+
+#: .\crm\templates\crm\tabs_holdlot.html:4
+msgid "Holding Lottery"
+msgstr ""
+
+#: .\crm\templates\crm\tabs_holdlot.html:11
+msgid "Holding a lottery for table"
+msgstr ""
+
+#: .\crm\templates\crm\tabs_holdlot.html:22
+msgid "Number of subscribers"
+msgstr ""
+
+#: .\crm\templates\crm\tabs_holdlot.html:26
+msgid "Number of subscribers allowed"
+msgstr ""
+
+#: .\crm\templates\crm\tabs_holdlot.html:30
+msgid "Number of subscribers unallowable"
+msgstr ""
+
+#: .\crm\templates\crm\tabs_holdlot.html:46
+msgid "Holding"
+msgstr ""
+
+#: .\crm\templates\crm\tbgf_detail.html:9
+msgid "Gift Detail"
+msgstr ""
+
+#: .\crm\templates\crm\tbgf_detail.html:14
+#: .\crm\templates\crm\tbgf_users.html:62
+msgid "Table Gift"
+msgstr ""
+
+#: .\crm\templates\crm\tbgf_detail.html:34
+#: .\crm\templates\crm\tbgf_users.html:66
+msgid "Count Chances"
+msgstr ""
+
+#: .\crm\templates\crm\tbgf_detail.html:47
+msgid "Installment"
+msgstr ""
+
+#: .\crm\templates\crm\tbgf_users.html:9
+msgid "Gifts Users"
+msgstr ""
+
+#: .\crm\views.py:163
+msgid "Success: Amount was updated."
+msgstr ""
+
+#: .\crm\views.py:203 .\crm\views.py:383 .\crm\views.py:439 .\crm\views.py:495
+#: .\crm\views.py:551 .\crm\views.py:607 .\crm\views.py:659
+msgid "Success: Subscription was created."
+msgstr ""
+
+#: .\crm\views.py:218 .\crm\views.py:399 .\crm\views.py:455 .\crm\views.py:511
+#: .\crm\views.py:567 .\crm\views.py:623 .\crm\views.py:675
+msgid "Success: Subscription was deleted."
+msgstr ""
+
+#: .\crm\views.py:391 .\crm\views.py:447 .\crm\views.py:503 .\crm\views.py:559
+#: .\crm\views.py:615 .\crm\views.py:667
+msgid "Success: Subscription was updated."
+msgstr ""
+
+#: .\crm\views.py:710 .\crm\views.py:752
+msgid "Success: Messege Send."
+msgstr ""
+
+#: .\crm\views.py:736
+msgid "Success: Message was updated."
+msgstr ""
+
+#: .\crm\views.py:744
+msgid "Success: Message was deleted."
+msgstr ""
+
+#: .\crm\views.py:789
+msgid "Success: Created."
+msgstr ""
+
+#: .\crm\views.py:803 .\crm\views.py:846
+msgid "Success: Table was updated."
+msgstr ""
+
+#: .\crm\views.py:811 .\crm\views.py:854
+msgid "Success: Table was deleted."
+msgstr ""
