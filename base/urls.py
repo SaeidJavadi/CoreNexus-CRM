@@ -16,6 +16,7 @@ urlpatterns = [
     path('api/rest-auth/registration/', include('dj_rest_auth.registration.urls')),
     path('api/rest-auth/password/reset/confirm/<uidb64>/<token>/',
          PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
 
 
@@ -28,7 +29,6 @@ if settings.DEBUG == True:
 #     REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = (
 #         "rest_framework.renderers.JSONRenderer",
 #     )
-
 
 admin.site.site_header = _('Control Panel')
 admin.site.site_title = _('Control Panel')

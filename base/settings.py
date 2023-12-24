@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_filters',
     'bootstrap_modal_forms',
     'widget_tweaks',
+    'translation_manager',
     # 'drf_yasg',
     # apps
     'accounts.apps.AccountsConfig',
@@ -65,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware'
 ]
 
 ROOT_URLCONF = 'base.urls'
@@ -129,6 +131,16 @@ USE_I18N = True
 
 USE_TZ = True
 
+LANGUAGES = (
+    ('ar', 'Arabic'),
+    ('en', 'English'),
+)
+
+USE_L10N = True
+
+LOCALE_PATHS = (
+    (BASE_DIR / 'locale'),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
