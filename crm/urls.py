@@ -5,7 +5,6 @@ from django.contrib.auth.decorators import login_required
 app_name = 'crm'
 urlpatterns = [
     path('', views.home, name='home'),
-    path("set_language/<str:user_language>/", views.set_language_from_url, name="set_language_from_url"),
     path('.well-known/assetlinks.json', views.assetlinks, name='assetlinks'),
     path('amounts/', login_required(views.AmountsList.as_view()), name='amount_list'),
     path('amounts/update/<int:pk>', login_required(views.AmountsUpdateView.as_view()), name='amount_update'),

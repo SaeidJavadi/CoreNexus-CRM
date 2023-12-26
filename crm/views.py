@@ -16,20 +16,12 @@ from crm.tasks import send_notification
 from django.db.models import Q
 import random
 from django.utils.translation import gettext_lazy as _
-from django.utils import translation
-from django.http import HttpResponseRedirect
 
 
 @login_required
 def home(request):
     return render(request, 'crm/home.html')
 
-
-def set_language_from_url(request, user_language):
-    translation.activate(user_language)
-    request.session[translation.LANGUAGE_SESSION_KEY] = user_language
-    # I use HTTP_REFERER to direct them back to previous path
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def assetlinks(request):
     json_content = [{

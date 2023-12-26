@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'django_filters',
     'bootstrap_modal_forms',
     'widget_tweaks',
-    'translation_manager',
     # 'drf_yasg',
     # apps
     'accounts.apps.AccountsConfig',
@@ -123,7 +122,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ar'
 
 TIME_ZONE = 'UTC'
 

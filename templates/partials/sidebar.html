@@ -1,8 +1,8 @@
 {% load static %}
 {% load i18n %}
 <aside id="sidebar" class="sidebar break-point-sm has-bg-image">
-  <a href="{% url 'crm:set_language_from_url' 'en' %}">EN</a>
-<a href="{% url 'crm:set_language_from_url' 'ar' %}">AR</a>
+  {% comment %} <a href="{% url 'crm:set_language_from_url' 'en' %}">EN</a> {% endcomment %}
+{% comment %} <a href="{% url 'crm:set_language_from_url' 'ar' %}">AR</a> {% endcomment %}
 
   <a id="btn-collapse" class="sidebar-collapser"><i class="ri-arrow-left-s-line"></i></a>
   <div class="sidebar-layout">
