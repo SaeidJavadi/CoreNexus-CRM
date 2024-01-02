@@ -4,10 +4,11 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.utils.translation import gettext_lazy as _
 from dj_rest_auth.views import PasswordResetConfirmView
+from django.conf.urls.i18n import i18n_patterns
 # from rest_framework import permissions
 
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('', include('crm.urls', namespace='crm')),
@@ -16,7 +17,7 @@ urlpatterns = [
     path('api/rest-auth/registration/', include('dj_rest_auth.registration.urls')),
     path('api/rest-auth/password/reset/confirm/<uidb64>/<token>/',
          PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-]
+)
 
 
 if settings.DEBUG == True:
@@ -28,6 +29,7 @@ if settings.DEBUG == True:
 #     REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = (
 #         "rest_framework.renderers.JSONRenderer",
 #     )
+
 
 admin.site.site_header = _('Control Panel')
 admin.site.site_title = _('Control Panel')
