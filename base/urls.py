@@ -9,17 +9,17 @@ from django.conf.urls.i18n import i18n_patterns
 
 
 urlpatterns = [
+    path("api/", include('api.urls', namespace='api')),
+    path('api/rest-auth/', include('dj_rest_auth.urls')),
+    path('api/rest-auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('api/rest-auth/password/reset/confirm/<uidb64>/<token>/',
+         PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path("i18n/", include("django.conf.urls.i18n")),
 ]
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('', include('crm.urls', namespace='crm')),
-    path("api/", include('api.urls', namespace='api')),
-    path('api/rest-auth/', include('dj_rest_auth.urls')),
-    path('api/rest-auth/registration/', include('dj_rest_auth.registration.urls')),
-    path('api/rest-auth/password/reset/confirm/<uidb64>/<token>/',
-         PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
 )
 
 
