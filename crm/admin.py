@@ -1,6 +1,7 @@
 from django.contrib import admin
 from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, LotteryC60,\
-    Notification, WinnerLottery60, TableType, TableGift, TableGiftUser, TablePayment, WinTableLottery, CommonsAmount
+    Notification, WinnerLottery60, TableType, TableGift, TableGiftUser, TablePayment, WinTableLottery, CommonsAmount, Story, \
+    ViewUser, Postimg, Like
 
 
 @admin.register(Common60)
@@ -110,3 +111,8 @@ class WinTableLotteryAdmin(admin.ModelAdmin):
 class CommonsAmountAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'title', 'amount')
     ordering = ['id']
+
+
+@admin.register(Story)
+class StoryAdmin(admin.ModelAdmin):
+    list_display = ("createdate", "caption", "file")

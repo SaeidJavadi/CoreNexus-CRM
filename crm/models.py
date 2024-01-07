@@ -360,3 +360,71 @@ class WinTableLottery(models.Model):
 
     def get_absolute_url(self):
         return reverse("WinTableLottery_detail", kwargs={"pk": self.pk})
+
+
+class Story(models.Model):
+    file = models.FileField(verbose_name=_('File'))
+    caption = models.TextField(verbose_name=_('Caption'),blank=True, null=True)
+    createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
+
+    class Meta:
+        verbose_name = _("Story")
+        verbose_name_plural = _("Storys")
+
+    def __str__(self):
+        return self.caption
+
+    def get_absolute_url(self):
+        return reverse("Story_detail", kwargs={"pk": self.pk})
+
+
+class ViewUser(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='viewuser')
+    story = models.ForeignKey('Story', on_delete=models.CASCADE, related_name='viewsory', blank=True, null=True)
+    postimg = models.ForeignKey('Postimg', on_delete=models.CASCADE, related_name='viewpost', blank=True, null=True)
+    createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
+
+    class Meta:
+        verbose_name = _("StoryView")
+        verbose_name_plural = _("StoryViews")
+
+    def __str__(self):
+        return 'view_'+str(self.user)
+
+    def get_absolute_url(self):
+        return reverse("StoryView_detail", kwargs={"pk": self.pk})
+    file = models.FileField(verbose_name=_('File'))
+    caption = models.TextField(verbose_name=_('Caption'))
+    createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
+
+
+class Postimg(models.Model):
+    file = models.FileField(verbose_name=_('File'))
+    caption = models.TextField(verbose_name=_('Caption'), blank=True, null=True)
+    createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
+
+    class Meta:
+        verbose_name = _("Postimg")
+        verbose_name_plural = _("Postimgs")
+
+    def __str__(self):
+        return self.caption
+
+    def get_absolute_url(self):
+        return reverse("Postimg_detail", kwargs={"pk": self.pk})
+
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likeuser')
+    postimg = models.ForeignKey('Postimg', on_delete=models.CASCADE, related_name='likepost')
+    createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
+
+    class Meta:
+        verbose_name = _("Like")
+        verbose_name_plural = _("Likes")
+
+    def __str__(self):
+        return 'like_'+str(self.user)
+
+    def get_absolute_url(self):
+        return reverse("Like_detail", kwargs={"pk": self.pk})
