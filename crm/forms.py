@@ -1,6 +1,6 @@
 from django import forms
-from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance,\
-    Notification, TableGift, TableGiftUser, CommonsAmount
+from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, \
+    Notification, TableGift, TableGiftUser, CommonsAmount, SocialMedia
 from django.utils.translation import gettext_lazy as _
 
 
@@ -151,3 +151,8 @@ class AmountsForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'
+        
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = SocialMedia
+        fields = ('mediatype','file', 'caption')

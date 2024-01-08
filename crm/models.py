@@ -362,47 +362,19 @@ class WinTableLottery(models.Model):
         return reverse("WinTableLottery_detail", kwargs={"pk": self.pk})
 
 
-class Story(models.Model):
+class SocialMedia(models.Model):
+    post_type = (
+        ('post', _('Post')),
+        ('story', _('Story'))
+    )
+    mediatype = models.CharField(verbose_name=_('Media Type'), max_length=5, choices=post_type)
     file = models.FileField(verbose_name=_('File'))
     caption = models.TextField(verbose_name=_('Caption'), blank=True, null=True)
     createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
 
     class Meta:
-        verbose_name = _("Story")
-        verbose_name_plural = _("Storys")
-
-    def __str__(self):
-        return self.caption
-
-    def get_absolute_url(self):
-        return reverse("Story_detail", kwargs={"pk": self.pk})
-
-
-class ViewStory(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='viewuserstory')
-    story = models.ForeignKey('Story', on_delete=models.CASCADE, related_name='viewsory')
-    createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
-
-    class Meta:
-        unique_together = ('user', 'story')
-        verbose_name = _("Story View")
-        verbose_name_plural = _("Story Views")
-
-    def __str__(self):
-        return 'view_'+str(self.user)
-
-    def get_absolute_url(self):
-        return reverse("StoryView_detail", kwargs={"pk": self.pk})
-
-
-class PostMedia(models.Model):
-    file = models.FileField(verbose_name=_('File'))
-    caption = models.TextField(verbose_name=_('Caption'), blank=True, null=True)
-    createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
-
-    class Meta:
-        verbose_name = _("Post Media")
-        verbose_name_plural = _("Post Media")
+        verbose_name = _("Social Media")
+        verbose_name_plural = _("Social Media")
 
     def __str__(self):
         return self.caption
@@ -412,12 +384,12 @@ class PostMedia(models.Model):
 
 
 class ViewPost(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='viewuserpost')
-    postmedia = models.ForeignKey('PostMedia', on_delete=models.CASCADE, related_name='viewpost')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='viewuser')
+    socialmedia = models.ForeignKey('SocialMedia', on_delete=models.CASCADE, related_name='viewpost')
     createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
 
     class Meta:
-        unique_together = ('user', 'postmedia')
+        unique_together = ('user', 'socialmedia')
         verbose_name = _("Post View")
         verbose_name_plural = _("Post Views")
 
@@ -430,11 +402,11 @@ class ViewPost(models.Model):
 
 class LikePost(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likeuser')
-    postmedia = models.ForeignKey('PostMedia', on_delete=models.CASCADE, related_name='likepost')
+    socialmedia = models.ForeignKey('SocialMedia', on_delete=models.CASCADE, related_name='likepost')
     createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
 
     class Meta:
-        unique_together = ('user', 'postmedia')
+        unique_together = ('user', 'socialmedia')
         verbose_name = _("Post Like")
         verbose_name_plural = _("Post Likes")
 
