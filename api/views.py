@@ -2,7 +2,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from api.permissions import IsCommonOrReadOnly, IsSuperUser, IsOwnerOrReadOnlyMSG, IsUserOwenerOrReadOnly,\
+from api.permissions import IsCommonOrReadOnly, IsSuperUser, IsOwnerOrReadOnlyMSG, IsUserOwenerOrReadOnly, \
     NotAllowAction, IsOwnerOrReadOnlyTable
 from django.contrib.auth import get_user_model
 from crm import models as crmmod
@@ -544,3 +544,12 @@ class TabWinnerViewSet(ModelViewSet):
             return crmmod.WinTableLottery.objects.all()
         else:
             return crmmod.WinTableLottery.objects.filter(tabgiftusr__user__id=user.id)
+
+
+class SocialMediaViewSet(ModelViewSet):
+    serializer_class = serializers.SocialMediaSerilizer
+    queryset = crmmod.SocialMedia.objects.all()
+    filrerset_fields = ['mediatype', 'adv']
+    ordering_fields = ['id',]
+    ordering = ['-id',]
+    http_method_names = ['get',]
