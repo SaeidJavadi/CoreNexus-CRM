@@ -651,7 +651,7 @@ msgid "Are you sure you want to delete Subscriptions with Name"
 msgstr "هل أنت متأكد أنك تريد حذف الاشتراكات بالاسم"
 
 #: .\crm\templates\crm\obj_list.html:9
-msgid "Show Lis"
+msgid "Show List"
 msgstr "عرض ليز"
 
 #: .\crm\templates\crm\obj_read.html:26

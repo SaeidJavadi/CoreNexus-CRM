@@ -28,23 +28,23 @@
         </div>
         <div class="col-3 d-flex justify-content-center">
             {# Filter Box #}
-            <div class="btn-group dropend">
-                <button type="button"
-                        class="btn btn-secondary dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">{% trans "Filter By" %}</button>
+            {% comment %} <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Filter By" %}</button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li>
                         <a class="dropdown-item" href="?f=All">{% trans "All" %}</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="?f=True">{% trans "Paid" %}</a>
+                        <a class="dropdown-item" href="?f=post">{% trans "Post" %}</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="?f=False">{% trans "UnPaid" %}</a>
+                        <a class="dropdown-item" href="?f=story">{% trans "Story" %}</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="?f=adv">{% trans "Advertising" %}</a>
                     </li>
                 </ul>
-            </div>
+            </div> {% endcomment %}
         </div>
         {% comment %} </div> {% endcomment %}
         <div class="col-3"></div>
@@ -58,13 +58,10 @@
             <thead>
                 <tr>
                     <th class="text-center" scope="col">{% trans "ID" %}</th>
-                    <th class="text-center" scope="col">{% trans "Name" %}</th>
-                    <th class="text-center" scope="col">{% trans "Age" %}</th>
-                    <th class="text-center" scope="col">{% trans "IdCode" %}</th>
-                    <th class="text-center" scope="col">{% trans "Contery" %}</th>
+                    <th class="text-center" scope="col">{% trans "Type" %}</th>
+                    <th class="text-center" scope="col">{% trans "caption" %}</th>
+                    <th class="text-center" scope="col">{% trans "Advertising" %}</th>
                     <th class="text-center" scope="col">{% trans "Create Date" %}</th>
-                    <th class="text-center" scope="col">{% trans "Phone" %}</th>
-                    <th class="text-center" scope="col">{% trans "Status" %}</th>
                     <th class="text-center" scope="col"></th>
                 </tr>
             </thead>
@@ -73,31 +70,22 @@
                     <tr>
                         {% comment %} <th class="text-center" scope="row">{{ forloop.counter }}</th> {% endcomment %}
                         <td class="text-center">{{ obj.id }}</td>
-                        <td class="text-center">{{ obj.name }}</td>
-                        <td class="text-center">{{ obj.age }}</td>
-                        <td class="text-center">{{ obj.idcode }}</td>
-                        <td class="text-center">{{ obj.contery }}</td>
-                        <td class="text-center">{{ obj.create|date:"Y-m-d (H:i)" }}</td>
-                        <td class="text-center">{{ obj.phone }}</td>
-                        <td class="text-center">{{ obj.status }}</td>
+                        <td class="text-center">{{ obj.mediatype }}</td>
+                        <td class="text-center">{{ obj.caption }}</td>
+                        <td class="text-center">{{ obj.adv }}</td>
+                        <td class="text-center">{{ obj.createdate|date:"Y-m-d (H:i)" }}</td>
                         <td class="text-center">
                             <!-- Read buttons -->
-                            {% to_class_name obj as objctname %}
-                            <a type="button"
-                               class="btn btn-sm btn-success"
-                               href="{% if objctname == "Common60" %} {% url 'crm:c60_read' obj.id %} {% elif objctname == "Common61" %} {% url 'crm:c61_read' obj.id %} {% elif objctname == "Common70" %} {% url 'crm:c70_read' obj.id %} {% endif %}">
-                                <span class="ri-eye-line"></span>
-                            </a>
                             <!-- Update buttons -->
                             <a type="button"
                                class="btn btn-sm btn-primary"
-                               href="{% if objctname == "Common60" %} {% url 'crm:c60_update' obj.id %} {% elif objctname == "Common61" %} {% url 'crm:c61_update' obj.id %} {% elif objctname == "Common70" %} {% url 'crm:c70_update' obj.id %} {% endif %}">
+                               href="{% url 'crm:post_update' obj.id %}">
                                 <span class="ri-edit-2-line"></span>
                             </a>
                             <!-- Delete buttons -->
                             <a type="button"
                                class="btn btn-sm btn-danger"
-                               href="{% if objctname == "Common60" %} {% url 'crm:c60_delete' obj.id %} {% elif objctname == "Common61" %} {% url 'crm:c61_delete' obj.id %} {% elif objctname == "Common70" %} {% url 'crm:c70_delete' obj.id %} {% endif %}">
+                               href="{% url 'crm:post_delete' obj.id %}">
                                 <span class="ri-delete-bin-line"></span>
                             </a>
                         </td>
@@ -141,13 +129,4 @@
         </nav>
     {% endif %}
     {# ---- Paginator ---- #}
-    {# ---- JavaScript ---- #}
-    {% comment %} <script type="text/javascript">
-     function OpenModal(id) {
-         console.log("rrereer" + id);
-         modal.insertAdjacentHTML("afterbegin", `{% include "crm/obj_read.html" %}`);
-         modal.showModal();
-     }
- </script> {% endcomment %}
-    {# ---- JavaScript ---- #}
 {% endblock content %}

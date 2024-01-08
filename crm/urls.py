@@ -67,5 +67,8 @@ urlpatterns = [
     path('participants/delete/<int:pk>', login_required(views.ParticipantsDeleteView.as_view()), name='participants_delete'),
     path('holdtablottery/<str:tabname>', views.HoldTabLottery, name='holdtablottery'),
     path('tabwinners', login_required(views.TableWinnwers.as_view()), name='tabwinners'),
-
+    path('socialmedia/newsend/', login_required(views.PostCreateView.as_view()), name='post_create'),
+    path('socialmedia/list/', login_required(views.PostList.as_view()), name='post_list'),
+    path('socialmedia/update/<int:pk>', login_required(views.PostUpdate.as_view()), name='post_update'),
+    path('socialmedia/delete/<int:pk>', login_required(views.PostDeleteView.as_view()), name='post_delete'),
 ]

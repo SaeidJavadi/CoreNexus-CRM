@@ -151,8 +151,18 @@ class AmountsForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'
-        
+
+
 class PostForm(forms.ModelForm):
     class Meta:
         model = SocialMedia
-        fields = ('mediatype','file', 'caption')
+        # fields = ('mediatype', 'file', 'caption', 'adv')
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(PostForm, self).__init__(*args, **kwargs)
+        self.fields['mediatype'].required = False
+        self.fields['file'].required = False
+        for visible in self.visible_fields():
+            if visible.name != "adv":
+                visible.field.widget.attrs['class'] = 'form-control'

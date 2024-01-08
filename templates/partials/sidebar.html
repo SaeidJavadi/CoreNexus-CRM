@@ -490,18 +490,23 @@
           <div class="sub-menu-list">
             <ul>
               <li class="menu-item">
-                <a href="{% url 'crm:msg_list' %}">
+                <a href="{% url 'crm:post_create' %}">
                   <span class="menu-title">{% trans "Send Media" %}</span>
                 </a>
               </li>
               <li class="menu-item">
-                <a href="{% url 'crm:msg_create' %}">
+                <a href="{% url 'crm:post_list' %}?f=story">
                   <span class="menu-title">{% trans "Stories" %}</span>
                 </a>
               </li>
               <li class="menu-item">
-                <a href="{% url 'crm:msg_create' %}">
+                <a href="{% url 'crm:post_list' %}?f=post">
                   <span class="menu-title">{% trans "Posts" %}</span>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="{% url 'crm:post_list' %}?f=adv">
+                  <span class="menu-title">{% trans "Advertising" %}</span>
                 </a>
               </li>
             </ul>

@@ -367,10 +367,11 @@ class SocialMedia(models.Model):
         ('post', _('Post')),
         ('story', _('Story'))
     )
-    mediatype = models.CharField(verbose_name=_('Media Type'), max_length=5, choices=post_type)
+    mediatype = models.CharField(verbose_name=_('Media Type'), max_length=5, choices=post_type, default=0)
     file = models.FileField(verbose_name=_('File'))
     caption = models.TextField(verbose_name=_('Caption'), blank=True, null=True)
     createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
+    adv = models.BooleanField(verbose_name=_('Advertising'), default=False)
 
     class Meta:
         verbose_name = _("Social Media")
