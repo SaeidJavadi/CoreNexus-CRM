@@ -194,9 +194,20 @@ class TableWinnerSerilizer(DynamicFieldsMixin, serializers.ModelSerializer):
 
 
 class SocialMediaSerilizer(DynamicFieldsMixin, serializers.ModelSerializer):
+    detail = serializers.SerializerMethodField('get_detail')
+
+    def get_detail(self, obj):
+        try:
+            return {
+                'views': len(obj.viewpost.all()),
+                'likes': len(obj.likepost.all())
+            }
+        except:
+            return None
+
     class Meta:
         model = SocialMedia
-        fields = '__all__'
+        fields = ('id', 'mediatype', 'file', 'caption', 'detail', 'createdate', 'adv')
 
 
 class ViewPostSerilizer(DynamicFieldsMixin, serializers.ModelSerializer):
