@@ -20,6 +20,8 @@ router.register('tabgiftusr', views.TabGiftUsrViewSet, basename='tabgiftusr')
 router.register('tabpay', views.TabPayViewSet, basename='tabpay')
 router.register('tabwinner', views.TabWinnerViewSet, basename='tabwin')
 router.register('socialmedia', views.SocialMediaViewSet, basename='socialmedia')
+router.register('view', views.ViewPostViewSet, basename='view')
+router.register('like', views.LikePostViewSet, basename='like')
 
 urlpatterns = [
     path('', include(router.urls)),

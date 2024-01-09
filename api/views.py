@@ -8,6 +8,8 @@ from django.contrib.auth import get_user_model
 from crm import models as crmmod
 from api import serializers
 import json
+from django.core.exceptions import ValidationError
+from django.db import IntegrityError
 
 
 class UserViewSet(ModelViewSet):
@@ -553,3 +555,60 @@ class SocialMediaViewSet(ModelViewSet):
     ordering_fields = ['id',]
     ordering = ['-id',]
     http_method_names = ['get',]
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = (IsAuthenticated,)
+        else:
+            permission_classes = (IsSuperUser,)
+        return [permission() for permission in permission_classes]
+
+
+class ViewPostViewSet(ModelViewSet):
+    serializer_class = serializers.ViewPostSerilizer
+    queryset = crmmod.ViewPost.objects.all()
+    filterset_fields = ['user__username', 'socialmedia__mediatype']
+    ordering = ['-id',]
+    http_method_names = ['get', 'post',]
+
+    def get_permissions(self):
+        if self.action in ['create',]:
+            permission_classes = (IsAuthenticated,)
+        else:
+            permission_classes = (IsSuperUser,)
+        return [permission() for permission in permission_classes]
+
+    def perform_create(self, serializer):
+        try:
+            post_id = int(self.request.data.get('socialmedia'))
+            sm = crmmod.SocialMedia.objects.get(id=post_id)
+            ser = serializer.save(user=self.request.user, socialmedia=sm)
+            p = crmmod.ViewPost.objects.create(user=self.request.user, socialmedia=sm)
+            return ser
+        except Exception as e:
+            print('Error:', e)
+
+
+class LikePostViewSet(ModelViewSet):
+    serializer_class = serializers.LikePostSerilizer
+    queryset = crmmod.LikePost.objects.all()
+    filterset_fields = ['user__username', 'socialmedia__mediatype']
+    ordering = ['-id',]
+    http_method_names = ['get', 'post',]
+
+    def get_permissions(self):
+        if self.action in ['create',]:
+            permission_classes = (IsAuthenticated,)
+        else:
+            permission_classes = (IsSuperUser,)
+        return [permission() for permission in permission_classes]
+
+    def perform_create(self, serializer):
+        try:
+            post_id = int(self.request.data.get('socialmedia'))
+            sm = crmmod.SocialMedia.objects.get(id=post_id)
+            ser = serializer.save(user=self.request.user, socialmedia=sm)
+            p = crmmod.LikePost.objects.create(user=self.request.user, socialmedia=sm)
+            return ser
+        except Exception as e:
+            print('Error:', e)

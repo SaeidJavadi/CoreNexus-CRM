@@ -114,7 +114,6 @@ class NotificationSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
         seestatus = False
         if len(seelist) > 0:
             for u, i in seelist.items():
-                print(username, user_id)
                 if str(username) == str(u) and int(user_id) == int(i):
                     seestatus = True
                     break
