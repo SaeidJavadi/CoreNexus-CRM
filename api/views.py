@@ -550,7 +550,7 @@ class TabWinnerViewSet(ModelViewSet):
 
 class SocialMediaViewSet(ModelViewSet):
     serializer_class = serializers.SocialMediaSerilizer
-    queryset = crmmod.SocialMedia.objects.all()
+    queryset = crmmod.SocialMedia.objects.filter(active=True)
     filrerset_fields = ['mediatype', 'adv']
     ordering_fields = ['id',]
     ordering = ['-id',]

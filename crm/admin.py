@@ -113,7 +113,7 @@ class CommonsAmountAdmin(admin.ModelAdmin):
 
 @admin.register(SocialMedia)
 class SocialMediaAdmin(admin.ModelAdmin):
-    list_display = ("id", "mediatype", "caption", "file", "createdate")
+    list_display = ("id", "mediatype", "caption", "file", "createdate", 'active')
 
 
 @admin.register(LikePost)

@@ -61,7 +61,12 @@
                     <th class="text-center" scope="col">{% trans "Type" %}</th>
                     <th class="text-center" scope="col">{% trans "caption" %}</th>
                     <th class="text-center" scope="col">{% trans "Advertising" %}</th>
-                    <th class="text-center" scope="col">{% trans "Create Date" %}</th>
+                    <th class="text-center" scope="col">{% trans "Create" %}</th>
+                    <th class="text-center" scope="col">{% trans "Update" %}</th>
+                    <th class="text-center" scope="col">{% trans "View" %}</th>
+                    <th class="text-center" scope="col">{% trans "Like" %}</th>
+                    <th class="text-center" scope="col">{% trans "Comment" %}</th>
+                    <th class="text-center" scope="col">{% trans "active" %}</th>
                     <th class="text-center" scope="col"></th>
                 </tr>
             </thead>
@@ -74,6 +79,11 @@
                         <td class="text-center">{{ obj.caption }}</td>
                         <td class="text-center">{{ obj.adv }}</td>
                         <td class="text-center">{{ obj.createdate|date:"Y-m-d (H:i)" }}</td>
+                        <td class="text-center">{{ obj.updatedate|date:"Y-m-d (H:i)" }}</td>
+                        <td class="text-center">{{ obj.viewpost.count }}</td>
+                        <td class="text-center">{{ obj.likepost.count }}</td>
+                        <td class="text-center">{{ obj.commentpost.count }}</td>
+                        <td class="text-center">{{ obj.active }}</td>
                         <td class="text-center">
                             <!-- Read buttons -->
                             <!-- Update buttons -->

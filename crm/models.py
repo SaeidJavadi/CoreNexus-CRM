@@ -374,6 +374,7 @@ class SocialMedia(models.Model):
     updatedate = models.DateTimeField(auto_now=True, verbose_name=_('Updated Time'))
     updatedt = models.DateTimeField(auto_now=True, verbose_name=_('Updated Time'))
     adv = models.BooleanField(verbose_name=_('Advertising'), default=False)
+    active = models.BooleanField(verbose_name=_('Active'), default=True)
 
     class Meta:
         verbose_name = _("Social Media")
