@@ -12,7 +12,7 @@ class ObjectModelForm60(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ObjectModelForm60, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
-            if visible.name != "status":
+            if visible.name != "status" and visible.name != "paystatus":
                 visible.field.widget.attrs['class'] = 'form-control'
 
 
@@ -24,7 +24,7 @@ class ObjectModelForm61(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ObjectModelForm61, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
-            if visible.name != "status":
+            if visible.name != "status" and visible.name != "paystatus":
                 visible.field.widget.attrs['class'] = 'form-control'
 
 
@@ -36,7 +36,7 @@ class ObjectModelForm70(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ObjectModelForm70, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
-            if visible.name != "status":
+            if visible.name != "status" and visible.name != "paystatus":
                 visible.field.widget.attrs['class'] = 'form-control'
 
 
@@ -48,7 +48,7 @@ class ObjectModelFormCd(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ObjectModelFormCd, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
-            if visible.name != "status":
+            if visible.name != "status" and visible.name != "paystatus":
                 visible.field.widget.attrs['class'] = 'form-control'
 
 
@@ -60,7 +60,7 @@ class ObjectModelFormJd(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ObjectModelFormJd, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
-            if visible.name != "status":
+            if visible.name != "status" and visible.name != "paystatus":
                 visible.field.widget.attrs['class'] = 'form-control'
 
 
@@ -72,7 +72,7 @@ class ObjectModelFormDd(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ObjectModelFormDd, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
-            if visible.name != "status":
+            if visible.name != "status" and visible.name != "paystatus":
                 visible.field.widget.attrs['class'] = 'form-control'
 
 
@@ -84,7 +84,7 @@ class ObjectModelFormPa(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ObjectModelFormPa, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
-            if visible.name != "status":
+            if visible.name != "status" and visible.name != "paystatus":
                 visible.field.widget.attrs['class'] = 'form-control'
 
 

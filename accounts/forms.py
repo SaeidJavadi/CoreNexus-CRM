@@ -13,6 +13,12 @@ class UserCreationForm(forms.ModelForm):
         model = get_user_model()
         fields = ('username', 'phone', 'email', 'is_active', 'is_staff', 'is_superuser')
 
+    def __init__(self, *args, **kwargs):
+        super(UserCreationForm, self).__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            if visible.name != "is_active" and visible.name != "is_staff" and visible.name != "is_superuser":
+                visible.field.widget.attrs['class'] = 'form-control'
+
     def clean_password2(self):
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')
@@ -34,6 +40,12 @@ class UserChangeForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
         fields = ('username', 'phone', 'email', 'fcmtoken', 'is_active', 'is_staff', 'is_superuser')
+
+    def __init__(self, *args, **kwargs):
+        super(UserChangeForm, self).__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            if visible.name != "is_active" and visible.name != "is_staff" and visible.name != "is_superuser":
+                visible.field.widget.attrs['class'] = 'form-control'
 
     def clean_password(self):
         return self.initial['password']
