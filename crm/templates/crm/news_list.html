@@ -28,25 +28,21 @@
         </div>
         <div class="col-3 d-flex justify-content-center">
             {# Filter Box #}
-            {% comment %} <div class="btn-group dropend">
+             <div class="btn-group dropend">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Filter By" %}</button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li>
-                        <a class="dropdown-item" href="?f=All">{% trans "All" %}</a>
+                        <a class="dropdown-item" href="?f=all">{% trans "All" %}</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="?f=post">{% trans "Post" %}</a>
+                        <a class="dropdown-item" href="?f=active">{% trans "Active" %}</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="?f=story">{% trans "Story" %}</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="?f=adv">{% trans "Advertising" %}</a>
+                        <a class="dropdown-item" href="?f=unactive">{% trans "Unactive" %}</a>
                     </li>
                 </ul>
-            </div> {% endcomment %}
+            </div>
         </div>
-        {% comment %} </div> {% endcomment %}
         <div class="col-3"></div>
     </div>
     <div class="row"

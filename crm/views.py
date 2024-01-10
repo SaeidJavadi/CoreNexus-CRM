@@ -993,6 +993,19 @@ class NewsTextList(ListView):
     paginate_by = 30
     ordering = ('-createdt',)
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        query_search = self.request.GET.get('q')
+        query_filter = self.request.GET.get('f')
+        if query_search:
+            queryset = queryset.filter(Q(text__contains=query_search))
+        if query_filter:
+            if query_filter == 'active':
+                queryset = queryset.filter(active=True)
+            if query_filter == 'unactive':
+                queryset = queryset.filter(active=False)
+        return queryset
+
 
 class NewsTextUpdateView(UpdateView):
     model = NewsText

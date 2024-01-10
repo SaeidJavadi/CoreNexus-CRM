@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model    # from accounts.models import User
 from crm.models import Common60, Common61, Common70, CommonDead, DoingDead, JudiciaryDead, PublicAssistance, \
-    Notification, WinnerLottery60, TableGift, TableGiftUser, TablePayment, WinTableLottery, CommonsAmount, SocialMedia, ViewPost, LikePost
+    Notification, WinnerLottery60, TableGift, TableGiftUser, TablePayment, WinTableLottery, CommonsAmount, SocialMedia, ViewPost, LikePost, NewsText
 from drf_dynamic_fields import DynamicFieldsMixin  # GET api/articels/?fields=id,title : show just fields => id,title
 
 
@@ -220,3 +220,9 @@ class LikePostSerilizer(DynamicFieldsMixin, serializers.ModelSerializer):
     class Meta:
         model = LikePost
         fields = '__all__'
+
+
+class NewsTextSerilizer(DynamicFieldsMixin, serializers.ModelSerializer):
+    class Meta:
+        model = NewsText
+        fields = ('id', 'text', 'createdt')

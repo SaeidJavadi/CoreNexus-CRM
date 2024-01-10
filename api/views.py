@@ -612,3 +612,17 @@ class LikePostViewSet(ModelViewSet):
             return ser
         except Exception as e:
             print('Error:', e)
+
+
+class NewsTextViewSet(ModelViewSet):
+    serializer_class = serializers.NewsTextSerilizer
+    queryset = crmmod.NewsText.objects.filter(active=True)
+    ordering = ['-id',]
+    http_method_names = ['get',]
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = (IsAuthenticated,)
+        else:
+            permission_classes = (IsSuperUser,)
+        return [permission() for permission in permission_classes]
