@@ -82,10 +82,21 @@
                         <td class="text-center">{{ obj.updatedate|date:"Y-m-d (H:i)" }}</td>
                         <td class="text-center">{{ obj.viewpost.count }}</td>
                         <td class="text-center">{{ obj.likepost.count }}</td>
-                        <td class="text-center">{{ obj.commentpost.count }}</td>
+                        {% if obj.mediatype == 'post' %}
+                            <td class="text-center">{{ obj.commentpost.count }}</td>
+                        {% else %}
+                            <td class="text-center">-</td>
+                        {% endif %}
                         <td class="text-center">{{ obj.active }}</td>
                         <td class="text-center">
-                            <!-- Read buttons -->
+                            <!-- Comments buttons -->
+                            {% if obj.mediatype == 'post' %}
+                                <a type="button"
+                                   class="btn btn-sm btn-warning"
+                                   href="{% url 'crm:comment_list' %}?f={{ obj.id }}">
+                                    <span class="ri-discuss-fill"></span>
+                                </a>
+                            {% endif %}
                             <!-- Update buttons -->
                             <a type="button"
                                class="btn btn-sm btn-primary"

@@ -1041,6 +1041,12 @@ class CommentList(ListView):        # Comment Post
                 queryset = queryset.filter(active=True)
             if query_filter == 'unactive':
                 queryset = queryset.filter(active=False)
+            try:
+                if isinstance(int(query_filter), int):
+                    queryset = queryset.filter(socialmedia=int(query_filter))
+            except:
+                pass
+
         return queryset
 
 
