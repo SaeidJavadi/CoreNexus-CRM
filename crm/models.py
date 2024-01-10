@@ -371,6 +371,7 @@ class SocialMedia(models.Model):
     file = models.FileField(verbose_name=_('File'))
     caption = models.TextField(verbose_name=_('Caption'), blank=True, null=True)
     createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
+    updatedate = models.DateTimeField(auto_now=True, verbose_name=_('Updated Time'))
     updatedt = models.DateTimeField(auto_now=True, verbose_name=_('Updated Time'))
     adv = models.BooleanField(verbose_name=_('Advertising'), default=False)
 
@@ -423,6 +424,9 @@ class CommentPost(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='commentuser')
     socialmedia = models.ForeignKey('SocialMedia', on_delete=models.CASCADE, related_name='commentpost')
     text = models.TextField(verbose_name=_('Comment'))
+    active = models.BooleanField(verbose_name=_('Active'), default=True)
+    createdt = models.DateTimeField(auto_now_add=True, verbose_name=_('Created Time'))
+    updatedt = models.DateTimeField(auto_now=True, verbose_name=_('Updated Time'))
 
     class Meta:
         verbose_name = _("Comment Post")

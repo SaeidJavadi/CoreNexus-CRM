@@ -618,7 +618,7 @@ class NewsTextViewSet(ModelViewSet):
     serializer_class = serializers.NewsTextSerilizer
     queryset = crmmod.NewsText.objects.filter(active=True)
     ordering = ['-id',]
-    http_method_names = ['get',]
+    http_method_names = ['get', 'post',]
 
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
@@ -626,3 +626,27 @@ class NewsTextViewSet(ModelViewSet):
         else:
             permission_classes = (IsSuperUser,)
         return [permission() for permission in permission_classes]
+
+
+class CommentPostViewSet(ModelViewSet):
+    serializer_class = serializers.CommentPostSerilizer
+    queryset = crmmod.CommentPost.objects.filter(active=True)
+    ordering = ['-id',]
+    http_method_names = ['get','post']
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve', 'create']:
+            permission_classes = (IsAuthenticated,)
+        else:
+            permission_classes = (IsSuperUser,)
+        return [permission() for permission in permission_classes]
+
+    def perform_create(self, serializer):
+        try:
+            post_id = int(self.request.data.get('socialmedia'))
+            sm = crmmod.SocialMedia.objects.get(id=post_id)
+            ser = serializer.save(user=self.request.user, socialmedia=sm)
+            p = crmmod.CommentPost.objects.create(user=self.request.user, socialmedia=sm)
+            return ser
+        except Exception as e:
+            print('Error:', e)

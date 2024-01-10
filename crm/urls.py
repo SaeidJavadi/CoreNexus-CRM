@@ -75,4 +75,7 @@ urlpatterns = [
     path('newstext/create/', login_required(views.NewsTextCreateView.as_view()), name='news_create'),
     path('newstext/update/<int:pk>', login_required(views.NewsTextUpdateView.as_view()), name='news_update'),
     path('newstext/delete/<int:pk>', login_required(views.NewsTextDeleteView.as_view()), name='news_delete'),
+    path('comment/list/', login_required(views.CommentList.as_view()), name='comment_list'),
+    path('comment/update/<int:pk>', login_required(views.CommentUpdateView.as_view()), name='comment_update'),
+    path('comment/delete/<int:pk>', login_required(views.CommentDeleteView.as_view()), name='comment_delete'),
 ]

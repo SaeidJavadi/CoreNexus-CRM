@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load basetags %}
+{% load static %}
+{% load i18n %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'crm/css/style_searchbar.css' %}">
+{% endblock head %}
+{% block title %}
+    {% trans "Show List" %}
+{% endblock title %}
+{% block content %}
+    <div class="row mb-1"
+         style="border:1px dashed;
+                border-radius:15px;
+                padding: 8px;
+                background:#d7dcd84f">
+        <div class="col-3"></div>
+        <div class="col-3 d-flex justify-content-center">
+            {# Search Box #}
+            <form action="" method="get">
+                <div class="search-box ml-2">
+                    <input type="text" name="q" placeholder="Search..." />
+                    <button type="submit">
+                        <i class="ri-search-line"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-3 d-flex justify-content-center">
+            {# Filter Box #}
+            <div class="btn-group dropend">
+                <button type="button"
+                        class="btn btn-secondary dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">{% trans "Filter By" %}</button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a class="dropdown-item" href="?f=all">{% trans "All" %}</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="?f=active">{% trans "Active" %}</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="?f=unactive">{% trans "Unactive" %}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row"
+         style="border:1px dashed;
+                border-radius:15px;
+                padding: 8px;
+                background:#d7dcd84f">
+        <table id="objs-table" class="table">
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col">{% trans "ID" %}</th>
+                    <th class="text-center" scope="col">{% trans "User" %}</th>
+                    <th class="text-center" scope="col">{% trans "Social Media" %}</th>
+                    <th class="text-center" scope="col">{% trans "Text" %}</th>
+                    <th class="text-center" scope="col">{% trans "Create Date" %}</th>
+                    <th class="text-center" scope="col">{% trans "Active" %}</th>
+                    <th class="text-center" scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for obj in objects %}
+                    <tr>
+                        {% comment %} <th class="text-center" scope="row">{{ forloop.counter }}</th> {% endcomment %}
+                        <td class="text-center">{{ obj.id }}</td>
+                        <td class="text-center">{{ obj.user }}</td>
+                        <td class="text-center">{{ obj.socialmedia }}</td>
+                        <td class="text-center">{{ obj.text }}</td>
+                        <td class="text-center">{{ obj.createdt|date:"Y-m-d (H:i)" }}</td>
+                        <td class="text-center">{{ obj.active }}</td>
+                        <td class="text-center">
+                            <!-- Read buttons -->
+                            <!-- Update buttons -->
+                            <a type="button"
+                               class="btn btn-sm btn-primary"
+                               href="{% url 'crm:comment_update' obj.id %}">
+                                <span class="ri-edit-2-line"></span>
+                            </a>
+                            <!-- Delete buttons -->
+                            <a type="button"
+                               class="btn btn-sm btn-danger"
+                               href="{% url 'crm:comment_delete' obj.id %}">
+                                <span class="ri-delete-bin-line"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {# ---- Paginator ---- #}
+    {% if page_obj.has_other_pages %}
+        <nav aria-label="Page navigation bootstrap">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">First page</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true">&laquo;</span></a>
+                    </li>
+                {% endif %}
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <li class="page-item active" aria-current="page">
+                            <span class="page-link">{{ num }}</span>
+                        </li>
+                    {% elif num > page_obj.number|add:"-3" and num < page_obj.number|add:"3" %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}"><span aria-hidden="true">&raquo;</span></a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last page</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+    {# ---- Paginator ---- #}
+{% endblock content %}

@@ -128,9 +128,9 @@ class ViewPostAdmin(admin.ModelAdmin):
 
 @admin.register(NewsText)
 class NewsTextAdmin(admin.ModelAdmin):
-    list_display = ("text", "createdt", "updatedt")
+    list_display = ("text", "createdt", "updatedt", 'active')
 
 
 @admin.register(CommentPost)
 class CommentPostAdmin(admin.ModelAdmin):
-    list_display = ('user', 'socialmedia')
+    list_display = ('user', 'socialmedia', 'active', 'text')

@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, \
-    LotteryC60, Notification, WinnerLottery60, TableGift, TableGiftUser, WinTableLottery, CommonsAmount, SocialMedia, NewsText
+    LotteryC60, Notification, WinnerLottery60, TableGift, TableGiftUser, WinTableLottery, CommonsAmount, SocialMedia, NewsText, CommentPost
 from django.contrib.auth.decorators import login_required
 from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd, \
     ObjectModelFormDd, ObjectModelFormPa, ObjectModelFormMSG, HodlingLotteryForm, AddtoLotteryForm, \
-    ObjectModelFormTabGift, ObjectModelFormTabGiftUser, HodlingLottabForm, AmountsForm, PostForm, NewsTextForm
+    ObjectModelFormTabGift, ObjectModelFormTabGiftUser, HodlingLottabForm, AmountsForm, PostForm, NewsTextForm, CommentPostForm
 from accounts.models import User
 from django.urls import reverse_lazy
 from django.utils import timezone
@@ -1021,3 +1021,40 @@ class NewsTextDeleteView(DeleteView):
     template_name = 'crm/obj_delete.html'
     success_message = _('Success: News Text was Deleted.')
     success_url = reverse_lazy('crm:news_list')
+
+
+class CommentList(ListView):        # Comment Post
+    model = CommentPost
+    context_object_name = 'objects'
+    template_name = 'crm/comment_list.html'
+    paginate_by = 30
+    ordering = ('-createdt',)
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        query_search = self.request.GET.get('q')
+        query_filter = self.request.GET.get('f')
+        if query_search:
+            queryset = queryset.filter(Q(text__contains=query_search))
+        if query_filter:
+            if query_filter == 'active':
+                queryset = queryset.filter(active=True)
+            if query_filter == 'unactive':
+                queryset = queryset.filter(active=False)
+        return queryset
+
+
+class CommentUpdateView(UpdateView):
+    model = CommentPost
+    form_class = CommentPostForm
+    template_name = 'crm/obj_update.html'
+    success_message = _('Success: News Text was Updated.')
+    success_url = reverse_lazy('crm:comment_list')
+
+
+class CommentDeleteView(DeleteView):
+    model = CommentPost
+    context_object_name = 'obj'
+    template_name = 'crm/obj_delete.html'
+    success_message = _('Success: News Text was Deleted.')
+    success_url = reverse_lazy('crm:comment_list')

@@ -1,6 +1,6 @@
 from django import forms
 from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, \
-    Notification, TableGift, TableGiftUser, CommonsAmount, SocialMedia, NewsText
+    Notification, TableGift, TableGiftUser, CommonsAmount, SocialMedia, NewsText, CommentPost
 from django.utils.translation import gettext_lazy as _
 
 
@@ -175,6 +175,18 @@ class NewsTextForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(NewsTextForm, self).__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            if visible.name != "active":
+                visible.field.widget.attrs['class'] = 'form-control'
+
+
+class CommentPostForm(forms.ModelForm):
+    class Meta:
+        model = CommentPost
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(CommentPostForm, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
             if visible.name != "active":
                 visible.field.widget.attrs['class'] = 'form-control'
