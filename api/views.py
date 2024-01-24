@@ -569,7 +569,7 @@ class ViewPostViewSet(ModelViewSet):
     queryset = crmmod.ViewPost.objects.all()
     filterset_fields = ['user__username', 'socialmedia__mediatype']
     ordering = ['-id',]
-    http_method_names = ['get', 'post',]
+    http_method_names = ['get', 'post']
 
     def get_permissions(self):
         if self.action in ['create',]:
@@ -594,10 +594,10 @@ class LikePostViewSet(ModelViewSet):
     queryset = crmmod.LikePost.objects.all()
     filterset_fields = ['user__username', 'socialmedia__mediatype']
     ordering = ['-id',]
-    http_method_names = ['get', 'post',]
+    http_method_names = ['get', 'post', 'delete', 'retrieve']
 
     def get_permissions(self):
-        if self.action in ['create',]:
+        if self.action in ['create', 'destroy', 'retrieve',]:
             permission_classes = (IsAuthenticated,)
         else:
             permission_classes = (IsSuperUser,)
@@ -632,10 +632,10 @@ class CommentPostViewSet(ModelViewSet):
     serializer_class = serializers.CommentPostSerilizer
     queryset = crmmod.CommentPost.objects.filter(active=True)
     ordering = ['-id',]
-    http_method_names = ['get','post']
+    http_method_names = ['get', 'post', 'delete', 'retrieve', 'put']
 
     def get_permissions(self):
-        if self.action in ['list', 'retrieve', 'create']:
+        if self.action in ['list', 'retrieve', 'create', 'destroy', 'update']:
             permission_classes = (IsAuthenticated,)
         else:
             permission_classes = (IsSuperUser,)

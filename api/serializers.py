@@ -206,9 +206,9 @@ class SocialMediaSerilizer(DynamicFieldsMixin, serializers.ModelSerializer):
         try:
             likes = obj.likepost.get(user__id=self.context['request'].user.id)
             if likes:
-                like_status = True
+                like_status = likes.id
         except:
-            like_status = False
+            like_status = 0
         try:
             return {
                 'viewstatus': view_status,
