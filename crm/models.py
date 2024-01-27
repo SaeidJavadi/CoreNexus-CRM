@@ -247,6 +247,8 @@ class Notification(models.Model):
     seedate = models.DateTimeField(auto_now=True, verbose_name=_('See Date'))
     subject = models.CharField(verbose_name=_('Subject'), max_length=120)
     text = models.TextField(verbose_name=_('Text'))
+    url = models.CharField(max_length=300, verbose_name=_('URL'), blank=True, null=True)
+    force = models.BooleanField(default=False, verbose_name=_('Force Notification'))
     see = models.JSONField(verbose_name=_('See'), default={})
 
     class Meta:
