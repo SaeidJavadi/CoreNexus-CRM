@@ -4,21 +4,22 @@ msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-27 20:31+0330\n"
-"PO-Revision-Date: 2023-12-24 18:00:56\n"
+"PO-Revision-Date: 2024-01-27 11:46-0800\n"
 "Last-Translator: Server <root@localhost>\n"
 "Language-Team: English <social.solidarity2023@gmail.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
 
 #: .\base\settings.py:137
 msgid "Arabic"
-msgstr ""
+msgstr "عربي"
 
 #: .\base\settings.py:138
 msgid "English"
-msgstr ""
+msgstr "إنجليزي"
 
 #: .\base\urls.py:37 .\base\urls.py:38
 msgid "Control Panel"
@@ -217,40 +218,36 @@ msgid "Send New Notification"
 msgstr "إرسال إشعار جديد"
 
 #: .\templates\partials\sidebar.html:491
-#, fuzzy
-#| msgid "Social solidarity"
 msgid "Social Media"
-msgstr "تكافل اجتماعي"
+msgstr "وسائل التواصل الاجتماعي"
 
 #: .\templates\partials\sidebar.html:497
 msgid "Send Media"
-msgstr ""
+msgstr "إرسال الوسائط"
 
 #: .\templates\partials\sidebar.html:502
-#, fuzzy
-#| msgid "Create User"
 msgid "Create News Text"
-msgstr "إنشاء مستخدم"
+msgstr "إنشاء نص الأخبار"
 
 #: .\templates\partials\sidebar.html:507
 msgid "News Texts"
-msgstr ""
+msgstr "نصوص الأخبار"
 
 #: .\templates\partials\sidebar.html:512
 msgid "Stories"
-msgstr ""
+msgstr "قصص"
 
 #: .\templates\partials\sidebar.html:517
 msgid "Posts"
-msgstr ""
+msgstr "دعامات"
 
 #: .\templates\partials\sidebar.html:522
 msgid "Advertising"
-msgstr ""
+msgstr "دعاية"
 
 #: .\templates\partials\sidebar.html:527
 msgid "Comments"
-msgstr ""
+msgstr "تعليقات"
 
 #: .\templates\partials\sidebar.html:539
 msgid "User Manager"

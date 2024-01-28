@@ -3,21 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-27 20:31+0330\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2024-01-27 11:55-0800\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2\n"
 
 #: .\crm\forms.py:104 .\crm\forms.py:141 .\crm\models.py:351
 msgid "Lottery Title"
@@ -335,10 +335,8 @@ msgid "URL"
 msgstr ""
 
 #: .\crm\models.py:251
-#, fuzzy
-#| msgid "Notification"
 msgid "Force Notification"
-msgstr "إشعار"
+msgstr "إعلام القوة"
 
 #: .\crm\models.py:252 .\crm\templates\crm\msg_detail.html:38
 #: .\crm\templates\crm\msg_list.html:64
@@ -491,76 +489,68 @@ msgstr "فوز يانصيب الطاولة"
 
 #: .\crm\models.py:369
 msgid "Post"
-msgstr ""
+msgstr "بريد"
 
 #: .\crm\models.py:370
 msgid "Story"
-msgstr ""
+msgstr "قصة"
 
 #: .\crm\models.py:372
-#, fuzzy
-#| msgid "Pay Type"
 msgid "Media Type"
-msgstr "نوع الدفع"
+msgstr "نوع الوسائط"
 
 #: .\crm\models.py:373
 msgid "File"
-msgstr ""
+msgstr "ملف"
 
 #: .\crm\models.py:374
 msgid "Caption"
-msgstr ""
+msgstr "التسمية التوضيحية"
 
 #: .\crm\models.py:378 .\crm\templates\crm\post_list.html:65
 msgid "Advertising"
-msgstr ""
+msgstr "دعاية"
 
 #: .\crm\models.py:382 .\crm\models.py:383
 #: .\crm\templates\crm\comment_list.html:61
 msgid "Social Media"
-msgstr ""
+msgstr "وسائل التواصل الاجتماعي"
 
 #: .\crm\models.py:399
-#, fuzzy
-#| msgid "Detail View"
 msgid "Post View"
-msgstr "عرض التفاصيل"
+msgstr "عرض المشاركة"
 
 #: .\crm\models.py:400
 msgid "Post Views"
-msgstr ""
+msgstr "نشر المشاهدات"
 
 #: .\crm\models.py:416
 msgid "Post Like"
-msgstr ""
+msgstr "مشاركة مثل"
 
 #: .\crm\models.py:417
 msgid "Post Likes"
-msgstr ""
+msgstr "نشر الإعجابات"
 
 #: .\crm\models.py:429 .\crm\templates\crm\post_list.html:70
-#, fuzzy
-#| msgid "Common60"
 msgid "Comment"
-msgstr "مشترك60"
+msgstr "تعليق"
 
 #: .\crm\models.py:435
 msgid "Comment Post"
-msgstr ""
+msgstr "تعليق آخر"
 
 #: .\crm\models.py:436
 msgid "Comment Posts"
-msgstr ""
+msgstr "مشاركات التعليق"
 
 #: .\crm\models.py:446 .\crm\models.py:452
-#, fuzzy
-#| msgid "Text"
 msgid "News Text"
-msgstr "نص"
+msgstr "نص الأخبار"
 
 #: .\crm\models.py:453
 msgid "News Texts"
-msgstr ""
+msgstr "نصوص الأخبار"
 
 #: .\crm\templates\crm\amount_list.html:9
 msgid "Amounts"
@@ -689,10 +679,8 @@ msgstr "عرض ليز"
 
 #: .\crm\templates\crm\comment_list.html:44
 #: .\crm\templates\crm\news_list.html:41
-#, fuzzy
-#| msgid "Active"
 msgid "Unactive"
-msgstr "نشيط"
+msgstr "غير نشط"
 
 #: .\crm\templates\crm\dd_list.html:9 .\crm\templates\crm\dd_read.html:8
 msgid "Subscription Doing Dead"
@@ -747,10 +735,8 @@ msgid "User Count send"
 msgstr "تم إرسال عدد المستخدمين"
 
 #: .\crm\templates\crm\news_list.html:59
-#, fuzzy
-#| msgid "Create Date"
 msgid "Update Date"
-msgstr "تاريخ الإنشاء"
+msgstr "تاريخ التحديث"
 
 #: .\crm\templates\crm\obj_create.html:9 .\crm\templates\crm\obj_create.html:20
 msgid "Create Form"
@@ -890,40 +876,30 @@ msgid "Help Name"
 msgstr "اسم المساعدة"
 
 #: .\crm\templates\crm\post_list.html:63
-#, fuzzy
-#| msgid "Pay Type"
 msgid "Type"
-msgstr "نوع الدفع"
+msgstr "يكتب"
 
 #: .\crm\templates\crm\post_list.html:64
-#, fuzzy
-#| msgid "Notification"
 msgid "caption"
-msgstr "إشعار"
+msgstr "التسمية التوضيحية"
 
 #: .\crm\templates\crm\post_list.html:66
-#, fuzzy
-#| msgid "Created"
 msgid "Create"
-msgstr "مخلوق"
+msgstr "يخلق"
 
 #: .\crm\templates\crm\post_list.html:67
-#, fuzzy
-#| msgid "Updated"
 msgid "Update"
-msgstr "محدث"
+msgstr "تحديث"
 
 #: .\crm\templates\crm\post_list.html:68
 msgid "View"
-msgstr ""
+msgstr "منظر"
 
 #: .\crm\templates\crm\post_list.html:69
 msgid "Like"
-msgstr ""
+msgstr "يحب"
 
 #: .\crm\templates\crm\post_list.html:71
-#, fuzzy
-#| msgid "Active"
 msgid "active"
 msgstr "نشيط"
 
@@ -1039,37 +1015,25 @@ msgid "Success: Table was deleted."
 msgstr "نجاح: تم حذف الجدول."
 
 #: .\crm\views.py:940
-#, fuzzy
-#| msgid "Success: Created."
 msgid "Success: Post was Created."
-msgstr "النجاح : خلق ."
+msgstr "النجاح: تم إنشاء المشاركة."
 
 #: .\crm\views.py:969
-#, fuzzy
-#| msgid "Success: Amount was updated."
 msgid "Success: Post was updated."
-msgstr "النجاح: تم تحديث المبلغ."
+msgstr "النجاح: تم تحديث المشاركة."
 
 #: .\crm\views.py:977
-#, fuzzy
-#| msgid "Success: Message was deleted."
 msgid "Success: Post was deleted."
-msgstr "نجاح: تم حذف الرسالة."
+msgstr "نجاح: تم حذف المشاركة."
 
 #: .\crm\views.py:985
-#, fuzzy
-#| msgid "Success: Message was updated."
 msgid "Success: News Text was Created."
-msgstr "النجاح: تم تحديث الرسالة."
+msgstr "النجاح: تم إنشاء نص الأخبار."
 
 #: .\crm\views.py:1014 .\crm\views.py:1057
-#, fuzzy
-#| msgid "Success: Message was updated."
 msgid "Success: News Text was Updated."
-msgstr "النجاح: تم تحديث الرسالة."
+msgstr "النجاح: تم تحديث نص الأخبار."
 
 #: .\crm\views.py:1022 .\crm\views.py:1065
-#, fuzzy
-#| msgid "Success: Message was deleted."
 msgid "Success: News Text was Deleted."
-msgstr "نجاح: تم حذف الرسالة."
+msgstr "نجاح: تم حذف نص الأخبار."

@@ -113,4 +113,4 @@ msgstr "تم تغيير كلمة المرور بنجاح"
 
 #: .\accounts\views.py:153
 msgid "Success: Subscription was created."
-msgstr "نجاح: تم إنشاء الاشتراك.\n"
+msgstr "نجاح: تم إنشاء الاشتراك."
