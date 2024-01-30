@@ -249,7 +249,7 @@ class Notification(models.Model):
     text = models.TextField(verbose_name=_('Text'))
     url = models.CharField(max_length=300, verbose_name=_('URL'), blank=True, null=True)
     force = models.BooleanField(default=False, verbose_name=_('Force Notification'))
-    see = models.JSONField(verbose_name=_('See'), default={})
+    see = models.JSONField(verbose_name=_('See'), default={}, blank=True, null=True)
 
     class Meta:
         verbose_name = _('Notification')
