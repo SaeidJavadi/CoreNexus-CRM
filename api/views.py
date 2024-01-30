@@ -397,12 +397,7 @@ class NotificationViewSet(ModelViewSet):
         if user.is_superuser or user.is_staff:
             return crmmod.Notification.objects.all()
         else:
-            print('='*30)
-            print(user)
-            print(crmmod.Notification.objects.filter(user=user).count())
-            print('='*30)
             return crmmod.Notification.objects.filter(user=user)
-            # return get_user_model().objects.get(user=user).user_msg.all()
 
     def update(self, request, *args, **kwargs):
         notificationInstanse = self.get_object()
