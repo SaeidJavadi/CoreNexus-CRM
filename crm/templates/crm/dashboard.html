@@ -5,9 +5,83 @@
     {% trans "Customer relationship management" %}
 {% endblock title %}
 {% block content %}
-    <div class="row">
+    {% comment %} <div class="row">
         <center>
             <h1 class="mt-5 pt-2 ml-3 mr-3">{% trans "Wellcome To Administrator Customer relationship management" %}</h1>
         </center>
+    </div> {% endcomment %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="Card col-4">
+            <p></p>
+            <p style="color:#FF00F0;">{{ users }}</p>
+            <p style="color:#FF00F0;">{% trans "Total Users" %}</p>
+            <hr style="color:red;">
+            <p>{{ todayuser }}</p>
+            <p>{% trans "Today User Joined" %}</p>
+        </div>
+        <div class="col-1"></div>
+        <div class="Card col-4">
+            <p></p>
+            <p></p>
+            <p style="color:#FF00F0;">{{ comments }}</p>
+            <p style="color:#FF00F0;">{% trans "Total comments" %}</p>
+            <hr style="color:red;">
+            <p>{{ commenttoday }}</p>
+            <p>{% trans "Today Comments" %}</p>
+        </div>
+        <div class="col-1"></div>
+<div class="Card col-4">
+                <p></p>
+            <p></p>
+            <p style="color:#FF00F0;">{{ likes }}</p>
+            <p style="color:#FF00F0;">{% trans "Total Likes" %}</p>
+            <hr style="color:red;">
+            <p>{{ liketoday }}</p>
+            <p>{% trans "Today Likes" %}</p>
+</div>
+        <div class="col-1"></div>
     </div>
+    {# chart #}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10" style="margin:15px">
+            <div class="p-2 border d-flex justify-content-center"
+                 style="background-color:#c1f6e375;
+                        border-radius: 15px">
+                <div id="container" style="width:70%;">
+                    <canvas id="commonschart"></canvas>
+                </div>
+            </div>
+            {# Script #}
+             <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+          <script>
+        var ctxdshcommons = document.getElementById('commonschart').getContext('2d');
+        var configcommons= {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    data: {{ commonsdata|safe }},
+                    backgroundColor: [
+                        '#00FF0C', '#80b5fb', '#f79edc', '#E0EA87', '#ee7fa8', '#fba337', '#fb4557'
+                    ],
+                    label: 'Commons'
+                }],
+                labels: {{ commonslable|safe }}
+
+            },
+            options: {
+                responsive: true
+            }
+        };
+        window.onload = function() {
+        window.commonss = new Chart(ctxdshcommons, configcommons);
+    };
+    </script>
+            {# script #}
+        </div>
+        <div class="col-1"></div>
+    </div>
+    {% comment %} <div class="card card-1"></div> {% endcomment %}
+    {% comment %} <div class="card card-1"></div> {% endcomment %}
 {% endblock content %}

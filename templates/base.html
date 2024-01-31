@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="{% static 'root/css/sidebar_style.css' %}">
         <link rel="stylesheet" href="{% static 'root/css/snackbar.css' %}">
         <link rel="stylesheet" href="{% static 'root/css/modal_styles.css' %}">
+        <link rel="stylesheet" href="{% static 'crm/css/boxstyle.css' %}">
     </head>
     <body>
         {# ---- Modal Dialog ---- #}
@@ -83,7 +84,7 @@
         <script src="{% static 'js/bootstrap5.modal.forms.js' %}"></script>
         <script src='https://unpkg.com/@popperjs/core@2'></script>
         <script src="{% static 'root/js/sidebar_script.js' %}"></script>
-        <script src="{% static 'root/js/modal_script.js' %}"></script>
+        {% comment %} <script src="{% static 'root/js/modal_script.js' %}"></script> {% endcomment %}
         {# ---- JS Script ---- #}
         {# Print Script #}
         <script>
@@ -95,7 +96,7 @@
                 document.body.innerHTML = originalContents;
             }
             window.onafterprint = function() {
-                window.location.reload(true);  // window.location='';
+                window.location.reload(true); // window.location='';
             };
         </script>
         {# Print Script #}

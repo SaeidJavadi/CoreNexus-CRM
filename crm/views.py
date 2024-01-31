@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from crm.models import Common60, Common61, Common70, CommonDead, JudiciaryDead, DoingDead, PublicAssistance, \
-    LotteryC60, Notification, WinnerLottery60, TableGift, TableGiftUser, WinTableLottery, CommonsAmount, SocialMedia, NewsText, CommentPost
+    LotteryC60, Notification, WinnerLottery60, TableGift, TableGiftUser, WinTableLottery, CommonsAmount, SocialMedia, NewsText, CommentPost,LikePost
 from django.contrib.auth.decorators import login_required
 from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, ObjectModelFormCd, ObjectModelFormJd, \
     ObjectModelFormDd, ObjectModelFormPa, ObjectModelFormMSG, HodlingLotteryForm, AddtoLotteryForm, \
@@ -9,7 +9,8 @@ from crm.forms import ObjectModelForm60, ObjectModelForm61, ObjectModelForm70, O
 from accounts.models import User
 from django.urls import reverse_lazy
 from django.utils import timezone
-from datetime import datetime
+from django.contrib.auth import get_user_model
+from datetime import datetime, date
 from django.db.models import Sum
 from django.http import HttpResponse
 from crm.tasks import send_notification
@@ -20,7 +21,27 @@ from django.utils.translation import gettext_lazy as _
 
 @login_required
 def home(request):
-    return render(request, 'crm/dashboard.html')
+    c60 = Common60.objects.filter().count()
+    c61 = Common61.objects.filter().count()
+    c70 = Common70.objects.filter().count()
+    cd = CommonDead.objects.filter().count()
+    jd = JudiciaryDead.objects.filter().count()
+    dd = DoingDead.objects.filter().count()
+    pa = PublicAssistance.objects.filter().count()
+    comments = CommentPost.objects.filter().count()
+    commenttoday = CommentPost.objects.filter(createdt=date.today()).count()
+    likes = LikePost.objects.filter().count()
+    liketoday = LikePost.objects.filter(createdate=date.today()).count()
+    return render(request, 'crm/dashboard.html',
+                  {'users': get_user_model().objects.all().count,
+                   'todayuser': get_user_model().objects.filter(regdate__date=date.today()).count(),
+                   'comments': comments,
+                   'commenttoday': commenttoday,
+                   'likes': likes,
+                   'liketoday': liketoday,
+                   'commonslable': ['Common60', ' Common61', ' Common70', 'CommonDead', 'JudiciaryDead', 'DoingDead', 'PublicAssistance'],
+                   'commonsdata': [c60, c61, c70, cd, jd, dd, pa]
+                   })
 
 
 def assetlinks(request):
