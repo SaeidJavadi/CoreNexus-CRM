@@ -9,6 +9,7 @@
     {% trans "Gift Detail" %}
 {% endblock title %}
 {% block content %}
+    <div id="print_this">
     <table id="objs-table" class="table">
         <tr>
             <th>{% trans "Table Gift" %}:</th>
@@ -44,9 +45,9 @@
         </tr>
         <tr>
             <tr>
-                <th>{% trans "Installment" %}-></th>
-                <th>{% trans "Paid" %}: {{ obj.pay | checkpaid }}</th>
-                <th>{% trans "UnPaid" %}: {{ obj.pay| checkunpaid }}</th>
+                <th>{% trans "Installment" %} -> </th>
+                <th>{% trans "Paid" %}: {{ obj.pay | checkpaid }}</br>
+                {% trans "UnPaid" %}: {{ obj.pay| checkunpaid }}</th>
             </tr>
         </tr>
         <tr>
@@ -54,9 +55,12 @@
             <th>{{ obj.paystatus }}</th>
         </tr>
 </table>
-<center>
-    <button onclick="window.print();" class="print-button noPrint">
-        <span class="print-icon"></span>
-    </button>
-</center>
+</div>
+    <center>
+        <div class="text-center" style="margin-top:20px;">
+            <button class="print-button noPrint"  onclick="printdiv()" target="_blank">
+                <span class="print-icon"></span>
+            </button>
+        </div>
+    </center>
 {% endblock content %}
