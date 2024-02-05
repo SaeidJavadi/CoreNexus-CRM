@@ -1,0 +1,14 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=admin
+Group=www-data
+WorkingDirectory=/home/admin/crm-ar
+ExecStart=/home/admin/pyENV/bin/gunicorn --access-logfile /home/admin/crm-ar/zTMP/logs/gunicorn.access.log --error-log /home/admin/crm-ar/zTMP/logs/gunicorn.error.log --workers 3 --bind unix:/home/admin/crm-ar/crm-ar.sock crm-ar.wsgi:application
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
