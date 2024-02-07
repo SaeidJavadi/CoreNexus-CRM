@@ -211,3 +211,29 @@ DEFAULT_FROM_EMAIL = 'social.solidarity2023@gmail.com'
 
 # FireBase Notification Configure credentials file
 FIREBASE_GOOGLE_APPLICATION_CREDENTIALS = "static/root/assert/social-solidarity-bb4ac-firebase-adminsdk-imhzd-48ba474d40.json"
+
+# SSL
+SECURE_SSL_REDIRECT = True
+# cookies will only be sent via HTTPS connections
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": "/home/admin/crmproj/base/zTMP/logs/django.log",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["file"],
+            "level": "DEBUG",
+            "propagate": True,
+        },
+    },
+}
