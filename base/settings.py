@@ -222,25 +222,30 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
-        'simple': {
-            'format': ' {name} {levelname} {message}',
-            'style': '{',
-        },
+        'json': {
+            'class': 'pythonjsonlogger.jsonlogger.JsonFormatter',
+            'format': '%(asctime)s %(levelname)s %(message)s %(module)s'
+        }
     },
     'handlers': {
         'file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': '/home/admin/crmproj/base/zTMP/logs/djangodebug.log',
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR / 'zTMP/logs/djangodebug.log',
+            'formatter': 'json',
+            'backupCount': 15,       # how many backup file to keep, 15 days
+            'maxBytes': 10*1024*1024,     # 10*1024*1024 bytes (10MB)
         },
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler',
+            'formatter': 'json',
         }
     },
     'loggers': {
         'django': {
             'handlers': ['file', 'mail_admins'],
+            'level': 'DEBUG',
             'propagate': True,
         },
     }

@@ -165,7 +165,7 @@ class PostForm(forms.ModelForm):
         self.fields['mediatype'].required = False
         self.fields['file'].required = False
         for visible in self.visible_fields():
-            if visible.name != "adv":
+            if visible.name != "adv" and visible.name != 'active':
                 visible.field.widget.attrs['class'] = 'form-control'
 
 

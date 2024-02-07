@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import update_session_auth_hash
 from django.utils.translation import gettext_lazy as _
 from accounts.forms import LoginForm, LoginFormAR, UserCreationForm, UserChangeForm, ChangePasswordFrom
 # from accounts.forms import RegisterForm

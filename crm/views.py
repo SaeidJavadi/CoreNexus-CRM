@@ -98,7 +98,7 @@ def overview(request, model):
         MODEL = PublicAssistance
         TiTle = "Public Assistance"
     # Amount Month Chart
-    today = datetime.now(tz=timezone.utc)
+    today = datetime.now()
     year = today.year
     month = today.month
     labelsamount = []
