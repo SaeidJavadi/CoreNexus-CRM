@@ -34,8 +34,7 @@ log_format NgingxLogs escape=json
         '}';
 
 
-    access_log  /home/admin/crmproj/zTMP/logs/nginxLog.log NgingxLogs;
-
+access_log  /home/admin/crmproj/base/zTMP/logs/nginxLog.log NgingxLogs;
 
 server {
     listen 80;
@@ -43,12 +42,12 @@ server {
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
-        root /home/admin/crmproj/staticfiles/;
+        alias /home/admin/crmproj/base/staticfiles/;
     }
 
     location /media {
         autoindex on;
-        alias /home/admin/crmproj/media/;
+        alias /home/admin/crmproj/base/media/;
     }
 
     location / {

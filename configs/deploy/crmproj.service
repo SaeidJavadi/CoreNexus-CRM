@@ -6,8 +6,8 @@ After=network.target
 [Service]
 User=admin
 Group=www-data
-WorkingDirectory=/home/admin/crmproj
-ExecStart=/home/admin/pyENV/bin/gunicorn --access-logfile /home/admin/crmproj/zTMP/logs/gunicorn.access.log --error-log /home/admin/crmproj/zTMP/logs/gunicorn.error.log --workers 16 --bind unix:/run/gunicorn.sock base.wsgi:application
+WorkingDirectory=/home/admin/crmproj/base
+ExecStart=/home/admin/pyENV/bin/gunicorn --access-logfile /home/admin/crmproj/base/zTMP/logs/gunicorn.access.log --error-log /home/admin/crmproj/base/zTMP/logs/gunicorn.error.log --workers 16 --bind unix:/run/gunicorn.sock base.wsgi:application
 Restart=on-failure
 
 [Install]
