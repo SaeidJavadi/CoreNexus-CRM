@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!m^k#^b^v+g_&7x=^xs%!$u#cvt2_+yn359vrgv4n8j2o343ki'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
@@ -104,11 +105,11 @@ WSGI_APPLICATION = 'base.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "crmdb",
-        'USER': "crmAdmin",
-        'PASSWORD': "crmar94sjp2024",
-        'HOST': "localhost",
-        'PORT': 5430,
+        'NAME': config('DB_NAME'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT', cast=int),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
     }
 }
 
@@ -135,7 +136,6 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-# LANGUAGE_CODE = 'ar'
 
 TIME_ZONE = 'UTC'
 
@@ -199,13 +199,49 @@ SITE_ID = 1
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000000
 
 # Email Configure
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'social.solidarity2023@gmail.com'
-EMAIL_HOST_PASSWORD = 'zvqbftklnwuswtje'
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'social.solidarity2023@gmail.com'
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
 # FireBase Notification Configure credentials file
 FIREBASE_GOOGLE_APPLICATION_CREDENTIALS = "static/root/assert/social-solidarity-bb4ac-firebase-adminsdk-imhzd-48ba474d40.json"
+
+# SSL
+SECURE_SSL_REDIRECT = True
+# cookies will only be sent via HTTPS connections
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# Logging
+ADMINS = [('Saeid', 's.a.e.i.d@live.com'), ('Saeid', 'reg@hi2.in')]
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple': {
+            'format': ' {name} {levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': '/home/admin/crmproj/base/zTMP/logs/djangodebug.log',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'mail_admins'],
+            'propagate': True,
+        },
+    }
+}

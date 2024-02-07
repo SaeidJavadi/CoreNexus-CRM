@@ -7,3 +7,4 @@ staticfiles/
 settings.json
 launch.json
 *.ini
+.env
