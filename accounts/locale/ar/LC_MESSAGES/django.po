@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-30 08:27+0000\n"
+"POT-Creation-Date: 2024-02-08 19:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,42 +75,42 @@ msgstr "مستخدم"
 msgid "Users"
 msgstr "مستخدمون"
 
-#: accounts/views.py:54
+#: accounts/views.py:55
 msgid "logged in successfully"
 msgstr "تم تسجیل الدخول بنجاح"
 
-#: accounts/views.py:58
+#: accounts/views.py:59
 msgid "You do not have permission to access this section"
 msgstr "ليس لديك الإذن للوصول إلى هذا القسم"
 
-#: accounts/views.py:61
+#: accounts/views.py:62
 msgid "your username Or Password is wrong"
 msgstr "اسم المستخدم أو كلمة المرور غير صحيحة"
 
-#: accounts/views.py:63
+#: accounts/views.py:64
 msgid "No account created with this username"
 msgstr "لا توجد حساب بإسم المستخدم هذا"
 
-#: accounts/views.py:66
+#: accounts/views.py:67
 msgid "Please enter your information correctly"
 msgstr "الرجاء إدخال معلوماتك بشكل صحيح"
 
-#: accounts/views.py:78
+#: accounts/views.py:79
 msgid "You Logged Out successfully"
 msgstr "تم تسجيل خروجك بنجاح"
 
-#: accounts/views.py:89
+#: accounts/views.py:90
 msgid "updated successfully"
 msgstr "تم التحديث بنجاح"
 
-#: accounts/views.py:92
+#: accounts/views.py:93
 msgid "Error updating your profile !!"
 msgstr "\"خطأ في تحديث ملفك الشخصي !!\""
 
-#: accounts/views.py:109
+#: accounts/views.py:110
 msgid "Your password has been successfully changed"
 msgstr "تم تغيير كلمة المرور بنجاح"
 
-#: accounts/views.py:153
+#: accounts/views.py:154
 msgid "Success: Subscription was created."
 msgstr "نجاح: تم إنشاء الاشتراك."

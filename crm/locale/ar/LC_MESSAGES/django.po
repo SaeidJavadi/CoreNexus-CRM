@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-03 05:16+0000\n"
-"PO-Revision-Date: 2024-02-03 08:40-0800\n"
+"POT-Creation-Date: 2024-02-08 19:24+0000\n"
+"PO-Revision-Date: 2024-02-08 13:32-0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -19,27 +19,27 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Poedit 2.2\n"
 
-#: crm/forms.py:104 crm/forms.py:141 crm/models.py:351
+#: crm/forms.py:118 crm/forms.py:155 crm/models.py:352
 msgid "Lottery Title"
 msgstr "نوع القرعة"
 
-#: crm/forms.py:106
+#: crm/forms.py:120
 msgid "Count Winner"
-msgstr "عد الفائز"
+msgstr "عد الفائزین"
 
-#: crm/forms.py:108
+#: crm/forms.py:122
 msgid "winners status"
 msgstr "حالة الفائزين"
 
-#: crm/forms.py:109 crm/forms.py:143
+#: crm/forms.py:123 crm/forms.py:157
 msgid "start holding?"
 msgstr "البدء في القرعة؟"
 
-#: crm/forms.py:113
+#: crm/forms.py:127
 msgid "Add to Lottery Count"
 msgstr "أضف إلى عدد القرعة"
 
-#: crm/forms.py:114
+#: crm/forms.py:128
 msgid "agree ?"
 msgstr "يوافق ؟"
 
@@ -48,7 +48,7 @@ msgstr "يوافق ؟"
 msgid "Title"
 msgstr "عنوان"
 
-#: crm/models.py:10 crm/models.py:227 crm/templates/crm/amount_list.html:21
+#: crm/models.py:10 crm/models.py:228 crm/templates/crm/amount_list.html:21
 #: crm/templates/crm/cdjd_list.html:61 crm/templates/crm/cdjd_read.html:19
 #: crm/templates/crm/dd_list.html:63 crm/templates/crm/dd_read.html:23
 #: crm/templates/crm/lottery_drawsdetail.html:17
@@ -59,21 +59,21 @@ msgstr "اسم"
 
 #: crm/models.py:11 crm/models.py:40 crm/models.py:67 crm/models.py:94
 #: crm/models.py:119 crm/models.py:144 crm/models.py:172 crm/models.py:192
-#: crm/models.py:284 crm/models.py:317 crm/templates/crm/amount_list.html:22
+#: crm/models.py:285 crm/models.py:318 crm/templates/crm/amount_list.html:22
 #: crm/templates/crm/cdjd_read.html:59 crm/templates/crm/dd_list.html:64
 #: crm/templates/crm/dd_read.html:27 crm/templates/crm/obj_tablist.html:62
 #: crm/templates/crm/pa_list.html:66 crm/templates/crm/pa_read.html:35
 #: crm/templates/crm/tabs_detail.html:22 crm/templates/crm/tbgf_detail.html:39
 #: crm/templates/crm/tbgf_users.html:67
 msgid "Amount"
-msgstr "القیمة"
+msgstr "المبلغ"
 
-#: crm/models.py:12 crm/models.py:431 crm/models.py:447
+#: crm/models.py:12 crm/models.py:432 crm/models.py:448
 msgid "Created Time"
 msgstr "وقت الإنشاء"
 
-#: crm/models.py:13 crm/models.py:376 crm/models.py:377 crm/models.py:432
-#: crm/models.py:448
+#: crm/models.py:13 crm/models.py:377 crm/models.py:378 crm/models.py:433
+#: crm/models.py:449
 msgid "Updated Time"
 msgstr "الوقت المحدث"
 
@@ -128,11 +128,11 @@ msgstr "الدولة"
 #: crm/models.py:140 crm/models.py:169 crm/templates/crm/cdjd_read.html:43
 #: crm/templates/crm/dd_read.html:55 crm/templates/crm/obj_read.html:43
 msgid "State/City"
-msgstr "ولاية/مدينة"
+msgstr "المحافظة/المنطقة"
 
 #: crm/models.py:37 crm/models.py:64 crm/models.py:91 crm/models.py:116
-#: crm/models.py:141 crm/models.py:171 crm/models.py:191 crm/models.py:313
-#: crm/models.py:335 crm/templates/crm/tbgf_detail.html:23
+#: crm/models.py:141 crm/models.py:171 crm/models.py:191 crm/models.py:314
+#: crm/models.py:336 crm/templates/crm/tbgf_detail.html:23
 #: crm/templates/crm/tbgf_users.html:64
 msgid "Created"
 msgstr "مخلوق"
@@ -152,14 +152,14 @@ msgid "PayStatus"
 msgstr "حالة الدفع"
 
 #: crm/models.py:42 crm/models.py:69 crm/models.py:96 crm/models.py:121
-#: crm/models.py:146 crm/models.py:174 crm/models.py:195 crm/models.py:337
+#: crm/models.py:146 crm/models.py:174 crm/models.py:195 crm/models.py:338
 #: crm/templates/crm/cdjd_read.html:67 crm/templates/crm/dd_list.html:70
 #: crm/templates/crm/dd_read.html:71
 #: crm/templates/crm/lottery_drawsdetail.html:23
 #: crm/templates/crm/obj_list.html:68 crm/templates/crm/pa_list.html:68
 #: crm/templates/crm/pa_read.html:43
 msgid "Status"
-msgstr "حالة"
+msgstr "دفع"
 
 #: crm/models.py:45 crm/views.py:42
 msgid "Common60"
@@ -178,7 +178,7 @@ msgid "Common61s"
 msgstr "مشترك61s"
 
 #: crm/models.py:95 crm/models.py:120 crm/models.py:145 crm/models.py:173
-#: crm/models.py:194 crm/models.py:319 crm/templates/crm/tbgf_detail.html:54
+#: crm/models.py:194 crm/models.py:320 crm/templates/crm/tbgf_detail.html:54
 #: crm/templates/crm/tbgf_users.html:69
 msgid "Pay Status"
 msgstr "حالة الدفع"
@@ -257,16 +257,8 @@ msgid "PublicAssistances"
 msgstr "المساعدة العامة"
 
 #: crm/models.py:210
-msgid "quran"
-msgstr "قرآن"
-
-#: crm/models.py:210
 msgid "Quran memorization lottery"
 msgstr "قرعة حفظ القرآن الكريم"
-
-#: crm/models.py:211
-msgid "ziarat"
-msgstr "زیارت"
 
 #: crm/models.py:211
 msgid "Visiting religious places"
@@ -276,33 +268,37 @@ msgstr "زيارة الأماكن الدينية"
 msgid "Lottery"
 msgstr "القرعة"
 
-#: crm/models.py:216
+#: crm/models.py:214 crm/templates/crm/lottery_draws.html:20
+msgid "Lottery Name"
+msgstr "اسم القرعة"
+
+#: crm/models.py:217
 msgid "LotteryC60"
 msgstr "القرعةC60"
 
-#: crm/models.py:217
+#: crm/models.py:218
 msgid "LotteryC60s"
 msgstr "القرعةC60s"
 
-#: crm/models.py:230
+#: crm/models.py:231
 msgid "Add Time"
 msgstr "إضافة وقت"
 
-#: crm/models.py:233
+#: crm/models.py:234
 msgid "WinnerLottery60"
 msgstr "الفائز القرعة60"
 
-#: crm/models.py:234
+#: crm/models.py:235
 msgid "WinnerLottery60s"
 msgstr "الفائز في القرعة60s"
 
-#: crm/models.py:245 crm/models.py:312 crm/templates/crm/comment_list.html:60
+#: crm/models.py:246 crm/models.py:313 crm/templates/crm/comment_list.html:60
 #: crm/templates/crm/obj_tablistwin.html:68
 #: crm/templates/crm/tbgf_detail.html:19 crm/templates/crm/tbgf_users.html:63
 msgid "User"
 msgstr "مستخدم"
 
-#: crm/models.py:246 crm/models.py:375 crm/models.py:395 crm/models.py:412
+#: crm/models.py:247 crm/models.py:376 crm/models.py:396 crm/models.py:413
 #: crm/templates/crm/cdjd_read.html:47 crm/templates/crm/comment_list.html:63
 #: crm/templates/crm/dd_read.html:63
 #: crm/templates/crm/lottery_drawsdetail.html:21
@@ -312,125 +308,125 @@ msgstr "مستخدم"
 msgid "Create Date"
 msgstr "تاريخ الإنشاء"
 
-#: crm/models.py:247 crm/templates/crm/msg_detail.html:26
+#: crm/models.py:248 crm/templates/crm/msg_detail.html:26
 #: crm/templates/crm/msg_list.html:62
 msgid "See Date"
 msgstr "انظر التاريخ"
 
-#: crm/models.py:248 crm/templates/crm/msg_detail.html:30
+#: crm/models.py:249 crm/templates/crm/msg_detail.html:30
 #: crm/templates/crm/msg_list.html:63
 msgid "Subject"
 msgstr "موضوع"
 
-#: crm/models.py:249 crm/templates/crm/comment_list.html:62
+#: crm/models.py:250 crm/templates/crm/comment_list.html:62
 #: crm/templates/crm/msg_detail.html:34 crm/templates/crm/news_list.html:57
 msgid "Text"
 msgstr "نص"
 
-#: crm/models.py:250
+#: crm/models.py:251
 msgid "URL"
 msgstr ""
 
-#: crm/models.py:251
+#: crm/models.py:252
 msgid "Force Notification"
 msgstr "إعلام القوة"
 
-#: crm/models.py:252 crm/templates/crm/msg_detail.html:38
+#: crm/models.py:253 crm/templates/crm/msg_detail.html:38
 #: crm/templates/crm/msg_list.html:64
 msgid "See"
 msgstr "يرى"
 
-#: crm/models.py:255
+#: crm/models.py:256
 msgid "Notification"
 msgstr "إشعار"
 
-#: crm/models.py:256
+#: crm/models.py:257
 msgid "Notifications"
 msgstr "إشعارات"
 
-#: crm/models.py:266 crm/models.py:281
+#: crm/models.py:267 crm/models.py:282
 msgid "Table Type"
 msgstr "نوع القرعة"
 
-#: crm/models.py:267
+#: crm/models.py:268
 msgid "Footer"
 msgstr "تذييل"
 
-#: crm/models.py:270
+#: crm/models.py:271
 msgid "TableType"
 msgstr "نوع القرعة"
 
-#: crm/models.py:271
+#: crm/models.py:272
 msgid "TableTypes"
 msgstr "نواع الجداول"
 
-#: crm/models.py:283 crm/templates/crm/obj_tablist.html:61
+#: crm/models.py:284 crm/templates/crm/obj_tablist.html:61
 #: crm/templates/crm/tabs_detail.html:18
 msgid "Month Number"
 msgstr "عدد الشهری"
 
-#: crm/models.py:285 crm/templates/crm/tabs_detail.html:26
+#: crm/models.py:286 crm/templates/crm/tabs_detail.html:26
 msgid "Month Amount"
 msgstr "مبلغ الشهر"
 
-#: crm/models.py:286
+#: crm/models.py:287
 msgid "subtraction"
 msgstr "استقطاع"
 
-#: crm/models.py:287
+#: crm/models.py:288
 msgid "Friendships and affections"
 msgstr "الصدقات و معونات"
 
-#: crm/models.py:288
+#: crm/models.py:289
 msgid "Annual number"
 msgstr "العدد السنوي"
 
-#: crm/models.py:289
+#: crm/models.py:290
 msgid "Annual Amount"
 msgstr "القيمة السنوية"
 
-#: crm/models.py:290 crm/templates/crm/tabs_detail.html:46
+#: crm/models.py:291 crm/templates/crm/tabs_detail.html:46
 msgid "Total Subtraction"
 msgstr "مجموع استقطاع"
 
-#: crm/models.py:291 crm/templates/crm/tabs_detail.html:50
+#: crm/models.py:292 crm/templates/crm/tabs_detail.html:50
 msgid "Total Friendships"
 msgstr "مجموع الصدقات"
 
-#: crm/models.py:292 crm/templates/crm/obj_tablist.html:66
+#: crm/models.py:293 crm/templates/crm/obj_tablist.html:66
 msgid "Title Gifts"
 msgstr "هدايا التکافل"
 
-#: crm/models.py:293 crm/templates/crm/tabs_detail.html:58
+#: crm/models.py:294 crm/templates/crm/tabs_detail.html:58
 msgid "Month Sequence"
 msgstr "تسلسل الشهر"
 
-#: crm/models.py:294 crm/templates/crm/obj_tablist.html:67
+#: crm/models.py:295 crm/templates/crm/obj_tablist.html:67
 #: crm/templates/crm/tabs_detail.html:62
 msgid "Pay Type"
 msgstr "نوع الدفع"
 
-#: crm/models.py:296 crm/templates/crm/tabs_detail.html:66
+#: crm/models.py:297 crm/templates/crm/tabs_detail.html:66
 msgid "Notes"
 msgstr "ملحوظات"
 
-#: crm/models.py:299
+#: crm/models.py:300
 msgid "TableGift"
 msgstr "نوع القرعة"
 
-#: crm/models.py:300
+#: crm/models.py:301
 msgid "TableGifts"
 msgstr "نوع القرعة"
 
-#: crm/models.py:310
+#: crm/models.py:311
 msgid "Gift Tables"
 msgstr "طاولات الهدايا"
 
-#: crm/models.py:314 crm/templates/crm/tbgf_detail.html:27
+#: crm/models.py:315 crm/templates/crm/tbgf_detail.html:27
 msgid "Updated"
 msgstr "محدث"
 
-#: crm/models.py:315 crm/models.py:379 crm/models.py:430 crm/models.py:449
+#: crm/models.py:316 crm/models.py:380 crm/models.py:431 crm/models.py:450
 #: crm/templates/crm/comment_list.html:41
 #: crm/templates/crm/comment_list.html:64 crm/templates/crm/news_list.html:38
 #: crm/templates/crm/news_list.html:60 crm/templates/crm/tbgf_detail.html:31
@@ -438,112 +434,112 @@ msgstr "محدث"
 msgid "Active"
 msgstr "نشيط"
 
-#: crm/models.py:316
+#: crm/models.py:317
 msgid "Count of Chances"
 msgstr "عدد الفرص"
 
-#: crm/models.py:318 crm/templates/crm/tbgf_detail.html:43
+#: crm/models.py:319 crm/templates/crm/tbgf_detail.html:43
 #: crm/templates/crm/tbgf_users.html:68
 msgid "Count Pay"
 msgstr "عد الدفع"
 
-#: crm/models.py:322
+#: crm/models.py:323
 msgid "TableGiftUser"
 msgstr "مستخدمي هدية الطاولة"
 
-#: crm/models.py:323
+#: crm/models.py:324
 msgid "TableGiftUsers"
 msgstr "مستخدمي هدية الطاولة"
 
-#: crm/models.py:334 crm/models.py:352
+#: crm/models.py:335 crm/models.py:353
 msgid "Table Gift User"
 msgstr "مستخدم هدية الطاولة"
 
-#: crm/models.py:336
+#: crm/models.py:337
 msgid "Payment"
 msgstr "قسط"
 
-#: crm/models.py:340
+#: crm/models.py:341
 msgid "TablePayment"
 msgstr "دفع الجدول"
 
-#: crm/models.py:341
+#: crm/models.py:342
 msgid "TablePayments"
 msgstr "مدفوعات الجدول"
 
-#: crm/models.py:354 crm/templates/crm/obj_tablistwin.html:69
+#: crm/models.py:355 crm/templates/crm/obj_tablistwin.html:69
 msgid "Win Date"
 msgstr "تاريخ الفوز"
 
-#: crm/models.py:357
+#: crm/models.py:358
 msgid "WinTableLottery"
 msgstr "فوز القرعة الطاولة"
 
-#: crm/models.py:358
+#: crm/models.py:359
 msgid "WinTableLotterys"
 msgstr "فوز القرعة الطاولة"
 
-#: crm/models.py:369
+#: crm/models.py:370
 msgid "Post"
 msgstr "بريد"
 
-#: crm/models.py:370
+#: crm/models.py:371
 msgid "Story"
 msgstr "قصة"
 
-#: crm/models.py:372
+#: crm/models.py:373
 msgid "Media Type"
 msgstr "نوع الوسائط"
 
-#: crm/models.py:373
+#: crm/models.py:374
 msgid "File"
 msgstr "ملف"
 
-#: crm/models.py:374
+#: crm/models.py:375
 msgid "Caption"
 msgstr "التسمية التوضيحية"
 
-#: crm/models.py:378 crm/templates/crm/post_list.html:65
+#: crm/models.py:379 crm/templates/crm/post_list.html:65
 msgid "Advertising"
 msgstr "دعاية"
 
-#: crm/models.py:382 crm/models.py:383 crm/templates/crm/comment_list.html:61
+#: crm/models.py:383 crm/models.py:384 crm/templates/crm/comment_list.html:61
 msgid "Social Media"
 msgstr "وسائل التواصل الاجتماعي"
 
-#: crm/models.py:399
+#: crm/models.py:400
 msgid "Post View"
 msgstr "عرض المشاركة"
 
-#: crm/models.py:400
+#: crm/models.py:401
 msgid "Post Views"
 msgstr "نشر المشاهدات"
 
-#: crm/models.py:416
+#: crm/models.py:417
 msgid "Post Like"
 msgstr "مشاركة مثل"
 
-#: crm/models.py:417
+#: crm/models.py:418
 msgid "Post Likes"
 msgstr "نشر الإعجابات"
 
-#: crm/models.py:429 crm/templates/crm/post_list.html:70
+#: crm/models.py:430 crm/templates/crm/post_list.html:70
 msgid "Comment"
 msgstr "تعليق"
 
-#: crm/models.py:435
+#: crm/models.py:436
 msgid "Comment Post"
 msgstr "تعليق آخر"
 
-#: crm/models.py:436
+#: crm/models.py:437
 msgid "Comment Posts"
 msgstr "مشاركات التعليق"
 
-#: crm/models.py:446 crm/models.py:452
+#: crm/models.py:447 crm/models.py:453
 msgid "News Text"
 msgstr "نص الأخبار"
 
-#: crm/models.py:453
+#: crm/models.py:454
 msgid "News Texts"
 msgstr "نصوص الأخبار"
 
@@ -553,11 +549,11 @@ msgstr "كميات"
 
 #: crm/templates/crm/amount_list.html:23 crm/templates/crm/pa_read.html:31
 msgid "Create Time"
-msgstr "خلق الوقت"
+msgstr "تاریخ اشتراک"
 
 #: crm/templates/crm/amount_list.html:24
 msgid "Update Time"
-msgstr "تحديث الوقت"
+msgstr "تاریخ تجدید اشتراک"
 
 #: crm/templates/crm/amount_list.html:57 crm/templates/crm/cdjd_list.html:113
 #: crm/templates/crm/lottery_drawsdetail.html:71
@@ -641,7 +637,7 @@ msgstr "هاتف"
 
 #: crm/templates/crm/cdjd_list.html:65 crm/templates/crm/obj_read.html:67
 msgid "status"
-msgstr "حالة"
+msgstr "دفع"
 
 #: crm/templates/crm/cdjd_read.html:8 crm/templates/crm/obj_read.html:8
 #: crm/templates/crm/pa_read.html:8
@@ -722,6 +718,10 @@ msgstr "سحب القرعة"
 msgid "List of drawn draws"
 msgstr "قائمة الرسومات"
 
+#: crm/templates/crm/lottery_draws.html:21
+msgid "Lottery Date"
+msgstr "تاریخ القرعة"
+
 #: crm/templates/crm/lottery_drawsdetail.html:5
 msgid "Lottery Draws Detail"
 msgstr "تفاصيل سحب القرعة"
@@ -792,7 +792,7 @@ msgstr "وكيل الهاتف"
 
 #: crm/templates/crm/obj_read.html:59
 msgid "amount"
-msgstr "القیمة"
+msgstr "المبلغ"
 
 #: crm/templates/crm/obj_read.html:63
 msgid "link"
@@ -976,6 +976,8 @@ msgid " Common70"
 msgstr "مشترك70"
 
 #: crm/views.py:159
+#, fuzzy, python-brace-format
+#| msgid "Subscription {TiTle} Overview"
 msgid "Subscription {TiTle} Overview"
 msgstr "الاشتراك نسبة المشارکة"
 
@@ -983,68 +985,74 @@ msgstr "الاشتراك نسبة المشارکة"
 msgid "Success: Amount was updated."
 msgstr "النجاح: تم تحديث المبلغ."
 
-#: crm/views.py:224 crm/views.py:404 crm/views.py:460 crm/views.py:516
-#: crm/views.py:572 crm/views.py:628 crm/views.py:680
+#: crm/views.py:224 crm/views.py:409 crm/views.py:465 crm/views.py:521
+#: crm/views.py:577 crm/views.py:633 crm/views.py:685
 msgid "Success: Subscription was created."
 msgstr "النجاح: تم إنشاء الاشتراك."
 
-#: crm/views.py:239 crm/views.py:420 crm/views.py:476 crm/views.py:532
-#: crm/views.py:588 crm/views.py:644 crm/views.py:696
+#: crm/views.py:239 crm/views.py:425 crm/views.py:481 crm/views.py:537
+#: crm/views.py:593 crm/views.py:649 crm/views.py:701
 msgid "Success: Subscription was deleted."
 msgstr "نجاح: تم حذف الاشتراك."
 
-#: crm/views.py:412 crm/views.py:468 crm/views.py:524 crm/views.py:580
-#: crm/views.py:636 crm/views.py:688
+#: crm/views.py:417 crm/views.py:473 crm/views.py:529 crm/views.py:585
+#: crm/views.py:641 crm/views.py:693
 msgid "Success: Subscription was updated."
 msgstr "النجاح: تم تحديث الاشتراك."
 
-#: crm/views.py:731 crm/views.py:772
+#: crm/views.py:736 crm/views.py:777
 msgid "Success: Messege Send."
 msgstr "النجاح: إرسال رسالة."
 
-#: crm/views.py:756
+#: crm/views.py:761
 msgid "Success: Message was updated."
 msgstr "النجاح: تم تحديث الرسالة."
 
-#: crm/views.py:764
+#: crm/views.py:769
 msgid "Success: Message was deleted."
 msgstr "نجاح: تم حذف الرسالة."
 
-#: crm/views.py:809
+#: crm/views.py:814
 msgid "Success: Created."
 msgstr "النجاح : خلق ."
 
-#: crm/views.py:823 crm/views.py:866
+#: crm/views.py:828 crm/views.py:871
 msgid "Success: Table was updated."
 msgstr "النجاح: تم تحديث الجدول."
 
-#: crm/views.py:831 crm/views.py:874
+#: crm/views.py:836 crm/views.py:879
 msgid "Success: Table was deleted."
 msgstr "نجاح: تم حذف الجدول."
 
-#: crm/views.py:961
+#: crm/views.py:966
 msgid "Success: Post was Created."
 msgstr "النجاح: تم إنشاء المشاركة."
 
-#: crm/views.py:990
+#: crm/views.py:995
 msgid "Success: Post was updated."
 msgstr "النجاح: تم تحديث المشاركة."
 
-#: crm/views.py:998
+#: crm/views.py:1003
 msgid "Success: Post was deleted."
 msgstr "نجاح: تم حذف المشاركة."
 
-#: crm/views.py:1006
+#: crm/views.py:1011
 msgid "Success: News Text was Created."
 msgstr "النجاح: تم إنشاء نص الأخبار."
 
-#: crm/views.py:1035 crm/views.py:1078
+#: crm/views.py:1040 crm/views.py:1083
 msgid "Success: News Text was Updated."
 msgstr "النجاح: تم تحديث نص الأخبار."
 
-#: crm/views.py:1043 crm/views.py:1086
+#: crm/views.py:1048 crm/views.py:1091
 msgid "Success: News Text was Deleted."
 msgstr "نجاح: تم حذف نص الأخبار."
+
+#~ msgid "quran"
+#~ msgstr "قرآن"
+
+#~ msgid "ziarat"
+#~ msgstr "زیارت"
 
 #~ msgid "Wellcome To Administrator Customer relationship management"
 #~ msgstr "مرحبا بكم في مدير إدارة علاقات العملاء"

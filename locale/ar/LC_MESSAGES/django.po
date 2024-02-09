@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-01 06:02+0000\n"
-"PO-Revision-Date: 2024-02-03 07:50-0800\n"
+"POT-Creation-Date: 2024-02-08 19:24+0000\n"
+"PO-Revision-Date: 2024-02-08 13:33-0800\n"
 "Last-Translator: Server <root@localhost>\n"
 "Language-Team: English <social.solidarity2023@gmail.com>\n"
 "Language: en\n"
@@ -13,27 +13,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2\n"
 
-#: base/settings.py:137
+#: base/settings.py:159 settings.py:147
 msgid "Arabic"
 msgstr "عربي"
 
-#: base/settings.py:138
+#: base/settings.py:160 settings.py:148
 msgid "English"
 msgstr "إنجليزي"
 
-#: base/urls.py:37 base/urls.py:38
+#: base/urls.py:39 base/urls.py:40 urls.py:38 urls.py:39
 msgid "Control Panel"
 msgstr "لوحة التحكم"
 
-#: base/urls.py:39
+#: base/urls.py:41 urls.py:40
 msgid "Wellcome to Control Panel"
 msgstr "مرحبا بكم في لوحة التحكم"
 
-#: templates/base.html:11
+#: templates/base.html:14 templates/base.html:18
+msgid "Social Solidarity CRM"
+msgstr "التكافل اجتماعي"
+
+#: templates/base.html:17
+msgid "Customer Relationship Management"
+msgstr "إدارة علاقات العملاء"
+
+#: templates/base.html:24
 msgid "Admin Panel"
 msgstr "لوحة الادارة"
 
-#: templates/base.html:44
+#: templates/base.html:57
 msgid "Close"
 msgstr "يغلق"
 
@@ -240,4 +248,3 @@ msgstr "تسجيل خروج"
 #: templates/rest_framework/api.html:4
 msgid "CRM API Test"
 msgstr "اختبار واجهة برمجة تطبيقات CRM"
-

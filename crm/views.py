@@ -353,7 +353,7 @@ def DrawsLottery(request, title):
 
 @login_required()
 def DrawsDeleteLottery(request, name):
-    drawname = WinnerLottery60.objects.get(name=name).lottery.title
+    drawname = WinnerLottery60.objects.filter(name=name)[0].lottery.title
     lotterywins = WinnerLottery60.objects.filter(name=name).delete()
     return redirect('crm:c60_draws', title=str(drawname))
 
