@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from dj_rest_auth.views import PasswordResetConfirmView
 from django.conf.urls.i18n import i18n_patterns
 from decouple import config
+from crm.views import assetlinks
 # from rest_framework import permissions
 
 
@@ -16,6 +17,7 @@ urlpatterns = [
     path('api/rest-auth/password/reset/confirm/<uidb64>/<token>/',
          PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path("i18n/", include("django.conf.urls.i18n")),
+    path('.well-known/assetlinks.json', assetlinks),
 ]
 
 urlpatterns += i18n_patterns(

@@ -51,7 +51,7 @@ def assetlinks(request):
             "namespace": "android_app",
             "package_name": "com.social.solidarity",
             "sha256_cert_fingerprints":
-            ["98:77:4A:24:31:CD:40:05:24:86:9D:6D:CD:58:2D:12:B9:79:1C:E2:E6:2E:E9:CB:51:0F:EA:96:DE:36:A3:75"]
+            ["35:F0:EA:FA:26:05:16:92:8D:3B:91:58:5D:74:BF:2B:62:92:E7:51:79:2E:74:97:77:EC:1A:C8:33:BD:C7:F9"]
         }
     }]
     return HttpResponse(
