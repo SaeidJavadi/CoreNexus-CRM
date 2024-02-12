@@ -45,7 +45,7 @@ def home(request):
 
 
 def assetlinks(request):
-    json_content = [{
+    json_content = '''[{
         "relation": ["delegate_permission/common.handle_all_urls"],
         "target": {
             "namespace": "android_app",
@@ -53,12 +53,8 @@ def assetlinks(request):
             "sha256_cert_fingerprints":
             ["35:F0:EA:FA:26:05:16:92:8D:3B:91:58:5D:74:BF:2B:62:92:E7:51:79:2E:74:97:77:EC:1A:C8:33:BD:C7:F9"]
         }
-    }]
-    return HttpResponse(
-        json_content,
-        content_type='application/json',
-        status=200
-    )
+    }]'''
+    return HttpResponse(json_content, content_type="application/json")
 
 
 @login_required
