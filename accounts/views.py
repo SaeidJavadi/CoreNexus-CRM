@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.db.models import Q
 
 
 def userRegister(request):
@@ -139,6 +140,21 @@ class UsersListView(ListView):
     paginate_by = 30
     ordering = '-regdate'
     ordering = '-regdate'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        query_search = self.request.GET.get('q')
+        query_filter = self.request.GET.get('f')
+        if query_search:
+            queryset = queryset.filter(
+                Q(username__contains=query_search) |
+                Q(phone__contains=query_search) |
+                Q(email__contains=query_search)
+            )
+        if query_filter:
+            if query_filter != 'All':
+                queryset = queryset.filter(is_active=query_filter)
+        return queryset
 
 
 class UserDetailView(DetailView):

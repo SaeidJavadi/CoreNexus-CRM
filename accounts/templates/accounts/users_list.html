@@ -1,70 +1,121 @@
 {% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'crm/css/style_searchbar.css' %}">
+{% endblock head %}
 {% load basetags %}
 {% block content %}
-    <table id="objs-table" class="table">
-        <thead>
-            <tr>
-                <th class="text-center" scope="col">ID</th>
-                <th class="text-center" scope="col">Username</th>
-                <th class="text-center" scope="col">Phone</th>
-                <th class="text-center" scope="col">Email</th>
-                <th class="text-center" scope="col">Register Date</th>
-                {% comment %} <th class="text-center" scope="col">updated</th> {% endcomment %}
-                <th class="text-center" scope="col">Active</th>
-                <th class="text-center" scope="col">Staff</th>
-                <th class="text-center" scope="col">Superuser</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for obj in objects %}
+    <div class="row mb-1"
+         style="border:1px dashed;
+                border-radius:15px;
+                padding: 8px;
+                background:#d7dcd84f">
+        <div class="col-3"></div>
+        <div class="col-3 d-flex justify-content-center">
+            {# Search Box #}
+            <form action="" method="get">
+                <div class="search-box ml-2">
+                    <input type="text" name="q" placeholder="Search..." />
+                    <button type="submit">
+                        <i class="ri-search-line"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-3 d-flex justify-content-center">
+            {# Filter Box #}
+            <div class="btn-group dropend">
+                <button type="button"
+                        class="btn btn-secondary dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">{% trans "Filter By" %}</button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a class="dropdown-item" href="?f=All">{% trans "All" %}</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="?f=True">{% trans "Active" %}</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="?f=False">{% trans "Deactivate" %}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {% comment %} </div> {% endcomment %}
+        <div class="col-3"></div>
+    </div>
+    <div class="row"
+         style="border:1px dashed;
+                border-radius:15px;
+                padding: 8px;
+                background:#d7dcd84f">
+        <table id="objs-table" class="table">
+            <thead>
                 <tr>
-                    {% comment %} <th class="text-center" scope="row">{{ forloop.counter }}</th> {% endcomment %}
-                    <td class="text-center">{{ obj.id }}</td>
-                    <td class="text-center">{{ obj.username }}</td>
-                    <td class="text-center">{{ obj.phone }}</td>
-                    <td class="text-center">{{ obj.email }}</td>
-                    <td class="text-center">{{ obj.regdate|date:"Y-m-d (H:i)" }}</td>
-                    {% comment %} <td class="text-center">{{ obj.updated }}</td> {% endcomment %}
-                    <td class="text-center">{{ obj.is_active }}</td>
-                    <td class="text-center">{{ obj.is_staff }}</td>
-                    <td class="text-center">{{ obj.is_superuser }}</td>
-                    <td class="text-center">
-                        <!-- SendMSG buttons -->
-                        <a type="button"
-                           class="btn btn-sm btn-secondary"
-                           href="{% url 'crm:msg_user' obj.id %}">
-                            <span class="ri-message-2-fill"></span>
-                        </a>
-                        <!-- Read buttons -->
-                        {% to_class_name obj as objctname %}
-                        <a type="button"
-                           class="btn btn-sm btn-success"
-                           href="{% url 'accounts:user_detail' obj.id %}">
-                            <span class="ri-eye-line"></span>
-                        </a>
-                        <!-- Update buttons -->
-                        <a type="button"
-                           class="btn btn-sm btn-primary"
-                           href="{% url 'accounts:user_update' obj.id %}">
-                            <span class="ri-edit-2-line"></span>
-                        </a>
-                        <!-- Update Password buttons -->
-                        <a type="button"
-                           class="btn btn-sm btn-warning"
-                           href="{% url 'accounts:user_updatepassword' obj.id %}">
-                            <span class="ri-lock-unlock-line"></span>
-                        </a>
-                        <!-- Delete buttons -->
-                        <a type="button"
-                           class="btn btn-sm btn-danger"
-                           href="{% url 'accounts:user_delete' obj.id %}">
-                            <span class="ri-delete-bin-line"></span>
-                        </a>
-                    </td>
+                    <th class="text-center" scope="col">ID</th>
+                    <th class="text-center" scope="col">Username</th>
+                    <th class="text-center" scope="col">Phone</th>
+                    <th class="text-center" scope="col">Email</th>
+                    <th class="text-center" scope="col">Register Date</th>
+                    {% comment %} <th class="text-center" scope="col">updated</th> {% endcomment %}
+                    <th class="text-center" scope="col">Active</th>
+                    <th class="text-center" scope="col">Staff</th>
+                    <th class="text-center" scope="col">Superuser</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for obj in objects %}
+                    <tr>
+                        {% comment %} <th class="text-center" scope="row">{{ forloop.counter }}</th> {% endcomment %}
+                        <td class="text-center">{{ obj.id }}</td>
+                        <td class="text-center">{{ obj.username }}</td>
+                        <td class="text-center">{{ obj.phone }}</td>
+                        <td class="text-center">{{ obj.email }}</td>
+                        <td class="text-center">{{ obj.regdate|date:"Y-m-d (H:i)" }}</td>
+                        {% comment %} <td class="text-center">{{ obj.updated }}</td> {% endcomment %}
+                        <td class="text-center">{{ obj.is_active }}</td>
+                        <td class="text-center">{{ obj.is_staff }}</td>
+                        <td class="text-center">{{ obj.is_superuser }}</td>
+                        <td class="text-center">
+                            <!-- SendMSG buttons -->
+                            <a type="button"
+                               class="btn btn-sm btn-secondary"
+                               href="{% url 'crm:msg_user' obj.id %}">
+                                <span class="ri-message-2-fill"></span>
+                            </a>
+                            <!-- Read buttons -->
+                            {% to_class_name obj as objctname %}
+                            <a type="button"
+                               class="btn btn-sm btn-success"
+                               href="{% url 'accounts:user_detail' obj.id %}">
+                                <span class="ri-eye-line"></span>
+                            </a>
+                            <!-- Update buttons -->
+                            <a type="button"
+                               class="btn btn-sm btn-primary"
+                               href="{% url 'accounts:user_update' obj.id %}">
+                                <span class="ri-edit-2-line"></span>
+                            </a>
+                            <!-- Update Password buttons -->
+                            <a type="button"
+                               class="btn btn-sm btn-warning"
+                               href="{% url 'accounts:user_updatepassword' obj.id %}">
+                                <span class="ri-lock-unlock-line"></span>
+                            </a>
+                            <!-- Delete buttons -->
+                            <a type="button"
+                               class="btn btn-sm btn-danger"
+                               href="{% url 'accounts:user_delete' obj.id %}">
+                                <span class="ri-delete-bin-line"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     {# ---- Paginator ---- #}
     {% if page_obj.has_other_pages %}
         <nav aria-label="Page navigation bootstrap">
