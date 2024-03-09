@@ -262,5 +262,8 @@ if not config('DEBUG', default=True, cast=bool):
                 'level': 'DEBUG',
                 'propagate': True,
             },
-        }
-    }
+            'mylogger': {
+                'handlers': ['file', 'mail_admins'],
+                'level': 'INFO',
+            }
+        }}
