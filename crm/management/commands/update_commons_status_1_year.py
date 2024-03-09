@@ -8,25 +8,27 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # Common60.objects.filter(created_on__lte=datetime.now()-timedelta(days=365)).update(pending_customer=False)
-        c60 = Common60.objects.filter(status=True)
+        oldstatus = True
+        newstatus = False
+        c60 = Common60.objects.filter(status=oldstatus)
         c60C = c60.count()
-        c60.update(status=False)
+        c60.update(status=newstatus)
 
-        c61 = Common61.objects.filter(status=True)
+        c61 = Common61.objects.filter(status=oldstatus)
         c61C = c61.count()
-        c61.update(status=False)
+        c61.update(status=newstatus)
 
-        c70 = Common70.objects.filter(status=True)
+        c70 = Common70.objects.filter(status=oldstatus)
         c70C = c70.count()
-        c70.update(status=False)
+        c70.update(status=newstatus)
 
-        cd = CommonDead.objects.filter(status=True)
+        cd = CommonDead.objects.filter(status=oldstatus)
         cdC = cd.count()
-        cd.update(status=False)
+        cd.update(status=newstatus)
 
-        jd = JudiciaryDead.objects.filter(status=True)
+        jd = JudiciaryDead.objects.filter(status=oldstatus)
         jdC = jd.count()
-        jd.update(status=False)
+        jd.update(status=newstatus)
 
         txt = f'Updated status older than 365 days\nCommon60 count = {c60C}\nCommon61 count = {c61C}\nCommon70 count = {c70C}\nCommonDead count = {cdC}\n JudiciaryDead count = {jdC}'
         self.stdout.write(txt)
