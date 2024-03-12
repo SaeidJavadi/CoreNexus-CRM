@@ -30,7 +30,7 @@ class Command(BaseCommand):
         jdC = jd.count()
         jd.update(status=newstatus)
 
-        txt = f'\nUpdated status older than 365 days\nCommon60 count = {c60C}\nCommon61 count = {c61C}\nCommon70 count = {c70C}\nCommonDead count = {cdC}\n JudiciaryDead count = {jdC}\n{datetime.now()}\n'
+        txt = f'\nUpdated status older than 365 days\nCommon60 count = {c60C}\nCommon61 count = {c61C}\nCommon70 count = {c70C}\nCommonDead count = {cdC}\nJudiciaryDead count = {jdC}\n{datetime.now()}\n'
         self.stdout.write(txt)
         logger = logging.getLogger("mylogger")
         logger.info(txt)
