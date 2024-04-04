@@ -220,7 +220,8 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
 # FireBase Notification Configure credentials file
-FIREBASE_GOOGLE_APPLICATION_CREDENTIALS = "static/root/assert/social-solidarity-bb4ac-firebase-adminsdk-imhzd-48ba474d40.json"
+FIREBASE_GOOGLE_APPLICATION_CREDENTIALS = BASE_DIR / \
+    "static/root/assert/social-solidarity-bb4ac-firebase-adminsdk-imhzd-48ba474d40.json"
 
 # SSL
 if not config('DEBUG', default=True, cast=bool):
