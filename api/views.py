@@ -18,7 +18,7 @@ class UserViewSet(ModelViewSet):
     # permission_classes = (IsSuperUserOrStaffReadOnly,)
 
     def get_permissions(self):
-        if self.action in ['get', ]:
+        if self.action in ['get', 'destroy']:
             permission_classes = (IsAuthenticated,)
         elif self.action in ['create', 'destroy']:
             permission_classes = (IsSuperUser,)
@@ -49,6 +49,11 @@ class UserViewSet(ModelViewSet):
             serializer.save()
             return Response(serializers.UserSerializer(userInstanse).data)
         return Response({'message': 'Error to Update.', 'error': serializer.errors}, 400)
+
+    def destroy(self, request, *args, **kwargs):    # Delete Account
+        userInstanse = self.get_object()
+        userInstanse.delete()
+        return Response({"message": "User account has been successfully deleted."}, 200)
 
 
 class RevokeToken(APIView):
