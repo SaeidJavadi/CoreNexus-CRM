@@ -68,11 +68,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware'
+    'django.middleware.locale.LocaleMiddleware',
+    'allauth.account.middleware.AccountMiddleware'
 ]
-
-if not config('DEBUG', default=True, cast=bool):
-    MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
 
 ROOT_URLCONF = 'base.urls'
 
