@@ -48,7 +48,7 @@ class Common60(models.Model):   # Eshterak afrad 60 saal va kamtar
     lottery = models.ForeignKey('LotteryC60', verbose_name=_(
         'lottery'), on_delete=models.SET_NULL, default=None, null=True, blank=True, related_name='lottery_c60')
     name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
-    age = models.DateField(verbose_name=_('Age'))
+    age = models.IntegerField(verbose_name=_('Age'))
     idcode = models.IntegerField(verbose_name=_('Id Code'))
     sickness = models.CharField(verbose_name=_('sickness'), max_length=120, null=True, blank=True)
     contery = models.CharField(verbose_name=_('Contery'), max_length=120, choices=countries)
@@ -75,7 +75,7 @@ class Common61(models.Model):  # Eshterak afrad az 61 ta 69
     usersubmit = models.ForeignKey(User, on_delete=models.CASCADE,
                                    verbose_name=_('Registrant'), related_name='user_c61')
     name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
-    age = models.DateField(verbose_name=_('Age'))
+    age = models.IntegerField(verbose_name=_('Age'))
     idcode = models.IntegerField(verbose_name=_('Id Code'))
     sickness = models.CharField(verbose_name=_('sickness'), max_length=120, null=True, blank=True)
     contery = models.CharField(verbose_name=_('Contery'), max_length=120, choices=countries)
@@ -102,7 +102,7 @@ class Common70(models.Model):   # Eshterak afrad az 70 salegi va afrad mobtala b
     usersubmit = models.ForeignKey(User, on_delete=models.CASCADE,
                                    verbose_name=_('Registrant'), related_name='user_c70')
     name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
-    age = models.DateField(verbose_name=_('Age'))
+    age = models.IntegerField(verbose_name=_('Age'))
     idcode = models.IntegerField(verbose_name=_('Id Code'))
     sickness = models.CharField(verbose_name=_('sickness'), max_length=120, null=True, blank=True)
     contery = models.CharField(verbose_name=_('Contery'), max_length=120, choices=countries)

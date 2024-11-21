@@ -38,7 +38,7 @@ access_log  /home/admin/crmproj/base/zTMP/logs/nginxLog.log NgingxLogs;
 
 server {
     listen 80;
-    server_name socialsolidarity.ru www.socialsolidarity.ru;
+    server_name socialsolidaritysoftware.com www.socialsolidaritysoftware.com;
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
