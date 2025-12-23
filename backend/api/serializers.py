@@ -1,8 +1,10 @@
 from rest_framework import serializers
-from django.contrib.auth import get_user_model    # from accounts.models import User
+# from accounts.models import User
+from django.contrib.auth import get_user_model
 from crm.models import Common60, Common61, Common70, CommonDead, DoingDead, JudiciaryDead, PublicAssistance, \
     Notification, WinnerLottery60, TableGift, TableGiftUser, TablePayment, WinTableLottery, CommonsAmount, SocialMedia, ViewPost, LikePost, NewsText, CommentPost
-from drf_dynamic_fields import DynamicFieldsMixin  # GET api/articels/?fields=id,title : show just fields => id,title
+# GET api/articels/?fields=id,title : show just fields => id,title
+from drf_dynamic_fields import DynamicFieldsMixin
 
 
 class UserSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
@@ -221,7 +223,8 @@ class SocialMediaSerilizer(DynamicFieldsMixin, serializers.ModelSerializer):
 
     class Meta:
         model = SocialMedia
-        fields = ('id', 'mediatype', 'file', 'caption', 'detail', 'createdate', 'adv')
+        fields = ('id', 'mediatype', 'file', 'caption',
+                  'detail', 'createdate', 'adv')
 
 
 class ViewPostSerilizer(DynamicFieldsMixin, serializers.ModelSerializer):

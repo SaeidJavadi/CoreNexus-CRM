@@ -1,17 +1,29 @@
-dj-rest-auth==5.0.2
-Django==5.2.9
-django-allauth==0.54.0
+# --- Django Core & Extensions ---
+Django==5.0.3
+django-filter==22.1
+django-widget-tweaks==1.5.0
 django-bootstrap-modal-forms==3.0.4
 django-ckeditor==6.5.1
-django-filter==22.1
-django-widget-tweaks==1.4.12
+
+# --- API & Authentication ---
 djangorestframework==3.14.0
-djlint==1.29.0
 drf-dynamic-fields==0.4.0
-firebase-admin==6.2.0
-python-decouple==3.8
-redis==5.0.1
-python-json-logger==2.0.7
+dj-rest-auth==5.0.2
+django-allauth==0.54.0
+drf-yasg[validation]==1.21.11
+
+# --- Database & Storage ---
 psycopg2-binary==2.9.9
+redis==5.0.1
+
+# --- Infrastructure & Utils ---
 gunicorn==21.2.0
+python-decouple==3.8
+python-json-logger==2.0.7
 pytz==2024.1
+
+# --- Third-party Integrations ---
+firebase-admin==6.2.0
+
+# --- Development & Linting ---
+djlint==1.29.0

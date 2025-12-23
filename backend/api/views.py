@@ -44,7 +44,8 @@ class UserViewSet(ModelViewSet):
                 keys_to_remove.append(key)
         for key in keys_to_remove:
             updateData.pop(key)
-        serializer = serializers.UserSerializer(userInstanse, data=updateData,  partial=True)
+        serializer = serializers.UserSerializer(
+            userInstanse, data=updateData,  partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializers.UserSerializer(userInstanse).data)
@@ -388,7 +389,8 @@ class NotificationViewSet(ModelViewSet):
     filterset_fields = ['user',]
     ordering_fields = ['createdate',]
     ordering = ['-createdate']
-    search_fields = ['subject', 'text', 'user__username', 'user__email', 'user__phone']
+    search_fields = ['subject', 'text',
+                     'user__username', 'user__email', 'user__phone']
 
     def get_permissions(self):
         if self.action in ['create', 'destroy']:
@@ -427,7 +429,8 @@ class NotificationViewSet(ModelViewSet):
                     keys_to_remove.append(key)
             for key in keys_to_remove:
                 updateData.pop(key)
-            serializer = self.get_serializer(notificationInstanse, data=updateData,  partial=True)
+            serializer = self.get_serializer(
+                notificationInstanse, data=updateData,  partial=True)
             if serializer.is_valid():
                 serializer.save()
                 return Response(self.get_serializer(notificationInstanse).data)
@@ -492,7 +495,8 @@ class TabGiftUsrViewSet(ModelViewSet):
             tbcrusr = serializer.save(user=self.request.user, amount=amountpay)
             amountpay = round(amountpay / countpay, 3)
             for i in range(0, countpay):
-                py = crmmod.TablePayment.objects.create(tabgiftusr=tbcrusr, payment=amountpay)
+                py = crmmod.TablePayment.objects.create(
+                    tabgiftusr=tbcrusr, payment=amountpay)
             return tbcrusr
         except Exception as e:
             print(e)

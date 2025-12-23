@@ -28,8 +28,10 @@ class CommonsAmount(models.Model):
     title = models.CharField(verbose_name=_("Title"), max_length=150)
     name = models.CharField(verbose_name=_("Name"), max_length=150)
     amount = models.IntegerField(verbose_name=_("Amount"))
-    createdt = models.DateTimeField(auto_now_add=True, verbose_name=_('Created Time'))
-    updatedt = models.DateTimeField(auto_now=True, verbose_name=_('Updated Time'))
+    createdt = models.DateTimeField(
+        auto_now_add=True, verbose_name=_('Created Time'))
+    updatedt = models.DateTimeField(
+        auto_now=True, verbose_name=_('Updated Time'))
 
     class Meta:
         verbose_name = _("CommonsAmount")
@@ -47,16 +49,21 @@ class Common60(models.Model):   # Eshterak afrad 60 saal va kamtar
                                    verbose_name=_('Registrant'), related_name='user_c60')
     lottery = models.ForeignKey('LotteryC60', verbose_name=_(
         'lottery'), on_delete=models.SET_NULL, default=None, null=True, blank=True, related_name='lottery_c60')
-    name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
+    name = models.CharField(
+        max_length=120, verbose_name=_('Quadruple common name'))
     age = models.IntegerField(verbose_name=_('Age'))
     idcode = models.PositiveBigIntegerField(verbose_name=_('Id Code'))
-    sickness = models.CharField(verbose_name=_('sickness'), max_length=120, null=True, blank=True)
-    contery = models.CharField(verbose_name=_('Contery'), max_length=120, choices=countries)
+    sickness = models.CharField(verbose_name=_(
+        'sickness'), max_length=120, null=True, blank=True)
+    contery = models.CharField(verbose_name=_(
+        'Contery'), max_length=120, choices=countries)
     city = models.CharField(verbose_name=_('State/City'), max_length=120)
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     phone = models.CharField(verbose_name=_('Phone Number'), max_length=50)
-    phoneagent = models.CharField(verbose_name=_('Phone Number Agent'), max_length=50)
-    amount = models.ForeignKey(CommonsAmount, verbose_name=_('Amount'), on_delete=models.CASCADE)
+    phoneagent = models.CharField(verbose_name=_(
+        'Phone Number Agent'), max_length=50)
+    amount = models.ForeignKey(CommonsAmount, verbose_name=_(
+        'Amount'), on_delete=models.CASCADE)
     paystatus = models.BooleanField(verbose_name=_('PayStatus'), default=False)
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
@@ -74,16 +81,21 @@ class Common60(models.Model):   # Eshterak afrad 60 saal va kamtar
 class Common61(models.Model):  # Eshterak afrad az 61 ta 69
     usersubmit = models.ForeignKey(User, on_delete=models.CASCADE,
                                    verbose_name=_('Registrant'), related_name='user_c61')
-    name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
+    name = models.CharField(
+        max_length=120, verbose_name=_('Quadruple common name'))
     age = models.IntegerField(verbose_name=_('Age'))
     idcode = models.PositiveBigIntegerField(verbose_name=_('Id Code'))
-    sickness = models.CharField(verbose_name=_('sickness'), max_length=120, null=True, blank=True)
-    contery = models.CharField(verbose_name=_('Contery'), max_length=120, choices=countries)
+    sickness = models.CharField(verbose_name=_(
+        'sickness'), max_length=120, null=True, blank=True)
+    contery = models.CharField(verbose_name=_(
+        'Contery'), max_length=120, choices=countries)
     city = models.CharField(verbose_name=_('State/City'), max_length=120)
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     phone = models.CharField(verbose_name=_('Phone Number'), max_length=50)
-    phoneagent = models.CharField(verbose_name=_('Phone Number Agent'), max_length=50)
-    amount = models.ForeignKey(CommonsAmount, verbose_name=_('Amount'), on_delete=models.CASCADE)
+    phoneagent = models.CharField(verbose_name=_(
+        'Phone Number Agent'), max_length=50)
+    amount = models.ForeignKey(CommonsAmount, verbose_name=_(
+        'Amount'), on_delete=models.CASCADE)
     paystatus = models.BooleanField(verbose_name=_('PayStatus'), default=False)
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
@@ -101,17 +113,23 @@ class Common61(models.Model):  # Eshterak afrad az 61 ta 69
 class Common70(models.Model):   # Eshterak afrad az 70 salegi va afrad mobtala be bimarihaie jedi
     usersubmit = models.ForeignKey(User, on_delete=models.CASCADE,
                                    verbose_name=_('Registrant'), related_name='user_c70')
-    name = models.CharField(max_length=120, verbose_name=_('Quadruple common name'))
+    name = models.CharField(
+        max_length=120, verbose_name=_('Quadruple common name'))
     age = models.IntegerField(verbose_name=_('Age'))
     idcode = models.PositiveBigIntegerField(verbose_name=_('Id Code'))
-    sickness = models.CharField(verbose_name=_('sickness'), max_length=120, null=True, blank=True)
-    contery = models.CharField(verbose_name=_('Contery'), max_length=120, choices=countries)
+    sickness = models.CharField(verbose_name=_(
+        'sickness'), max_length=120, null=True, blank=True)
+    contery = models.CharField(verbose_name=_(
+        'Contery'), max_length=120, choices=countries)
     city = models.CharField(verbose_name=_('State/City'), max_length=120)
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     phone = models.CharField(verbose_name=_('Phone Number'), max_length=50)
-    phoneagent = models.CharField(verbose_name=_('Phone Number Agent'), max_length=50)
-    amount = models.ForeignKey(CommonsAmount, verbose_name=_('Amount'), on_delete=models.CASCADE)
-    paystatus = models.BooleanField(verbose_name=_('Pay Status'), default=False)
+    phoneagent = models.CharField(verbose_name=_(
+        'Phone Number Agent'), max_length=50)
+    amount = models.ForeignKey(CommonsAmount, verbose_name=_(
+        'Amount'), on_delete=models.CASCADE)
+    paystatus = models.BooleanField(
+        verbose_name=_('Pay Status'), default=False)
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
@@ -130,13 +148,17 @@ class CommonDead(models.Model):  # Eshterak FotShodegan
                                    verbose_name=_('Registrant'), related_name='user_cd')
     name = models.CharField(max_length=120, verbose_name=_('Deceased name'))
     idcode = models.PositiveBigIntegerField(verbose_name=_('Id Code'))
-    contery = models.CharField(verbose_name=_('Contery'), max_length=120, choices=countries)
+    contery = models.CharField(verbose_name=_(
+        'Contery'), max_length=120, choices=countries)
     city = models.CharField(verbose_name=_('State/City'), max_length=120)
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     phone = models.CharField(verbose_name=_('Phone Number'), max_length=50)
-    phoneagent = models.CharField(verbose_name=_('Phone Number Agent'), max_length=50)
-    amount = models.ForeignKey(CommonsAmount, verbose_name=_('Amount'), on_delete=models.CASCADE)
-    paystatus = models.BooleanField(verbose_name=_('Pay Status'), default=False)
+    phoneagent = models.CharField(verbose_name=_(
+        'Phone Number Agent'), max_length=50)
+    amount = models.ForeignKey(CommonsAmount, verbose_name=_(
+        'Amount'), on_delete=models.CASCADE)
+    paystatus = models.BooleanField(
+        verbose_name=_('Pay Status'), default=False)
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
@@ -155,13 +177,17 @@ class JudiciaryDead(models.Model):  # Goveh Ghazaie Mordegan
                                    verbose_name=_('Registrant'), related_name='user_jd')
     name = models.CharField(max_length=120, verbose_name=_('Deceased name'))
     idcode = models.PositiveBigIntegerField(verbose_name=_('Id Code'))
-    contery = models.CharField(verbose_name=_('Contery'), max_length=120, choices=countries)
+    contery = models.CharField(verbose_name=_(
+        'Contery'), max_length=120, choices=countries)
     city = models.CharField(verbose_name=_('State/City'), max_length=120)
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     phone = models.CharField(verbose_name=_('Phone Number'), max_length=50)
-    phoneagent = models.CharField(verbose_name=_('Phone Number Agent'), max_length=50)
-    amount = models.ForeignKey(CommonsAmount, verbose_name=_('Amount'), on_delete=models.CASCADE)
-    paystatus = models.BooleanField(verbose_name=_('Pay Status'), default=False)
+    phoneagent = models.CharField(verbose_name=_(
+        'Phone Number Agent'), max_length=50)
+    amount = models.ForeignKey(CommonsAmount, verbose_name=_(
+        'Amount'), on_delete=models.CASCADE)
+    paystatus = models.BooleanField(
+        verbose_name=_('Pay Status'), default=False)
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
@@ -184,12 +210,15 @@ class DoingDead(models.Model):  # Anjam Amale Ebadie Marhom
     pilgrimage = models.CharField(max_length=200, verbose_name=_('Pilgrimage'))
     agent = models.CharField(max_length=200, verbose_name=_('Agent'))
     phone = models.CharField(verbose_name=_('Phone Number'), max_length=50)
-    contery = models.CharField(verbose_name=_('Contery'), max_length=120, choices=countries)
+    contery = models.CharField(verbose_name=_(
+        'Contery'), max_length=120, choices=countries)
     city = models.CharField(verbose_name=_('State/City'), max_length=120)
     deposit = models.FloatField(verbose_name=_('Deposit'))
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
-    amount = models.ForeignKey(CommonsAmount, verbose_name=_('Amount'), on_delete=models.CASCADE)
-    paystatus = models.BooleanField(verbose_name=_('Pay Status'), default=False)
+    amount = models.ForeignKey(CommonsAmount, verbose_name=_(
+        'Amount'), on_delete=models.CASCADE)
+    paystatus = models.BooleanField(
+        verbose_name=_('Pay Status'), default=False)
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
@@ -204,13 +233,16 @@ class DoingDead(models.Model):  # Anjam Amale Ebadie Marhom
 
 
 class PublicAssistance(models.Model):  # komak be khirieh
-    usersubmit = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('Registrant'), related_name='user_pa')
+    usersubmit = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_(
+        'Registrant'), related_name='user_pa')
     name = models.CharField(max_length=150, verbose_name=_('Deceased name'))
     help_name = models.CharField(max_length=120, verbose_name=_('help name'))
     create = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
-    amount = models.ForeignKey(CommonsAmount, verbose_name=_('Amount'), on_delete=models.CASCADE)
+    amount = models.ForeignKey(CommonsAmount, verbose_name=_(
+        'Amount'), on_delete=models.CASCADE)
     useramount = models.FloatField(verbose_name=_('User Amount'))
-    paystatus = models.BooleanField(verbose_name=_('Pay Status'), default=False)
+    paystatus = models.BooleanField(
+        verbose_name=_('Pay Status'), default=False)
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
     class Meta:
@@ -229,7 +261,8 @@ class LotteryC60(models.Model):
         ('quran', _('Quran memorization lottery')),
         ('ziarat', _('Visiting religious places'))
     )
-    title = models.CharField(max_length=200, verbose_name=_('Lottery'), choices=lottery_field)
+    title = models.CharField(max_length=200, verbose_name=_(
+        'Lottery'), choices=lottery_field)
     name = models.CharField(max_length=30, verbose_name=_('Lottery Name'))
 
     class Meta:
@@ -245,8 +278,10 @@ class LotteryC60(models.Model):
 
 class WinnerLottery60(models.Model):
     name = models.CharField(max_length=150, verbose_name=_('Name'))
-    common = models.ForeignKey('Common60', on_delete=models.CASCADE, related_name='winquran')
-    lottery = models.ForeignKey('LotteryC60',  on_delete=models.CASCADE, related_name='winlottery')
+    common = models.ForeignKey(
+        'Common60', on_delete=models.CASCADE, related_name='winquran')
+    lottery = models.ForeignKey(
+        'LotteryC60',  on_delete=models.CASCADE, related_name='winlottery')
     windate = models.DateTimeField(verbose_name=_('Add Time'), auto_now=True)
 
     class Meta:
@@ -262,14 +297,19 @@ class WinnerLottery60(models.Model):
 
 
 class Notification(models.Model):
-    user = models.ManyToManyField(User, verbose_name=_('User'), related_name='user_msg')
-    createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
+    user = models.ManyToManyField(
+        User, verbose_name=_('User'), related_name='user_msg')
+    createdate = models.DateTimeField(
+        auto_now_add=True, verbose_name=_('Create Date'))
     seedate = models.DateTimeField(auto_now=True, verbose_name=_('See Date'))
     subject = models.CharField(verbose_name=_('Subject'), max_length=120)
     text = models.TextField(verbose_name=_('Text'))
-    url = models.CharField(max_length=300, verbose_name=_('URL'), blank=True, null=True)
-    force = models.BooleanField(default=False, verbose_name=_('Force Notification'))
-    see = models.JSONField(verbose_name=_('See'), default={}, blank=True, null=True)
+    url = models.CharField(max_length=300, verbose_name=_(
+        'URL'), blank=True, null=True)
+    force = models.BooleanField(
+        default=False, verbose_name=_('Force Notification'))
+    see = models.JSONField(verbose_name=_(
+        'See'), default=dict, blank=True, null=True)
 
     class Meta:
         verbose_name = _('Notification')
@@ -284,7 +324,8 @@ class Notification(models.Model):
 
 class TableType(models.Model):
     name = models.CharField(verbose_name=_('Table Type'), max_length=150)
-    footer = models.CharField(verbose_name=_('Footer'), max_length=150, blank=True, null=True)
+    footer = models.CharField(verbose_name=_(
+        'Footer'), max_length=150, blank=True, null=True)
 
     class Meta:
         verbose_name = _("TableType")
@@ -302,9 +343,11 @@ class TableGift(models.Model):
                                   on_delete=models.CASCADE, related_name='tabgift')
     monthnumber = models.FloatField(verbose_name=_('Month Number'))
     amount = models.FloatField(verbose_name=_('Amount'), blank=True, null=True)
-    monthamount = models.FloatField(verbose_name=_('Month Amount'), blank=True, null=True)
+    monthamount = models.FloatField(verbose_name=_(
+        'Month Amount'), blank=True, null=True)
     subtraction = models.FloatField(verbose_name=_('subtraction'))
-    friendships = models.FloatField(verbose_name=_('Friendships and affections'))
+    friendships = models.FloatField(
+        verbose_name=_('Friendships and affections'))
     numberannual = models.FloatField(verbose_name=_('Annual number'))
     amountannual = models.FloatField(verbose_name=_('Annual Amount'))
     totalsubtraction = models.FloatField(verbose_name=_('Total Subtraction'))
@@ -329,14 +372,19 @@ class TableGift(models.Model):
 class TableGiftUser(models.Model):
     tablegift = models.ForeignKey(TableGift, verbose_name=_("Gift Tables"),
                                   on_delete=models.CASCADE, related_name='tabgiftusr')
-    user = models.ForeignKey(User, verbose_name=_('User'), on_delete=models.CASCADE)
-    created = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
+    user = models.ForeignKey(User, verbose_name=_(
+        'User'), on_delete=models.CASCADE)
+    created = models.DateTimeField(
+        auto_now_add=True, verbose_name=_('Created'))
     updated = models.DateTimeField(auto_now=True, verbose_name=_('Updated'))
     active = models.BooleanField(verbose_name=_('Active'), default=True)
-    countchances = models.IntegerField(verbose_name=_('Count of Chances'), default=1, validators=[MinValueValidator(1)])
+    countchances = models.IntegerField(verbose_name=_(
+        'Count of Chances'), default=1, validators=[MinValueValidator(1)])
     amount = models.IntegerField(verbose_name=_('Amount'))
-    countpay = models.IntegerField(verbose_name=_('Count Pay'), validators=[MinValueValidator(1)])
-    paystatus = models.BooleanField(verbose_name=_('Pay Status'), default=False)
+    countpay = models.IntegerField(verbose_name=_(
+        'Count Pay'), validators=[MinValueValidator(1)])
+    paystatus = models.BooleanField(
+        verbose_name=_('Pay Status'), default=False)
 
     class Meta:
         verbose_name = _("TableGiftUser")
@@ -352,7 +400,8 @@ class TableGiftUser(models.Model):
 class TablePayment(models.Model):
     tabgiftusr = models.ForeignKey(TableGiftUser, on_delete=models.CASCADE,
                                    verbose_name=_('Table Gift User'), related_name=('pay'))
-    created = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
+    created = models.DateTimeField(
+        auto_now_add=True, verbose_name=_('Created'))
     payment = models.FloatField(verbose_name=_('Payment'))
     status = models.BooleanField(verbose_name=_('Status'), default=False)
 
@@ -371,7 +420,8 @@ class WinTableLottery(models.Model):
     title = models.CharField(max_length=150, verbose_name=_('Lottery Title'))
     tabgiftusr = models.ForeignKey(TableGiftUser, verbose_name=_("Table Gift User"),
                                    on_delete=models.CASCADE, related_name='tabwingift')
-    windate = models.DateTimeField(auto_now_add=True, verbose_name=_('Win Date'))
+    windate = models.DateTimeField(
+        auto_now_add=True, verbose_name=_('Win Date'))
 
     class Meta:
         verbose_name = _("WinTableLottery")
@@ -389,12 +439,17 @@ class SocialMedia(models.Model):
         ('post', _('Post')),
         ('story', _('Story'))
     )
-    mediatype = models.CharField(verbose_name=_('Media Type'), max_length=5, choices=post_type, default=0)
+    mediatype = models.CharField(verbose_name=_(
+        'Media Type'), max_length=5, choices=post_type, default=0)
     file = models.FileField(verbose_name=_('File'))
-    caption = models.TextField(verbose_name=_('Caption'), blank=True, null=True)
-    createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
-    updatedate = models.DateTimeField(auto_now=True, verbose_name=_('Updated Time'))
-    updatedt = models.DateTimeField(auto_now=True, verbose_name=_('Updated Time'))
+    caption = models.TextField(verbose_name=_(
+        'Caption'), blank=True, null=True)
+    createdate = models.DateTimeField(
+        auto_now_add=True, verbose_name=_('Create Date'))
+    updatedate = models.DateTimeField(
+        auto_now=True, verbose_name=_('Updated Time'))
+    updatedt = models.DateTimeField(
+        auto_now=True, verbose_name=_('Updated Time'))
     adv = models.BooleanField(verbose_name=_('Advertising'), default=False)
     active = models.BooleanField(verbose_name=_('Active'), default=True)
 
@@ -410,9 +465,12 @@ class SocialMedia(models.Model):
 
 
 class ViewPost(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='viewuser')
-    socialmedia = models.ForeignKey('SocialMedia', on_delete=models.CASCADE, related_name='viewpost')
-    createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='viewuser')
+    socialmedia = models.ForeignKey(
+        'SocialMedia', on_delete=models.CASCADE, related_name='viewpost')
+    createdate = models.DateTimeField(
+        auto_now_add=True, verbose_name=_('Create Date'))
 
     class Meta:
         unique_together = ('user', 'socialmedia')
@@ -427,9 +485,12 @@ class ViewPost(models.Model):
 
 
 class LikePost(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likeuser')
-    socialmedia = models.ForeignKey('SocialMedia', on_delete=models.CASCADE, related_name='likepost')
-    createdate = models.DateTimeField(auto_now_add=True, verbose_name=_('Create Date'))
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='likeuser')
+    socialmedia = models.ForeignKey(
+        'SocialMedia', on_delete=models.CASCADE, related_name='likepost')
+    createdate = models.DateTimeField(
+        auto_now_add=True, verbose_name=_('Create Date'))
 
     class Meta:
         unique_together = ('user', 'socialmedia')
@@ -444,12 +505,16 @@ class LikePost(models.Model):
 
 
 class CommentPost(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='commentuser')
-    socialmedia = models.ForeignKey('SocialMedia', on_delete=models.CASCADE, related_name='commentpost')
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='commentuser')
+    socialmedia = models.ForeignKey(
+        'SocialMedia', on_delete=models.CASCADE, related_name='commentpost')
     text = models.TextField(verbose_name=_('Comment'), blank=False)
     active = models.BooleanField(verbose_name=_('Active'), default=True)
-    createdt = models.DateTimeField(auto_now_add=True, verbose_name=_('Created Time'))
-    updatedt = models.DateTimeField(auto_now=True, verbose_name=_('Updated Time'))
+    createdt = models.DateTimeField(
+        auto_now_add=True, verbose_name=_('Created Time'))
+    updatedt = models.DateTimeField(
+        auto_now=True, verbose_name=_('Updated Time'))
 
     class Meta:
         verbose_name = _("Comment Post")
@@ -464,8 +529,10 @@ class CommentPost(models.Model):
 
 class NewsText(models.Model):
     text = models.TextField(verbose_name=_('News Text'))
-    createdt = models.DateTimeField(auto_now_add=True, verbose_name=_('Created Time'))
-    updatedt = models.DateTimeField(auto_now=True, verbose_name=_('Updated Time'))
+    createdt = models.DateTimeField(
+        auto_now_add=True, verbose_name=_('Created Time'))
+    updatedt = models.DateTimeField(
+        auto_now=True, verbose_name=_('Updated Time'))
     active = models.BooleanField(verbose_name=_('Active'), default=False)
 
     class Meta:

@@ -13,6 +13,32 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 from decouple import config
+# --------------------------------------------------------------------------
+# FIX FOR DRF-YASG & DJANGO 5.0+ COMPATIBILITY
+# Fixes AttributeError: '__proxy__' object has no attribute '_delegate_text'
+# --------------------------------------------------------------------------
+try:
+    import rest_framework.utils.representation as drf_rep
+    from django.utils.functional import Promise
+
+    # Keep a reference to the original function
+    original_smart_repr = drf_rep.smart_repr
+
+    def patched_smart_repr(value):
+        """
+        Handle Django's Promise (lazy translation) objects by converting 
+        them to strings before DRF attempts to inspect them.
+        """
+        if isinstance(value, Promise):
+            return str(value)
+        return original_smart_repr(value)
+
+    # Apply the patch to the DRF representation utility
+    drf_rep.smart_repr = patched_smart_repr
+
+except ImportError:
+    # Fallback if rest_framework is not yet loaded or path differs
+    pass
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -51,7 +77,7 @@ INSTALLED_APPS = [
     'django_filters',
     'bootstrap_modal_forms',
     'widget_tweaks',
-    # 'drf_yasg',
+    'drf_yasg',
     # apps
     'accounts.apps.AccountsConfig',
     'crm.apps.CrmConfig',
@@ -69,7 +95,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'allauth.account.middleware.AccountMiddleware'
 ]
 
 ROOT_URLCONF = 'base.urls'
@@ -226,14 +251,15 @@ FIREBASE_GOOGLE_APPLICATION_CREDENTIALS = BASE_DIR / \
 
 # SSL
 if not config('DEBUG', default=True, cast=bool):
-   SECURE_SSL_REDIRECT = True
-   # cookies will only be sent via HTTPS connections
-   SESSION_COOKIE_SECURE = True
-   CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
+    # cookies will only be sent via HTTPS connections
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
 # Logging
 if not config('DEBUG', default=True, cast=bool):
-    ADMINS = [('Saeid Javadi', 'hiding@hi2.in'), ('Saeid Javadi', 'yek1@yahoo.com')]
+    ADMINS = [('Saeid Javadi', 'hiding@hi2.in'),
+              ('Saeid Javadi', 'yek1@yahoo.com')]
     LOGGING = {
         'version': 1,
         'disable_existing_loggers': False,
@@ -269,3 +295,7 @@ if not config('DEBUG', default=True, cast=bool):
                 'level': 'INFO',
             }
         }}
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://nexcrm.sjpy.ir",
+]
