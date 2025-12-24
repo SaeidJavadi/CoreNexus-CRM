@@ -502,6 +502,18 @@
             </div>
           </li>
         {% endif %}
+         {# API Document URL #}
+          <li class="menu-item sub-menu">
+            <a href="http://127.0.0.1:8000/swagger/" target="_blank">
+              <span class="menu-icon">
+                <i class="ri-code-s-slash-line"></i>
+              </span>
+              <span class="menu-title">{% trans "API Document" %}</span>
+              <span class="menu-suffix">
+              </span>
+            </a>
+            <div class="sub-menu-list"></div>
+          </li>
         {# Account Setting #}
         {% if user.is_superuser %}
           <li class="menu-header" style="padding-top: 20px">
