@@ -6,7 +6,7 @@ services:
     image: crmmngmnt:dev
     pull_policy: never
     container_name: CRM_dev
-    restart: always
+    restart: unless-stopped
     working_dir: /app
     volumes:
       - ../../backend:/app
